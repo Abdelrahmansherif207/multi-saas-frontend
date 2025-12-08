@@ -1,0 +1,29 @@
+{
+    "name": "@repo/ui",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        "./button": "./src/button.tsx",
+        "./src/global.scss": "./src/global.scss",
+        "./styles.css": "./src/global.scss"
+    },
+    "scripts": {
+        "lint": "eslint . --max-warnings 0",
+        "generate:component": "turbo gen react-component"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "eslint": "^9.39.1",
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1",
+        "sass": "^1.94.2",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.8",
+        "react-bootstrap": "^2.10.10"
+    }
+}
