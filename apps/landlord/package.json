@@ -9,10 +9,17 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@repo/api-client": "workspace:*",
+        "@repo/types": "workspace:*",
         "@repo/ui": "workspace:*",
+        "@tanstack/react-query": "^5.62.7",
+        "@tanstack/react-query-devtools": "^5.62.7",
+        "bootstrap": "^5.3.8",
         "next": "16.0.7",
         "react": "^19.2.1",
-        "react-dom": "^19.2.1"
+        "react-bootstrap": "^2.10.10",
+        "react-dom": "^19.2.1",
+        "zustand": "^5.0.9"
     },
     "devDependencies": {
         "@repo/eslint-config": "workspace:*",

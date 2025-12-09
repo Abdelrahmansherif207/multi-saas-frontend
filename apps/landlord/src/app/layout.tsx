@@ -1,14 +1,13 @@
-import React from 'react';
-import '@repo/ui/src/global.scss';
+import "@repo/ui/src/global.scss";
 
 export default function RootLayout({
     children,
-}: {
-    children: React.ReactNode
-}) {
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
     return (
         <html lang="en">
             <body>{children}</body>
         </html>
-    )
+    );
 }
