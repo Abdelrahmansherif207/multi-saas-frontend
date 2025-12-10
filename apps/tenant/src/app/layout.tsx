@@ -1,22 +1,13 @@
-import React from 'react';
-import '@repo/ui/src/global.scss';
-import { QueryProvider } from '../providers/QueryProvider';
-
-export const metadata = {
-    title: 'Tenant Portal',
-    description: 'Multi-tenant SaaS Tenant Application',
-};
+import "./globals.css";
 
 export default function RootLayout({
     children,
-}: {
+}: Readonly<{
     children: React.ReactNode;
-}) {
+}>) {
     return (
         <html lang="en">
-            <body>
-                <QueryProvider>{children}</QueryProvider>
-            </body>
+            <body>{children}</body>
         </html>
     );
 }
