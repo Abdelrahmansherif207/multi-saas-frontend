@@ -1,5 +1,11 @@
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+
+const font = Nunito({
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export default function RootLayout({
     children,
@@ -8,7 +14,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body>
+            <body className={font.className}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"

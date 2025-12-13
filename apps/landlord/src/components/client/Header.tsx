@@ -16,7 +16,7 @@ import { ModeToggle } from "./ModeToggle";
 
 export function Header() {
     return (
-        <header className="w-full">
+        <header className="w-full sticky top-0 z-50">
             {/* Top Bar */}
             <div className="bg-muted border-b">
                 <div className="container mx-auto px-4 py-2 flex justify-between items-center text-sm">
@@ -33,7 +33,7 @@ export function Header() {
                     <div className="flex items-center gap-3">
                         <NavigationMenu>
                             <NavigationMenuList>
-                                <NavigationMenuItem>
+                                <NavigationMenuItem value="language-selector">
                                     <NavigationMenuTrigger className="bg-muted">English</NavigationMenuTrigger>
                                     <NavigationMenuContent>
                                         <ul className="grid w-48 gap-1 p-2">
@@ -71,7 +71,7 @@ export function Header() {
             </div>
 
             {/* Main Navbar */}
-            <div className="border-none shadow-md bg-background">
+            <div className="glass border-b border-border/40">
                 <div className="container mx-auto px-4 py-5 flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="text-3xl font-bold">
@@ -82,12 +82,12 @@ export function Header() {
                     {/* Navigation */}
                     <NavigationMenu className="text-md">
                         <NavigationMenuList className="text-base">
-                            <NavigationMenuItem>
+                            <NavigationMenuItem value="home">
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                                     <Link href="/">Home</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
-                            <NavigationMenuItem>
+                            <NavigationMenuItem value="pages">
                                 <NavigationMenuTrigger>Pages</NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <ul className="grid w-48 gap-1 p-2">
@@ -104,12 +104,12 @@ export function Header() {
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
-                            <NavigationMenuItem>
+                            <NavigationMenuItem value="pricing">
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                                     <Link href="/pricing">Pricing Plan</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
-                            <NavigationMenuItem>
+                            <NavigationMenuItem value="blogs">
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                                     <Link href="/blogs">Blogs</Link>
                                 </NavigationMenuLink>

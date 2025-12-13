@@ -7,7 +7,11 @@ const config: Config = {
         "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                "brand-orange": "hsl(var(--brand-orange))",
+            },
+        },
     },
     plugins: [],
 };
