@@ -2,6 +2,11 @@ import { Hero } from "@/components/client/Hero";
 import { CompanyLogos } from "@/components/client/CompanyLogos";
 import { Features } from "@/components/client/Features";
 import { Templates } from "@/components/client/Templates";
+import { Pricing } from "@/components/client/Pricing";
+import { DemoVideo } from "@/components/client/DemoVideo";
+import { ClientReviews } from "@/components/client/ClientReviews";
+import { Faq } from "@/components/client/Faq";
+import { Newsletter } from "@/components/client/Newsletter";
 
 export default function LandingPage() {
     return (
@@ -10,6 +15,11 @@ export default function LandingPage() {
             <CompanyLogos />
             <Features />
             <Templates />
+            <Pricing />
+            <DemoVideo />
+            <ClientReviews />
+            <Faq />
+            <Newsletter />
         </div>
     );
 }
