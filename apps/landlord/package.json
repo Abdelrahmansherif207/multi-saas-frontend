@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@radix-ui/react-dropdown-menu": "^2.1.16",
+        "@radix-ui/react-label": "^2.1.8",
         "@radix-ui/react-navigation-menu": "^1.2.14",
         "@radix-ui/react-slot": "^1.2.4",
         "@repo/api-client": "workspace:*",
@@ -25,6 +26,7 @@
         "next-themes": "^0.4.6",
         "postcss": "^8.5.6",
         "react": "^19.2.1",
+        "react-countup": "^6.5.3",
         "react-dom": "^19.2.1",
         "swiper": "^12.0.3",
         "tailwind-merge": "^3.4.0",
