@@ -1,7 +1,7 @@
 {
   "buildCommand": "cd ../.. && turbo run build --filter=tenant",
   "installCommand": "cd ../.. && pnpm install",
-  "startCommand": "cd ../.. && turbo run start --filter=tenant",
+
   "outputDirectory": ".next",
   "framework": "nextjs",
   "regions": ["iad1"],
