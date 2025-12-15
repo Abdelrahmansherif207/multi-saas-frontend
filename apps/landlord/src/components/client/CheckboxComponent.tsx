@@ -6,20 +6,20 @@ export default function CheckboxComponent() {
   return (
     <div className="flex flex-col gap-6 mt-5">
       <div className="flex items-center gap-3">
-        <Checkbox id="terms" />
-        <Label htmlFor="terms">Vacation</Label>
+        <Checkbox id="Vacation" />
+        <Label htmlFor="Vacation">Vacation</Label>
       </div>
       <div className="flex items-start gap-3">
-        <Checkbox id="toggle" />
-        <Label htmlFor="toggle">Office Tour</Label>
+        <Checkbox id="Office Tour" />
+        <Label htmlFor="Office Tour">Office Tour</Label>
       </div>
       <div className="flex items-start gap-3">
-        <Checkbox id="toggle" />
-        <Label htmlFor="toggle">Travel</Label>
+        <Checkbox id="Travel" />
+        <Label htmlFor="Travel">Travel</Label>
       </div>
       <div className="flex items-start gap-3">
-        <Checkbox id="toggle" />
-        <Label htmlFor="toggle">Away</Label>
+        <Checkbox id="Away" />
+        <Label htmlFor="Away">Away</Label>
       </div>
     </div>
   );

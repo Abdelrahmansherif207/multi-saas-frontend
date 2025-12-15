@@ -1,51 +1,33 @@
+import { BlogInterface } from "@/app/lib/definitions";
+import SearchCard from "@/components/client/SearchCard";
 import SectionHeader from "@/components/client/SectionHeader";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { MoveRight, Tag, Timer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface BlogInterface {
-  id: string;
-  date: string;
-  category: string;
-  title: string;
-  image: string;
-}
-
-const blogs: BlogInterface[] = [
-  {
-    id: "1",
-    date: "18 Feb 2023",
-    category: "Travel",
-    title: "Many of stats view! Understand your day better than ever",
-    image: "/assets/temp-travel-images/travel-1.jpg",
-  },
-  {
-    id: "2",
-    date: "18 Feb 2023",
-    category: "Travel",
-    title: "New stats view! Understand your day better than ever",
-    image: "/assets/temp-travel-images/travel-2.jpg",
-  },
-  {
-    id: "3",
-    date: "18 Feb 2023",
-    category: "Travel",
-    title: "This stats view! Understand your day better than ever",
-    image: "/assets/temp-travel-images/travel-3.jpg",
-  },
-];
-
-export default function blogsPage() {
+export default async function blogsPage({
+  searchParams,
+}: {
+  searchParams: { query: string; category: string };
+}) {
+  const { query, category } = await searchParams;
+  const res = await fetch(
+    `http://localhost:3000/api/blogs?query=${encodeURIComponent(query ?? "")}&category=${encodeURIComponent(category ?? "")}`
+  );
+  const blogs: BlogInterface[] = await res.json();
   return (
     <div className="container mx-auto px-4 py-12 md:py-24 lg:py-32 perspective-1000">
-      <div className="bg-brand-orange/20 w-full h-[300px]"></div>
       <div className="mt-20">
         <SectionHeader prefix="our" highlight="blogs" suffix="" />
+        <SearchCard />
         <div className="flex justify-between items-center">
-          {blogs.map((blog) => (
-            <Link key={blog.id} href={`blogs/${blog.title}`}>
+          {blogs?.map((blog) => (
+            <Link
+              key={blog.id}
+              href={`/blogs/${decodeURIComponent(blog.title)}`}
+            >
               <Card className="cursor-pointer">
                 <CardHeader className="flex gap-3">
                   <Image
@@ -65,9 +47,7 @@ export default function blogsPage() {
                       {blog.category}
                     </CardTitle>
                   </div>
-                  <CardTitle className="font-bold">
-                    {blog.title}
-                  </CardTitle>
+                  <CardTitle className="font-bold">{blog.title}</CardTitle>
                 </CardHeader>
                 <CardFooter>
                   <Button
