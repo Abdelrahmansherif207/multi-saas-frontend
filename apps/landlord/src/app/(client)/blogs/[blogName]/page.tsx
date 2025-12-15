@@ -7,7 +7,9 @@ export default async function BlogPageDetails({
   params: Promise<{ blogName: string }>;
 }) {
   const { blogName } = await params;
-  const res = await fetch(`http://localhost:3000/api/blogs/${blogName}`);
+  const res = await fetch(
+    `https://multi-saas-frontend-landlord.vercel.app/api/blogs/${blogName}`
+  );
   const blog = await res.json();
 
   return (
