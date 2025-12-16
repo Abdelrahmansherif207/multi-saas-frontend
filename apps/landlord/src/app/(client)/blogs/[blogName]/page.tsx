@@ -8,7 +8,7 @@ export default async function BlogPageDetails({
 }) {
   const { blogName } = await params;
   const res = await fetch(
-    `https://multi-saas-frontend-landlord.vercel.app/api/blogs/${blogName}`
+    `${process.env.NEXT_PUBLIC_API_URL}/blogs/${blogName}`
   );
   const blog = await res.json();
 
