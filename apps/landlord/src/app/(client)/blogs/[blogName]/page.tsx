@@ -17,7 +17,10 @@ export default async function BlogPageDetails({
     <>
       <PagesHeader
         title={decodeURIComponent(blogName)}
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: decodeURIComponent(blogName) }]}
+        breadcrumbs={[
+          { label: "Blogs", href: "/" },
+          { label: decodeURIComponent(blogName) },
+        ]}
       />
       <div className="container mx-auto grid grid-cols-3 gap-5 mt-10">
         <div className="flex flex-col gap-5">
