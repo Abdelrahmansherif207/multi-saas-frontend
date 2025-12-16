@@ -1,7 +1,6 @@
 import { BlogInterface } from "@/app/lib/definitions";
 import { PagesHeader } from "@/components/client/PagesHeader";
 import SearchCard from "@/components/client/SearchCard";
-import SectionHeader from "@/components/client/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { MoveRight, Tag, Timer } from "lucide-react";
@@ -23,9 +22,8 @@ export default async function blogsPage({
         title="Blogs"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "blogs" }]}
       />
-      <div className="container mx-auto px-4 py-12 md:py-24 lg:py-32 perspective-1000">
-        <div className="mt-20">
-          <SectionHeader prefix="our" highlight="blogs" suffix="" />
+      <div className="container mx-auto px-4 py-10 md:py-15 lg:py-20 perspective-1000">
+        <div>
           <SearchCard />
           <div className="flex justify-between items-center">
             {blogs?.map((blog) => (
