@@ -1,4 +1,5 @@
 import BlogDetailCard from "@/components/client/BlogDetailCard";
+import { PagesHeader } from "@/components/client/PagesHeader";
 import PopularBlogsCard from "@/components/client/PopularBlogsCard";
 
 export default async function BlogPageDetails({
@@ -14,7 +15,10 @@ export default async function BlogPageDetails({
 
   return (
     <>
-      <div className="bg-brand-orange/20 w-full h-[300px]"></div>
+      <PagesHeader
+        title={decodeURIComponent(blogName)}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: decodeURIComponent(blogName) }]}
+      />
       <div className="container mx-auto grid grid-cols-3 gap-5 mt-10">
         <div className="flex flex-col gap-5">
           <PopularBlogsCard />
