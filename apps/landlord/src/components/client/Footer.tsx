@@ -3,27 +3,30 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const footerLinks = {
-    community: [
-        { label: "About", href: "/about" },
-        { label: "Templates", href: "/templates" },
-        { label: "Press", href: "/press" },
-        { label: "FAQ", href: "/faq" },
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms & Conditions", href: "/terms" },
-    ],
-    templates: [
-        { label: "Donation", href: "/templates/donation" },
-        { label: "Job Portal", href: "/templates/job" },
-        { label: "Events", href: "/templates/events" },
-        { label: "Support Ticket", href: "/templates/support" },
-        { label: "Ecommerce", href: "/templates/ecommerce" },
-        { label: "Knowledge Base", href: "/templates/knowledge" },
-    ],
-};
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+    const t = useTranslations('Footer');
+
+    const footerLinks = {
+        community: [
+            { label: t('links.about'), href: "/about" },
+            { label: t('links.templates'), href: "/templates" },
+            { label: t('links.press'), href: "/press" },
+            { label: t('links.faq'), href: "/faq" },
+            { label: t('links.privacy'), href: "/privacy" },
+            { label: t('links.terms'), href: "/terms" },
+        ],
+        templates: [
+            { label: t('links.donation'), href: "/templates/donation" },
+            { label: t('links.job'), href: "/templates/job" },
+            { label: t('links.events'), href: "/templates/events" },
+            { label: t('links.support'), href: "/templates/support" },
+            { label: t('links.ecommerce'), href: "/templates/ecommerce" },
+            { label: t('links.knowledge'), href: "/templates/knowledge" },
+        ],
+    };
+
     return (
         <footer className="bg-primary text-primary-foreground dark:bg-black/30 dark:text-muted-foreground border-t border-border overflow-hidden">
             {/* Main Footer */}
@@ -36,8 +39,7 @@ export function Footer() {
                             <span className="text-primary-foreground dark:text-foreground">Saas</span>
                         </Link>
                         <p className="text-primary-foreground/70 dark:text-muted-foreground leading-relaxed">
-                            Build your dream website with our powerful multi-tenant SaaS platform.
-                            Launch faster, scale easier.
+                            {t('description')}
                         </p>
                         <div className="flex gap-3">
                             <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 text-primary-foreground dark:border-border dark:text-muted-foreground hover:bg-primary-foreground hover:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground transition-all bg-transparent">
@@ -57,7 +59,7 @@ export function Footer() {
 
                     {/* Community Links */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 text-primary-foreground dark:text-foreground">Community</h3>
+                        <h3 className="text-lg font-semibold mb-6 text-primary-foreground dark:text-foreground">{t('headers.community')}</h3>
                         <ul className="space-y-3">
                             {footerLinks.community.map((link) => (
                                 <li key={link.href}>
@@ -75,7 +77,7 @@ export function Footer() {
 
                     {/* Templates Links */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 text-primary-foreground dark:text-foreground">Our Templates</h3>
+                        <h3 className="text-lg font-semibold mb-6 text-primary-foreground dark:text-foreground">{t('headers.templates')}</h3>
                         <ul className="space-y-3">
                             {footerLinks.templates.map((link) => (
                                 <li key={link.href}>
@@ -93,7 +95,7 @@ export function Footer() {
 
                     {/* Contact Info */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 text-primary-foreground dark:text-foreground">Contact Info</h3>
+                        <h3 className="text-lg font-semibold mb-6 text-primary-foreground dark:text-foreground">{t('headers.contact')}</h3>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-4">
                                 <div className="p-2 bg-primary-foreground/10 dark:bg-primary/10 rounded-lg">
@@ -129,17 +131,17 @@ export function Footer() {
                 <div className="container mx-auto px-4 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-primary-foreground/50 dark:text-muted-foreground text-sm">
-                            © 2025 MultiSaas. All Rights Reserved.
+                            {t('bottom.rights')}
                         </p>
                         <div className="flex gap-6 text-sm">
                             <Link href="/privacy" className="text-primary-foreground/70 dark:text-muted-foreground hover:text-primary-foreground dark:hover:text-primary transition-colors">
-                                Privacy
+                                {t('bottom.privacy')}
                             </Link>
                             <Link href="/terms" className="text-primary-foreground/70 dark:text-muted-foreground hover:text-primary-foreground dark:hover:text-primary transition-colors">
-                                Terms
+                                {t('bottom.terms')}
                             </Link>
                             <Link href="/cookies" className="text-primary-foreground/70 dark:text-muted-foreground hover:text-primary-foreground dark:hover:text-primary transition-colors">
-                                Cookies
+                                {t('bottom.cookies')}
                             </Link>
                         </div>
                     </div>

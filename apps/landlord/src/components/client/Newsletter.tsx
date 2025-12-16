@@ -1,8 +1,11 @@
 "use client";
 
 import { Sparkle } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Newsletter() {
+    const t = useTranslations('Newsletter');
+
     return (
         <section className="container mx-auto px-4 py-16 md:py-24">
             <div className="relative rounded-[2.5rem] overflow-hidden bg-primary text-primary-foreground px-6 py-16 md:px-12 md:py-20 text-center shadow-2xl">
@@ -22,21 +25,21 @@ export function Newsletter() {
                 <div className="relative z-10 max-w-2xl mx-auto space-y-8">
                     <div className="space-y-4">
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-primary-foreground">
-                            Sign up to our newsletter
+                            {t('title')}
                         </h2>
                         <p className="text-primary-foreground/80 leading-relaxed max-w-lg mx-auto">
-                            Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because.
+                            {t('description')}
                         </p>
                     </div>
 
                     <div className="bg-white p-2 rounded-2xl flex flex-col sm:flex-row gap-2 shadow-lg max-w-lg mx-auto">
                         <input
                             type="email"
-                            placeholder="enter your email address"
+                            placeholder={t('placeholder')}
                             className="flex-1 px-4 py-3 bg-transparent border-none outline-none text-gray-800 placeholder:text-gray-400"
                         />
                         <button className="bg-brand-orange hover:bg-brand-orange/90 text-white font-semibold py-3 px-8 rounded-xl transition-colors sm:w-auto w-full">
-                            Sign up free
+                            {t('button')}
                         </button>
                     </div>
                 </div>

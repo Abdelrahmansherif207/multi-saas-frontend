@@ -1,15 +1,18 @@
 "use client";
 
 import { Sparkle, Play } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function DemoVideo() {
+    const t = useTranslations('DemoVideo');
+
     return (
         <section className="container mx-auto px-4 py-16 md:py-24 relative">
             {/* Header */}
             <div className="flex flex-col items-center text-center mb-16 space-y-4">
                 <div className="relative inline-block">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-                        How to <span className="text-brand-orange">get started</span> demo video
+                        {t('header.prefix')} <span className="text-brand-orange">{t('header.highlight')}</span> {t('header.suffix')}
                     </h2>
                     <Sparkle className="absolute -top-6 -right-8 w-8 h-8 text-brand-orange fill-brand-orange animate-pulse" />
                     <Sparkle className="absolute -bottom-4 -left-8 w-6 h-6 text-brand-orange/50 fill-brand-orange/50 animate-bounce delay-700" />

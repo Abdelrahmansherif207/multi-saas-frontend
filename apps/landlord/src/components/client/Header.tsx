@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useState } from "react";
 import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboard, CreditCard, Settings, LogOut, Menu, X } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 // Mock Auth State (Temporary)
 const isAuthenticated = true;
@@ -32,9 +33,11 @@ import {
     DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const t = useTranslations('Header');
 
     return (
         <header className="w-full sticky top-0 z-50">
@@ -52,27 +55,7 @@ export function Header() {
                         </span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <NavigationMenu>
-                            <NavigationMenuList>
-                                <NavigationMenuItem value="language-selector">
-                                    <NavigationMenuTrigger className="bg-muted">English</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <ul className="grid w-48 gap-1 p-2">
-                                            <li>
-                                                <NavigationMenuLink className="block p-2 hover:bg-muted rounded">
-                                                    English
-                                                </NavigationMenuLink>
-                                            </li>
-                                            <li>
-                                                <NavigationMenuLink className="block p-2 hover:bg-muted rounded">
-                                                    العربية
-                                                </NavigationMenuLink>
-                                            </li>
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu>
+                        <LanguageSwitcher />
                         <div className="flex gap-1">
                             <Button variant="ghost" size="icon" className="h-6 w-6">
                                 <Facebook className="h-3 w-3" />
@@ -106,22 +89,22 @@ export function Header() {
                             <NavigationMenuList className="text-base items-center">
                                 <NavigationMenuItem value="home">
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link href="/">Home</Link>
+                                        <Link href="/">{t('nav.home')}</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem value="templates">
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link href="/templates">Templates</Link>
+                                        <Link href="/templates">{t('nav.templates')}</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem value="blogs">
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link href="/blogs">Blogs</Link>
+                                        <Link href="/blogs">{t('nav.blogs')}</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem value="pricing">
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link href="/pricing">Pricing Plans</Link>
+                                        <Link href="/pricing">{t('nav.pricing')}</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
 
@@ -129,7 +112,7 @@ export function Header() {
                                 <NavigationMenuItem>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger className={navigationMenuTriggerStyle() + " group"}>
-                                            Pages
+                                            {t('nav.pages')}
                                             <ChevronDown
                                                 className="relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
                                                 aria-hidden="true"
@@ -137,13 +120,13 @@ export function Header() {
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent className="w-52">
                                             <DropdownMenuItem asChild>
-                                                <Link href="/terms" className="w-full cursor-pointer">Terms & Conditions</Link>
+                                                <Link href="/terms" className="w-full cursor-pointer">{t('nav.terms')}</Link>
                                             </DropdownMenuItem>
                                             <DropdownMenuItem asChild>
-                                                <Link href="/privacy" className="w-full cursor-pointer">Privacy Policy</Link>
+                                                <Link href="/privacy" className="w-full cursor-pointer">{t('nav.privacy')}</Link>
                                             </DropdownMenuItem>
                                             <DropdownMenuItem asChild>
-                                                <Link href="/about" className="w-full cursor-pointer">About Us</Link>
+                                                <Link href="/about" className="w-full cursor-pointer">{t('nav.about')}</Link>
                                             </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
@@ -151,7 +134,7 @@ export function Header() {
 
                                 <NavigationMenuItem value="contact">
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link href="/contact">Contact</Link>
+                                        <Link href="/contact">{t('nav.contact')}</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                             </NavigationMenuList>
@@ -186,26 +169,26 @@ export function Header() {
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem className="cursor-pointer">
                                         <LayoutDashboard className="mr-2 h-4 w-4" />
-                                        <Link href="/dashboard">Dashboard</Link>
+                                        <Link href="/dashboard">{t('user.dashboard')}</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className="cursor-pointer">
                                         <CreditCard className="mr-2 h-4 w-4" />
-                                        <Link href="/wallet">My Wallet</Link>
+                                        <Link href="/wallet">{t('user.wallet')}</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className="cursor-pointer">
                                         <Settings className="mr-2 h-4 w-4" />
-                                        <Link href="/settings">Settings</Link>
+                                        <Link href="/settings">{t('user.settings')}</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem className="cursor-pointer text-red-600 focus:text-red-600">
                                         <LogOut className="mr-2 h-4 w-4" />
-                                        <Link href="/logout">Logout</Link>
+                                        <Link href="/logout">{t('user.logout')}</Link>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         ) : (
                             <Link href="/login">
-                                <Button>Login</Button>
+                                <Button>{t('user.login')}</Button>
                             </Link>
                         )}
                     </div>
@@ -224,25 +207,25 @@ export function Header() {
                     <div className="absolute top-full left-0 w-full bg-background border-b border-border shadow-lg md:hidden flex flex-col p-4 animate-in slide-in-from-top-2">
                         <nav className="flex flex-col gap-4">
                             <Link href="/" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                Home
+                                {t('nav.home')}
                             </Link>
                             <Link href="/templates" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                Templates
+                                {t('nav.templates')}
                             </Link>
                             <Link href="/blogs" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                Blogs
+                                {t('nav.blogs')}
                             </Link>
                             <Link href="/pricing" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                Pricing Plans
+                                {t('nav.pricing')}
                             </Link>
                             <div className="flex flex-col gap-2 pl-4 border-l-2 border-border/50">
-                                <span className="text-xs text-muted-foreground uppercase font-semibold">Pages</span>
-                                <Link href="/terms" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Terms & Conditions</Link>
-                                <Link href="/privacy" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Privacy Policy</Link>
-                                <Link href="/about" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+                                <span className="text-xs text-muted-foreground uppercase font-semibold">{t('nav.pages')}</span>
+                                <Link href="/terms" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.terms')}</Link>
+                                <Link href="/privacy" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.privacy')}</Link>
+                                <Link href="/about" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t('nav.about')}</Link>
                             </div>
                             <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                Contact
+                                {t('nav.contact')}
                             </Link>
 
                             <div className="my-2 border-t border-border" />
@@ -267,22 +250,22 @@ export function Header() {
                                         </div>
                                     </div>
                                     <Link href="/dashboard" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                        <LayoutDashboard className="h-4 w-4" /> Dashboard
+                                        <LayoutDashboard className="h-4 w-4" /> {t('user.dashboard')}
                                     </Link>
                                     <Link href="/wallet" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                        <CreditCard className="h-4 w-4" /> My Wallet
+                                        <CreditCard className="h-4 w-4" /> {t('user.wallet')}
                                     </Link>
                                     <Link href="/settings" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                        <Settings className="h-4 w-4" /> Settings
+                                        <Settings className="h-4 w-4" /> {t('user.settings')}
                                     </Link>
                                     <Link href="/logout" className="flex items-center gap-2 text-sm text-red-600 hover:text-red-700 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                                        <LogOut className="h-4 w-4" /> Logout
+                                        <LogOut className="h-4 w-4" /> {t('user.logout')}
                                     </Link>
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-2">
                                     <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                                        <Button className="w-full">Login</Button>
+                                        <Button className="w-full">{t('user.login')}</Button>
                                     </Link>
                                 </div>
                             )}
