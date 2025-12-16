@@ -7,6 +7,24 @@ import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { MoveRight, Tag, Timer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Latest Insights | Wajha Blog",
+  description: "Stay updated with the latest news, updates, and articles from the SaaS world.",
+  openGraph: {
+    title: "Latest Insights | Wajha Blog",
+    description: "Stay updated with the latest news, updates, and articles from the SaaS world.",
+    type: "website",
+    siteName: "Wajha",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Latest Insights | Wajha Blog",
+    description: "Stay updated with the latest news, updates, and articles from the SaaS world.",
+  },
+};
+
 export default async function blogsPage({
   searchParams,
 }: {

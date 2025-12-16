@@ -1,4 +1,21 @@
 import { PagesHeader } from "@/components/client/PagesHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | Wajha",
+    description: "Legal information and policies.",
+    openGraph: {
+        title: "Privacy Policy | Wajha",
+        description: "Legal information and policies.",
+        type: "website",
+        siteName: "Wajha",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Privacy Policy | Wajha",
+        description: "Legal information and policies.",
+    },
+};
 
 export default function PrivacyPage() {
     return (

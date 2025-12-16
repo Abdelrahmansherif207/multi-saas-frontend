@@ -4,6 +4,23 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact Us | Wajha",
+    description: "Get in touch with the Wajha team for support, inquiries, or partnership opportunities.",
+    openGraph: {
+        title: "Contact Us | Wajha",
+        description: "Get in touch with the Wajha team for support, inquiries, or partnership opportunities.",
+        type: "website",
+        siteName: "Wajha",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Us | Wajha",
+        description: "Get in touch with the Wajha team for support, inquiries, or partnership opportunities.",
+    },
+};
 
 export default function ContactPage() {
     return (

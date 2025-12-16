@@ -3,6 +3,23 @@ import { Stats } from "@/components/client/Stats";
 import { Team } from "@/components/client/Team";
 import { Sparkle } from "lucide-react";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About Us | Wajha",
+    description: "Learn more about Wajha and our mission to provide the best multi-SaaS solutions for businesses.",
+    openGraph: {
+        title: "About Us | Wajha",
+        description: "Learn more about Wajha and our mission to provide the best multi-SaaS solutions for businesses.",
+        type: "website",
+        siteName: "Wajha",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "About Us | Wajha",
+        description: "Learn more about Wajha and our mission to provide the best multi-SaaS solutions for businesses.",
+    },
+};
 
 export default function AboutPage() {
     return (
