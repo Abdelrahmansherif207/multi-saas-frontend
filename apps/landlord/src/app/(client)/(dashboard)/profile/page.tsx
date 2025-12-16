@@ -13,7 +13,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -82,7 +81,9 @@ export default function profilePage() {
         </form>
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row justify-end gap-3">
-        <Button type="submit" className="w-full sm:w-auto">Save Changes</Button>
+        <Button type="submit" className="w-full sm:w-auto">
+          Save Changes
+        </Button>
       </CardFooter>
     </Card>
   );
