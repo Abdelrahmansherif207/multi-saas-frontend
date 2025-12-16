@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd ../.. && turbo run build --filter=landlord",
+  "installCommand": "cd ../.. && pnpm install",
+
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["iad1"]
+}

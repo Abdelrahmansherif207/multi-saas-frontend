@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboard, CreditCard, Settings, LogOut } from "lucide-react";
+import { useState } from "react";
+import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboard, CreditCard, Settings, LogOut, Menu, X } from "lucide-react";
 
 // Mock Auth State (Temporary)
 const isAuthenticated = true;
@@ -33,10 +34,12 @@ import {
 import { ChevronDown } from "lucide-react";
 
 export function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return (
         <header className="w-full sticky top-0 z-50">
-            {/* Top Bar */}
-            <div className="glass border-b">
+            {/* Top Bar - Hidden on Mobile */}
+            <div className="hidden md:block glass border-b">
                 <div className="container mx-auto px-4 py-2 flex justify-between items-center text-sm">
                     <div className="flex items-center gap-4">
                         <span className="flex items-center gap-1">
@@ -89,7 +92,7 @@ export function Header() {
             </div>
 
             {/* Main Navbar */}
-            <div className="glass border-b border-border/40">
+            <div className="glass border-b border-border/40 relative">
                 <div className="container mx-auto px-4 py-5 flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="text-3xl font-bold">
@@ -97,64 +100,66 @@ export function Header() {
                         <span>Saas</span>
                     </Link>
 
-                    {/* Navigation */}
-                    <NavigationMenu className="text-md">
-                        <NavigationMenuList className="text-base items-center">
-                            <NavigationMenuItem value="home">
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link href="/">Home</Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem value="templates">
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link href="/templates">Templates</Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem value="blogs">
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link href="/blogs">Blogs</Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem value="pricing">
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link href="/pricing">Pricing Plans</Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
+                    {/* Desktop Navigation - Hidden on Mobile */}
+                    <div className="hidden md:block">
+                        <NavigationMenu className="text-md">
+                            <NavigationMenuList className="text-base items-center">
+                                <NavigationMenuItem value="home">
+                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                        <Link href="/">Home</Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                                <NavigationMenuItem value="templates">
+                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                        <Link href="/templates">Templates</Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                                <NavigationMenuItem value="blogs">
+                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                        <Link href="/blogs">Blogs</Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                                <NavigationMenuItem value="pricing">
+                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                        <Link href="/pricing">Pricing Plans</Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
 
-                            {/* Pages Dropdown - Using DropdownMenu for exact positioning */}
-                            <NavigationMenuItem>
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger className={navigationMenuTriggerStyle() + " group"}>
-                                        Pages
-                                        <ChevronDown
-                                            className="relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
-                                            aria-hidden="true"
-                                        />
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-52">
-                                        <DropdownMenuItem asChild>
-                                            <Link href="/terms" className="w-full cursor-pointer">Terms & Conditions</Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem asChild>
-                                            <Link href="/privacy" className="w-full cursor-pointer">Privacy Policy</Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem asChild>
-                                            <Link href="/about" className="w-full cursor-pointer">About Us</Link>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </NavigationMenuItem>
+                                {/* Pages Dropdown - Using DropdownMenu for exact positioning */}
+                                <NavigationMenuItem>
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger className={navigationMenuTriggerStyle() + " group"}>
+                                            Pages
+                                            <ChevronDown
+                                                className="relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
+                                                aria-hidden="true"
+                                            />
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent className="w-52">
+                                            <DropdownMenuItem asChild>
+                                                <Link href="/terms" className="w-full cursor-pointer">Terms & Conditions</Link>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem asChild>
+                                                <Link href="/privacy" className="w-full cursor-pointer">Privacy Policy</Link>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem asChild>
+                                                <Link href="/about" className="w-full cursor-pointer">About Us</Link>
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </NavigationMenuItem>
 
-                            <NavigationMenuItem value="contact">
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link href="/contact">Contact</Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu>
+                                <NavigationMenuItem value="contact">
+                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                        <Link href="/contact">Contact</Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                            </NavigationMenuList>
+                        </NavigationMenu>
+                    </div>
 
-                    {/* Right Side */}
-                    <div className="flex items-center gap-2">
+                    {/* Right Side - Desktop */}
+                    <div className="hidden md:flex items-center gap-2">
                         <ModeToggle />
                         {isAuthenticated ? (
                             <DropdownMenu>
@@ -181,20 +186,20 @@ export function Header() {
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem className="cursor-pointer">
                                         <LayoutDashboard className="mr-2 h-4 w-4" />
-                                        <span>Dashboard</span>
+                                        <Link href="/dashboard">Dashboard</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className="cursor-pointer">
                                         <CreditCard className="mr-2 h-4 w-4" />
-                                        <span>My Wallet</span>
+                                        <Link href="/wallet">My Wallet</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className="cursor-pointer">
                                         <Settings className="mr-2 h-4 w-4" />
-                                        <span>Settings</span>
+                                        <Link href="/settings">Settings</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem className="cursor-pointer text-red-600 focus:text-red-600">
                                         <LogOut className="mr-2 h-4 w-4" />
-                                        <span>Logout</span>
+                                        <Link href="/logout">Logout</Link>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
@@ -204,7 +209,116 @@ export function Header() {
                             </Link>
                         )}
                     </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="flex items-center md:hidden gap-4">
+                        <ModeToggle />
+                        <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </Button>
+                    </div>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMobileMenuOpen && (
+                    <div className="absolute top-full left-0 w-full bg-background border-b border-border shadow-lg md:hidden flex flex-col p-4 animate-in slide-in-from-top-2">
+                        <nav className="flex flex-col gap-4">
+                            <Link href="/" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                Home
+                            </Link>
+                            <Link href="/templates" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                Templates
+                            </Link>
+                            <Link href="/blogs" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                Blogs
+                            </Link>
+                            <Link href="/pricing" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                Pricing Plans
+                            </Link>
+                            <div className="flex flex-col gap-2 pl-4 border-l-2 border-border/50">
+                                <span className="text-xs text-muted-foreground uppercase font-semibold">Pages</span>
+                                <Link href="/terms" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Terms & Conditions</Link>
+                                <Link href="/privacy" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Privacy Policy</Link>
+                                <Link href="/about" className="text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+                            </div>
+                            <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                Contact
+                            </Link>
+
+                            <div className="my-2 border-t border-border" />
+
+                            {isAuthenticated ? (
+                                <div className="flex flex-col gap-3">
+                                    <div className="flex items-center gap-3">
+                                        {user.image ? (
+                                            <img
+                                                src={user.image}
+                                                alt={user.name}
+                                                className="h-10 w-10 rounded-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
+                                                <User className="h-6 w-6" />
+                                            </div>
+                                        )}
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-medium">{user.name}</span>
+                                            <span className="text-xs text-muted-foreground">{user.email}</span>
+                                        </div>
+                                    </div>
+                                    <Link href="/dashboard" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <LayoutDashboard className="h-4 w-4" /> Dashboard
+                                    </Link>
+                                    <Link href="/wallet" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <CreditCard className="h-4 w-4" /> My Wallet
+                                    </Link>
+                                    <Link href="/settings" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <Settings className="h-4 w-4" /> Settings
+                                    </Link>
+                                    <Link href="/logout" className="flex items-center gap-2 text-sm text-red-600 hover:text-red-700 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <LogOut className="h-4 w-4" /> Logout
+                                    </Link>
+                                </div>
+                            ) : (
+                                <div className="flex flex-col gap-2">
+                                    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <Button className="w-full">Login</Button>
+                                    </Link>
+                                </div>
+                            )}
+
+                            <div className="my-2 border-t border-border" />
+
+                            {/* Mobile Contact Info */}
+                            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+                                <span className="flex items-center gap-2">
+                                    <Phone className="h-3 w-3" />
+                                    0105411110
+                                </span>
+                                <span className="flex items-center gap-2">
+                                    <Mail className="h-3 w-3" />
+                                    example@example.com
+                                </span>
+                            </div>
+
+                            {/* Mobile Socials */}
+                            <div className="flex gap-2 mt-2">
+                                <Button variant="ghost" size="icon" className="h-8 w-8">
+                                    <Facebook className="h-4 w-4" />
+                                </Button>
+                                <Button variant="ghost" size="icon" className="h-8 w-8">
+                                    <Twitter className="h-4 w-4" />
+                                </Button>
+                                <Button variant="ghost" size="icon" className="h-8 w-8">
+                                    <Linkedin className="h-4 w-4" />
+                                </Button>
+                                <Button variant="ghost" size="icon" className="h-8 w-8">
+                                    <Youtube className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </nav>
+                    </div>
+                )}
             </div>
         </header>
     );

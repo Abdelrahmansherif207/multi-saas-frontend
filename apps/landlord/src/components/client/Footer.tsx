@@ -25,10 +25,10 @@ const footerLinks = {
 
 export function Footer() {
     return (
-        <footer className="bg-primary text-primary-foreground dark:bg-black/30 dark:text-muted-foreground border-t border-border">
+        <footer className="bg-primary text-primary-foreground dark:bg-black/30 dark:text-muted-foreground border-t border-border overflow-hidden">
             {/* Main Footer */}
-            <div className="container mx-auto px-4 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="container mx-auto px-4 py-12 md:py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     {/* Brand Section */}
                     <div className="space-y-6">
                         <Link href="/" className="text-3xl font-bold inline-block">

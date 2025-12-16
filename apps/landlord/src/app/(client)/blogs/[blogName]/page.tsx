@@ -5,7 +5,7 @@ import PopularBlogsCard from "@/components/client/PopularBlogsCard";
 export default async function BlogPageDetails({
   params,
 }: {
-  params: { blogName: string };
+  params: Promise<{ blogName: string }>;
 }) {
   const { blogName } = await params;
   const res = await fetch(

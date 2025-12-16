@@ -1,0 +1,28 @@
+# Ignore all node_modules except in deployed apps
+**/node_modules
+!apps/*/node_modules
+
+# Ignore turbo cache
+.turbo
+
+# Ignore local env files
+.env.local
+.env.*.local
+
+# Ignore git
+.git
+.gitignore
+
+# Ignore CI/CD
+.github
+.gitlab-ci.yml
+.circleci
+
+# Ignore docs
+*.md
+docs/
+
+# Ignore test files
+**/__tests__
+**/*.test.*
+**/*.spec.*
