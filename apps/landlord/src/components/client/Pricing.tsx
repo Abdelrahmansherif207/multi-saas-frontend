@@ -2,44 +2,47 @@
 
 import { cn } from "@/lib/utils";
 import { Check, Sparkle } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Pricing() {
+    const t = useTranslations('Pricing');
+
     const plans = [
         {
-            name: "Premium Monthly",
+            name: t('plans.premium.name'),
             price: "0",
-            period: "/Monthly",
-            description: "You can easily create your website by Pica. We will provide all type of digital service for you.",
+            period: t('period'),
+            description: t('plans.premium.description'),
             features: [
-                "Page 20", "Blog 20", "Donation 20", "Job 20",
-                "Event 20", "Article 20", "Dashboard", "Admin"
+                `${t('features.page')} 20`, `${t('features.blog')} 20`, `${t('features.donation')} 20`, `${t('features.job')} 20`,
+                `${t('features.event')} 20`, `${t('features.article')} 20`, t('features.dashboard'), t('features.admin')
             ],
             isPopular: false,
-            buttonText: "Free Package"
+            buttonText: t('plans.premium.button')
         },
         {
-            name: "Basic Monthly",
+            name: t('plans.basic.name'),
             price: "50",
-            period: "/Monthly",
-            description: "You can easily create your website by Pica. We will provide all type of digital service for you.",
+            period: t('period'),
+            description: t('plans.basic.description'),
             features: [
-                "Page 20", "Blog 20", "Donation 20", "Job 30",
-                "Event 14", "Article 28", "Dashboard", "Admin"
+                `${t('features.page')} 20`, `${t('features.blog')} 20`, `${t('features.donation')} 20`, `${t('features.job')} 30`,
+                `${t('features.event')} 14`, `${t('features.article')} 28`, t('features.dashboard'), t('features.admin')
             ],
             isPopular: true,
-            buttonText: "Buy Now"
+            buttonText: t('plans.basic.button')
         },
         {
-            name: "Standard Monthly",
+            name: t('plans.standard.name'),
             price: "120",
-            period: "/Monthly",
-            description: "You can easily create your website by Pica. We will provide all type of digital service for you.",
+            period: t('period'),
+            description: t('plans.standard.description'),
             features: [
-                "Page 20", "Appointment 20", "Blog 20", "Product 50",
-                "Donation 20", "Event 20", "Article 20", "Portfolio 20"
+                `${t('features.page')} 20`, `${t('features.appointment')} 20`, `${t('features.blog')} 20`, `${t('features.product')} 50`,
+                `${t('features.donation')} 20`, `${t('features.event')} 20`, `${t('features.article')} 20`, `${t('features.portfolio')} 20`
             ],
             isPopular: false,
-            buttonText: "Buy Now"
+            buttonText: t('plans.standard.button')
         }
     ];
 
@@ -49,7 +52,7 @@ export function Pricing() {
             <div className="flex flex-col items-center text-center mb-16 space-y-4">
                 <div className="relative inline-block">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-                        Our <span className="text-brand-orange">Pricing</span> Plan
+                        {t('header.prefix')} <span className="text-brand-orange">{t('header.highlight')}</span> {t('header.suffix')}
                     </h2>
                     <Sparkle className="absolute -top-6 -right-8 w-8 h-8 text-brand-orange fill-brand-orange animate-pulse" />
                 </div>
@@ -82,7 +85,7 @@ export function Pricing() {
 
                         {/* Price */}
                         <div className="flex items-baseline mb-6">
-                            <span className="text-5xl font-bold tracking-tight">$ {plan.price}</span>
+                            <span className="text-5xl font-bold tracking-tight">{t('currency')} {plan.price}</span>
                             <span className="text-muted-foreground ml-2 text-sm font-medium">{plan.period}</span>
                         </div>
 
@@ -105,7 +108,7 @@ export function Pricing() {
                         {/* View All Features Link */}
                         <div className="text-center mb-6">
                             <a href="#" className="inline-block text-sm font-semibold text-muted-foreground underline decoration-1 underline-offset-4 hover:text-foreground transition-colors">
-                                View All Features
+                                {t('view_all')}
                             </a>
                         </div>
 

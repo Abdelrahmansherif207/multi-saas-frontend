@@ -4,8 +4,10 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Timer, Lightbulb, Sparkle } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
+    const t = useTranslations('Hero');
     const [rotate, setRotate] = useState({ x: 0, y: 0 });
     const ref = useRef<HTMLDivElement>(null);
 
@@ -38,25 +40,24 @@ export function Hero() {
                     </div>
 
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/80 leading-tight">
-                        Create your own <br />
-                        website within few <br />
+                        {t('title_line1')} <br />
+                        {t('title_line2')} <br />
                         <span className="flex items-center gap-3">
                             <span className="bg-gradient-to-r from-primary via-brand-orange to-primary bg-clip-text text-transparent animate-gradient bg-300%">
-                                minutes
+                                {t('highlight')}
                             </span>
                             <Timer className="w-10 h-10 md:w-16 md:h-16 text-primary animate-[spin_3s_linear_infinite]" />
                         </span>
                     </h1>
                     <p className="text-lg text-muted-foreground leading-relaxed max-w-[600px]">
-                        You can easily create your website by Pica. We will provide all type of digital service for you.
-                        We have somany readymade website for you. We always try to provide best service for our customer.
+                        {t('description')}
                     </p>
                     <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
                         <Button size="lg" className="w-full sm:w-auto text-base px-8 h-12">
-                            Get Started
+                            {t('cta')}
                         </Button>
                         <span className="text-muted-foreground text-sm">
-                            10 Days for free trial , No card required
+                            {t('trial_text')}
                         </span>
                     </div>
                 </div>

@@ -15,17 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-
-const gateways = [
-    "PayPal", "Paytm", "Stripe",
-    "Razorpay", "Paystack", "Mollie",
-    "Midtrans", "Cashfree", "Instamojo",
-    "Mercado Pago", "Zitopay", "Square",
-    "CinetPay", "PayTabs", "Billplz",
-    "Flutterwave", "PayFast", "ToyyibPay",
-    "Pagali", "Authorize.Net", "SitesWay",
-    "Bank Transfer", "Manual"
-];
+import { useTranslations } from "next-intl";
 
 interface DepositModalProps {
     children: React.ReactNode;
@@ -33,6 +23,18 @@ interface DepositModalProps {
 
 export function DepositModal({ children }: DepositModalProps) {
     const [selectedGateway, setSelectedGateway] = useState<string | null>(null);
+    const t = useTranslations('Wallet.deposit_modal');
+
+    const gateways = [
+        "PayPal", "Paytm", "Stripe",
+        "Razorpay", "Paystack", "Mollie",
+        "Midtrans", "Cashfree", "Instamojo",
+        "Mercado Pago", "Zitopay", "Square",
+        "CinetPay", "PayTabs", "Billplz",
+        "Flutterwave", "PayFast", "ToyyibPay",
+        "Pagali", "Authorize.Net", "SitesWay",
+        t('gateways.bank_transfer'), t('gateways.manual')
+    ];
 
     return (
         <Dialog>
@@ -42,7 +44,7 @@ export function DepositModal({ children }: DepositModalProps) {
             <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle className="text-xl font-bold text-primary">
-                        You can deposit to your wallet from the available payment gateway.
+                        {t('title')}
                     </DialogTitle>
                     <DialogDescription className="sr-only">
                         Select a payment gateway and enter amount to deposit.
@@ -52,8 +54,8 @@ export function DepositModal({ children }: DepositModalProps) {
                 <div className="space-y-6 py-4">
                     {/* Deposit Amount */}
                     <div className="space-y-2">
-                        <Label htmlFor="amount" className="text-base text-muted-foreground">Deposit Amount <span className="text-red-500">*</span></Label>
-                        <Input id="amount" placeholder="Enter Deposit Amount" className="h-12 text-lg" />
+                        <Label htmlFor="amount" className="text-base text-muted-foreground">{t('amount_label')} <span className="text-red-500">*</span></Label>
+                        <Input id="amount" placeholder={t('amount_placeholder')} className="h-12 text-lg" />
                     </div>
 
                     {/* Gateways Grid */}
@@ -82,11 +84,11 @@ export function DepositModal({ children }: DepositModalProps) {
                 <DialogFooter className="gap-2 sm:justify-end">
                     <DialogClose asChild>
                         <Button variant="secondary" className="bg-primary hover:bg-primary/90 text-white">
-                            Close
+                            {t('close')}
                         </Button>
                     </DialogClose>
                     <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white min-w-[140px]">
-                        Submit Deposit
+                        {t('submit')}
                     </Button>
                 </DialogFooter>
             </DialogContent>

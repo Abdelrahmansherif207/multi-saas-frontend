@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface WalletBalanceCardProps {
     className?: string;
@@ -8,6 +9,8 @@ interface WalletBalanceCardProps {
 }
 
 export function WalletBalanceCard({ className, balance = "$0.00" }: WalletBalanceCardProps) {
+    const t = useTranslations('Wallet.balance_card');
+
     return (
         <div className={cn("bg-primary text-primary-foreground rounded-xl p-8 shadow-lg flex items-center justify-between", className)}>
             <div className="flex items-center gap-6">
@@ -16,7 +19,7 @@ export function WalletBalanceCard({ className, balance = "$0.00" }: WalletBalanc
                 </div>
                 <div>
                     <h2 className="text-4xl font-bold">{balance}</h2>
-                    <p className="text-primary-foreground/70 text-lg">Wallet Balance</p>
+                    <p className="text-primary-foreground/70 text-lg">{t('label')}</p>
                 </div>
             </div>
         </div>

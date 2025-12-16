@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import {
     LayoutDashboard,
     CreditCard,
@@ -10,13 +9,13 @@ import {
     Ticket,
     ShieldCheck,
     User,
-    Lock,
     LogOut,
     ChevronDown,
     ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 // Mock User for Sidebar
 const user = {
@@ -26,32 +25,35 @@ const user = {
 
 type NavigationItem = {
     name: string;
+    translationKey: string;
     href: string;
     icon: any;
-    children?: { name: string; href: string }[];
+    children?: { name: string; translationKey: string; href: string }[];
 };
-
-const navigation: NavigationItem[] = [
-    { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    {
-        name: "My Wallet",
-        href: "#",
-        icon: CreditCard,
-        children: [
-            { name: "My Wallet", href: "/wallet" },
-            { name: "Settings", href: "/wallet/settings" },
-        ],
-    },
-    { name: "Payment Logs", href: "/payments", icon: FileText },
-    { name: "Support Tickets", href: "/tickets", icon: Ticket },
-    { name: "2FA Settings", href: "/security", icon: ShieldCheck },
-    { name: "Edit Profile", href: "/profile", icon: User },
-    { name: "Change Password", href: "/password", icon: Lock },
-];
 
 export function Sidebar() {
     const pathname = usePathname();
-    const [openDropdowns, setOpenDropdowns] = useState<string[]>(["My Wallet"]);
+    const [openDropdowns, setOpenDropdowns] = useState<string[]>(["wallet"]);
+    const t = useTranslations('Sidebar');
+
+    const navigation: NavigationItem[] = [
+        { name: "dashboard", translationKey: "nav.dashboard", href: "/dashboard", icon: LayoutDashboard },
+        {
+            name: "wallet",
+            translationKey: "nav.wallet",
+            href: "#",
+            icon: CreditCard,
+            children: [
+                { name: "wallet", translationKey: "nav.wallet", href: "/wallet" },
+                { name: "wallet_settings", translationKey: "nav.wallet_settings", href: "/wallet/settings" },
+            ],
+        },
+        { name: "payments", translationKey: "nav.payments", href: "/payments", icon: FileText },
+        { name: "tickets", translationKey: "nav.tickets", href: "/tickets", icon: Ticket },
+        { name: "security", translationKey: "nav.security", href: "/security", icon: ShieldCheck },
+        { name: "profile", translationKey: "nav.profile", href: "/profile", icon: User },
+        { name: "password", translationKey: "nav.password", href: "/password", icon: ShieldCheck }, // Placeholder link as requested
+    ];
 
     const toggleDropdown = (name: string) => {
         setOpenDropdowns((prev) =>
@@ -102,7 +104,7 @@ export function Sidebar() {
                                 >
                                     <div className="flex items-center gap-3">
                                         <item.icon className="h-5 w-5" />
-                                        {item.name}
+                                        {t(item.translationKey)}
                                     </div>
                                     {isDropdownOpen ? (
                                         <ChevronDown className="h-4 w-4" />
@@ -123,7 +125,7 @@ export function Sidebar() {
                                                         : "text-primary-foreground/60 hover:text-primary-foreground hover:bg-primary-foreground/5"
                                                 )}
                                             >
-                                                {child.name}
+                                                {t(child.translationKey)}
                                             </Link>
                                         ))}
                                     </div>
@@ -144,7 +146,7 @@ export function Sidebar() {
                             )}
                         >
                             <item.icon className="h-5 w-5" />
-                            {item.name}
+                            {t(item.translationKey)}
                         </Link>
                     );
                 })}
@@ -157,7 +159,7 @@ export function Sidebar() {
                     className="w-full justify-start text-primary-foreground/70 hover:bg-primary-foreground/5 hover:text-primary-foreground pl-4"
                 >
                     <LogOut className="mr-3 h-5 w-5" />
-                    Logout
+                    {t('logout')}
                 </Button>
             </div>
         </div>

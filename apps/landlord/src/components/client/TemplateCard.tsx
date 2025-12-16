@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Template } from "@/lib/templates";
+import { useTranslations } from "next-intl";
 
 interface TemplateCardProps {
     template: Template;
 }
 
 export function TemplateCard({ template }: TemplateCardProps) {
+    const t = useTranslations('TemplateCard');
+
     return (
         <div className="group flex flex-col p-4 rounded-3xl bg-card border border-border/40 shadow-sm hover:shadow-lg transition-all duration-300">
             {/* Image Container */}
@@ -23,7 +26,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
                 {template.isComingSoon && (
                     <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px] z-10 flex items-center justify-center">
                         <span className="px-4 py-2 bg-primary text-primary-foreground text-sm font-bold rounded-full shadow-lg">
-                            Coming Soon....
+                            {t('coming_soon')}
                         </span>
                     </div>
                 )}
@@ -44,11 +47,11 @@ export function TemplateCard({ template }: TemplateCardProps) {
 
                 {template.isComingSoon ? (
                     <Button disabled className="w-full bg-muted text-muted-foreground opacity-100 hover:bg-muted">
-                        Not Available
+                        {t('not_available')}
                     </Button>
                 ) : (
                     <Button className="w-fit">
-                        Live Preview
+                        {t('live_preview')}
                     </Button>
                 )}
             </div>

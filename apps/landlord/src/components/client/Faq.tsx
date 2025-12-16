@@ -4,26 +4,28 @@ import { useState } from "react";
 import Image from "next/image";
 import { Sparkle, Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export function Faq() {
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const t = useTranslations('Faq');
 
     const faqs = [
         {
-            question: "How can I use this website templates?",
-            answer: "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstan occur in which toil and pain can procure him some great pleasure."
+            question: t('questions.q1'),
+            answer: t('questions.a1')
         },
         {
-            question: "What are the entry requirement?",
-            answer: "We provide various entry levels depending on your subscription plan. Basic requirements include a valid email address and payment method for premium features."
+            question: t('questions.q2'),
+            answer: t('questions.a2')
         },
         {
-            question: "How can I give the payment for uses?",
-            answer: "We accept all major credit cards, PayPal, and bank transfers for annual subscriptions. You can manage your payment methods in the settings dashboard."
+            question: t('questions.q3'),
+            answer: t('questions.a3')
         },
         {
-            question: "How do I purchase membership?",
-            answer: "Simply navigate to the Pricing page, select your preferred plan, and follow the checkout process. Your membership will be active immediately after payment."
+            question: t('questions.q4'),
+            answer: t('questions.a4')
         }
     ];
 
@@ -33,7 +35,7 @@ export function Faq() {
             <div className="flex flex-col items-center text-center mb-16 space-y-4">
                 <div className="relative inline-block">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-                        Frequently asked <span className="text-brand-orange">Question</span>
+                        {t('header.prefix')} <span className="text-brand-orange">{t('header.highlight')}</span>
                     </h2>
                     <Sparkle className="absolute -top-6 -right-8 w-8 h-8 text-brand-orange fill-brand-orange animate-pulse" />
                     <Sparkle className="absolute top-0 -left-10 w-6 h-6 text-foreground/20 -rotate-12" />

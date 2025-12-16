@@ -11,49 +11,47 @@ import {
 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
+import { useTranslations } from "next-intl";
+
 export function Features() {
+  const t = useTranslations('Features');
+
   const features = [
     {
-      title: "Globally Recognize",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam.",
+      title: t('items.recognize.title'),
+      description: t('items.recognize.description'),
       icon: Medal,
     },
     {
-      title: "Easily customize",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam.",
+      title: t('items.customize.title'),
+      description: t('items.customize.description'),
       icon: Settings,
     },
     {
-      title: "Build for Impact",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam.",
+      title: t('items.impact.title'),
+      description: t('items.impact.description'),
       icon: Target,
     },
     {
-      title: "Worldwide support",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam.",
+      title: t('items.support.title'),
+      description: t('items.support.description'),
       icon: Globe,
     },
     {
-      title: "Awesome Design",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam.",
+      title: t('items.design.title'),
+      description: t('items.design.description'),
       icon: Layout,
     },
     {
-      title: "Handle by Expert",
-      description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam.",
+      title: t('items.expert.title'),
+      description: t('items.expert.description'),
       icon: BadgeCheck,
     },
   ];
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <SectionHeader prefix="why" highlight="choose" suffix="us"/>
+      <SectionHeader prefix={t('header.prefix')} highlight={t('header.highlight')} suffix={t('header.suffix')} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => (
           <div
