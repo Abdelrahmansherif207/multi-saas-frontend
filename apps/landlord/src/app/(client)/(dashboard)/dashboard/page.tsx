@@ -42,10 +42,11 @@ export default function DashboardPage() {
     return (
         <div className="pb-20">
             {/* PagesHeader */}
+            {/* 
             <PagesHeader
                 title="Dashboard"
                 breadcrumbs={[{ label: "Home", href: "/" }, { label: "Dashboard" }]}
-            />
+            /> */}
 
             <div className="space-y-8">
                 {/* Action Button Section */}
