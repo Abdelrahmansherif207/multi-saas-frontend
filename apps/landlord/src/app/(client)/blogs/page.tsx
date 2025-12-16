@@ -27,13 +27,13 @@ export default async function blogsPage({
         <div className="mt-20">
           <SectionHeader prefix="our" highlight="blogs" suffix="" />
           <SearchCard />
-          <div className="flex justify-between items-center">
+          <div className="flex-col md:flex md:flex-row justify-between items-center md:gap-5">
             {blogs?.map((blog) => (
               <Link
                 key={blog.id}
                 href={`/blogs/${decodeURIComponent(blog.title)}`}
               >
-                <Card className="cursor-pointer">
+                <Card className="cursor-pointer sm:mt-5">
                   <CardHeader className="flex gap-3">
                     <Image
                       className="w-full"
