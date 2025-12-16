@@ -4,6 +4,12 @@ import { WalletBalanceCard } from "@/components/dashboard/WalletBalanceCard";
 import { Button } from "@/components/ui/button";
 import { Wallet } from "lucide-react";
 import { DepositModal } from "@/components/dashboard/DepositModal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "My Wallet | Wajha",
+    description: "Manage your wallet balance and transactions.",
+};
 
 // Mock Data for Wallet History
 const walletHistory = [

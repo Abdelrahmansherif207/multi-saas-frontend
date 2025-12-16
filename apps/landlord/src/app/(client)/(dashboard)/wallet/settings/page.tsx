@@ -6,6 +6,12 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Wallet Settings | Wajha",
+    description: "Configure your wallet preferences and alerts.",
+};
 
 // Simple Switch Component (since it was missing in the UI list, implementing locally for now)
 function Switch({ checked, onCheckedChange, id }: { checked: boolean; onCheckedChange: (checked: boolean) => void; id: string }) {

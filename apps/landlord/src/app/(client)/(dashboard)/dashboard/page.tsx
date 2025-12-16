@@ -5,6 +5,12 @@ import {
     Card,
     CardContent,
 } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard | Wajha",
+    description: "Manage your business, tenants, and services.",
+};
 
 // Mock Data
 const stats = [

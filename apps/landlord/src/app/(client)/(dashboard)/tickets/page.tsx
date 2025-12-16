@@ -21,6 +21,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PagesHeader } from "@/components/client/PagesHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Support Tickets | Wajha",
+    description: "Manage your support tickets and inquiries.",
+};
 
 // Mock Data for Tickets
 const tickets = [

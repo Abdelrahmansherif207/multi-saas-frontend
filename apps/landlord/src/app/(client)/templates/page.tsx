@@ -1,26 +1,30 @@
-"use client";
-
-import { useState } from "react";
-import { templates, categories } from "@/lib/templates";
-import { TemplateCard } from "@/components/client/TemplateCard";
-import { Sparkle, Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
 import { PagesHeader } from "@/components/client/PagesHeader";
+import { TemplateCard } from "@/components/client/TemplateCard";
+import { templates, categories } from "@/lib/templates";
+import { cn } from "@/lib/utils";
+import { Search, Sparkle, X } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Templates | Wajha",
+    description: "Explore our wide range of professional templates for your websites.",
+    openGraph: {
+        title: "Templates | Wajha",
+        description: "Explore our wide range of professional templates for your websites.",
+        type: "website",
+        siteName: "Wajha",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Templates | Wajha",
+        description: "Explore our wide range of professional templates for your websites.",
+    },
+};
 
 export default function TemplatesPage() {
-    const [searchQuery, setSearchQuery] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-    // Filter Logic
-    const filteredTemplates = templates.filter((template) => {
-        const matchesSearch = template.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            template.description.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = selectedCategory ? template.category === selectedCategory : true;
-
-        return matchesSearch && matchesCategory;
-    });
 
     return (
         <main className="min-h-screen">
@@ -51,31 +55,16 @@ export default function TemplatesPage() {
                         <input
                             type="text"
                             placeholder="Search templates..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-12 pr-4 py-4 rounded-2xl border border-border bg-card/50 focus:outline-none focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange transition-all"
+                            disabled
+                            className="w-full pl-12 pr-4 py-4 rounded-2xl border border-border bg-card/50 focus:outline-none cursor-not-allowed opacity-60"
                         />
-                        {searchQuery && (
-                            <button
-                                onClick={() => setSearchQuery("")}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                            >
-                                <X className="w-4 h-4" />
-                            </button>
-                        )}
                     </div>
 
                     {/* Category Tags */}
                     <div className="flex flex-wrap justify-center gap-3">
                         <Button
                             variant="outline"
-                            onClick={() => setSelectedCategory(null)}
-                            className={cn(
-                                "rounded-full transition-all duration-300",
-                                !selectedCategory
-                                    ? "bg-brand-orange text-white border-brand-orange hover:bg-brand-orange/90 hover:text-white"
-                                    : "hover:border-brand-orange hover:text-brand-orange bg-transparent"
-                            )}
+                            className="rounded-full bg-brand-orange text-white border-brand-orange hover:bg-brand-orange/90 hover:text-white"
                         >
                             All Categories
                         </Button>
@@ -83,13 +72,7 @@ export default function TemplatesPage() {
                             <Button
                                 key={category}
                                 variant="outline"
-                                onClick={() => setSelectedCategory(category === selectedCategory ? null : category)}
-                                className={cn(
-                                    "rounded-full transition-all duration-300",
-                                    selectedCategory === category
-                                        ? "bg-brand-orange text-white border-brand-orange hover:bg-brand-orange/90 hover:text-white"
-                                        : "hover:border-brand-orange hover:text-brand-orange bg-transparent"
-                                )}
+                                className="rounded-full hover:border-brand-orange hover:text-brand-orange bg-transparent transition-all duration-300"
                             >
                                 {category}
                             </Button>
@@ -98,27 +81,11 @@ export default function TemplatesPage() {
                 </div>
 
                 {/* Results Grid */}
-                {filteredTemplates.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {filteredTemplates.map((template) => (
-                            <TemplateCard key={template.id} template={template} />
-                        ))}
-                    </div>
-                ) : (
-                    <div className="text-center py-20">
-                        <h3 className="text-2xl font-bold mb-4">No templates found</h3>
-                        <p className="text-muted-foreground">
-                            Try adjusting your search or filters to find what you&apos;re looking for.
-                        </p>
-                        <Button
-                            variant="link"
-                            onClick={() => { setSearchQuery(""); setSelectedCategory(null) }}
-                            className="mt-4 text-brand-orange"
-                        >
-                            Clear all filters
-                        </Button>
-                    </div>
-                )}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {templates.map((template) => (
+                        <TemplateCard key={template.id} template={template} />
+                    ))}
+                </div>
             </section>
         </main>
     );

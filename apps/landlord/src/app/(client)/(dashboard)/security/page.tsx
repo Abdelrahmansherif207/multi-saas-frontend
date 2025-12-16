@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { QrCode } from "lucide-react"; // Using an icon as a placeholder for the QR code
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Security Settings | Wajha",
+    description: "Manage your account security and 2FA settings.",
+};
 
 export default function SecurityPage() {
     return (

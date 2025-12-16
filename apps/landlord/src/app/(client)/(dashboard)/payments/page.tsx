@@ -33,6 +33,12 @@ const paymentLogs = [
 ];
 
 import { DepositModal } from "@/components/dashboard/DepositModal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Payment Logs | Wajha",
+    description: "View your payment history and logs.",
+};
 
 export default function PaymentLogsPage() {
     return (
