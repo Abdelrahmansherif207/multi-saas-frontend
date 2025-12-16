@@ -20,13 +20,13 @@ import {
 
 export default function profilePage() {
   return (
-    <Card className="w-full">
+    <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle>Edit Profile</CardTitle>
       </CardHeader>
       <CardContent>
         <form>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="grid gap-5">
               <Label htmlFor="name">Name</Label>
               <Input id="name" type="text" placeholder="" required />
@@ -81,8 +81,8 @@ export default function profilePage() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-end gap-5">
-        <Button type="submit">Save Changes</Button>
+      <CardFooter className="flex flex-col sm:flex-row justify-end gap-3">
+        <Button type="submit" className="w-full sm:w-auto">Save Changes</Button>
       </CardFooter>
     </Card>
   );
