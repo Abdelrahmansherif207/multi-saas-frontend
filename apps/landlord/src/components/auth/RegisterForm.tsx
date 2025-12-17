@@ -20,42 +20,45 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 
 export function RegisterForm() {
+    const t = useTranslations('Auth.Register');
+
     return (
-        <Card className="w-full border-0 shadow-xl bg-white/50 dark:bg-slate-950/50 backdrop-blur-xl">
+        <Card className="w-full border-0 shadow-lg bg-card dark:bg-card backdrop-blur-xl">
             <CardHeader className="space-y-1">
-                <CardTitle className="text-2xl font-bold text-center">Create an account</CardTitle>
+                <CardTitle className="text-2xl font-bold text-center">{t('title')}</CardTitle>
                 <CardDescription className="text-center">
-                    Enter your information to get started with your landlord dashboard
+                    {t('description')}
                 </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
                 <div className="grid gap-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" className="h-11" placeholder="John Doe" />
+                    <Label htmlFor="name">{t('label_name')}</Label>
+                    <Input id="name" className="h-11" placeholder={t('placeholder_name')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="username">Username</Label>
-                    <Input id="username" className="h-11" placeholder="johndoe" />
+                    <Label htmlFor="username">{t('label_username')}</Label>
+                    <Input id="username" className="h-11" placeholder={t('placeholder_username')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" className="h-11" placeholder="m@example.com" />
+                    <Label htmlFor="email">{t('label_email')}</Label>
+                    <Input id="email" type="email" className="h-11" placeholder={t('placeholder_email')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" type="tel" className="h-11" placeholder="+1234567890" />
+                    <Label htmlFor="phone">{t('label_phone')}</Label>
+                    <Input id="phone" type="tel" className="h-11" placeholder={t('placeholder_phone')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="address">Address</Label>
-                    <Input id="address" className="h-11" placeholder="123 Main St" />
+                    <Label htmlFor="address">{t('label_address')}</Label>
+                    <Input id="address" className="h-11" placeholder={t('placeholder_address')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="country">Country</Label>
+                    <Label htmlFor="country">{t('label_country')}</Label>
                     <Select>
                         <SelectTrigger id="country" className="h-11">
-                            <SelectValue placeholder="Select A Country" />
+                            <SelectValue placeholder={t('placeholder_country')} />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="us">United States</SelectItem>
@@ -67,22 +70,22 @@ export function RegisterForm() {
                     </Select>
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="password">Password</Label>
-                    <PasswordInput id="password" className="h-11" placeholder="••••••••" />
+                    <Label htmlFor="password">{t('label_password')}</Label>
+                    <PasswordInput id="password" className="h-11" placeholder={t('placeholder_password')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="confirm-password">Confirm Password</Label>
-                    <PasswordInput id="confirm-password" className="h-11" placeholder="••••••••" />
+                    <Label htmlFor="confirm-password">{t('label_confirm_password')}</Label>
+                    <PasswordInput id="confirm-password" className="h-11" placeholder={t('placeholder_password')} />
                 </div>
             </CardContent>
             <CardFooter className="flex flex-col gap-4">
                 <Button className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white">
-                    Register
+                    {t('submit')}
                 </Button>
                 <div className="text-center text-sm text-muted-foreground">
-                    Already have an account?{" "}
+                    {t('has_account')}{" "}
                     <Link href="/login" className="text-primary hover:underline font-medium">
-                        Login
+                        {t('login_link')}
                     </Link>
                 </div>
             </CardFooter>

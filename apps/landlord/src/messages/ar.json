@@ -535,5 +535,51 @@
                 "manual": "يدوي"
             }
         }
+    },
+    "Auth": {
+        "Login": {
+            "title": "مرحباً بعودتك",
+            "description": "أدخل بريدك الإلكتروني لتسجيل الدخول إلى حسابك",
+            "label_email_username": "البريد الإلكتروني أو اسم المستخدم",
+            "placeholder_email": "m@example.com",
+            "label_password": "كلمة المرور",
+            "forgot_password": "نسيت كلمة المرور؟",
+            "placeholder_password": "••••••••",
+            "submit": "تسجيل الدخول",
+            "no_account": "ليس لديك حساب؟",
+            "register_link": "إنشاء حساب"
+        },
+        "Register": {
+            "title": "إنشاء حساب جديد",
+            "description": "أدخل معلوماتك للبدء مع لوحة تحكم المالك",
+            "label_name": "الاسم",
+            "placeholder_name": "أحمد محمد",
+            "label_username": "اسم المستخدم",
+            "placeholder_username": "ahmeddev",
+            "label_email": "البريد الإلكتروني",
+            "placeholder_email": "m@example.com",
+            "label_phone": "رقم الهاتف",
+            "placeholder_phone": "+966123456789",
+            "label_address": "العنوان",
+            "placeholder_address": "شارع الرئيسية، الرياض",
+            "label_country": "الدولة",
+            "placeholder_country": "اختر الدولة",
+            "label_password": "كلمة المرور",
+            "label_confirm_password": "تأكيد كلمة المرور",
+            "placeholder_password": "••••••••",
+            "submit": "إنشاء الحساب",
+            "has_account": "لديك حساب بالفعل؟",
+            "login_link": "تسجيل الدخول"
+        },
+        "Metadata": {
+            "Login": {
+                "title": "تسجيل الدخول | واجهة",
+                "description": "تسجيل الدخول إلى حسابك في واجهة."
+            },
+            "Register": {
+                "title": "إنشاء حساب | واجهة",
+                "description": "إنشاء حساب جديد في واجهة."
+            }
+        }
     }
 }

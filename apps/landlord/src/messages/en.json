@@ -535,5 +535,51 @@
                 "manual": "Manual"
             }
         }
+    },
+    "Auth": {
+        "Login": {
+            "title": "Welcome back",
+            "description": "Enter your email to sign in to your account",
+            "label_email_username": "Email or Username",
+            "placeholder_email": "m@example.com",
+            "label_password": "Password",
+            "forgot_password": "Forgot password?",
+            "placeholder_password": "••••••••",
+            "submit": "Sign In",
+            "no_account": "Don't have an account?",
+            "register_link": "Register"
+        },
+        "Register": {
+            "title": "Create an account",
+            "description": "Enter your information to get started with your landlord dashboard",
+            "label_name": "Name",
+            "placeholder_name": "John Doe",
+            "label_username": "Username",
+            "placeholder_username": "johndoe",
+            "label_email": "Email",
+            "placeholder_email": "m@example.com",
+            "label_phone": "Phone",
+            "placeholder_phone": "+1234567890",
+            "label_address": "Address",
+            "placeholder_address": "123 Main St",
+            "label_country": "Country",
+            "placeholder_country": "Select A Country",
+            "label_password": "Password",
+            "label_confirm_password": "Confirm Password",
+            "placeholder_password": "••••••••",
+            "submit": "Register",
+            "has_account": "Already have an account?",
+            "login_link": "Login"
+        },
+        "Metadata": {
+            "Login": {
+                "title": "Login | Wajha",
+                "description": "Login to your Wajha account."
+            },
+            "Register": {
+                "title": "Register | Wajha",
+                "description": "Create a new Wajha account."
+            }
+        }
     }
 }
