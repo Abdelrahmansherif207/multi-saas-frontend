@@ -462,6 +462,42 @@
                 "confirm_password": "تأكيد كلمة المرور"
             },
             "save_button": "حفظ التغييرات"
+        },
+        "CreateWebsite": {
+            "title": "إنشاء موقع سريع",
+            "labels": {
+                "package": "اختر الباقة",
+                "domain": "أدخل النطاق الخاص بك",
+                "theme": "اختر القالب",
+                "payment_gateway": "اختر بوابة الدفع"
+            },
+            "placeholders": {
+                "package": "اختر الباقة",
+                "domain": "النطاق الخاص بك",
+                "theme": "اختر القالب",
+                "payment_gateway": "اختر بوابة الدفع"
+            },
+            "options": {
+                "packages": {
+                    "basic": "أساسي",
+                    "standard": "قياسي",
+                    "premium": "مميز"
+                },
+                "themes": {
+                    "modern": "عصري",
+                    "classic": "كلاسيكي",
+                    "minimal": "بسيط"
+                },
+                "gateways": {
+                    "stripe": "سترايب",
+                    "paypal": "باي بال",
+                    "cod": "الدفع عند الاستلام"
+                }
+            },
+            "buttons": {
+                "create": "إنشاء",
+                "cancel": "إغلاق"
+            }
         }
     },
     "Wallet": {

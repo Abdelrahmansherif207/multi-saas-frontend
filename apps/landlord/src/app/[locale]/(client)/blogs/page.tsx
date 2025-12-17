@@ -35,6 +35,7 @@ export default async function blogsPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Blogs' });
   const { query, category } = await searchParams;
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/blogs?query=${encodeURIComponent(query ?? "")}&category=${encodeURIComponent(category ?? "")}`
   );

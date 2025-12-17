@@ -1,3 +1,4 @@
+import { CreateWebsiteModal } from "@/components/dashboard/CreateWebsiteModal";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Ticket } from "lucide-react";
 import {
@@ -5,6 +6,8 @@ import {
     CardContent,
 } from "@/components/ui/card";
 import { getTranslations } from 'next-intl/server';
+
+
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
@@ -18,7 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
+
     const t = await getTranslations({ locale, namespace: 'dashboardTab' });
+    console.log("DashboardPage rendered on server");
 
     // Mock Data (Localized)
     const stats = [
@@ -55,9 +60,10 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
             <div className="space-y-8">
                 {/* Action Button Section */}
                 <div className="flex justify-end">
-                    <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white border-0 shadow-lg transition-all hover:-translate-y-0.5">
-                        {t('create_website')}
-                    </Button>
+                    <CreateWebsiteModal
+                        btnText={t('create_website')}
+                        btnClassName="bg-brand-orange hover:bg-brand-orange/90 text-white border-0 shadow-lg transition-all hover:-translate-y-0.5"
+                    />
                 </div>
 
                 {/* Stats Grid */}
