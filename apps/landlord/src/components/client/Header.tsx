@@ -2,11 +2,11 @@
 
 import { Link } from "@/i18n/routing";
 import { useState } from "react";
-import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboard, CreditCard, Settings, LogOut, Menu, X } from "lucide-react";
+import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboard, CreditCard, Settings, LogOut, Menu, X, Layers } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 // Mock Auth State (Temporary)
-const isAuthenticated = false;
+const isAuthenticated = true;
 const user = {
     name: "John Doe",
     email: "john@example.com",
@@ -33,10 +33,11 @@ import {
     DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const locale = useLocale();
     const t = useTranslations('Header');
 
     return (
@@ -78,9 +79,13 @@ export function Header() {
             <div className="glass border-b border-border/40 relative">
                 <div className="container mx-auto px-4 py-5 flex justify-between items-center">
                     {/* Logo */}
-                    <Link href="/" className="text-3xl font-bold">
-                        <span className="text-primary">Multi</span>
-                        <span>Saas</span>
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="bg-brand-orange/10 p-2 rounded-xl group-hover:bg-brand-orange/20 transition-colors">
+                            <Layers className="h-6 w-6 text-brand-orange" />
+                        </div>
+                        <span className="text-2xl font-bold tracking-tight text-brand-orange">
+                            {locale === 'ar' ? 'واجهة' : 'Wajha'}
+                        </span>
                     </Link>
 
                     {/* Desktop Navigation - Hidden on Mobile */}

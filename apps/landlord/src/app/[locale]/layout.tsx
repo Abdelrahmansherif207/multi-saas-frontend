@@ -1,4 +1,4 @@
-import { Nunito } from "next/font/google";
+import { Nunito, Tajawal } from "next/font/google";
 import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from 'next-intl';
@@ -6,8 +6,14 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
-const font = Nunito({
+const nunito = Nunito({
     subsets: ["latin"],
+    display: "swap",
+});
+
+const tajawal = Tajawal({
+    subsets: ["arabic"],
+    weight: ["200", "300", "400", "500", "700", "800", "900"],
     display: "swap",
 });
 
@@ -38,7 +44,7 @@ export default async function RootLayout({
 
     return (
         <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
-            <body className={font.className}>
+            <body className={locale === 'ar' ? tajawal.className : nunito.className}>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"

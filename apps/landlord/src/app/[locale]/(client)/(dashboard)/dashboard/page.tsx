@@ -55,6 +55,13 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
         },
     ];
 
+    const websites = [
+        {
+            id: "1",
+            url: "http://test.localhost",
+        },
+    ];
+
     return (
         <div className="pb-20">
             <div className="space-y-8">
@@ -71,12 +78,12 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
                     {stats.map((stat, index) => (
                         <Card key={index} className={`border-0 shadow-md overflow-hidden ${stat.className}`}>
                             <CardContent className="p-6 flex items-center gap-6">
-                                <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                                    <stat.icon className="h-8 w-8 text-white" />
+                                <div className="h-16 w-16 rounded-full bg-card/20 flex items-center justify-center backdrop-blur-sm">
+                                    <stat.icon className="h-8 w-8 text-primary-foreground" />
                                 </div>
                                 <div>
-                                    <p className="text-3xl font-bold">{stat.value}</p>
-                                    <p className="text-white/90 font-medium">{stat.label}</p>
+                                    <p className="text-3xl font-bold text-primary-foreground">{stat.value}</p>
+                                    <p className="text-primary-foreground font-medium">{stat.label}</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -99,13 +106,36 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-border">
-                                    <tr>
-                                        <td className="px-6 py-4" colSpan={3}>
-                                            <div className="text-center py-4 text-muted-foreground">
-                                                {t('table.no_websites')}
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {websites.length > 0 ? (
+                                        websites.map((site) => (
+                                            <tr key={site.id}>
+                                                <td className="px-6 py-4 font-medium">{site.id}</td>
+                                                <td className="px-6 py-4">
+                                                    <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 tracking-wide">
+                                                        {site.url}
+                                                    </span>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <div className="flex items-center gap-3">
+                                                        <Button size="sm" className="bg-brand-orange hover:bg-brand-orange/90 text-white border-0 shadow-sm rounded-full px-6 transition-all hover:scale-105">
+                                                            Visit Website
+                                                        </Button>
+                                                        <Button size="sm" className="bg-sky-500 hover:bg-sky-600 text-white border-0 shadow-sm rounded-full px-6 transition-all hover:scale-105">
+                                                            Login as super admin
+                                                        </Button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td className="px-6 py-4" colSpan={3}>
+                                                <div className="text-center py-4 text-muted-foreground">
+                                                    {t('table.no_websites')}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>
