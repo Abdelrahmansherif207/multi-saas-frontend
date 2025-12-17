@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 export default function TemplatesPage() {
 
 
+
     return (
         <main className="min-h-screen">
             <PagesHeader

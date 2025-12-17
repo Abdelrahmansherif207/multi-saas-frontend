@@ -32,6 +32,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ProfilePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+
+  // TEMPORARY: Artificial delay to test skeleton
   const t = await getTranslations({ locale, namespace: 'Dashboard.Profile' });
 
   return (

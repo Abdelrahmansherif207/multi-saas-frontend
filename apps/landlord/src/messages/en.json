@@ -462,6 +462,42 @@
                 "confirm_password": "Confirm Password"
             },
             "save_button": "Save Changes"
+        },
+        "CreateWebsite": {
+            "title": "Create Quick Website",
+            "labels": {
+                "package": "Select Package",
+                "domain": "Enter your Domain",
+                "theme": "Select Theme",
+                "payment_gateway": "Select Payment Gateway"
+            },
+            "placeholders": {
+                "package": "Select Package",
+                "domain": "Your domain",
+                "theme": "Select Theme",
+                "payment_gateway": "Select Payment Gateway"
+            },
+            "options": {
+                "packages": {
+                    "basic": "Basic",
+                    "standard": "Standard",
+                    "premium": "Premium"
+                },
+                "themes": {
+                    "modern": "Modern",
+                    "classic": "Classic",
+                    "minimal": "Minimal"
+                },
+                "gateways": {
+                    "stripe": "Stripe",
+                    "paypal": "PayPal",
+                    "cod": "Cash on Delivery"
+                }
+            },
+            "buttons": {
+                "create": "Create",
+                "cancel": "Close"
+            }
         }
     },
     "Wallet": {
