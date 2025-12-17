@@ -3,6 +3,7 @@ export interface BlogInterface {
   date: string;
   category: string;
   title: string;
+  slug:string;
   image: string;
   content: string;
 }
@@ -13,6 +14,7 @@ export const blogs: BlogInterface[] = [
     date: "18 Feb 2023",
     category: "Travel",
     title: "Many of stats view! Understand your day better than ever",
+    slug:"Many-of-stats-view!-Understand-your-day-better-than-ever",
     image: "/assets/temp-travel-images/travel-1.jpg",
     content: `Exploring the hidden gems of the world can be truly rewarding. 
       In this blog, we dive into how to maximize your daily travel experience, 
@@ -23,6 +25,7 @@ export const blogs: BlogInterface[] = [
     date: "20 Mar 2023",
     category: "Technology",
     title: "New stats view! Understand your day better than ever",
+    slug:"New-stats-view!-Understand-your-day-better-than-ever",
     image: "/assets/temp-travel-images/travel-2.jpg",
     content: `Data visualization has never been more powerful. This blog explains 
       the newest dashboard tools that help you analyze trends, track metrics, 
@@ -33,6 +36,7 @@ export const blogs: BlogInterface[] = [
     date: "05 Apr 2023",
     category: "Lifestyle",
     title: "This stats view! Understand your day better than ever",
+    slug: "This-stats-view!-Understand-your-day-better-than-ever",
     image: "/assets/temp-travel-images/travel-3.jpg",
     content: `Discover techniques to improve your daily routine and boost productivity. 
       From morning rituals to evening reflections, we cover ways to organize your life 

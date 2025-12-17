@@ -9,7 +9,7 @@ import {
 import { Timer, Tag } from "lucide-react";
 import Image from "next/image";
 
-export default function BlogDetailCard({ blog }: { blog: BlogInterface }) {
+export default function BlogDetailCard({ blog }: { blog: BlogInterface }) {  
   return (
     <Card className="cursor-pointer col-span-2">
       <CardHeader className="flex gap-3">

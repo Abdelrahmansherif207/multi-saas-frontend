@@ -7,6 +7,7 @@ import { MoveRight, Tag, Timer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Latest Insights | Wajha Blog",
@@ -25,10 +26,14 @@ export const metadata: Metadata = {
 };
 
 export default async function blogsPage({
+  params,
   searchParams,
 }: {
-  searchParams: { query: string; category: string };
+  searchParams: { query: string; category: string },
+  params: { locale: string }
 }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Blogs' });
   const { query, category } = await searchParams;
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/blogs?query=${encodeURIComponent(query ?? "")}&category=${encodeURIComponent(category ?? "")}`
@@ -47,7 +52,7 @@ export default async function blogsPage({
             {blogs?.map((blog) => (
               <Link
                 key={blog.id}
-                href={`/blogs/${decodeURIComponent(blog.title)}`}
+                href={`/en/blogs/${blog.slug}`}
               >
                 <Card className="cursor-pointer sm:mt-5">
                   <CardHeader className="flex gap-3">
