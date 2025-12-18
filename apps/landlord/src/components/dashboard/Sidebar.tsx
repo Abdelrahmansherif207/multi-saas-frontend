@@ -33,7 +33,7 @@ type NavigationItem = {
 
 export function Sidebar() {
     const pathname = usePathname();
-    const [openDropdowns, setOpenDropdowns] = useState<string[]>(["wallet"]);
+    const [openDropdowns, setOpenDropdowns] = useState<string[]>([""]);
     const t = useTranslations('Sidebar');
 
     const navigation: NavigationItem[] = [
