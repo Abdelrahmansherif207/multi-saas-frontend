@@ -25,6 +25,7 @@
         "title": "Email"
       }
     },
+<<<<<<< Updated upstream
     "form": {
       "title": "Send us a message",
       "name": "Name",
@@ -32,6 +33,591 @@
       "subject": "Subject",
       "message": "Your Message",
       "submit": "Submit"
+=======
+    "HomePage": {
+        "title": "Welcome to Wajha",
+        "meta_title": "Wajha – Your Unified SaaS Interface",
+        "meta_description": "Experience the ultimate multi-SaaS platform. Manage your business, tenants, and services from one unified interface."
+    },
+    "Contact": {
+        "meta_title": "Contact Us | Wajha",
+        "meta_description": "Get in touch with the Wajha team for support, inquiries, or partnership opportunities.",
+        "title": "Contact Us",
+        "cards": {
+            "call_us": {
+                "title": "Call Us"
+            },
+            "location": {
+                "title": "Location",
+                "line1": "Darussalam, Mirpur",
+                "line2": "Dhaka-1216"
+            },
+            "email": {
+                "title": "Email"
+            }
+        },
+        "form": {
+            "title": "Send us a message",
+            "name": "Name",
+            "email": "Your Email",
+            "subject": "Subject",
+            "message": "Your Message",
+            "submit": "Submit"
+        }
+    },
+    "Privacy": {
+        "meta_title": "Privacy Policy | Wajha",
+        "meta_description": "Legal information and policies.",
+        "title": "Privacy Policy",
+        "content": {
+            "h1": "How can I get a privacy policy on my website? A GDPR compliant privacy policy",
+            "p1": "The privacy policy can be written as an independent page on your website, and be made accessible as a link in the header or footer of your website, or on your ‘About’ page. It may also be hosted by a privacy policy-service with a link from your homepage.",
+            "p2": "Basically, it doesn’t matter where you choose to place it, as long as your users have access to it. The privacy policy is a legal text. The phrasing depends on which jurisdictions your website falls under and how website handles data.",
+            "box1": {
+                "p1": "However, this might seem as a large expense if you are, for instance, a hobby blogger or small business. What you should",
+                "link": "never do, is to copy a privacy policy from some other website.",
+                "p2": "That is also why using a privacy policy generator can be a hazardous thing, since you must be very careful to include all the specific information of your website, and not just have privacy policy generator spit out a default one that isn't aligned with your domain."
+            },
+            "h2": "GDPR privacy policy templates & privacy policy generators",
+            "p3": "There exists numerous tools for creating privacy policies, and privacy policy templates and privacy policy generators on the internet.",
+            "p4": "Some are free and others come at a price. Some are not GDPR compliant privacy policies.",
+            "list": {
+                "item1": "Maintain all the content properly",
+                "item2": "Ensure your all input is right",
+                "item3": "if you can do multiple task that will be plus"
+            },
+            "p5": "There policy is the numerous tools for creating privacy policies, and privacy policy templates and privacy policy generators on the internet. Some are free and others come at a price. Some are not GDPR compliant privacy policies.",
+            "note": {
+                "label": "Note:",
+                "text": "just have privacy policy generator spit out a default one that isn't aligned with your domain So it's very important loyal technical theury of our reservation."
+            }
+        }
+    },
+    "About": {
+        "meta_title": "About Us | Wajha",
+        "meta_description": "Learn more about Wajha and our mission to provide the best multi-SaaS solutions for businesses.",
+        "title": "About Us",
+        "hero": {
+            "title_start": "Easily make your",
+            "title_highlight": "Website"
+        },
+        "content": {
+            "p1": "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+            "p2": "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted.",
+            "p3": "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted."
+        }
+    },
+    "Hero": {
+        "title_line1": "Create your own",
+        "title_line2": "website within few",
+        "highlight": "minutes",
+        "description": "You can easily create your website by Pica. We will provide all type of digital service for you. We have somany readymade website for you. We always try to provide best service for our customer.",
+        "cta": "Get Started",
+        "trial_text": "10 Days for free trial , No card required"
+    },
+    "dashboardTab": {
+        "title": "Dashboard",
+        "meta_title": "Dashboard | Wajha",
+        "meta_description": "Manage your business, tenants, and services.",
+        "create_website": "Create a website",
+        "stats": {
+            "total_orders": "Total Orders",
+            "support_tickets": "Support Tickets"
+        },
+        "sections": {
+            "your_website": "Your Website",
+            "recent_orders": "Recent Orders"
+        },
+        "table": {
+            "id": "ID",
+            "site": "Site",
+            "browse": "Browse",
+            "package_name": "Package Name",
+            "amount": "Amount",
+            "domain": "Domain",
+            "start_date": "Start Date",
+            "expire_date": "Expire Date",
+            "order_status": "Order Status",
+            "payment_history": "Payment History",
+            "no_websites": "No websites found",
+            "no_payment_history": "No Payment History Found",
+            "pending": "pending",
+            "status_placeholder": "website not yet created"
+        }
+    },
+    "Features": {
+        "header": {
+            "prefix": "why",
+            "highlight": "choose",
+            "suffix": "us"
+        },
+        "items": {
+            "recognize": {
+                "title": "Globally Recognize",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam."
+            },
+            "customize": {
+                "title": "Easily customize",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam."
+            },
+            "impact": {
+                "title": "Build for Impact",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam."
+            },
+            "support": {
+                "title": "Worldwide support",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam."
+            },
+            "design": {
+                "title": "Awesome Design",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam."
+            },
+            "expert": {
+                "title": "Handle by Expert",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem sit accusantium doloremqueau dantium, totam rem aperiam."
+            }
+        }
+    },
+    "Templates": {
+        "header": {
+            "prefix": "Explore our",
+            "highlight": "templates"
+        },
+        "button": "Explore",
+        "items": {
+            "agency": {
+                "title": "Agency",
+                "description": "Agency description"
+            },
+            "article": {
+                "title": "Article",
+                "description": "Article description"
+            },
+            "barber": {
+                "title": "Barber Shop",
+                "description": "Barber shop with appointment."
+            },
+            "construction": {
+                "title": "Construction",
+                "description": "Construction description"
+            },
+            "consultancy": {
+                "title": "Consultancy",
+                "description": "Consultancy description"
+            },
+            "course": {
+                "title": "Course",
+                "description": "This is course theme"
+            },
+            "categories": {
+                "Business": "Business",
+                "Blog": "Blog",
+                "Service": "Service",
+                "Education": "Education"
+            }
+        }
+    },
+    "TemplateCard": {
+        "coming_soon": "Coming Soon....",
+        "not_available": "Not Available",
+        "live_preview": "Live Preview"
+    },
+    "Pricing": {
+        "header": {
+            "prefix": "Our",
+            "highlight": "Pricing",
+            "suffix": "Plan"
+        },
+        "period": "/Monthly",
+        "currency": "$",
+        "view_all": "View All Features",
+        "plans": {
+            "premium": {
+                "name": "Premium Monthly",
+                "description": "You can easily create your website by Pica. We will provide all type of digital service for you.",
+                "button": "Free Package"
+            },
+            "basic": {
+                "name": "Basic Monthly",
+                "description": "You can easily create your website by Pica. We will provide all type of digital service for you.",
+                "button": "Buy Now"
+            },
+            "standard": {
+                "name": "Standard Monthly",
+                "description": "You can easily create your website by Pica. We will provide all type of digital service for you.",
+                "button": "Buy Now"
+            }
+        },
+        "features": {
+            "page": "Page",
+            "blog": "Blog",
+            "donation": "Donation",
+            "job": "Job",
+            "event": "Event",
+            "article": "Article",
+            "dashboard": "Dashboard",
+            "admin": "Admin",
+            "appointment": "Appointment",
+            "product": "Product",
+            "portfolio": "Portfolio"
+        }
+    },
+    "DemoVideo": {
+        "header": {
+            "prefix": "How to",
+            "highlight": "get started",
+            "suffix": "demo video"
+        }
+    },
+    "Faq": {
+        "header": {
+            "prefix": "Frequently asked",
+            "highlight": "Question"
+        },
+        "questions": {
+            "q1": "How can I use this website templates?",
+            "a1": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstan occur in which toil and pain can procure him some great pleasure.",
+            "q2": "What are the entry requirement?",
+            "a2": "We provide various entry levels depending on your subscription plan. Basic requirements include a valid email address and payment method for premium features.",
+            "q3": "How can I give the payment for uses?",
+            "a3": "We accept all major credit cards, PayPal, and bank transfers for annual subscriptions. You can manage your payment methods in the settings dashboard.",
+            "q4": "How do I purchase membership?",
+            "a4": "Simply navigate to the Pricing page, select your preferred plan, and follow the checkout process. Your membership will be active immediately after payment."
+        }
+    },
+    "Newsletter": {
+        "title": "Sign up to our newsletter",
+        "description": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because.",
+        "placeholder": "enter your email address",
+        "button": "Sign up free"
+    },
+    "Header": {
+        "nav": {
+            "home": "Home",
+            "templates": "Templates",
+            "blogs": "Blogs",
+            "pricing": "Pricing Plans",
+            "pages": "Pages",
+            "terms": "Terms & Conditions",
+            "privacy": "Privacy Policy",
+            "about": "About Us",
+            "contact": "Contact"
+        },
+        "user": {
+            "dashboard": "Dashboard",
+            "wallet": "My Wallet",
+            "settings": "Settings",
+            "logout": "Logout",
+            "login": "Login"
+        }
+    },
+    "Footer": {
+        "description": "Build your dream website with our powerful multi-tenant SaaS platform. Launch faster, scale easier.",
+        "headers": {
+            "community": "Community",
+            "templates": "Our Templates",
+            "contact": "Contact Info"
+        },
+        "links": {
+            "about": "About",
+            "templates": "Templates",
+            "press": "Press",
+            "faq": "FAQ",
+            "privacy": "Privacy Policy",
+            "terms": "Terms & Conditions",
+            "donation": "Donation",
+            "job": "Job Portal",
+            "events": "Events",
+            "support": "Support Ticket",
+            "ecommerce": "Ecommerce",
+            "knowledge": "Knowledge Base"
+        },
+        "bottom": {
+            "rights": "© 2025 MultiSaas. All Rights Reserved.",
+            "privacy": "Privacy",
+            "terms": "Terms",
+            "cookies": "Cookies"
+        }
+    },
+    "Sidebar": {
+        "nav": {
+            "dashboard": "Dashboard",
+            "wallet": "My Wallet",
+            "wallet_settings": "Settings",
+            "payments": "Payment Logs",
+            "tickets": "Support Tickets",
+            "security": "2FA Settings",
+            "profile": "Edit Profile",
+            "password": "Change Password"
+        },
+        "logout": "Logout"
+    },
+    "Dashboard": {
+        "Payments": {
+            "title": "Payment Logs",
+            "meta_title": "Payment Logs | Wajha",
+            "meta_description": "View your payment history and transaction logs.",
+            "deposit_button": "Deposit To Your Wallet",
+            "table": {
+                "order_info": "Package Order Info",
+                "status": "Payment Status",
+                "action": "Action"
+            },
+            "card": {
+                "domain": "Domain",
+                "order_id": "Order ID",
+                "transaction_id": "Transaction ID",
+                "package_price": "Package Price",
+                "paid_amount": "Paid Amount",
+                "gateway": "Payment Gateway",
+                "status": "Order Status",
+                "start_date": "Start Date",
+                "end_date": "End Date",
+                "website_not_created": "website not yet created",
+                "view_details": "View All Payment Details",
+                "pay_now": "Pay Now",
+                "back_to_payments": "Back to Payments",
+                "details_title": "Payment Details",
+                "details_not_found": "Payment Details Not Found",
+                "package_name": "Package Name",
+                "date_info": "Date Information"
+            }
+        },
+        "Tickets": {
+            "title": "Support Tickets",
+            "meta_title": "Support Tickets | Wajha",
+            "meta_description": "Create and manage your support tickets.",
+            "new_ticket": "New Ticket",
+            "dialog": {
+                "title": "Create New Support Ticket",
+                "description": "Fill in the details below to submit a new support ticket.",
+                "labels": {
+                    "title": "Title",
+                    "subject": "Subject",
+                    "priority": "Priority",
+                    "departments": "Departments",
+                    "description": "Description"
+                },
+                "placeholders": {
+                    "title": "Title",
+                    "subject": "Subject",
+                    "select_priority": "Select priority",
+                    "select_department": "Select department",
+                    "description": "Description"
+                },
+                "options": {
+                    "low": "Low",
+                    "medium": "Medium",
+                    "high": "High",
+                    "urgent": "Urgent",
+                    "login_issue": "Login Issue",
+                    "payment_issue": "Payment Issue",
+                    "technical_support": "Technical Support",
+                    "general_inquiry": "General Inquiry"
+                },
+                "submit": "Submit Ticket"
+            },
+            "table": {
+                "id": "ID",
+                "title": "Title",
+                "priority": "Priority",
+                "status": "Status",
+                "action": "Action",
+                "created_at": "created at"
+            }
+        },
+        "Security": {
+            "title": "Security Settings",
+            "meta_title": "Security Settings | Wajha",
+            "meta_description": "Manage your security settings and 2FA.",
+            "description": "Manage your account security and 2FA settings.",
+            "heading": "Two Factor Authentication Settings",
+            "info": "Two factor authentication (2FA) strengthens access security by requiring two methods (also referred to as factors) to verify your identity.",
+            "step1": "1. Scan this QR code with your Google Authenticator App.",
+            "step2": "2. Enter the pin from Google Authenticator app:",
+            "auth_code_label": "Authenticator Code",
+            "auth_code_placeholder": "input code:",
+            "enable_button": "Enable 2FA"
+        },
+        "Profile": {
+            "title": "Edit Profile",
+            "meta_title": "Edit Profile | Wajha",
+            "meta_description": "Update your profile information.",
+            "labels": {
+                "name": "Name",
+                "phone": "Phone",
+                "country": "Country",
+                "state": "State",
+                "email": "Email",
+                "company": "Company",
+                "address": "Address",
+                "city": "City"
+            },
+            "placeholders": {
+                "select_country": "Select a Country"
+            },
+            "countries": {
+                "egypt": "Egypt",
+                "usa": "USA",
+                "algeria": "Algeria",
+                "south_africa": "South Africa",
+                "bahrain": "Bahrain"
+            },
+            "save_button": "Save Changes"
+        },
+        "WalletSettings": {
+            "title": "Wallet Settings",
+            "meta_title": "Wallet Settings | Wajha",
+            "meta_description": "Configure your wallet settings and alerts.",
+            "labels": {
+                "package_renewal": "Enable/Disable Package Renewal",
+                "balance_alert": "Get Wallet Balance Alert",
+                "min_amount": "Alert For Minimum Amount ($)"
+            },
+            "switch": {
+                "hide": "Hide",
+                "show": "Show"
+            },
+            "placeholders": {
+                "min_amount": "Example 100"
+            },
+            "submit": "Submit"
+        },
+        "Password": {
+            "title": "Change Password",
+            "meta_title": "Change Password | Wajha",
+            "meta_description": "Change your account password.",
+            "labels": {
+                "old_password": "Old Password",
+                "new_password": "New Password",
+                "confirm_password": "Confirm Password"
+            },
+            "placeholders": {
+                "old_password": "Old Password",
+                "new_password": "New Password",
+                "confirm_password": "Confirm Password"
+            },
+            "save_button": "Save Changes"
+        },
+        "CreateWebsite": {
+            "title": "Create Quick Website",
+            "labels": {
+                "package": "Select Package",
+                "domain": "Enter your Domain",
+                "theme": "Select Theme",
+                "payment_gateway": "Select Payment Gateway"
+            },
+            "placeholders": {
+                "package": "Select Package",
+                "domain": "Your domain",
+                "theme": "Select Theme",
+                "payment_gateway": "Select Payment Gateway"
+            },
+            "options": {
+                "packages": {
+                    "basic": "Basic",
+                    "standard": "Standard",
+                    "premium": "Premium"
+                },
+                "themes": {
+                    "modern": "Modern",
+                    "classic": "Classic",
+                    "minimal": "Minimal"
+                },
+                "gateways": {
+                    "stripe": "Stripe",
+                    "paypal": "PayPal",
+                    "cod": "Cash on Delivery"
+                }
+            },
+            "buttons": {
+                "create": "Create",
+                "cancel": "Close"
+            }
+        }
+    },
+    "Wallet": {
+        "title": "My Wallet",
+        "meta_title": "My Wallet | Wajha",
+        "meta_description": "View your wallet balance and recent transactions.",
+        "description": "Manage your wallet balance and transactions.",
+        "balance_card": {
+            "label": "Wallet Balance"
+        },
+        "history": {
+            "title": "Wallet History",
+            "description": "You can deposit to your wallet from here.",
+            "deposit_button": "Deposit To Your Wallet"
+        },
+        "table": {
+            "id": "ID",
+            "gateway": "Payment Gateway",
+            "status": "Payment Status",
+            "amount": "Deposit Amount",
+            "date": "Deposit Date",
+            "image": "Payment Image",
+            "status_completed": "Completed",
+            "status_pending": "Pending",
+            "status_failed": "Failed"
+        },
+        "deposit_modal": {
+            "title": "You can deposit to your wallet from the available payment gateway.",
+            "amount_label": "Deposit Amount",
+            "amount_placeholder": "Enter Deposit Amount",
+            "close": "Close",
+            "submit": "Submit Deposit",
+            "gateways": {
+                "bank_transfer": "Bank Transfer",
+                "manual": "Manual"
+            }
+        }
+    },
+    "Auth": {
+        "Login": {
+            "title": "Welcome back",
+            "description": "Enter your email to sign in to your account",
+            "label_email_username": "Email or Username",
+            "placeholder_email": "m@example.com",
+            "label_password": "Password",
+            "forgot_password": "Forgot password?",
+            "placeholder_password": "••••••••",
+            "submit": "Sign In",
+            "no_account": "Don't have an account?",
+            "register_link": "Register"
+        },
+        "Register": {
+            "title": "Create an account",
+            "description": "Enter your information to get started with your landlord dashboard",
+            "label_name": "Name",
+            "placeholder_name": "John Doe",
+            "label_username": "Username",
+            "placeholder_username": "johndoe",
+            "label_email": "Email",
+            "placeholder_email": "m@example.com",
+            "label_phone": "Phone",
+            "placeholder_phone": "+1234567890",
+            "label_address": "Address",
+            "placeholder_address": "123 Main St",
+            "label_country": "Country",
+            "placeholder_country": "Select A Country",
+            "label_password": "Password",
+            "label_confirm_password": "Confirm Password",
+            "placeholder_password": "••••••••",
+            "submit": "Register",
+            "has_account": "Already have an account?",
+            "login_link": "Login"
+        },
+        "Metadata": {
+            "Login": {
+                "title": "Login | Wajha",
+                "description": "Login to your Wajha account."
+            },
+            "Register": {
+                "title": "Register | Wajha",
+                "description": "Create a new Wajha account."
+            }
+        }
+>>>>>>> Stashed changes
     }
   },
   "Privacy": {
