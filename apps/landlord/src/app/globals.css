@@ -197,3 +197,15 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Hide Scrollbar Globally */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
