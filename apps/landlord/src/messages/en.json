@@ -1177,5 +1177,120 @@
         "description": "Create a new Wajha account."
       }
     }
+  },
+  "Admin": {
+    "Dashboard": {
+      "title": "Dashboard",
+      "overview": "Overview",
+      "analytics": "Analytics",
+      "stats": {
+        "total_admins": "Total Admins",
+        "total_users": "Total Users",
+        "total_blogs": "Total Blogs",
+        "total_testimonials": "Total Testimonials",
+        "total_price_plans": "Total Price Plans",
+        "total_brands": "Total Brand"
+      },
+      "charts": {
+        "amount_per_month": "Amount Per Month In 2025",
+        "amount_per_day": "Amount Per Day In Last 30Days",
+        "amount_received": "Amount Received"
+      },
+      "recent_orders": {
+        "title": "Recent Order Logs",
+        "table": {
+          "id": "ID",
+          "order_id": "Order ID",
+          "user_name": "User Name",
+          "package_name": "Package Name",
+          "price": "Price",
+          "created_at": "Created At"
+        }
+      }
+    },
+    "RoleManage": {
+      "menu": {
+        "dashboard": "Dashboard",
+        "title": "Admin Role Manage",
+        "all_admins": "All Admin",
+        "add_admin": "Add New Admin",
+        "all_roles": "All Admin Role"
+      },
+      "AllAdmins": {
+        "title": "All Admins",
+        "subtitle": "All Admin Created By Super Admin",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "image": "Image",
+          "role": "Role",
+          "action": "Action",
+          "no_data": "No data available in table"
+        }
+      },
+      "AddAdmin": {
+        "title": "New Admin",
+        "form": {
+          "name": "Name",
+          "name_placeholder": "John Doe",
+          "username": "Username",
+          "username_placeholder": "johndoe",
+          "username_desc": "Remember this username, user will login using this username",
+          "mobile": "Mobile",
+          "mobile_placeholder": "+1234567890",
+          "email": "Email",
+          "email_placeholder": "john.doe@example.com",
+          "password": "Password",
+          "password_placeholder": "Enter password",
+          "password_confirm": "Password Confirm",
+          "password_confirm_placeholder": "Confirm password",
+          "role": "Role",
+          "select_role": "Select Role",
+          "image": "Image",
+          "change_image": "Change Image",
+          "image_format": "allowed image format: jpg,jpeg,png",
+          "submit": "Add New User"
+        }
+      },
+      "AllRoles": {
+        "title": "All Admin Roles",
+        "new_role": "New Role",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "action": "Action",
+          "super_admin_access": "Super Admin Has All Access"
+        }
+      },
+      "CreateRole": {
+        "title": "Add New Role",
+        "form": {
+          "role_name": "Role Name",
+          "role_name_placeholder": "e.g. Editor",
+          "permissions": "Permissions",
+          "toggle_yes": "Yes",
+          "toggle_no": "No",
+          "permission_items": {
+            "dashboard": "Dashboard Access",
+            "admins": "Manage Admins",
+            "roles": "Manage Roles",
+            "tenants": "Manage Tenants",
+            "reports": "View Reports",
+            "settings": "System Settings",
+            "users_view": "View Users",
+            "users_manage": "Manage Users",
+            "content_view": "View Content",
+            "content_manage": "Manage Content",
+            "billing_view": "View Billing",
+            "billing_manage": "Manage Billing",
+            "support_view": "View Support Tickets",
+            "support_manage": "Manage Support Tickets",
+            "audit_logs": "View Audit Logs"
+          },
+          "cancel": "Cancel",
+          "submit": "Save Role"
+        }
+      }
+    }
   }
 }

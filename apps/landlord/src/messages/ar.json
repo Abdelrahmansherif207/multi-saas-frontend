@@ -593,5 +593,120 @@
         "description": "إنشاء حساب جديد في واجهة."
       }
     }
+  },
+  "Admin": {
+    "Dashboard": {
+      "title": "لوحة التحكم",
+      "overview": "نظرة عامة",
+      "analytics": "التحليلات",
+      "stats": {
+        "total_admins": "إجمالي المشرفين",
+        "total_users": "إجمالي المستخدمين",
+        "total_blogs": "إجمالي المدونات",
+        "total_testimonials": "إجمالي الشهادات",
+        "total_price_plans": "إجمالي خطط الأسعار",
+        "total_brands": "إجمالي العلامات التجارية"
+      },
+      "charts": {
+        "amount_per_month": "المبلغ لكل شهر في 2025",
+        "amount_per_day": "المبلغ لكل يوم في آخر 30 يوم",
+        "amount_received": "المبلغ المستلم"
+      },
+      "recent_orders": {
+        "title": "سجلات الطلبات الأخيرة",
+        "table": {
+          "id": "المعرف",
+          "order_id": "رقم الطلب",
+          "user_name": "اسم المستخدم",
+          "package_name": "اسم الباقة",
+          "price": "السعر",
+          "created_at": "أنشئت في"
+        }
+      }
+    },
+    "RoleManage": {
+      "menu": {
+        "dashboard": "لوحة التحكم",
+        "title": "إدارة أدوار المشرفين",
+        "all_admins": "جميع المشرفين",
+        "add_admin": "إضافة مشرف جديد",
+        "all_roles": "جميع أدوار المشرفين"
+      },
+      "AllAdmins": {
+        "title": "جميع المشرفين",
+        "subtitle": "جميع المشرفين الذين تم إنشاؤهم بواسطة المشرف العام",
+        "table": {
+          "id": "المعرف",
+          "name": "الاسم",
+          "image": "الصورة",
+          "role": "الدور",
+          "action": "الإجراء",
+          "no_data": "لا توجد بيانات متاحة في الجدول"
+        }
+      },
+      "AddAdmin": {
+        "title": "مشرف جديد",
+        "form": {
+          "name": "الاسم",
+          "name_placeholder": "محمد أحمد",
+          "username": "اسم المستخدم",
+          "username_placeholder": "mohamed",
+          "username_desc": "تذكر اسم المستخدم هذا، سيستخدم المستخدم هذا الاسم لتسجيل الدخول",
+          "mobile": "رقم الجوال",
+          "mobile_placeholder": "+966500000000",
+          "email": "البريد الإلكتروني",
+          "email_placeholder": "mohamed@example.com",
+          "password": "كلمة المرور",
+          "password_placeholder": "أدخل كلمة المرور",
+          "password_confirm": "تأكيد كلمة المرور",
+          "password_confirm_placeholder": "تأكيد كلمة المرور",
+          "role": "الدور",
+          "select_role": "اختر الدور",
+          "image": "الصورة",
+          "change_image": "تغيير الصورة",
+          "image_format": "تنسيق الصورة المسموح به: jpg,jpeg,png",
+          "submit": "إضافة مستخدم جديد"
+        }
+      },
+      "AllRoles": {
+        "title": "جميع أدوار المشرفين",
+        "new_role": "دور جديد",
+        "table": {
+          "id": "المعرف",
+          "name": "الاسم",
+          "action": "الإجراء",
+          "super_admin_access": "المشرف العام لديه جميع الصلاحيات"
+        }
+      },
+      "CreateRole": {
+        "title": "إضافة دور جديد",
+        "form": {
+          "role_name": "اسم الدور",
+          "role_name_placeholder": "مثال: محرر",
+          "permissions": "الصلاحيات",
+          "toggle_yes": "نعم",
+          "toggle_no": "لا",
+          "permission_items": {
+            "dashboard": "الوصول للوحه التحكم",
+            "admins": "إدارة المشرفين",
+            "roles": "إدارة الأدوار",
+            "tenants": "إدارة المستأجرين",
+            "reports": "عرض التقارير",
+            "settings": "إعدادات النظام",
+            "users_view": "عرض المستخدمين",
+            "users_manage": "إدارة المستخدمين",
+            "content_view": "عرض المحتوى",
+            "content_manage": "إدارة المحتوى",
+            "billing_view": "عرض الفواتير",
+            "billing_manage": "إدارة الفواتير",
+            "support_view": "عرض تذاكر الدعم",
+            "support_manage": "إدارة تذاكر الدعم",
+            "audit_logs": "سجلات التدقيق"
+          },
+          "cancel": "إلغاء",
+          "submit": "حفظ الدور"
+        }
+      }
+    }
   }
 }
