@@ -344,7 +344,12 @@
         "end_date": "تاريخ الانتهاء",
         "website_not_created": "الموقع لم يتم إنشاؤه بعد",
         "view_details": "عرض جميع تفاصيل الدفع",
-        "pay_now": "ادفع الآن"
+        "pay_now": "ادفع الآن",
+        "back_to_payments": "العودة إلى سجلات الدفع",
+        "details_title": "تفاصيل الدفع",
+        "details_not_found": "لم يتم العثور على تفاصيل الدفع",
+        "package_name": "اسم الباقة",
+        "date_info": "معلومات التاريخ"
       }
     },
     "Tickets": {

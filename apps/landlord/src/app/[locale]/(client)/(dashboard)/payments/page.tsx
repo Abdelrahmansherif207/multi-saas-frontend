@@ -1,37 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { DepositModal } from "@/components/dashboard/DepositModal";
 import { getTranslations } from "next-intl/server";
-
-// Mock Data for Payment Logs
-const paymentLogs = [
-    {
-        id: "1",
-        domain: "test.localhost",
-        packageName: "Premium Monthly",
-        orderId: "#1",
-        transactionId: "TXN-12345678",
-        packagePrice: "$ 0",
-        paidAmount: "$ 0",
-        gateway: "Bank transfer",
-        status: "Pending",
-        startDate: "website not yet created",
-        endDate: "09-01-2026",
-    },
-    {
-        id: "2",
-        domain: "store.example.com",
-        packageName: "Business Yearly",
-        orderId: "#2",
-        transactionId: "TXN-87654321",
-        packagePrice: "$ 199",
-        paidAmount: "$ 199",
-        gateway: "Stripe",
-        status: "Completed",
-        startDate: "01-01-2024",
-        endDate: "01-01-2025",
-    },
-];
+import { paymentLogs } from "./data";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
@@ -99,9 +70,12 @@ export default async function PaymentLogsPage({ params }: { params: Promise<{ lo
                                 <p><span className="font-semibold">{log.startDate === "website not yet created" ? t('card.website_not_created') : t('card.end_date')}</span> {log.endDate}</p>
                             </div>
 
-                            <Button className="bg-brand-orange hover:bg-brand-orange/80 text-white h-auto py-2 px-4 text-xs font-medium uppercase tracking-wide">
+                            <Link
+                                href={`/payments/${log.slug}`}
+                                className="inline-flex items-center justify-center rounded-md text-xs font-medium uppercase tracking-wide ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-brand-orange hover:bg-brand-orange/80 text-white h-auto py-2 px-4 shadow-sm"
+                            >
                                 {t('card.view_details')}
-                            </Button>
+                            </Link>
                         </div>
 
                         {/* Column 2: Status & Pay Now */}
