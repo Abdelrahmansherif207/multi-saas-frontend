@@ -46,6 +46,9 @@ export function SidebarContent({ onClose, collapsed = false }: { onClose?: () =>
     // But I'll use hardcoded strings for others if keys don't exist, or ideally add them.
     // Given the scope, I'll define items inside and use 't' for the new ones.
 
+    const tUser = useTranslations("Admin.UserManage.menu");
+    const tWebsite = useTranslations("Admin.WebsiteManage.menu");
+
     const sidebarItems: SidebarItem[] = [
         {
             title: t('dashboard'),
@@ -59,6 +62,24 @@ export function SidebarContent({ onClose, collapsed = false }: { onClose?: () =>
                 { title: t('all_admins'), href: '/admin/admins' },
                 { title: t('add_admin'), href: '/admin/admins/create' },
                 { title: t('all_roles'), href: '/admin/admins/roles' },
+            ]
+        },
+        {
+            title: tUser('title'),
+            icon: Users,
+            subItems: [
+                { title: tUser('all_users'), href: '/admin/users' },
+                { title: tUser('add_user'), href: '/admin/users/new' },
+                { title: tUser('settings'), href: '/admin/users/settings' },
+            ]
+        },
+        {
+            title: tWebsite('title'),
+            icon: Globe,
+            subItems: [
+                { title: tWebsite('issues'), href: '/admin/websites/issues' },
+                { title: tWebsite('all_websites'), href: '/admin/websites' },
+                { title: tWebsite('instructions'), href: '/admin/websites/instructions' },
             ]
         },
     ];
@@ -113,11 +134,12 @@ export function SidebarContent({ onClose, collapsed = false }: { onClose?: () =>
                             <div key={item.title} className="space-y-3">
                                 <Link
                                     href={item.subItems[0]?.href || "#"}
-                                    onClick={() => {
+                                    onClick={(e) => {
                                         if (!collapsed) {
-                                            if (!expandedItems.includes(item.title)) {
-                                                toggleExpand(item.title);
+                                            if (expandedItems.includes(item.title)) {
+                                                e.preventDefault();
                                             }
+                                            toggleExpand(item.title);
                                         }
                                         if (onClose) onClose();
                                     }}
