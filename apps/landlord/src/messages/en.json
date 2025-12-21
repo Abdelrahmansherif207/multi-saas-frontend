@@ -1291,6 +1291,132 @@
           "submit": "Save Role"
         }
       }
+    },
+    "UserManage": {
+      "menu": {
+        "title": "User Manage",
+        "all_users": "All Users",
+        "add_user": "Add User",
+        "settings": "Account Settings"
+      },
+      "AllUsers": {
+        "title": "All Users",
+        "subtitle": "Overview",
+        "delete_warning": "Warning: If you delete any user and it is associated with any package, everything regarding this user will be deleted.",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "email": "Email",
+          "action": "Action",
+          "no_data": "No users found",
+          "actions": {
+            "change_password": "Change Password",
+            "assign_subscription": "Assign Subscription",
+            "send_mail": "Send Mail",
+            "login_as_user": "Login to User Account",
+            "view_details": "View Details",
+            "enable_email_verify": "Make Enable Email Verify"
+          }
+        }
+      },
+      "AddUser": {
+        "title": "Add New User",
+        "form": {
+          "name": "Name",
+          "name_placeholder": "name",
+          "username": "Username",
+          "username_placeholder": "username",
+          "email": "Email",
+          "email_placeholder": "email",
+          "mobile": "Mobile",
+          "mobile_placeholder": "mobile",
+          "country": "Country",
+          "select_country": "Select a country",
+          "city": "City",
+          "city_placeholder": "city",
+          "state": "State",
+          "state_placeholder": "state",
+          "company": "Company",
+          "company_placeholder": "company",
+          "address": "Address",
+          "address_placeholder": "address",
+          "password": "Password",
+          "password_placeholder": "Password",
+          "password_confirm": "Confirm Password",
+          "password_confirm_placeholder": "Confirm Password",
+          "submit": "Submit"
+        }
+      },
+      "Settings": {
+        "title": "Account Settings",
+        "form": {
+          "expire_alert_days": "Select How many days earlier after expiration account deleted mail alert will be send",
+          "delete_after_days": "Account will be removed after expiration this Day",
+          "days_placeholder": "Five Day",
+          "submit": "Submit"
+        }
+      }
+    },
+    "WebsiteManage": {
+      "menu": {
+        "title": "User Website",
+        "issues": "User Website Issues",
+        "all_websites": "All User Website List",
+        "instructions": "Website Instruction"
+      },
+      "Issues": {
+        "title": "All User Website Issues",
+        "subtitle": "User Website Issues",
+        "info_text": "If you want to generate database and domain automatically with user given subdomain then generate with auto, unless you are also can create database in your server with given privileges permissions to your user, then you can set that database on the set manual option.",
+        "table": {
+          "issue_id": "Issue ID",
+          "user_id": "User ID",
+          "user_name": "User Name",
+          "issue_type": "Issue Type",
+          "subdomain": "Subdomain",
+          "domain_status": "Domain Status",
+          "action": "Action",
+          "no_data": "No data available in table"
+        }
+      },
+      "AllWebsites": {
+        "title": "All User Website List",
+        "subtitle": "All User Websites",
+        "delete_warning": "If you delete any website and if it's associated with any package than everything regarding with this website will be deleted.",
+        "table": {
+          "user_name": "User Name",
+          "subdomain": "Subdomain",
+          "domain": "Domain",
+          "browse": "Browse",
+          "action": "Action",
+          "no_data": "No data available in table",
+          "actions": {
+            "visit_website": "Visit Website",
+            "login_as_admin": "Login as super admin"
+          }
+        }
+      },
+      "Instructions": {
+        "title": "All Website Instructions",
+        "subtitle": "Website Instructions",
+        "info_text": "It will be applied in tenant admin home page like this:",
+        "view_link": "View",
+        "language_info": "Set this instructions as English (USA) language, because by default tenant language is English (USA)",
+        "language": "Language",
+        "add_new": "Add New Instruction",
+        "bulk_action": "Bulk Action",
+        "delete": "Delete",
+        "apply": "Apply",
+        "table": {
+          "id": "ID",
+          "image": "Image",
+          "title": "Title",
+          "description": "Description",
+          "status": "Status",
+          "action": "Action",
+          "no_data": "No data available in table"
+        }
+      }
     }
   }
 }
