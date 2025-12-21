@@ -1417,6 +1417,142 @@
           "no_data": "No data available in table"
         }
       }
+    },
+    "WalletManage": {
+      "menu": {
+        "title": "Wallet Manage",
+        "all_wallet": "All Wallet",
+        "history": "Wallet History",
+        "settings": "Wallet Settings"
+      },
+      "AllWallet": {
+        "title": "Wallet Lists",
+        "subtitle": "All Wallets",
+        "info_text": "You can active inactive status from here. If status is inactive user will not be able to use his/her wallet balance.",
+        "table": {
+          "no": "#No",
+          "user_details": "User Details",
+          "wallet_balance": "Wallet Balance",
+          "status": "Status",
+          "no_data": "No Data Available"
+        }
+      },
+      "History": {
+        "title": "Wallet History Lists",
+        "subtitle": "All user's wallet history lists",
+        "table": {
+          "no": "#No",
+          "user_details": "User Details",
+          "payment_gateway": "Payment Gateway",
+          "payment_status": "Payment Status",
+          "amount": "Amount",
+          "manual_payment_image": "Manual Payment Image",
+          "no_data": "No Data Available"
+        }
+      },
+      "Settings": {
+        "title": "Wallet Settings",
+        "subtitle": "Enable/Disable Wallet for User",
+        "yes": "YES",
+        "no": "NO",
+        "helper_text": "Keep No to disable the wallet for all users",
+        "save_changes": "Save Changes"
+      }
+    },
+    "ThemeManage": {
+      "menu": {
+        "title": "Themes",
+        "all_themes": "All Themes",
+        "settings": "Themes Settings",
+        "add_theme": "Add new Theme"
+      },
+      "AllThemes": {
+        "title": "All Themes",
+        "refresh_images": "Click to get all new theme images",
+        "note_text": "Note: By default every theme button is showing (Inactive) so that means if you click on (Inactive) it will be hide or inactive from frontend. At the same way when it will show active that means this is inactive you can active by clicking it.",
+        "edit_hint": "(From now you can edit or change theme data by clicking on the image)",
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "Settings": {
+        "title": "Themes Settings",
+        "show_on_home": "Show upcoming themes on home page",
+        "show_on_admin": "Show upcoming themes on admin panel",
+        "yes": "YES",
+        "no": "NO",
+        "update": "Update"
+      },
+      "AddTheme": {
+        "title": "Add New Theme",
+        "warning_text": "Upload new theme from here. If you have a theme already but you have uploaded that theme file again, It will override existing theme files",
+        "upload_label": "Upload Theme File",
+        "zip_only": "only zip file accepted",
+        "submit": "Submit"
+      }
+    },
+    "PricePlanManage": {
+      "menu": {
+        "title": "Price Plan",
+        "all_plans": "All Price Plan",
+        "new_plan": "New Price Plan",
+        "settings": "Settings"
+      },
+      "AllPlans": {
+        "title": "All Price Plan",
+        "create_plan": "Create Price Plan",
+        "table": {
+          "id": "Id",
+          "title": "Title",
+          "price": "Price",
+          "type": "Type",
+          "status": "Status",
+          "created": "Created",
+          "action": "Action"
+        }
+      },
+      "NewPlan": {
+        "title": "Create Price Plan",
+        "warning_features": "There are many options are here. If you select any features and you are not able to find requested information against the feature then don't get curious and please double check again the scroll down and you will get it.",
+        "warning_trial": "If you want to set any package to trial, then you don't want to also set this as price plan, because there will be an option for user that a buyer will go for only trial on web support.",
+        "form": {
+          "title": "Title",
+          "title_placeholder": "Enter plan title",
+          "subtitle": "Subtitle",
+          "subtitle_placeholder": "Enter plan subtitle",
+          "select_features": "Select Features",
+          "type": "Type",
+          "type_placeholder": "Select type",
+          "has_trial": "Has Trial",
+          "has_price": "Has Price",
+          "price": "Price",
+          "limit": "Limit",
+          "limit_placeholder": "Select limit",
+          "faq_title": "FAQ Title",
+          "faq_title_placeholder": "Enter FAQ title",
+          "faq_description": "FAQ Description",
+          "faq_description_placeholder": "Enter FAQ description",
+          "save_changes": "Save Changes",
+          "yes": "YES",
+          "no": "NO"
+        }
+      },
+      "Settings": {
+        "title": "Price Plan Settings",
+        "expiration_alert": "Select How many days earlier expiration mail alert will be send",
+        "free_packages_limit": "How many times user can take free packages",
+        "free_packages_placeholder": "How many times user can take free packages",
+        "cancel_subscription": "Enable/Disable Cancel Subscription",
+        "free_package_auto_approve": "Enable/Disable free package auto approve",
+        "default_theme": "Default Theme Set",
+        "default_theme_hint": "If subscription plan have themes and user does not select any theme while ordering then this default theme will work.",
+        "default_logo": "Default logo for tenant",
+        "admin_username": "Default Admin Username Set",
+        "admin_username_hint": "If you don't set any username here, then default username will be set (super_admin)",
+        "auto_generate_password": "Enable/Disable Auto Generate Password",
+        "update_changes": "Update Changes",
+        "yes": "YES",
+        "no": "NO"
+      }
     }
   }
 }
