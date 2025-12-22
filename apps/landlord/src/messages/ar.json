@@ -969,6 +969,50 @@
         "yes": "نعم",
         "no": "لا"
       }
+    },
+    "NewsletterManage": {
+      "menu": {
+        "title": "إدارة النشرة البريدية",
+        "all_subscribers": "جميع المشتركين",
+        "send_mail": "إرسال بريد للجميع"
+      },
+      "AllSubscribers": {
+        "title": "جميع النشرات البريدية",
+        "subscriber_list": "جميع مشتركي النشرة البريدية",
+        "add_subscriber": "إضافة مشترك جديد",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "delete": "حذف",
+        "activate": "تفعيل",
+        "deactivate": "تعطيل",
+        "search": "بحث",
+        "email": "البريد الإلكتروني",
+        "email_placeholder": "البريد الإلكتروني",
+        "submit": "إرسال",
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "no_data": "لا توجد بيانات متاحة في الجدول",
+        "showing": "عرض",
+        "to": "إلى",
+        "of": "من",
+        "entries": "إدخالات",
+        "previous": "السابق",
+        "next": "التالي",
+        "table": {
+          "id": "المعرف",
+          "email": "البريد الإلكتروني",
+          "status": "الحالة",
+          "action": "إجراء"
+        }
+      },
+      "SendMail": {
+        "title": "إرسال بريد للجميع",
+        "send_to_all": "إرسال بريد لجميع مشتركي النشرة البريدية",
+        "subject": "الموضوع",
+        "subject_placeholder": "الموضوع",
+        "message": "الرسالة",
+        "send_mail": "إرسال البريد"
+      }
     }
   }
 }

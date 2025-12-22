@@ -1553,6 +1553,50 @@
         "yes": "YES",
         "no": "NO"
       }
+    },
+    "NewsletterManage": {
+      "menu": {
+        "title": "Newsletter Manage",
+        "all_subscribers": "All Subscribers",
+        "send_mail": "Send Mail to All"
+      },
+      "AllSubscribers": {
+        "title": "All Newsletter",
+        "subscriber_list": "All Newsletter Subscriber",
+        "add_subscriber": "Add New Subscriber",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "delete": "Delete",
+        "activate": "Activate",
+        "deactivate": "Deactivate",
+        "search": "Search",
+        "email": "Email",
+        "email_placeholder": "Email",
+        "submit": "Submit",
+        "active": "Active",
+        "inactive": "Inactive",
+        "no_data": "No data available in table",
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "entries": "entries",
+        "previous": "Previous",
+        "next": "Next",
+        "table": {
+          "id": "ID",
+          "email": "Email",
+          "status": "Status",
+          "action": "Action"
+        }
+      },
+      "SendMail": {
+        "title": "Send Mail To All Newsletter Subscriber",
+        "send_to_all": "Send Mail To All Newsletter Subscriber",
+        "subject": "Subject",
+        "subject_placeholder": "Subject",
+        "message": "Message",
+        "send_mail": "Send Mail"
+      }
     }
   }
 }
