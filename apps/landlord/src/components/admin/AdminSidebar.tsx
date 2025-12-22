@@ -21,7 +21,9 @@ import {
     Palette,
     Mail,
     ShoppingBag,
-    LifeBuoy
+    LifeBuoy,
+    Quote,
+    Slack
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -58,6 +60,8 @@ export function SidebarContent({
     const tBlogs = useTranslations("Admin.Blogs.menu");
     const tCoupons = useTranslations("Admin.Coupons.menu");
     const tNotifications = useTranslations("Admin.Notifications.menu");
+    const tTestimonials = useTranslations("Admin.Testimonials.menu");
+    const tBrands = useTranslations("Admin.Brands.menu");
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
@@ -170,6 +174,16 @@ export function SidebarContent({
                 { title: tSupportTicket('departments'), href: '/admin/support-tickets/departments' },
                 { title: tSupportTicket('page_settings'), href: '/admin/support-tickets/settings' },
             ]
+        },
+        {
+            title: tTestimonials("title"),
+            icon: Quote,
+            href: "/admin/testimonials",
+        },
+        {
+            title: tBrands("title"),
+            icon: Slack,
+            href: "/admin/brands",
         },
         {
             title: tNotifications("title"),

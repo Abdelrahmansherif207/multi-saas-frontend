@@ -2150,6 +2150,42 @@
         "success_message": "Success Message",
         "update": "Update Changes"
       }
+    },
+    "Testimonials": {
+      "menu": {
+        "title": "Testimonials"
+      },
+      "title": "All Testimonial",
+      "add_new": "Add New Testimonial",
+      "bulk_action": "Bulk Action",
+      "apply": "Apply",
+      "search": "Search:",
+      "table": {
+        "id": "ID",
+        "image": "Image",
+        "name": "Name",
+        "designation": "Designation",
+        "company": "Company",
+        "status": "Status",
+        "action": "Action"
+      }
+    },
+    "Brands": {
+      "menu": {
+        "title": "Brands"
+      },
+      "title": "All Brands",
+      "add_new": "Add New Brand",
+      "bulk_action": "Bulk Action",
+      "apply": "Apply",
+      "search": "Search:",
+      "table": {
+        "id": "ID",
+        "image": "Image",
+        "url": "URL",
+        "status": "Status",
+        "action": "Action"
+      }
     }
   }
 }

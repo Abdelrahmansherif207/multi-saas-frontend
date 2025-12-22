@@ -61,7 +61,7 @@ export default async function AllTicketsPage() {
                             </SelectContent>
                         </Select>
 
-                        <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-xl px-6 h-10 font-semibold transition-all duration-300 transform hover:translate-y-[-1px]">
+                        <Button className="bg-primary hover:bg-primary/90 rounded-xl px-6 h-10 font-semibold transition-all duration-300">
                             {t("apply")}
                         </Button>
                     </div>
@@ -78,7 +78,7 @@ export default async function AllTicketsPage() {
                             </div>
                         </div>
                         <Link href="/admin/support-tickets/create">
-                            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-xl h-10 font-semibold flex items-center gap-2">
+                            <Button className="bg-primary hover:bg-primary/90 rounded-xl h-10 font-semibold flex items-center gap-2">
                                 <Plus className="h-4 w-4" />
                                 {t("new_ticket")}
                             </Button>
