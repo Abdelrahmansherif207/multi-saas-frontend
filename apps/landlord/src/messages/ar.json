@@ -1423,6 +1423,149 @@
         "message": "الرسالة",
         "send_mail": "إرسال البريد"
       }
+    },
+    "PackageOrderManage": {
+      "menu": {
+        "title": "إدارة طلبات الباقات",
+        "all_order": "جميع الطلبات",
+        "success_order": "صفحة نجاح الطلب",
+        "cancel_order": "صفحة إلغاء الطلب",
+        "order_report": "تقرير الطلبات",
+        "payment_logs": "جميع سجلات الدفع",
+        "payment_report": "تقرير المدفوعات"
+      },
+      "OrderReport": {
+        "title": "تقرير الطلبات",
+        "start_date": "تاريخ البدء",
+        "end_date": "تاريخ الانتهاء",
+        "status": "الحالة",
+        "payment_status": "حالة الدفع",
+        "items": "العناصر",
+        "submit": "إرسال"
+      },
+      "PaymentLogs": {
+        "title": "جميع سجلات الدفع",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "table": {
+          "id": "المعرف",
+          "payer_name": "اسم الدافع",
+          "payer_email": "البريد الإلكتروني للدافع",
+          "package_name": "اسم الباقة",
+          "amount": "المبلغ",
+          "package_gateway": "بوابة الباقة",
+          "payment_status": "حالة الدفع",
+          "date": "التاريخ",
+          "action": "إجراء"
+        }
+      },
+      "PaymentReport": {
+        "title": "تقرير المدفوعات",
+        "start_date": "تاريخ البدء",
+        "end_date": "تاريخ الانتهاء",
+        "payment_status": "حالة الدفع",
+        "items": "العناصر",
+        "submit": "إرسال"
+      },
+      "SuccessSettings": {
+        "title": "إعدادات صفحة نجاح الطلب",
+        "subtitle": "إعدادات صفحة نجاح الطلب",
+        "main_title": "العنوان الرئيسي",
+        "description": "الوصف",
+        "update": "تحديث التغييرات"
+      },
+      "CancelSettings": {
+        "title": "إعدادات صفحة إلغاء الطلب",
+        "subtitle_page": "إعدادات صفحة إلغاء الطلب",
+        "main_title": "العنوان الرئيسي",
+        "subtitle": "العنوان الفرعي",
+        "subtitle_hint": "{pname} سيتم استبداله باسم الباقة",
+        "description": "الوصف",
+        "update": "تحديث التغييرات"
+      },
+      "AllOrders": {
+        "title": "جميع الطلبات",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "filter": "تصفية",
+        "all_order_filter": "جميع الطلبات",
+        "search": "بحث",
+        "table": {
+          "id": "المعرف",
+          "package_name": "اسم الباقة",
+          "paid_amount": "المبلغ المدفوع",
+          "subdomain": "النطاق الفرعي",
+          "payment_status": "حالة الدفع",
+          "order_status": "حالة الطلب",
+          "renew_taken": "تم التجديد",
+          "start_date": "تاريخ البدء",
+          "expire_date": "تاريخ الانتهاء",
+          "action": "إجراء"
+        }
+      }
+    },
+    "SupportTicketManage": {
+      "menu": {
+        "title": "تذاكر الدعم",
+        "all_tickets": "جميع التذاكر",
+        "add_ticket": "إضافة تذكرة جديدة",
+        "departments": "الأقسام",
+        "page_settings": "إعدادات الصفحة"
+      },
+      "AllTickets": {
+        "title": "جميع تذاكر الدعم",
+        "subtitle": "تذاكر الدعم",
+        "new_ticket": "تذكرة جديدة",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "search": "بحث",
+        "filterByPriority": "تصفية حسب الأولوية",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "department": "القسم",
+          "user": "المستخدم",
+          "priority": "الأولوية",
+          "status": "الحالة",
+          "action": "إجراء"
+        }
+      },
+      "CreateTicket": {
+        "title": "تذكرة جديدة",
+        "all_tickets": "جميع تذاكر الدعم",
+        "form": {
+          "title": "العنوان",
+          "subject": "الموضوع",
+          "priority": "الأولوية",
+          "departments": "الأقسام",
+          "user": "المستخدم",
+          "description": "الوصف",
+          "submit": "إرسال التذكرة"
+        }
+      },
+      "Departments": {
+        "title": "جميع فئات تذاكر الدعم",
+        "subtitle": "جميع فئات تذاكر الدعم",
+        "add_new": "إضافة قسم جديد",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "search": "بحث",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "status": "الحالة",
+          "action": "إجراء"
+        }
+      },
+      "PageSettings": {
+        "title": "إعدادات صفحة التذاكر",
+        "subtitle": "إعدادات صفحة التذاكر",
+        "login_notice": "ملاحظة تسجيل الدخول",
+        "form_title": "عنوان النموذج",
+        "button_text": "نص الزر",
+        "success_message": "رسالة النجاح",
+        "update": "تحديث التغييرات"
+      }
     }
   }
 }

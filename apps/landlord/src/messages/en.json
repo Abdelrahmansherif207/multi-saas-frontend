@@ -2007,6 +2007,149 @@
         "message": "Message",
         "send_mail": "Send Mail"
       }
+    },
+    "PackageOrderManage": {
+      "menu": {
+        "title": "Package Order Manage",
+        "all_order": "All Order",
+        "success_order": "Success Order Page",
+        "cancel_order": "Cancel Order Page",
+        "order_report": "Order Report",
+        "payment_logs": "All Payment Logs",
+        "payment_report": "Payment Report"
+      },
+      "OrderReport": {
+        "title": "Order Report",
+        "start_date": "Start Date",
+        "end_date": "End Date",
+        "status": "Status",
+        "payment_status": "Payment Status",
+        "items": "Items",
+        "submit": "Submit"
+      },
+      "PaymentLogs": {
+        "title": "All Payment Logs",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "table": {
+          "id": "ID",
+          "payer_name": "Payer Name",
+          "payer_email": "Payer Email",
+          "package_name": "Package Name",
+          "amount": "Amount",
+          "package_gateway": "Package Gateway",
+          "payment_status": "Payment Status",
+          "date": "Date",
+          "action": "Action"
+        }
+      },
+      "PaymentReport": {
+        "title": "Payment Report",
+        "start_date": "Start Date",
+        "end_date": "End Date",
+        "payment_status": "Payment Status",
+        "items": "Items",
+        "submit": "Submit"
+      },
+      "SuccessSettings": {
+        "title": "Order Success Page Settings",
+        "subtitle": "Order Success Page Settings",
+        "main_title": "Main Title",
+        "description": "Description",
+        "update": "Update Changes"
+      },
+      "CancelSettings": {
+        "title": "Order Cancel Page Settings",
+        "subtitle_page": "Order Cancel Page Settings",
+        "main_title": "Main Title",
+        "subtitle": "Subtitle",
+        "subtitle_hint": "{pname} will be replaced by package name",
+        "description": "Description",
+        "update": "Update Changes"
+      },
+      "AllOrders": {
+        "title": "All Orders",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "filter": "Filter",
+        "all_order_filter": "All Order",
+        "search": "Search",
+        "table": {
+          "id": "ID",
+          "package_name": "Package Name",
+          "paid_amount": "Paid Amount",
+          "subdomain": "Subdomain",
+          "payment_status": "Payment Status",
+          "order_status": "Order Status",
+          "renew_taken": "Renew Taken",
+          "start_date": "Start Date",
+          "expire_date": "Expire Date",
+          "action": "Action"
+        }
+      }
+    },
+    "SupportTicketManage": {
+      "menu": {
+        "title": "Support Tickets",
+        "all_tickets": "All Tickets",
+        "add_ticket": "Add New Ticket",
+        "departments": "Departments",
+        "page_settings": "Page Settings"
+      },
+      "AllTickets": {
+        "title": "All Support Tickets",
+        "subtitle": "All Tickets",
+        "new_ticket": "New Ticket",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "search": "Search",
+        "filterByPriority": "Filter By Priority",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "department": "Department",
+          "user": "User",
+          "priority": "Priority",
+          "status": "Status",
+          "action": "Action"
+        }
+      },
+      "CreateTicket": {
+        "title": "New Ticket",
+        "all_tickets": "All Support Tickets",
+        "form": {
+          "title": "Title",
+          "subject": "Subject",
+          "priority": "Priority",
+          "departments": "Departments",
+          "user": "User",
+          "description": "Description",
+          "submit": "Submit Ticket"
+        }
+      },
+      "Departments": {
+        "title": "All Support Ticket Category",
+        "subtitle": "All Support Ticket Category",
+        "add_new": "Add New Department",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "search": "Search",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "status": "Status",
+          "action": "Action"
+        }
+      },
+      "PageSettings": {
+        "title": "Ticket Page Settings",
+        "subtitle": "Ticket Page Settings",
+        "login_notice": "Login Notice",
+        "form_title": "Form Title",
+        "button_text": "Button Text",
+        "success_message": "Success Message",
+        "update": "Update Changes"
+      }
     }
   }
 }
