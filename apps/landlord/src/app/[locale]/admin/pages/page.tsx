@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { useTranslations } from "next-intl";
 export default function pages() {
-  const t = useTranslations("Admin.Dashboard.recent_orders");
+  const t = useTranslations("Admin.Pages");
   const pages = [
     {
       id: "1",
@@ -37,10 +37,10 @@ export default function pages() {
 
   return (
     <AdminPageWrapper
-      title="All pages"
+      title={t("title")}
       breadcrumbs={[
-        { label: "Pages", href: "/admin/pages" },
-        { label: "All Pages", href: "/admin/pages" },
+        { label: t("breadcrumbs.pages"), href: "/admin/pages" },
+        { label: t("breadcrumbs.all_pages"), href: "/admin/pages" },
       ]}
     >
       <div className="rounded-2xl border border-border/40 bg-card/60 backdrop-blur-xl shadow-sm overflow-hidden">
@@ -49,24 +49,19 @@ export default function pages() {
             <TableHeader>
               <TableRow className="bg-muted/50 hover:bg-muted/50 border-b-border/40">
                 <TableHead className="w-[100px] font-semibold text-foreground">
-                  {/* {t("table.id")} */}
-                  ID
+                  {t("table.id")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  {/* {t("table.order_id")} */}
-                  title
+                  {t("table.title")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  {/* {t("table.user_name")} */}
-                  Status
+                  {t("table.status")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  {/* {t("table.package_name")} */}
-                  createdAt
+                  {t("table.created_at")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  {/* {t("table.price")} */}
-                  actions
+                  {t("table.actions")}
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -81,7 +76,7 @@ export default function pages() {
                   </TableCell>
                   <TableCell>{page.title}</TableCell>
                   <TableCell>
-                    <span className="font-medium">{page.status}</span>
+                    <span className="font-medium">{t(`status.${page.status}`)}</span>
                   </TableCell>
                   <TableCell>
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-orange/10 text-brand-orange">
@@ -92,9 +87,9 @@ export default function pages() {
                     {page.actions.map((action, idx) => (
                       <button
                         key={idx}
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-orange/10 text-brand-orange cursor-pointer"
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-orange/10 text-brand-orange cursor-pointer mr-2"
                       >
-                        {action}
+                        {t(`actions.${action.toLowerCase()}`)}
                       </button>
                     ))}
                   </TableCell>
@@ -103,13 +98,19 @@ export default function pages() {
             </TableBody>
           </Table>
           <div className="flex items-center justify-between text-sm text-muted-foreground mt-10">
-            <div>Showing 0 to 0 of 0 entries</div>
+            <div>
+              {t("pagination.showing", {
+                from: 0,
+                to: 0,
+                total: 0,
+              })}
+            </div>
             <div className="flex gap-2">
               <Button variant="outline" size="sm" disabled>
-                Previous
+                {t("pagination.previous")}
               </Button>
               <Button variant="outline" size="sm" disabled>
-                Next
+                {t("pagination.next")}
               </Button>
             </div>
           </div>

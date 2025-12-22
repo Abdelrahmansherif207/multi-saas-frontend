@@ -20,6 +20,7 @@ import {
   ArrowRight,
   NotepadText,
   StickyNote,
+  Bell,
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -46,6 +47,10 @@ export function SidebarContent({
   const t = useTranslations("Admin.RoleManage.menu");
   const tUser = useTranslations("Admin.UserManage.menu");
   const tWebsite = useTranslations("Admin.WebsiteManage.menu");
+  const tPages = useTranslations("Admin.Pages.menu");
+  const tBlogs = useTranslations("Admin.Blogs.menu");
+  const tCoupons = useTranslations("Admin.Coupons.menu");
+  const tNotifications = useTranslations("Admin.Notifications.menu");
 
   const sidebarItems: SidebarItem[] = [
     {
@@ -81,27 +86,37 @@ export function SidebarContent({
       ],
     },
     {
-      title: "Pages",
+      title: tPages("title"),
       icon: NotepadText,
       subItems: [
-        { title: "Pages", href: "/admin/pages" },
-        { title: "New Pages", href: "/admin/pages/new-pages" },
+        { title: tPages("all_pages"), href: "/admin/pages" },
+        { title: tPages("new_pages"), href: "/admin/pages/new-pages" },
       ],
     },
     {
-      title: "Blogs",
+      title: tBlogs("title"),
       icon: StickyNote,
       subItems: [
-        { title: "blogs", href: "/admin/blogs" },
-        { title: "add new blog", href: "/admin/blogs/new-blog" },
-        { title: "blog category", href: "/admin/blogs/blog-category" },
-        { title: "blog settings", href: "/admin/blogs/settings" },
+        { title: tBlogs("all_blogs"), href: "/admin/blogs" },
+        { title: tBlogs("add_blog"), href: "/admin/blogs/new-blog" },
+        { title: tBlogs("category"), href: "/admin/blogs/blog-category" },
+        { title: tBlogs("settings"), href: "/admin/blogs/settings" },
       ],
     },
     {
-      title: "Coupons",
+      title: tCoupons("title"),
       icon: CreditCard,
       href: "/admin/coupons",
+    },
+    {
+      title: tNotifications("title"),
+      icon: Bell,
+      subItems: [
+        { title: tNotifications("all_notifications"), href: "/admin/notifications" },
+        { title: tNotifications("user_activity"), href: "/admin/notifications/user-activity-log" },
+        { title: tNotifications("cron_jobs"), href: "/admin/notifications/cron-jobs" },
+        { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
+      ],
     },
   ];
 

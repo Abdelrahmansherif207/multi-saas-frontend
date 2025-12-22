@@ -1208,6 +1208,416 @@
         }
       }
     },
+    "Pages": {
+      "menu": {
+        "title": "Pages",
+        "all_pages": "All Pages",
+        "new_pages": "New Pages"
+      },
+      "title": "All pages",
+      "breadcrumbs": {
+        "pages": "Pages",
+        "all_pages": "All Pages"
+      },
+      "table": {
+        "id": "ID",
+        "title": "title",
+        "status": "Status",
+        "created_at": "createdAt",
+        "actions": "Actions"
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "pagination": {
+        "showing": "Showing {from} to {to} of {total} entries",
+        "previous": "Previous",
+        "next": "Next"
+      }
+    },
+    "Blogs": {
+      "menu": {
+        "title": "Blogs",
+        "all_blogs": "All Blogs",
+        "add_blog": "Add New Blog",
+        "category": "Blog Category",
+        "settings": "Blog Settings"
+      },
+      "title": "Blogs",
+      "breadcrumbs": {
+        "admin": "Admin",
+        "blogs": "Blogs"
+      },
+      "table": {
+        "id": "ID",
+        "title": "Title",
+        "author": "Author",
+        "category": "Category",
+        "status": "Status",
+        "views": "Views",
+        "created_at": "Created At",
+        "actions": "Actions"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "actions": {
+        "edit": "Edit",
+        "delete": "Delete",
+        "publish": "Publish"
+      },
+      "categories": {
+        "programming": "Programming",
+        "design": "Design",
+        "marketing": "Marketing"
+      },
+      "pagination": {
+        "showing": "Showing {from} to {to} of {total} entries",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "NewBlog": {
+        "title": "New Blog Post",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "blogs": "Blogs",
+          "new_blog": "New Blog Post"
+        },
+        "form": {
+          "category": "Category",
+          "select_category": "Select category",
+          "categories": {
+            "programming": "Programming",
+            "design": "Design",
+            "marketing": "Marketing"
+          },
+          "tags": "Tags",
+          "tags_placeholder": "Enter tags separated by commas",
+          "visibility": "Visibility",
+          "select_visibility": "Select visibility",
+          "visibilities": {
+            "public": "Public",
+            "private": "Private",
+            "hidden": "Hidden"
+          },
+          "status": "Status",
+          "select_status": "Select status",
+          "statuses": {
+            "draft": "Draft",
+            "published": "Published"
+          },
+          "featured_image": "Featured Image",
+          "recommended_size": "Recommended: 1920 x 1280 px",
+          "upload_image": "Upload Image",
+          "submit": "Submit New Post",
+          "blog_title": "Title",
+          "blog_title_placeholder": "Enter blog title",
+          "content": "Blog Content",
+          "content_placeholder": "Write your blog content here...",
+          "excerpt": "Excerpt",
+          "excerpt_placeholder": "Brief summary of the post",
+          "max_chars": "max. 191 characters"
+        },
+        "seo": {
+          "title": "SEO Information",
+          "tabs": {
+            "general": "General",
+            "facebook": "Facebook",
+            "twitter": "Twitter"
+          },
+          "general": {
+            "title": "SEO Title",
+            "title_placeholder": "Enter SEO title",
+            "description": "SEO Description",
+            "description_placeholder": "Enter SEO description"
+          },
+          "facebook": {
+            "header": "Facebook Meta Information",
+            "title": "Facebook Title",
+            "title_placeholder": "Enter Facebook title",
+            "description": "Facebook Description",
+            "description_placeholder": "Enter Facebook description"
+          },
+          "twitter": {
+            "header": "Twitter Meta Information",
+            "title": "Twitter Title",
+            "title_placeholder": "Enter Twitter title",
+            "description": "Twitter Description",
+            "description_placeholder": "Enter Twitter description"
+          }
+        },
+        "validation": {
+          "title_min": "Title must be at least 2 characters",
+          "content_min": "Content must be at least 10 characters",
+          "excerpt_max": "Excerpt must be at most 191 characters",
+          "category_required": "Please select a category",
+          "visibility_required": "Please select visibility",
+          "status_required": "Please select status"
+        }
+      },
+      "Categories": {
+        "title": "All Blog Categories",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "blogs": "Blogs",
+          "categories": "Categories"
+        },
+        "add_new": "Add New Category",
+        "search_placeholder": "Search...",
+        "bulk_actions": "Bulk Actions",
+        "actions": {
+          "publish": "Publish",
+          "draft": "Move to Draft",
+          "delete": "Delete"
+        },
+        "apply": "Apply",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "status": {
+          "published": "Published",
+          "draft": "Draft"
+        },
+        "pagination": {
+          "showing": "Showing {from} to {to} of {total} entries",
+          "previous": "Previous",
+          "next": "Next"
+        }
+      },
+      "Settings": {
+        "title": "Blog Settings",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "blogs": "Blogs",
+          "settings": "Settings"
+        },
+        "form": {
+          "category_show": "Category Page Item Show",
+          "tag_show": "Tag Page Item Show",
+          "search_show": "Search Page Item Show",
+          "save": "Save Changes"
+        },
+        "validation": {
+          "required": "Required"
+        }
+      }
+    },
+    "Notifications": {
+      "menu": {
+        "title": "Notifications",
+        "all_notifications": "All Notifications",
+        "user_activity": "User Activity Log",
+        "cron_jobs": "Cron Jobs",
+        "contact_messages": "Contact Messages"
+      },
+      "All": {
+        "title": "All Notifications",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "notifications": "Notifications"
+        },
+        "table_title": "All Notifications",
+        "filter": {
+          "all": "All",
+          "read": "Read",
+          "unread": "Unread"
+        },
+        "types": {
+          "trial": "Trial",
+          "new_subscription": "New Subscription",
+          "user_registration": "User Registration",
+          "package_renew": "Package Renew"
+        },
+        "statuses": {
+          "read": "Read",
+          "unread": "Unread"
+        },
+        "pagination": {
+          "show": "Show",
+          "entries": "entries",
+          "showing": "Showing {from} to {to} of {total} entries",
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "search_label": "Search:",
+        "search_placeholder": "Search...",
+        "table": {
+          "actions": "Actions",
+          "date": "Date",
+          "type": "Type",
+          "notification_title": "Notification Title",
+          "status": "Status",
+          "count": "Count",
+          "select": "Select"
+        }
+      },
+      "UserActivity": {
+        "title": "User Activity Logs",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "notifications": "Notifications",
+          "user_activity": "User Activity Logs"
+        },
+        "clear_all": "Clear All Logs",
+        "pagination": {
+          "show": "Show",
+          "entries": "entries",
+          "showing": "Showing {from} to {to} of {total} entries",
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "search_label": "Search:",
+        "table": {
+          "actions": "Actions",
+          "log": "Log",
+          "content": "Content",
+          "sl": "SL#",
+          "ip": "IP",
+          "time": "Time"
+        }
+      },
+      "CronJobs": {
+        "title": "Cron Jobs",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "notifications": "Notifications",
+          "cron_jobs": "Cron Jobs"
+        },
+        "clear_all": "Clear All",
+        "pagination": {
+          "show": "Show",
+          "entries": "entries",
+          "showing": "Showing {from} to {to} of {total} entries",
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "search_label": "Search:",
+        "search_placeholder": "Search...",
+        "table": {
+          "sl": "SL#",
+          "title": "Title",
+          "type": "Type",
+          "send_email": "Send Email",
+          "date": "Date",
+          "log": "Log",
+          "no_data": "No data available in table",
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "ContactMessages": {
+        "title": "Contact Messages",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "notifications": "Notifications",
+          "contact_messages": "Contact Messages"
+        },
+        "table_title": "All Contact Messages",
+        "filter": {
+          "all": "All",
+          "read": "Read",
+          "unread": "Unread"
+        },
+        "pagination": {
+          "show": "Show",
+          "entries": "entries",
+          "showing": "Showing {from} to {to} of {total} entries",
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "search_label": "Search:",
+        "search_placeholder": "Search...",
+        "table": {
+          "actions": "Actions",
+          "status": "Status",
+          "date": "Date",
+          "data": "Data",
+          "form_name": "Form Name",
+          "count": "Count",
+          "select": "Select"
+        },
+        "fields": {
+          "name": "Name",
+          "email": "Email",
+          "subject": "Subject",
+          "message": "Message"
+        }
+      }
+    },
+    "Coupons": {
+      "menu": {
+        "title": "Coupons",
+        "all_coupons": "All Coupons"
+      },
+      "title": "Coupon Management",
+      "breadcrumbs": {
+        "admin": "Admin",
+        "coupons": "Coupons"
+      },
+      "add_new": "Add New Coupon",
+      "search_placeholder": "Search...",
+      "bulk_actions": "Bulk Actions",
+      "actions": {
+        "delete": "Delete",
+        "active": "Set Active",
+        "inactive": "Set Inactive"
+      },
+      "apply": "Apply",
+      "table_title": "Manage All Coupons",
+      "form": {
+        "title": "Coupon Title",
+        "title_placeholder": "Enter title",
+        "code": "Coupon Code",
+        "code_placeholder": "Enter code",
+        "discount": "Discount Amount",
+        "discount_placeholder": "Enter amount",
+        "type": "Coupon Type",
+        "type_placeholder": "Select type",
+        "types": {
+          "percentage": "Percentage",
+          "fixed": "Fixed Amount"
+        },
+        "max_usage": "Max Usage",
+        "max_usage_placeholder": "Enter max usage",
+        "expiry_date": "Expiry Date",
+        "status": "Status",
+        "status_placeholder": "Select status",
+        "statuses": {
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "cancel": "Cancel",
+        "save": "Save Coupon"
+      },
+      "table": {
+        "id": "ID",
+        "title": "Title",
+        "code": "Code",
+        "discount": "Discount",
+        "expiry_date": "Expiry Date",
+        "status": "Status",
+        "actions": "Actions",
+        "no_data": "No data available in table"
+      },
+      "pagination": {
+        "showing": "Showing {from} to {to} of {total} entries",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "validation": {
+        "required": "Required"
+      }
+    },
     "RoleManage": {
       "menu": {
         "dashboard": "Dashboard",

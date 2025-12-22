@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 interface Blog {
   id: string;
@@ -58,13 +59,14 @@ const dummyBlogs: Blog[] = [
   },
 ];
 
-export default function page() {
+export default async function page() {
+  const t = await getTranslations("Admin.Blogs");
   return (
     <AdminPageWrapper
-      title="Blogs"
+      title={t("title")}
       breadcrumbs={[
-        { label: "Admin", href: "/admin" },
-        { label: "Blogs", href: "/admin/blogs" },
+        { label: t("breadcrumbs.admin"), href: "/admin" },
+        { label: t("breadcrumbs.blogs"), href: "/admin/blogs" },
       ]}
     >
       <div className="rounded-2xl border border-border/40 bg-card/60 backdrop-blur-xl shadow-sm overflow-hidden">
@@ -73,28 +75,28 @@ export default function page() {
             <TableHeader>
               <TableRow className="bg-muted/50 hover:bg-muted/50 border-b-border/40">
                 <TableHead className="w-[100px] font-semibold text-foreground">
-                  ID
+                  {t("table.id")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  Title
+                  {t("table.title")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  Author
+                  {t("table.author")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  Category
+                  {t("table.category")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  Status
+                  {t("table.status")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  Views
+                  {t("table.views")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground">
-                  CreatedAt
+                  {t("table.created_at")}
                 </TableHead>
                 <TableHead className="font-semibold text-foreground text-right">
-                  Actions
+                  {t("table.actions")}
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -110,7 +112,7 @@ export default function page() {
                   <TableCell className="font-medium">{blog.title}</TableCell>
                   <TableCell>{blog.author}</TableCell>
                   <TableCell>
-                    <span className="capitalize">{blog.category}</span>
+                    <span className="capitalize">{t(`categories.${blog.category}`)}</span>
                   </TableCell>
                   <TableCell>
                     <span
@@ -121,7 +123,7 @@ export default function page() {
                           : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
                       )}
                     >
-                      {blog.status}
+                      {blog.status === "published" ? t("status.published") : t("status.draft")}
                     </span>
                   </TableCell>
                   <TableCell>{blog.views.toLocaleString()}</TableCell>
@@ -139,7 +141,7 @@ export default function page() {
                           size="sm"
                           className="h-8 px-2 text-xs"
                         >
-                          {action}
+                          {t(`actions.${action.toLowerCase()}`)}
                         </Button>
                       ))}
                     </div>
@@ -150,14 +152,14 @@ export default function page() {
           </Table>
           <div className="flex items-center justify-between text-sm text-muted-foreground p-4">
             <div>
-              Showing 1 to {dummyBlogs.length} of {dummyBlogs.length} entries
+              {t("pagination.showing", { from: 1, to: dummyBlogs.length, total: dummyBlogs.length })}
             </div>
             <div className="flex gap-2">
               <Button variant="outline" size="sm" disabled>
-                Previous
+                {t("pagination.previous")}
               </Button>
               <Button variant="outline" size="sm" disabled>
-                Next
+                {t("pagination.next")}
               </Button>
             </div>
           </div>

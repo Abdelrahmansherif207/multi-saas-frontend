@@ -16,14 +16,16 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
-    categoryPageItemShow: z.string().min(1, "Required"),
-    tagPageItemShow: z.string().min(1, "Required"),
-    searchPageItemShow: z.string().min(1, "Required"),
+    categoryPageItemShow: z.string().min(1, "validation.required"),
+    tagPageItemShow: z.string().min(1, "validation.required"),
+    searchPageItemShow: z.string().min(1, "validation.required"),
 });
 
 export default function BlogSettingsPage() {
+    const t = useTranslations("Admin.Blogs.Settings");
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -39,11 +41,11 @@ export default function BlogSettingsPage() {
 
     return (
         <AdminPageWrapper
-            title="Blog Settings"
+            title={t("title")}
             breadcrumbs={[
-                { label: "Admin", href: "/admin" },
-                { label: "Blogs", href: "/admin/blogs" },
-                { label: "Settings", href: "/admin/blogs/settings" },
+                { label: t("breadcrumbs.admin"), href: "/admin" },
+                { label: t("breadcrumbs.blogs"), href: "/admin/blogs" },
+                { label: t("breadcrumbs.settings"), href: "/admin/blogs/settings" },
             ]}
         >
             <div className="max-w-4xl mx-auto">
@@ -51,7 +53,7 @@ export default function BlogSettingsPage() {
                     <CardHeader className="border-b border-border/40 bg-muted/30">
                         <CardTitle className="flex items-center gap-2 text-xl font-bold">
                             <Settings className="w-5 h-5 text-brand-orange" />
-                            Blog Settings
+                            {t("title")}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="p-8">
@@ -65,7 +67,7 @@ export default function BlogSettingsPage() {
                                             <FormItem className="space-y-3">
                                                 <div className="flex justify-between items-center">
                                                     <FormLabel className="text-base font-semibold text-foreground/80">
-                                                        Category Page Item Show
+                                                        {t("form.category_show")}
                                                     </FormLabel>
                                                 </div>
                                                 <FormControl>
@@ -75,7 +77,9 @@ export default function BlogSettingsPage() {
                                                         className="h-12 bg-background/50 border-border/40 focus:border-brand-orange focus:ring-brand-orange/20 rounded-xl transition-all"
                                                     />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.categoryPageItemShow?.message && t(form.formState.errors.categoryPageItemShow.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -87,7 +91,7 @@ export default function BlogSettingsPage() {
                                             <FormItem className="space-y-3">
                                                 <div className="flex justify-between items-center">
                                                     <FormLabel className="text-base font-semibold text-foreground/80">
-                                                        Tag Page Item Show
+                                                        {t("form.tag_show")}
                                                     </FormLabel>
                                                 </div>
                                                 <FormControl>
@@ -97,7 +101,9 @@ export default function BlogSettingsPage() {
                                                         className="h-12 bg-background/50 border-border/40 focus:border-brand-orange focus:ring-brand-orange/20 rounded-xl transition-all"
                                                     />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.tagPageItemShow?.message && t(form.formState.errors.tagPageItemShow.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -109,7 +115,7 @@ export default function BlogSettingsPage() {
                                             <FormItem className="space-y-3">
                                                 <div className="flex justify-between items-center">
                                                     <FormLabel className="text-base font-semibold text-foreground/80">
-                                                        Search Page Item Show
+                                                        {t("form.search_show")}
                                                     </FormLabel>
                                                 </div>
                                                 <FormControl>
@@ -119,7 +125,9 @@ export default function BlogSettingsPage() {
                                                         className="h-12 bg-background/50 border-border/40 focus:border-brand-orange focus:ring-brand-orange/20 rounded-xl transition-all"
                                                     />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.searchPageItemShow?.message && t(form.formState.errors.searchPageItemShow.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -130,7 +138,7 @@ export default function BlogSettingsPage() {
                                         type="submit"
                                         className="bg-brand-orange hover:bg-brand-orange/90 text-white px-8 h-12 rounded-xl font-bold shadow-lg shadow-brand-orange/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                                     >
-                                        Save Changes
+                                        {t("form.save")}
                                     </Button>
                                 </div>
                             </form>

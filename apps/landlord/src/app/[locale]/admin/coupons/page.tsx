@@ -42,15 +42,16 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, Plus, Edit, Trash2, Ticket } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
-    title: z.string().min(1, "Title is required"),
-    code: z.string().min(1, "Code is required"),
-    discount: z.string().min(1, "Discount is required"),
-    type: z.string().min(1, "Type is required"),
-    maxUsage: z.string().min(1, "Max usage is required"),
-    expiryDate: z.string().min(1, "Expiry date is required"),
-    status: z.string().min(1, "Status is required"),
+    title: z.string().min(1, "validation.required"),
+    code: z.string().min(1, "validation.required"),
+    discount: z.string().min(1, "validation.required"),
+    type: z.string().min(1, "validation.required"),
+    maxUsage: z.string().min(1, "validation.required"),
+    expiryDate: z.string().min(1, "validation.required"),
+    status: z.string().min(1, "validation.required"),
 });
 
 interface Coupon {
@@ -82,6 +83,7 @@ const dummyCoupons: Coupon[] = [
 ];
 
 export default function CouponsPage() {
+    const t = useTranslations("Admin.Coupons");
     const [selectedCoupons, setSelectedCoupons] = useState<string[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -120,10 +122,10 @@ export default function CouponsPage() {
 
     return (
         <AdminPageWrapper
-            title="Coupon Management"
+            title={t("title")}
             breadcrumbs={[
-                { label: "Admin", href: "/admin" },
-                { label: "Coupons", href: "/admin/coupons" },
+                { label: t("breadcrumbs.admin"), href: "/admin" },
+                { label: t("breadcrumbs.coupons"), href: "/admin/coupons" },
             ]}
         >
             <div className="space-y-6">
@@ -132,14 +134,14 @@ export default function CouponsPage() {
                         <DialogTrigger asChild>
                             <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white gap-2">
                                 <Plus className="w-4 h-4" />
-                                Add New Coupon
+                                {t("add_new")}
                             </Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[500px] rounded-2xl">
                             <DialogHeader>
                                 <DialogTitle className="flex items-center gap-2 text-xl font-bold">
                                     <Ticket className="w-5 h-5 text-brand-orange" />
-                                    Add New Coupon
+                                    {t("add_new")}
                                 </DialogTitle>
                             </DialogHeader>
                             <Form {...form}>
@@ -150,11 +152,13 @@ export default function CouponsPage() {
                                             name="title"
                                             render={({ field }) => (
                                                 <FormItem className="col-span-2">
-                                                    <FormLabel>Coupon Title</FormLabel>
+                                                    <FormLabel>{t("form.title")}</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="Enter title" {...field} />
+                                                        <Input placeholder={t("form.title_placeholder")} {...field} />
                                                     </FormControl>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.title?.message && t(form.formState.errors.title.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
@@ -163,11 +167,13 @@ export default function CouponsPage() {
                                             name="code"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Coupon Code</FormLabel>
+                                                    <FormLabel>{t("form.code")}</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="Enter code" {...field} />
+                                                        <Input placeholder={t("form.code_placeholder")} {...field} />
                                                     </FormControl>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.code?.message && t(form.formState.errors.code.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
@@ -176,11 +182,13 @@ export default function CouponsPage() {
                                             name="discount"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Discount Amount</FormLabel>
+                                                    <FormLabel>{t("form.discount")}</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="Enter amount" {...field} />
+                                                        <Input placeholder={t("form.discount_placeholder")} {...field} />
                                                     </FormControl>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.discount?.message && t(form.formState.errors.discount.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
@@ -189,19 +197,21 @@ export default function CouponsPage() {
                                             name="type"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Coupon Type</FormLabel>
+                                                    <FormLabel>{t("form.type")}</FormLabel>
                                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                         <FormControl>
                                                             <SelectTrigger>
-                                                                <SelectValue placeholder="Select type" />
+                                                                <SelectValue placeholder={t("form.type_placeholder")} />
                                                             </SelectTrigger>
                                                         </FormControl>
                                                         <SelectContent>
-                                                            <SelectItem value="percentage">Percentage</SelectItem>
-                                                            <SelectItem value="fixed">Fixed Amount</SelectItem>
+                                                            <SelectItem value="percentage">{t("form.types.percentage")}</SelectItem>
+                                                            <SelectItem value="fixed">{t("form.types.fixed")}</SelectItem>
                                                         </SelectContent>
                                                     </Select>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.type?.message && t(form.formState.errors.type.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
@@ -210,11 +220,13 @@ export default function CouponsPage() {
                                             name="maxUsage"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Max Usage</FormLabel>
+                                                    <FormLabel>{t("form.max_usage")}</FormLabel>
                                                     <FormControl>
-                                                        <Input type="number" placeholder="Enter max usage" {...field} />
+                                                        <Input type="number" placeholder={t("form.max_usage_placeholder")} {...field} />
                                                     </FormControl>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.maxUsage?.message && t(form.formState.errors.maxUsage.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
@@ -223,11 +235,13 @@ export default function CouponsPage() {
                                             name="expiryDate"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Expiry Date</FormLabel>
+                                                    <FormLabel>{t("form.expiry_date")}</FormLabel>
                                                     <FormControl>
                                                         <Input type="date" {...field} />
                                                     </FormControl>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.expiryDate?.message && t(form.formState.errors.expiryDate.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
@@ -236,29 +250,31 @@ export default function CouponsPage() {
                                             name="status"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Status</FormLabel>
+                                                    <FormLabel>{t("form.status")}</FormLabel>
                                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                         <FormControl>
                                                             <SelectTrigger>
-                                                                <SelectValue placeholder="Select status" />
+                                                                <SelectValue placeholder={t("form.status_placeholder")} />
                                                             </SelectTrigger>
                                                         </FormControl>
                                                         <SelectContent>
-                                                            <SelectItem value="active">Active</SelectItem>
-                                                            <SelectItem value="inactive">Inactive</SelectItem>
+                                                            <SelectItem value="active">{t("form.statuses.active")}</SelectItem>
+                                                            <SelectItem value="inactive">{t("form.statuses.inactive")}</SelectItem>
                                                         </SelectContent>
                                                     </Select>
-                                                    <FormMessage />
+                                                    <FormMessage>
+                                                        {form.formState.errors.status?.message && t(form.formState.errors.status.message)}
+                                                    </FormMessage>
                                                 </FormItem>
                                             )}
                                         />
                                     </div>
                                     <div className="flex justify-end gap-3 pt-4">
                                         <Button type="button" variant="outline" onClick={() => setIsModalOpen(false)}>
-                                            Cancel
+                                            {t("form.cancel")}
                                         </Button>
                                         <Button type="submit" className="bg-brand-orange hover:bg-brand-orange/90 text-white">
-                                            Create Coupon
+                                            {t("form.save")}
                                         </Button>
                                     </div>
                                 </form>
@@ -269,25 +285,25 @@ export default function CouponsPage() {
                     <div className="flex items-center gap-4 w-full sm:w-auto">
                         <div className="relative flex-1 sm:w-64">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                            <Input placeholder="Search..." className="pl-9" />
+                            <Input placeholder={t("search_placeholder")} className="pl-9" />
                         </div>
                         <Select>
                             <SelectTrigger className="w-[150px]">
-                                <SelectValue placeholder="Bulk Actions" />
+                                <SelectValue placeholder={t("bulk_actions")} />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="delete">Delete</SelectItem>
-                                <SelectItem value="active">Set Active</SelectItem>
-                                <SelectItem value="inactive">Set Inactive</SelectItem>
+                                <SelectItem value="delete">{t("actions.delete")}</SelectItem>
+                                <SelectItem value="active">{t("actions.active")}</SelectItem>
+                                <SelectItem value="inactive">{t("actions.inactive")}</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Button variant="secondary">Apply</Button>
+                        <Button variant="secondary">{t("apply")}</Button>
                     </div>
                 </div>
 
                 <Card className="rounded-2xl border border-border/40 bg-card/60 backdrop-blur-xl shadow-sm overflow-hidden">
                     <CardHeader className="border-b border-border/40 bg-muted/30">
-                        <CardTitle className="text-lg font-bold">Manage All Coupons</CardTitle>
+                        <CardTitle className="text-lg font-bold">{t("table_title")}</CardTitle>
                     </CardHeader>
                     <div className="relative w-full overflow-auto">
                         <Table>
@@ -299,20 +315,20 @@ export default function CouponsPage() {
                                             onCheckedChange={toggleSelectAll}
                                         />
                                     </TableHead>
-                                    <TableHead className="w-[80px]">ID</TableHead>
-                                    <TableHead>Title</TableHead>
-                                    <TableHead>Code</TableHead>
-                                    <TableHead>Discount</TableHead>
-                                    <TableHead>Expiry Date</TableHead>
-                                    <TableHead>Status</TableHead>
-                                    <TableHead className="text-right">Actions</TableHead>
+                                    <TableHead className="w-[80px]">{t("table.id")}</TableHead>
+                                    <TableHead>{t("table.title")}</TableHead>
+                                    <TableHead>{t("table.code")}</TableHead>
+                                    <TableHead>{t("table.discount")}</TableHead>
+                                    <TableHead>{t("table.expiry_date")}</TableHead>
+                                    <TableHead>{t("table.status")}</TableHead>
+                                    <TableHead className="text-right">{t("table.actions")}</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
                                 {dummyCoupons.length === 0 ? (
                                     <TableRow>
                                         <TableCell colSpan={8} className="h-24 text-center text-muted-foreground">
-                                            No data available in table
+                                            {t("table.no_data")}
                                         </TableCell>
                                     </TableRow>
                                 ) : (
@@ -343,7 +359,7 @@ export default function CouponsPage() {
                                                             : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400 border-none"
                                                     )}
                                                 >
-                                                    {coupon.status}
+                                                    {t(`form.statuses.${coupon.status}`)}
                                                 </Badge>
                                             </TableCell>
                                             <TableCell className="text-right">
@@ -363,17 +379,21 @@ export default function CouponsPage() {
                         </Table>
                         <div className="flex items-center justify-between text-sm text-muted-foreground p-4 border-t border-border/40">
                             <div>
-                                Showing {dummyCoupons.length > 0 ? 1 : 0} to {dummyCoupons.length} of {dummyCoupons.length} entries
+                                {t("pagination.showing", {
+                                    from: dummyCoupons.length > 0 ? 1 : 0,
+                                    to: dummyCoupons.length,
+                                    total: dummyCoupons.length,
+                                })}
                             </div>
                             <div className="flex gap-2">
                                 <Button variant="outline" size="sm" disabled>
-                                    Previous
+                                    {t("pagination.previous")}
                                 </Button>
                                 <Button variant="outline" size="sm" className="bg-brand-orange text-white border-brand-orange hover:bg-brand-orange/90">
                                     1
                                 </Button>
                                 <Button variant="outline" size="sm" disabled>
-                                    Next
+                                    {t("pagination.next")}
                                 </Button>
                             </div>
                         </div>

@@ -28,15 +28,16 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Image as ImageIcon, Upload, Globe, Facebook, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
-    title: z.string().min(2, "Title must be at least 2 characters"),
-    content: z.string().min(10, "Content must be at least 10 characters"),
-    excerpt: z.string().max(191, "Excerpt must be at most 191 characters").optional(),
-    category: z.string().min(1, "Please select a category"),
+    title: z.string().min(2, "validation.title_min"),
+    content: z.string().min(10, "validation.content_min"),
+    excerpt: z.string().max(191, "validation.excerpt_max").optional(),
+    category: z.string().min(1, "validation.category_required"),
     tags: z.string().optional(),
-    visibility: z.string().min(1, "Please select visibility"),
-    status: z.string().min(1, "Please select status"),
+    visibility: z.string().min(1, "validation.visibility_required"),
+    status: z.string().min(1, "validation.status_required"),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
     fbTitle: z.string().optional(),
@@ -48,6 +49,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function NewBlogPage() {
+    const t = useTranslations("Admin.Blogs.NewBlog");
     const [activeTab, setActiveTab] = useState<"general" | "facebook" | "twitter">("general");
     const [previewImage, setPreviewImage] = useState<string | null>(null);
 
@@ -77,11 +79,11 @@ export default function NewBlogPage() {
 
     return (
         <AdminPageWrapper
-            title="New Blog Post"
+            title={t("title")}
             breadcrumbs={[
-                { label: "Admin", href: "/admin" },
-                { label: "Blogs", href: "/admin/blogs" },
-                { label: "New Blog Post", href: "/admin/blogs/new-blog" },
+                { label: t("breadcrumbs.admin"), href: "/admin" },
+                { label: t("breadcrumbs.blogs"), href: "/admin/blogs" },
+                { label: t("breadcrumbs.new_blog"), href: "/admin/blogs/new-blog" },
             ]}
         >
             <Form {...form}>
@@ -96,20 +98,22 @@ export default function NewBlogPage() {
                                         name="category"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Category</FormLabel>
+                                                <FormLabel>{t("form.category")}</FormLabel>
                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                     <FormControl>
                                                         <SelectTrigger>
-                                                            <SelectValue placeholder="Select category" />
+                                                            <SelectValue placeholder={t("form.select_category")} />
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="programming">Programming</SelectItem>
-                                                        <SelectItem value="design">Design</SelectItem>
-                                                        <SelectItem value="marketing">Marketing</SelectItem>
+                                                        <SelectItem value="programming">{t("form.categories.programming")}</SelectItem>
+                                                        <SelectItem value="design">{t("form.categories.design")}</SelectItem>
+                                                        <SelectItem value="marketing">{t("form.categories.marketing")}</SelectItem>
                                                     </SelectContent>
                                                 </Select>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.category?.message && t(form.formState.errors.category.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -119,9 +123,9 @@ export default function NewBlogPage() {
                                         name="tags"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Tags</FormLabel>
+                                                <FormLabel>{t("form.tags")}</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Enter tags separated by commas" {...field} />
+                                                    <Input placeholder={t("form.tags_placeholder")} {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -133,20 +137,22 @@ export default function NewBlogPage() {
                                         name="visibility"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Visibility</FormLabel>
+                                                <FormLabel>{t("form.visibility")}</FormLabel>
                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                     <FormControl>
                                                         <SelectTrigger>
-                                                            <SelectValue placeholder="Select visibility" />
+                                                            <SelectValue placeholder={t("form.select_visibility")} />
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="public">Public</SelectItem>
-                                                        <SelectItem value="private">Private</SelectItem>
-                                                        <SelectItem value="hidden">Hidden</SelectItem>
+                                                        <SelectItem value="public">{t("form.visibilities.public")}</SelectItem>
+                                                        <SelectItem value="private">{t("form.visibilities.private")}</SelectItem>
+                                                        <SelectItem value="hidden">{t("form.visibilities.hidden")}</SelectItem>
                                                     </SelectContent>
                                                 </Select>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.visibility?.message && t(form.formState.errors.visibility.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -156,25 +162,27 @@ export default function NewBlogPage() {
                                         name="status"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Status</FormLabel>
+                                                <FormLabel>{t("form.status")}</FormLabel>
                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                     <FormControl>
                                                         <SelectTrigger>
-                                                            <SelectValue placeholder="Select status" />
+                                                            <SelectValue placeholder={t("form.select_status")} />
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="draft">Draft</SelectItem>
-                                                        <SelectItem value="published">Published</SelectItem>
+                                                        <SelectItem value="draft">{t("form.statuses.draft")}</SelectItem>
+                                                        <SelectItem value="published">{t("form.statuses.published")}</SelectItem>
                                                     </SelectContent>
                                                 </Select>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.status?.message && t(form.formState.errors.status.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
 
                                     <div className="space-y-2">
-                                        <Label>Featured Image</Label>
+                                        <Label>{t("form.featured_image")}</Label>
                                         <div className="relative aspect-video rounded-lg border-2 border-dashed border-border/60 bg-muted/30 flex flex-col items-center justify-center overflow-hidden group">
                                             {previewImage ? (
                                                 <img src={previewImage} alt="Preview" className="w-full h-full object-cover" />
@@ -182,21 +190,21 @@ export default function NewBlogPage() {
                                                 <div className="text-center p-4">
                                                     <ImageIcon className="w-8 h-8 mx-auto mb-2 text-muted-foreground opacity-50" />
                                                     <p className="text-xs text-muted-foreground">
-                                                        Recommended: 1920 x 1280 px
+                                                        {t("form.recommended_size")}
                                                     </p>
                                                 </div>
                                             )}
                                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                 <Button type="button" variant="secondary" size="sm" className="gap-2">
                                                     <Upload className="w-4 h-4" />
-                                                    Upload Image
+                                                    {t("form.upload_image")}
                                                 </Button>
                                             </div>
                                         </div>
                                     </div>
 
                                     <Button type="submit" className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white">
-                                        Submit New Post
+                                        {t("form.submit")}
                                     </Button>
                                 </CardContent>
                             </Card>
@@ -206,7 +214,7 @@ export default function NewBlogPage() {
                         <div className="lg:col-span-8 space-y-6 order-1 lg:order-2">
                             <Card className="border-border/40 bg-card/60 backdrop-blur-xl shadow-sm">
                                 <CardHeader>
-                                    <CardTitle className="text-xl font-bold">New Blog Post</CardTitle>
+                                    <CardTitle className="text-xl font-bold">{t("title")}</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-6">
                                     <FormField
@@ -214,11 +222,13 @@ export default function NewBlogPage() {
                                         name="title"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Title</FormLabel>
+                                                <FormLabel>{t("form.blog_title")}</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Enter blog title" {...field} />
+                                                    <Input placeholder={t("form.blog_title_placeholder")} {...field} />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.title?.message && t(form.formState.errors.title.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -228,15 +238,17 @@ export default function NewBlogPage() {
                                         name="content"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Blog Content</FormLabel>
+                                                <FormLabel>{t("form.content")}</FormLabel>
                                                 <FormControl>
                                                     <Textarea
-                                                        placeholder="Write your blog content here..."
+                                                        placeholder={t("form.content_placeholder")}
                                                         className="min-h-[300px] resize-y"
                                                         {...field}
                                                     />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.content?.message && t(form.formState.errors.content.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -246,18 +258,20 @@ export default function NewBlogPage() {
                                         name="excerpt"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Excerpt</FormLabel>
+                                                <FormLabel>{t("form.excerpt")}</FormLabel>
                                                 <FormControl>
                                                     <Textarea
-                                                        placeholder="Brief summary of the post"
+                                                        placeholder={t("form.excerpt_placeholder")}
                                                         className="min-h-[80px]"
                                                         {...field}
                                                     />
                                                 </FormControl>
                                                 <FormDescription className="text-right text-xs">
-                                                    max. 191 characters
+                                                    {t("form.max_chars")}
                                                 </FormDescription>
-                                                <FormMessage />
+                                                <FormMessage>
+                                                    {form.formState.errors.excerpt?.message && t(form.formState.errors.excerpt.message)}
+                                                </FormMessage>
                                             </FormItem>
                                         )}
                                     />
@@ -269,7 +283,7 @@ export default function NewBlogPage() {
                                 <CardHeader className="pb-3">
                                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
                                         <Globe className="w-5 h-5 text-brand-orange" />
-                                        SEO Information
+                                        {t("seo.title")}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
@@ -282,7 +296,7 @@ export default function NewBlogPage() {
                                                 activeTab === "general" ? "text-brand-orange" : "text-muted-foreground hover:text-foreground"
                                             )}
                                         >
-                                            General
+                                            {t("seo.tabs.general")}
                                             {activeTab === "general" && (
                                                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-orange" />
                                             )}
@@ -295,7 +309,7 @@ export default function NewBlogPage() {
                                                 activeTab === "facebook" ? "text-brand-orange" : "text-muted-foreground hover:text-foreground"
                                             )}
                                         >
-                                            Facebook
+                                            {t("seo.tabs.facebook")}
                                             {activeTab === "facebook" && (
                                                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-orange" />
                                             )}
@@ -308,7 +322,7 @@ export default function NewBlogPage() {
                                                 activeTab === "twitter" ? "text-brand-orange" : "text-muted-foreground hover:text-foreground"
                                             )}
                                         >
-                                            Twitter
+                                            {t("seo.tabs.twitter")}
                                             {activeTab === "twitter" && (
                                                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-orange" />
                                             )}
@@ -323,9 +337,9 @@ export default function NewBlogPage() {
                                                     name="seoTitle"
                                                     render={({ field }) => (
                                                         <FormItem>
-                                                            <FormLabel>SEO Title</FormLabel>
+                                                            <FormLabel>{t("seo.general.title")}</FormLabel>
                                                             <FormControl>
-                                                                <Input placeholder="Enter SEO title" {...field} />
+                                                                <Input placeholder={t("seo.general.title_placeholder")} {...field} />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
@@ -336,9 +350,9 @@ export default function NewBlogPage() {
                                                     name="seoDescription"
                                                     render={({ field }) => (
                                                         <FormItem>
-                                                            <FormLabel>SEO Description</FormLabel>
+                                                            <FormLabel>{t("seo.general.description")}</FormLabel>
                                                             <FormControl>
-                                                                <Textarea placeholder="Enter SEO description" {...field} />
+                                                                <Textarea placeholder={t("seo.general.description_placeholder")} {...field} />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
@@ -351,16 +365,16 @@ export default function NewBlogPage() {
                                             <div className="space-y-4 animate-in fade-in-50 duration-300">
                                                 <div className="flex items-center gap-2 text-blue-600 mb-2">
                                                     <Facebook className="w-5 h-5" />
-                                                    <span className="font-semibold">Facebook Meta Information</span>
+                                                    <span className="font-semibold">{t("seo.facebook.header")}</span>
                                                 </div>
                                                 <FormField
                                                     control={form.control}
                                                     name="fbTitle"
                                                     render={({ field }) => (
                                                         <FormItem>
-                                                            <FormLabel>Facebook Title</FormLabel>
+                                                            <FormLabel>{t("seo.facebook.title")}</FormLabel>
                                                             <FormControl>
-                                                                <Input placeholder="Enter Facebook title" {...field} />
+                                                                <Input placeholder={t("seo.facebook.title_placeholder")} {...field} />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
@@ -371,9 +385,9 @@ export default function NewBlogPage() {
                                                     name="fbDescription"
                                                     render={({ field }) => (
                                                         <FormItem>
-                                                            <FormLabel>Facebook Description</FormLabel>
+                                                            <FormLabel>{t("seo.facebook.description")}</FormLabel>
                                                             <FormControl>
-                                                                <Textarea placeholder="Enter Facebook description" {...field} />
+                                                                <Textarea placeholder={t("seo.facebook.description_placeholder")} {...field} />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
@@ -386,16 +400,16 @@ export default function NewBlogPage() {
                                             <div className="space-y-4 animate-in fade-in-50 duration-300">
                                                 <div className="flex items-center gap-2 text-sky-500 mb-2">
                                                     <Twitter className="w-5 h-5" />
-                                                    <span className="font-semibold">Twitter Meta Information</span>
+                                                    <span className="font-semibold">{t("seo.twitter.header")}</span>
                                                 </div>
                                                 <FormField
                                                     control={form.control}
                                                     name="twitterTitle"
                                                     render={({ field }) => (
                                                         <FormItem>
-                                                            <FormLabel>Twitter Title</FormLabel>
+                                                            <FormLabel>{t("seo.twitter.title")}</FormLabel>
                                                             <FormControl>
-                                                                <Input placeholder="Enter Twitter title" {...field} />
+                                                                <Input placeholder={t("seo.twitter.title_placeholder")} {...field} />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
@@ -406,9 +420,9 @@ export default function NewBlogPage() {
                                                     name="twitterDescription"
                                                     render={({ field }) => (
                                                         <FormItem>
-                                                            <FormLabel>Twitter Description</FormLabel>
+                                                            <FormLabel>{t("seo.twitter.description")}</FormLabel>
                                                             <FormControl>
-                                                                <Textarea placeholder="Enter Twitter description" {...field} />
+                                                                <Textarea placeholder={t("seo.twitter.description_placeholder")} {...field} />
                                                             </FormControl>
                                                             <FormMessage />
                                                         </FormItem>
