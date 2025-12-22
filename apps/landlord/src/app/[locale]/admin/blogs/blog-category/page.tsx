@@ -23,6 +23,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Search, Plus, Edit, Trash2, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface Category {
     id: string;
@@ -38,6 +39,7 @@ const dummyCategories: Category[] = [
 ];
 
 export default function BlogCategoriesPage() {
+    const t = useTranslations("Admin.Blogs.Categories");
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
     const toggleSelectAll = () => {
@@ -56,36 +58,36 @@ export default function BlogCategoriesPage() {
 
     return (
         <AdminPageWrapper
-            title="All Blog Categories"
+            title={t("title")}
             breadcrumbs={[
-                { label: "Admin", href: "/admin" },
-                { label: "Blogs", href: "/admin/blogs" },
-                { label: "Categories", href: "/admin/blogs/blog-category" },
+                { label: t("breadcrumbs.admin"), href: "/admin" },
+                { label: t("breadcrumbs.blogs"), href: "/admin/blogs" },
+                { label: t("breadcrumbs.categories"), href: "/admin/blogs/blog-category" },
             ]}
         >
             <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white gap-2">
                         <Plus className="w-4 h-4" />
-                        Add New Category
+                        {t("add_new")}
                     </Button>
 
                     <div className="flex items-center gap-4 w-full sm:w-auto">
                         <div className="relative flex-1 sm:w-64">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                            <Input placeholder="Search..." className="pl-9" />
+                            <Input placeholder={t("search_placeholder")} className="pl-9" />
                         </div>
                         <Select>
                             <SelectTrigger className="w-[150px]">
-                                <SelectValue placeholder="Bulk Actions" />
+                                <SelectValue placeholder={t("bulk_actions")} />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="publish">Publish</SelectItem>
-                                <SelectItem value="draft">Move to Draft</SelectItem>
-                                <SelectItem value="delete">Delete</SelectItem>
+                                <SelectItem value="publish">{t("actions.publish")}</SelectItem>
+                                <SelectItem value="draft">{t("actions.draft")}</SelectItem>
+                                <SelectItem value="delete">{t("actions.delete")}</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Button variant="secondary">Apply</Button>
+                        <Button variant="secondary">{t("apply")}</Button>
                     </div>
                 </div>
 
@@ -101,16 +103,16 @@ export default function BlogCategoriesPage() {
                                         />
                                     </TableHead>
                                     <TableHead className="w-[100px] font-semibold text-foreground">
-                                        ID
+                                        {t("table.id")}
                                     </TableHead>
                                     <TableHead className="font-semibold text-foreground">
-                                        Title
+                                        {t("table.title")}
                                     </TableHead>
                                     <TableHead className="font-semibold text-foreground">
-                                        Status
+                                        {t("table.status")}
                                     </TableHead>
                                     <TableHead className="font-semibold text-foreground text-right">
-                                        Actions
+                                        {t("table.actions")}
                                     </TableHead>
                                 </TableRow>
                             </TableHeader>
@@ -140,7 +142,7 @@ export default function BlogCategoriesPage() {
                                                         : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400 border-none"
                                                 )}
                                             >
-                                                {category.status}
+                                                {t(`status.${category.status}`)}
                                             </Badge>
                                         </TableCell>
                                         <TableCell className="text-right">
@@ -159,17 +161,21 @@ export default function BlogCategoriesPage() {
                         </Table>
                         <div className="flex items-center justify-between text-sm text-muted-foreground p-4 border-t border-border/40">
                             <div>
-                                Showing 1 to {dummyCategories.length} of {dummyCategories.length} entries
+                                {t("pagination.showing", {
+                                    from: 1,
+                                    to: dummyCategories.length,
+                                    total: dummyCategories.length,
+                                })}
                             </div>
                             <div className="flex gap-2">
                                 <Button variant="outline" size="sm" disabled>
-                                    Previous
+                                    {t("pagination.previous")}
                                 </Button>
                                 <Button variant="outline" size="sm" className="bg-brand-orange text-white border-brand-orange hover:bg-brand-orange/90">
                                     1
                                 </Button>
                                 <Button variant="outline" size="sm" disabled>
-                                    Next
+                                    {t("pagination.next")}
                                 </Button>
                             </div>
                         </div>

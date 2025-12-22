@@ -624,6 +624,416 @@
         }
       }
     },
+    "Pages": {
+      "menu": {
+        "title": "الصفحات",
+        "all_pages": "جميع الصفحات",
+        "new_pages": "صفحات جديدة"
+      },
+      "title": "جميع الصفحات",
+      "breadcrumbs": {
+        "pages": "الصفحات",
+        "all_pages": "جميع الصفحات"
+      },
+      "table": {
+        "id": "المعرف",
+        "title": "العنوان",
+        "status": "الحالة",
+        "created_at": "تاريخ الإنشاء",
+        "actions": "الإجراءات"
+      },
+      "actions": {
+        "view": "عرض",
+        "edit": "تعديل",
+        "delete": "حذف"
+      },
+      "status": {
+        "published": "منشور",
+        "draft": "مسودة"
+      },
+      "pagination": {
+        "showing": "عرض {from} إلى {to} من {total} مدخلات",
+        "previous": "السابق",
+        "next": "التالي"
+      }
+    },
+    "Blogs": {
+      "menu": {
+        "title": "المدونات",
+        "all_blogs": "جميع المدونات",
+        "add_blog": "إضافة مدونة جديدة",
+        "category": "تصنيفات المدونة",
+        "settings": "إعدادات المدونة"
+      },
+      "title": "المدونات",
+      "breadcrumbs": {
+        "admin": "الإدارة",
+        "blogs": "المدونات"
+      },
+      "table": {
+        "id": "المعرف",
+        "title": "العنوان",
+        "author": "الكاتب",
+        "category": "التصنيف",
+        "status": "الحالة",
+        "views": "المشاهدات",
+        "created_at": "تاريخ الإنشاء",
+        "actions": "الإجراءات"
+      },
+      "status": {
+        "published": "منشور",
+        "draft": "مسودة"
+      },
+      "actions": {
+        "edit": "تعديل",
+        "delete": "حذف",
+        "publish": "نشر"
+      },
+      "categories": {
+        "programming": "برمجة",
+        "design": "تصميم",
+        "marketing": "تسويق"
+      },
+      "pagination": {
+        "showing": "عرض {from} إلى {to} من {total} مدخلات",
+        "previous": "السابق",
+        "next": "التالي"
+      },
+      "NewBlog": {
+        "title": "مقال مدونة جديد",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "blogs": "المدونات",
+          "new_blog": "مقال مدونة جديد"
+        },
+        "form": {
+          "category": "التصنيف",
+          "select_category": "اختر التصنيف",
+          "categories": {
+            "programming": "برمجة",
+            "design": "تصميم",
+            "marketing": "تسويق"
+          },
+          "tags": "الوسوم",
+          "tags_placeholder": "أدخل الوسوم مفصولة بفاصلة",
+          "visibility": "الظهور",
+          "select_visibility": "اختر الظهور",
+          "visibilities": {
+            "public": "عام",
+            "private": "خاص",
+            "hidden": "مخفي"
+          },
+          "status": "الحالة",
+          "select_status": "اختر الحالة",
+          "statuses": {
+            "draft": "مسودة",
+            "published": "منشور"
+          },
+          "featured_image": "الصورة البارزة",
+          "recommended_size": "الحجم الموصى به: 1920 × 1280 بكسل",
+          "upload_image": "رفع صورة",
+          "submit": "نشر المقال",
+          "blog_title": "العنوان",
+          "blog_title_placeholder": "أدخل عنوان المدونة",
+          "content": "محتوى المدونة",
+          "content_placeholder": "اكتب محتوى مدونتك هنا...",
+          "excerpt": "مقتطف",
+          "excerpt_placeholder": "ملخص قصير للمقال",
+          "max_chars": "بحد أقصى 191 حرفاً"
+        },
+        "seo": {
+          "title": "معلومات تحسين محركات البحث (SEO)",
+          "tabs": {
+            "general": "عام",
+            "facebook": "فيسبوك",
+            "twitter": "تويتر"
+          },
+          "general": {
+            "title": "عنوان SEO",
+            "title_placeholder": "أدخل عنوان SEO",
+            "description": "وصف SEO",
+            "description_placeholder": "أدخل وصف SEO"
+          },
+          "facebook": {
+            "header": "معلومات فيسبوك",
+            "title": "عنوان فيسبوك",
+            "title_placeholder": "أدخل عنوان فيسبوك",
+            "description": "وصف فيسبوك",
+            "description_placeholder": "أدخل وصف فيسبوك"
+          },
+          "twitter": {
+            "header": "معلومات تويتر",
+            "title": "عنوان تويتر",
+            "title_placeholder": "أدخل عنوان تويتر",
+            "description": "وصف تويتر",
+            "description_placeholder": "أدخل وصف تويتر"
+          }
+        },
+        "validation": {
+          "title_min": "يجب أن يتكون العنوان من حرفين على الأقل",
+          "content_min": "يجب أن يتكون المحتوى من 10 أحرف على الأقل",
+          "excerpt_max": "يجب ألا يتجاوز المقتطف 191 حرفاً",
+          "category_required": "يرجى اختيار التصنيف",
+          "visibility_required": "يرجى اختيار الظهور",
+          "status_required": "يرجى اختيار الحالة"
+        }
+      },
+      "Categories": {
+        "title": "جميع تصنيفات المدونة",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "blogs": "المدونات",
+          "categories": "التصنيفات"
+        },
+        "add_new": "إضافة تصنيف جديد",
+        "search_placeholder": "بحث...",
+        "bulk_actions": "إجراءات جماعية",
+        "actions": {
+          "publish": "نشر",
+          "draft": "نقل إلى المسودة",
+          "delete": "حذف"
+        },
+        "apply": "تطبيق",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "status": "الحالة",
+          "actions": "الإجراءات"
+        },
+        "status": {
+          "published": "منشور",
+          "draft": "مسودة"
+        },
+        "pagination": {
+          "showing": "عرض {from} إلى {to} من {total} مدخلات",
+          "previous": "السابق",
+          "next": "التالي"
+        }
+      },
+      "Settings": {
+        "title": "إعدادات المدونة",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "blogs": "المدونات",
+          "settings": "الإعدادات"
+        },
+        "form": {
+          "category_show": "عدد العناصر المعروضة في صفحة التصنيف",
+          "tag_show": "عدد العناصر المعروضة في صفحة الوسم",
+          "search_show": "عدد العناصر المعروضة في صفحة البحث",
+          "save": "حفظ التغييرات"
+        },
+        "validation": {
+          "required": "مطلوب"
+        }
+      }
+    },
+    "Notifications": {
+      "menu": {
+        "title": "الإشعارات",
+        "all_notifications": "جميع الإشعارات",
+        "user_activity": "سجل نشاط المستخدم",
+        "cron_jobs": "المهام المجدولة",
+        "contact_messages": "رسائل الاتصال"
+      },
+      "All": {
+        "title": "جميع الإشعارات",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "notifications": "الإشعارات"
+        },
+        "table_title": "جميع الإشعارات",
+        "filter": {
+          "all": "الكل",
+          "read": "مقروء",
+          "unread": "غير مقروء"
+        },
+        "types": {
+          "trial": "تجربة",
+          "new_subscription": "اشتراك جديد",
+          "user_registration": "تسجيل مستخدم",
+          "package_renew": "تجديد الباقة"
+        },
+        "statuses": {
+          "read": "مقروء",
+          "unread": "غير مقروء"
+        },
+        "pagination": {
+          "show": "عرض",
+          "entries": "مدخلات",
+          "showing": "عرض {from} إلى {to} من {total} مدخلات",
+          "previous": "السابق",
+          "next": "التالي"
+        },
+        "search_label": "بحث:",
+        "search_placeholder": "بحث...",
+        "table": {
+          "actions": "الإجراءات",
+          "date": "التاريخ",
+          "type": "النوع",
+          "notification_title": "عنوان الإشعار",
+          "status": "الحالة",
+          "count": "العدد",
+          "select": "اختيار"
+        }
+      },
+      "UserActivity": {
+        "title": "سجلات نشاط المستخدم",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "notifications": "الإشعارات",
+          "user_activity": "سجلات نشاط المستخدم"
+        },
+        "clear_all": "حذف جميع السجلات",
+        "pagination": {
+          "show": "عرض",
+          "entries": "مدخلات",
+          "showing": "عرض {from} إلى {to} من {total} مدخلات",
+          "previous": "السابق",
+          "next": "التالي"
+        },
+        "search_label": "بحث:",
+        "table": {
+          "actions": "الإجراءات",
+          "log": "السجل",
+          "content": "المحتوى",
+          "sl": "م#",
+          "ip": "عنوان IP",
+          "time": "الوقت"
+        }
+      },
+      "CronJobs": {
+        "title": "المهام المجدولة",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "notifications": "الإشعارات",
+          "cron_jobs": "المهام المجدولة"
+        },
+        "clear_all": "مسح الكل",
+        "pagination": {
+          "show": "عرض",
+          "entries": "مدخلات",
+          "showing": "عرض {from} إلى {to} من {total} مدخلات",
+          "previous": "السابق",
+          "next": "التالي"
+        },
+        "search_label": "بحث:",
+        "search_placeholder": "بحث...",
+        "table": {
+          "sl": "م#",
+          "title": "العنوان",
+          "type": "النوع",
+          "send_email": "إرسال بريد",
+          "date": "التاريخ",
+          "log": "السجل",
+          "no_data": "لا توجد بيانات متاحة في الجدول",
+          "yes": "نعم",
+          "no": "لا"
+        }
+      },
+      "ContactMessages": {
+        "title": "رسائل الاتصال",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "notifications": "الإشعارات",
+          "contact_messages": "رسائل الاتصال"
+        },
+        "table_title": "جميع رسائل الاتصال",
+        "filter": {
+          "all": "الكل",
+          "read": "مقروء",
+          "unread": "غير مقروء"
+        },
+        "pagination": {
+          "show": "عرض",
+          "entries": "مدخلات",
+          "showing": "عرض {from} إلى {to} من {total} مدخلات",
+          "previous": "السابق",
+          "next": "التالي"
+        },
+        "search_label": "بحث:",
+        "search_placeholder": "بحث...",
+        "table": {
+          "actions": "الإجراءات",
+          "status": "الحالة",
+          "date": "التاريخ",
+          "data": "البيانات",
+          "form_name": "اسم النموذج",
+          "count": "العدد",
+          "select": "اختيار"
+        },
+        "fields": {
+          "name": "الاسم",
+          "email": "البريد الإلكتروني",
+          "subject": "الموضوع",
+          "message": "الرسالة"
+        }
+      }
+    },
+    "Coupons": {
+      "menu": {
+        "title": "القسائم",
+        "all_coupons": "جميع القسائم"
+      },
+      "title": "إدارة القسائم",
+      "breadcrumbs": {
+        "admin": "الإدارة",
+        "coupons": "القسائم"
+      },
+      "add_new": "إضافة قسيمة جديدة",
+      "search_placeholder": "بحث...",
+      "bulk_actions": "إجراءات جماعية",
+      "actions": {
+        "delete": "حذف",
+        "active": "تعيين كنشط",
+        "inactive": "تعيين كغير نشط"
+      },
+      "apply": "تطبيق",
+      "table_title": "إدارة جميع القسائم",
+      "form": {
+        "title": "عنوان القسيمة",
+        "title_placeholder": "أدخل العنوان",
+        "code": "رمز القسيمة",
+        "code_placeholder": "أدخل الرمز",
+        "discount": "قيمة الخصم",
+        "discount_placeholder": "أدخل القيمة",
+        "type": "نوع القسيمة",
+        "type_placeholder": "اختر النوع",
+        "types": {
+          "percentage": "نسبة مئوية",
+          "fixed": "مبلغ ثابت"
+        },
+        "max_usage": "أقصى استخدام",
+        "max_usage_placeholder": "أدخل أقصى استخدام",
+        "expiry_date": "تاريخ الانتهاء",
+        "status": "الحالة",
+        "status_placeholder": "اختر الحالة",
+        "statuses": {
+          "active": "نشط",
+          "inactive": "غير نشط"
+        },
+        "cancel": "إلغاء",
+        "save": "حفظ القسيمة"
+      },
+      "table": {
+        "id": "المعرف",
+        "title": "العنوان",
+        "code": "الرمز",
+        "discount": "الخصم",
+        "expiry_date": "تاريخ الانتهاء",
+        "status": "الحالة",
+        "actions": "الإجراءات",
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "pagination": {
+        "showing": "عرض {from} إلى {to} من {total} مدخلات",
+        "previous": "السابق",
+        "next": "التالي"
+      },
+      "validation": {
+        "required": "مطلوب"
+      }
+    },
     "RoleManage": {
       "menu": {
         "dashboard": "لوحة التحكم",
