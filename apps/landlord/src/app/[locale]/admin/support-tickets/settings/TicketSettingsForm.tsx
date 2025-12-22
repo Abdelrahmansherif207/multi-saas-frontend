@@ -94,7 +94,7 @@ export function TicketSettingsForm({ translations }: TicketSettingsFormProps) {
                 </div>
 
                 <div className="pt-4">
-                    <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-xl px-10 h-12 font-bold transition-all duration-300 transform hover:translate-y-[-2px]">
+                    <Button className="bg-primary hover:bg-primary/90 rounded-xl px-10 h-12 font-bold transition-all duration-300">
                         {translations.update}
                     </Button>
                 </div>

@@ -24,37 +24,31 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-    DialogClose,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Pencil, Trash2, Plus } from "lucide-react";
-import { useState } from "react";
+import { Pencil, Trash2, Plus, Copy, Upload } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
-interface DepartmentsFormProps {
+interface BrandsFormProps {
     translations: {
+        title: string;
+        add_new: string;
         bulk_action: string;
         apply: string;
         search: string;
-        add_new: string;
         table: {
             id: string;
-            title: string;
+            image: string;
+            url: string;
             status: string;
             action: string;
         }
     }
 }
 
-export function DepartmentsForm({ translations }: DepartmentsFormProps) {
-    const [activeTab, setActiveTab] = useState<"en" | "ar">("en");
-
-    const tabs = [
-        { id: "en", label: "English (UK)" },
-        { id: "ar", label: "العربية" },
-    ];
-
+export function BrandsForm({ translations }: BrandsFormProps) {
     return (
         <div className="space-y-6">
             {/* Header Actions and Search */}
@@ -85,6 +79,7 @@ export function DepartmentsForm({ translations }: DepartmentsFormProps) {
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
                         </div>
                     </div>
+
                     <Dialog>
                         <DialogTrigger asChild>
                             <Button className="bg-primary hover:bg-primary/90 rounded-xl h-10 font-semibold flex items-center gap-2">
@@ -94,16 +89,22 @@ export function DepartmentsForm({ translations }: DepartmentsFormProps) {
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[450px] rounded-2xl border-border/40 bg-card backdrop-blur-xl">
                             <DialogHeader>
-                                <DialogTitle className="text-xl font-bold">New Ticket Department</DialogTitle>
+                                <DialogTitle className="text-xl font-bold">{translations.add_new}</DialogTitle>
                             </DialogHeader>
                             <div className="grid gap-6 py-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="name">Name</Label>
-                                    <Input
-                                        id="name"
-                                        placeholder="Name"
-                                        className="rounded-xl bg-background/50 border-border/40"
-                                    />
+                                    <Label htmlFor="image">Image</Label>
+                                    <div className="border-2 border-dashed border-border/60 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:bg-muted/20 transition-colors cursor-pointer">
+                                        <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                            <Upload className="h-5 w-5 text-primary" />
+                                        </div>
+                                        <span className="text-sm font-medium text-foreground">Click to upload image</span>
+                                        <span className="text-xs text-muted-foreground mt-1">SVG, PNG, JPG (max. 800x400px)</span>
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="url">URL</Label>
+                                    <Input id="url" placeholder="https://example.com" className="rounded-xl bg-background/50 border-border/40" />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="status">Status</Label>
@@ -117,44 +118,17 @@ export function DepartmentsForm({ translations }: DepartmentsFormProps) {
                                         </SelectContent>
                                     </Select>
                                 </div>
-                                <div className="flex items-center justify-end gap-3 pt-4">
-                                    <DialogClose asChild>
-                                        <Button variant="outline" className="rounded-xl px-6 h-11 font-semibold">
-                                            Close
-                                        </Button>
-                                    </DialogClose>
-                                    <Button className="bg-primary hover:bg-primary/90 rounded-xl px-6 h-11 font-semibold">
-                                        Save Changes
-                                    </Button>
-                                </div>
+                                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 rounded-xl h-11 font-semibold mt-2">
+                                    Submit
+                                </Button>
                             </div>
                         </DialogContent>
                     </Dialog>
                 </div>
             </div>
 
-            {/* Tabs and Table container */}
+            {/* Table container */}
             <div className="bg-card/60 backdrop-blur-xl border border-border/40 rounded-2xl overflow-hidden shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="flex items-center gap-2 px-6 pt-4 border-b border-border/40">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id as "en" | "ar")}
-                            className={cn(
-                                "px-4 py-2 text-xs font-bold transition-all relative",
-                                activeTab === tab.id
-                                    ? "text-brand-orange"
-                                    : "text-muted-foreground hover:text-foreground"
-                            )}
-                        >
-                            {tab.label}
-                            {activeTab === tab.id && (
-                                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-orange" />
-                            )}
-                        </button>
-                    ))}
-                </div>
-
                 <Table>
                     <TableHeader>
                         <TableRow className="bg-muted/50 hover:bg-muted/50 border-b-border/40">
@@ -162,21 +136,34 @@ export function DepartmentsForm({ translations }: DepartmentsFormProps) {
                                 <Checkbox className="rounded-md border-border/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary" />
                             </TableHead>
                             <TableHead className="font-semibold text-foreground">{translations.table.id}</TableHead>
-                            <TableHead className="font-semibold text-foreground">{translations.table.title}</TableHead>
+                            <TableHead className="font-semibold text-foreground">{translations.table.image}</TableHead>
+                            <TableHead className="font-semibold text-foreground">{translations.table.url}</TableHead>
                             <TableHead className="font-semibold text-foreground">{translations.table.status}</TableHead>
                             <TableHead className="font-semibold text-foreground text-right">{translations.table.action}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {/* Mock Data */}
+                        {/* Mock Data - Row 1 */}
                         <TableRow className="hover:bg-muted/20 border-b-border/40">
                             <TableCell>
                                 <Checkbox className="rounded-md border-border/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary" />
                             </TableCell>
-                            <TableCell>1</TableCell>
-                            <TableCell className="font-medium">
-                                {activeTab === "en" ? "Login Issue" : "مشكلة في تسجيل الدخول"}
+                            <TableCell>9</TableCell>
+                            <TableCell>
+                                <div className="h-12 w-20 relative rounded-md overflow-hidden border border-border/40">
+                                    {/* Using a placeholder image or a solid color if image fetch fails */}
+                                    <div className="absolute inset-0 bg-muted flex items-center justify-center font-bold text-muted-foreground text-[10px]">
+                                        LOGO
+                                    </div>
+                                    <Image
+                                        src="https://placehold.co/100x60/EEE/31343C.png?text=LOGO"
+                                        alt="Brand Logo"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
                             </TableCell>
+                            <TableCell className="font-medium text-muted-foreground">#</TableCell>
                             <TableCell>
                                 <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20 rounded-lg px-3 py-1 text-[11px] font-bold">
                                     PUBLISH
@@ -184,23 +171,36 @@ export function DepartmentsForm({ translations }: DepartmentsFormProps) {
                             </TableCell>
                             <TableCell className="text-right">
                                 <div className="flex items-center justify-end gap-2">
-                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-primary hover:text-primary hover:bg-primary/10">
+                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg bg-primary/10 text-primary hover:bg-primary/20">
                                         <Pencil className="h-4 w-4" />
                                     </Button>
-                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-red-500 hover:text-red-600 hover:bg-red-500/10">
+                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg bg-red-500/10 text-red-500 hover:bg-red-500/20">
                                         <Trash2 className="h-4 w-4" />
                                     </Button>
                                 </div>
                             </TableCell>
                         </TableRow>
+
+                        {/* Mock Data - Row 2 */}
                         <TableRow className="hover:bg-muted/20 border-b-border/40">
                             <TableCell>
                                 <Checkbox className="rounded-md border-border/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary" />
                             </TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell className="font-medium">
-                                {activeTab === "en" ? "License Issue" : "مشكلة في الترخيص"}
+                            <TableCell>8</TableCell>
+                            <TableCell>
+                                <div className="h-12 w-20 relative rounded-md overflow-hidden border border-border/40">
+                                    <div className="absolute inset-0 bg-muted flex items-center justify-center font-bold text-muted-foreground text-[10px]">
+                                        BRAND
+                                    </div>
+                                    <Image
+                                        src="https://placehold.co/100x60/EEE/31343C.png?text=BRAND"
+                                        alt="Brand Logo"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
                             </TableCell>
+                            <TableCell className="font-medium text-muted-foreground">#</TableCell>
                             <TableCell>
                                 <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20 rounded-lg px-3 py-1 text-[11px] font-bold">
                                     PUBLISH
@@ -208,10 +208,10 @@ export function DepartmentsForm({ translations }: DepartmentsFormProps) {
                             </TableCell>
                             <TableCell className="text-right">
                                 <div className="flex items-center justify-end gap-2">
-                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-primary hover:text-primary hover:bg-primary/10">
+                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg bg-primary/10 text-primary hover:bg-primary/20">
                                         <Pencil className="h-4 w-4" />
                                     </Button>
-                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-red-500 hover:text-red-600 hover:bg-red-500/10">
+                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg bg-red-500/10 text-red-500 hover:bg-red-500/20">
                                         <Trash2 className="h-4 w-4" />
                                     </Button>
                                 </div>

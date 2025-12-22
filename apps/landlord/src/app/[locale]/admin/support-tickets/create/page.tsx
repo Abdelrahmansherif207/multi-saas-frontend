@@ -29,7 +29,7 @@ export default async function CreateTicketPage() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                     <h2 className="text-xl font-bold text-foreground">{t("title")}</h2>
                     <Link href="/admin/support-tickets">
-                        <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-xl px-6 h-10 font-semibold transition-all duration-300 transform hover:translate-y-[-1px]">
+                        <Button className="bg-primary hover:bg-primary/90 rounded-xl px-6 h-10 font-semibold transition-all duration-300">
                             {t("all_tickets")}
                         </Button>
                     </Link>
@@ -101,7 +101,7 @@ export default async function CreateTicketPage() {
                     </div>
 
                     <div className="pt-4">
-                        <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 rounded-xl px-10 h-12 font-bold transition-all duration-300 transform hover:translate-y-[-2px]">
+                        <Button className="bg-primary hover:bg-primary/90 rounded-xl px-10 h-12 font-bold transition-all duration-300">
                             {t("form.submit")}
                         </Button>
                     </div>
