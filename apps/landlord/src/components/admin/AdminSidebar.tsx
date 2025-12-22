@@ -22,6 +22,7 @@ import {
     StickyNote,
     Wallet,
     Palette,
+    Mail,
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -51,6 +52,7 @@ export function SidebarContent({
     const tWallet = useTranslations("Admin.WalletManage.menu");
     const tTheme = useTranslations("Admin.ThemeManage.menu");
     const tPricePlan = useTranslations("Admin.PricePlanManage.menu");
+    const tNewsletter = useTranslations("Admin.NewsletterManage.menu");
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
@@ -132,6 +134,14 @@ export function SidebarContent({
                 { title: tPricePlan('all_plans'), href: '/admin/price-plans' },
                 { title: tPricePlan('new_plan'), href: '/admin/price-plans/new' },
                 { title: tPricePlan('settings'), href: '/admin/price-plans/settings' },
+            ]
+        },
+        {
+            title: tNewsletter('title'),
+            icon: Mail,
+            subItems: [
+                { title: tNewsletter('all_subscribers'), href: '/admin/newsletter' },
+                { title: tNewsletter('send_mail'), href: '/admin/newsletter/send' },
             ]
         },
     ];
