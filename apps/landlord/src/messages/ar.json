@@ -1760,6 +1760,47 @@
           "longitude": "خط الطول"
         }
       },
+      "MenuManage": {
+        "title": "جميع القوائم",
+        "all_menus": "جميع القوائم",
+        "add_new_menu": "إضافة قائمة جديدة",
+        "create_menu": "إنشاء قائمة",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "status": "الحالة",
+          "created_at": "تاريخ الإنشاء",
+          "action": "الإجراء"
+        },
+        "status": {
+          "default": "القائمة الافتراضية",
+          "active": "نشط",
+          "inactive": "غير نشط"
+        },
+        "edit": {
+          "title": "تعديل القائمة",
+          "all_menus": "جميع القوائم",
+          "add_menu_items": "إضافة عناصر القائمة",
+          "pages": "الصفحات",
+          "add_to_menu": "إضافة إلى القائمة",
+          "custom_links": "روابط مخصصة",
+          "url": "الرابط",
+          "link_text": "نص الرابط",
+          "mega_menus": "القوائم الكبيرة",
+          "menu_structure": "هيكل القائمة",
+          "update_changes": "تحديث التغييرات"
+        },
+        "pages_list": {
+          "home": "الرئيسية",
+          "about_us": "من نحن",
+          "pricing_plan": "خطط الأسعار",
+          "contact": "اتصل بنا",
+          "terms_condition": "الشروط والأحكام",
+          "privacy_policy": "سياسة الخصوصية",
+          "all_templates": "جميع القوالب",
+          "blogs": "المدونات"
+        }
+      },
       "coming_soon": "قريباً"
     }
   }

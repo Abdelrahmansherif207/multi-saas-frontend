@@ -2344,6 +2344,47 @@
           "longitude": "Longitude"
         }
       },
+      "MenuManage": {
+        "title": "All Menu",
+        "all_menus": "All Menus",
+        "add_new_menu": "Add New Menu",
+        "create_menu": "Create Menu",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "status": "Status",
+          "created_at": "Created At",
+          "action": "Action"
+        },
+        "status": {
+          "default": "Default Menu",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "edit": {
+          "title": "Edit Menu",
+          "all_menus": "All Menus",
+          "add_menu_items": "Add menu items",
+          "pages": "Pages",
+          "add_to_menu": "Add To Menu",
+          "custom_links": "Custom Links",
+          "url": "URL",
+          "link_text": "Link Text",
+          "mega_menus": "Mega Menus",
+          "menu_structure": "Menu Structure",
+          "update_changes": "Update Changes"
+        },
+        "pages_list": {
+          "home": "Home",
+          "about_us": "About Us",
+          "pricing_plan": "Pricing Plan",
+          "contact": "Contact",
+          "terms_condition": "Terms & Condition",
+          "privacy_policy": "Privacy Policy",
+          "all_templates": "All Templates",
+          "blogs": "Blogs"
+        }
+      },
       "coming_soon": "Coming Soon"
     }
   }
