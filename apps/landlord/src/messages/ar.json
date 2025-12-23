@@ -1707,6 +1707,60 @@
           "textarea": "منطقة نص"
         }
       }
+    },
+    "AppearanceSettings": {
+      "menu": {
+        "title": "إعدادات المظهر",
+        "widget_builder": "منشئ الودجات",
+        "menu_manage": "إدارة القوائم",
+        "country_manage": "إدارة الدول",
+        "404_settings": "إعدادات 404",
+        "topbar_settings": "إعدادات الشريط العلوي",
+        "email_template": "إعدادات قوالب البريد",
+        "login_register": "إعدادات تسجيل الدخول",
+        "maintenance": "إعدادات الصيانة"
+      },
+      "WidgetBuilder": {
+        "title": "جميع الودجات",
+        "all_widgets": "جميع الودجات",
+        "footer_area": "منطقة ودجات التذييل",
+        "sidebar_area": "منطقة الشريط الجانبي للمدونة",
+        "save_changes": "حفظ التغييرات",
+        "widgets": {
+          "raw_html": "HTML خام",
+          "text_editor": "محرر النصوص",
+          "about_us": "من نحن",
+          "custom_page_link": "رابط صفحة مخصص",
+          "contact_info": "معلومات الاتصال",
+          "popular_blogs": "المدونات الشائعة",
+          "blog_category_search": "بحث فئات المدونة",
+          "popular_appointments": "المواعيد الشائعة",
+          "popular_sub_appointments": "المواعيد الفرعية الشائعة",
+          "google_map": "خريطة جوجل"
+        },
+        "widget_config": {
+          "description": "الوصف",
+          "logo": "الشعار",
+          "upload_image": "رفع الصورة",
+          "icon": "الأيقونة",
+          "icon_url": "رابط الأيقونة",
+          "title": "العنوان",
+          "title_url": "رابط العنوان",
+          "add": "إضافة",
+          "remove": "حذف",
+          "save_changes": "حفظ التغييرات",
+          "english": "English (UK)",
+          "arabic": "العربية",
+          "info": "المعلومات",
+          "heading_text": "نص العنوان",
+          "blog_items": "عناصر المدونة",
+          "category_title": "عنوان التصنيف",
+          "category_items": "عناصر التصنيف",
+          "latitude": "خط العرض",
+          "longitude": "خط الطول"
+        }
+      },
+      "coming_soon": "قريباً"
     }
   }
 }
