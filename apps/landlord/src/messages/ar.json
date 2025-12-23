@@ -1602,6 +1602,111 @@
         "status": "الحالة",
         "action": "إجراء"
       }
+    },
+    "CustomDomain": {
+      "menu": {
+        "title": "النطاق المخصص",
+        "pending_requests": "جميع الطلبات المعلقة",
+        "all_requests": "جميع الطلبات",
+        "settings": "الإعدادات"
+      },
+      "PendingRequests": {
+        "title": "جميع طلبات النطاق المخصص المعلقة",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "table": {
+          "id": "المعرف",
+          "username": "اسم المستخدم",
+          "current_domain": "النطاق الحالي",
+          "requested_domain": "النطاق المطلوب",
+          "status": "حالة النطاق المخصص",
+          "date": "التاريخ",
+          "action": "إجراء"
+        },
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "AllRequests": {
+        "title": "جميع طلبات النطاق المخصص",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "table": {
+          "id": "المعرف",
+          "username": "اسم المستخدم",
+          "old_domain": "النطاق القديم",
+          "new_domain": "النطاق الجديد",
+          "status": "حالة النطاق المخصص",
+          "date": "التاريخ"
+        },
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "Settings": {
+        "title": "إعدادات النطاق المخصص",
+        "field_title": "العنوان",
+        "description": "الوصف",
+        "table_info_title": "عنوان بيانات الجدول",
+        "type_one": "النوع الأول",
+        "host_one": "المضيف الأول",
+        "value_one": "القيمة الأولى",
+        "ttl_one": "TTL الأول",
+        "type_two": "النوع الثاني",
+        "host_two": "المضيف الثاني",
+        "value_two": "القيمة الثانية",
+        "ttl_two": "TTL الثاني",
+        "ip_address": "عنوان IP",
+        "screenshot": "مثال لقطة الشاشة",
+        "screenshot_hint": "حجم الصورة الموصى به هو 100*100",
+        "upload": "رفع",
+        "update": "تحديث التغييرات"
+      }
+    },
+    "FormBuilder": {
+      "menu": {
+        "title": "منشئ النماذج",
+        "custom_form": "منشئ النماذج المخصصة"
+      },
+      "AllForms": {
+        "title": "جميع النماذج المخصصة",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "new_form": "نموذج جديد",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "button_text": "نص الزر",
+          "action": "إجراء"
+        },
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "Editor": {
+        "title": "تعديل النموذج",
+        "all_form": "جميع النماذج",
+        "new_form": "نموذج جديد",
+        "language": "اللغة",
+        "form_title": "العنوان",
+        "receiving_email": "البريد الإلكتروني المستلم",
+        "email_hint": "ستتلقى بريدًا إلكترونيًا بجميع المعلومات على هذا البريد",
+        "button_title": "عنوان الزر",
+        "success_message": "رسالة النجاح",
+        "save_changes": "حفظ التغييرات",
+        "available_fields": "حقول النموذج المتاحة",
+        "fields": {
+          "text": "نص",
+          "email": "بريد إلكتروني",
+          "tel": "هاتف",
+          "url": "رابط",
+          "select": "قائمة منسدلة",
+          "checkbox": "مربع اختيار",
+          "file": "ملف",
+          "textarea": "منطقة نص"
+        }
+      }
     }
   }
 }
