@@ -23,7 +23,8 @@ import {
     ShoppingBag,
     LifeBuoy,
     Quote,
-    Slack
+    Slack,
+    FileText
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -62,6 +63,8 @@ export function SidebarContent({
     const tNotifications = useTranslations("Admin.Notifications.menu");
     const tTestimonials = useTranslations("Admin.Testimonials.menu");
     const tBrands = useTranslations("Admin.Brands.menu");
+    const tCustomDomain = useTranslations("Admin.CustomDomain.menu");
+    const tFormBuilder = useTranslations("Admin.FormBuilder.menu");
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
@@ -186,6 +189,15 @@ export function SidebarContent({
             href: "/admin/brands",
         },
         {
+            title: tCustomDomain("title"),
+            icon: Globe,
+            subItems: [
+                { title: tCustomDomain("pending_requests"), href: "/admin/custom-domain" },
+                { title: tCustomDomain("all_requests"), href: "/admin/custom-domain/all-requests" },
+                { title: tCustomDomain("settings"), href: "/admin/custom-domain/settings" },
+            ],
+        },
+        {
             title: tNotifications("title"),
             icon: Bell,
             subItems: [
@@ -193,6 +205,13 @@ export function SidebarContent({
                 { title: tNotifications("user_activity"), href: "/admin/notifications/user-activity-log" },
                 { title: tNotifications("cron_jobs"), href: "/admin/notifications/cron-jobs" },
                 { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
+            ],
+        },
+        {
+            title: tFormBuilder("title"),
+            icon: FileText,
+            subItems: [
+                { title: tFormBuilder("custom_form"), href: "/admin/form-builder" },
             ],
         },
 

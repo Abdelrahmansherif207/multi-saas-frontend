@@ -2186,6 +2186,111 @@
         "status": "Status",
         "action": "Action"
       }
+    },
+    "CustomDomain": {
+      "menu": {
+        "title": "Custom Domain",
+        "pending_requests": "All Pending Request",
+        "all_requests": "All Requests",
+        "settings": "Settings"
+      },
+      "PendingRequests": {
+        "title": "All Pending Custom Domain Requests",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "table": {
+          "id": "ID",
+          "username": "Username",
+          "current_domain": "Current Domain",
+          "requested_domain": "Requested New Domain",
+          "status": "Custom Domain Status",
+          "date": "Date",
+          "action": "Action"
+        },
+        "no_data": "No data available in table"
+      },
+      "AllRequests": {
+        "title": "All Custom Domain Requests",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "table": {
+          "id": "ID",
+          "username": "Username",
+          "old_domain": "Old Domain",
+          "new_domain": "New Domain",
+          "status": "Custom Domain Status",
+          "date": "Date"
+        },
+        "no_data": "No data available in table"
+      },
+      "Settings": {
+        "title": "Custom Domain Settings",
+        "field_title": "Title",
+        "description": "Description",
+        "table_info_title": "Table Info Data Title",
+        "type_one": "Type One",
+        "host_one": "Host One",
+        "value_one": "Value One",
+        "ttl_one": "TTL One",
+        "type_two": "Type Two",
+        "host_two": "Host Two",
+        "value_two": "Value Two",
+        "ttl_two": "TTL Two",
+        "ip_address": "IP Address",
+        "screenshot": "Screen Shot Example",
+        "screenshot_hint": "recommended image size is 100*100",
+        "upload": "Upload",
+        "update": "Update Changes"
+      }
+    },
+    "FormBuilder": {
+      "menu": {
+        "title": "Form Builder",
+        "custom_form": "Custom Form Builder"
+      },
+      "AllForms": {
+        "title": "All Custom Form",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "new_form": "New Form",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "button_text": "Button Text",
+          "action": "Action"
+        },
+        "no_data": "No data available in table"
+      },
+      "Editor": {
+        "title": "Edit Form",
+        "all_form": "All Form",
+        "new_form": "New Form",
+        "language": "Language",
+        "form_title": "Title",
+        "receiving_email": "Receiving Email",
+        "email_hint": "you will get mail with all info of from to this email",
+        "button_title": "Button Title",
+        "success_message": "Success Message",
+        "save_changes": "Save Change",
+        "available_fields": "Available Form Fields",
+        "fields": {
+          "text": "Text",
+          "email": "Email",
+          "tel": "Tel",
+          "url": "URL",
+          "select": "Select",
+          "checkbox": "Check Box",
+          "file": "File",
+          "textarea": "Textarea"
+        }
+      }
     }
   }
 }

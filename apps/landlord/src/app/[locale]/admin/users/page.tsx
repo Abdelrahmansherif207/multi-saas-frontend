@@ -9,6 +9,9 @@ export default async function AllUsersPage() {
     const t = await getTranslations("Admin.UserManage.AllUsers");
     const tMenu = await getTranslations("Admin.UserManage.menu");
 
+    // TODO: dummy delay for testing 
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     return (
         <AdminPageWrapper
             title={t("title")}
