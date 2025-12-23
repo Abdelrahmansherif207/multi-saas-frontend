@@ -2291,6 +2291,60 @@
           "textarea": "Textarea"
         }
       }
+    },
+    "AppearanceSettings": {
+      "menu": {
+        "title": "Appearance Settings",
+        "widget_builder": "Widget Builder",
+        "menu_manage": "Menu Manage",
+        "country_manage": "Country Manage",
+        "404_settings": "404 Settings",
+        "topbar_settings": "Topbar Settings",
+        "email_template": "Email Template Settings",
+        "login_register": "Login/Register Settings",
+        "maintenance": "Maintenance Settings"
+      },
+      "WidgetBuilder": {
+        "title": "All Widgets",
+        "all_widgets": "All Widgets",
+        "footer_area": "Footer Widgets Area",
+        "sidebar_area": "Blog sidebar Widgets Area",
+        "save_changes": "Save Changes",
+        "widgets": {
+          "raw_html": "Raw HTML",
+          "text_editor": "Text Editor",
+          "about_us": "About Us",
+          "custom_page_link": "Custom Page Link",
+          "contact_info": "Contact Info",
+          "popular_blogs": "Popular Blogs",
+          "blog_category_search": "Blog Category & Search",
+          "popular_appointments": "Popular Appointments",
+          "popular_sub_appointments": "Popular Sub Appointments",
+          "google_map": "Google Map"
+        },
+        "widget_config": {
+          "description": "Description",
+          "logo": "Logo",
+          "upload_image": "Upload Image",
+          "icon": "Icon",
+          "icon_url": "Icon URL",
+          "title": "Title",
+          "title_url": "Title URL",
+          "add": "Add",
+          "remove": "Remove",
+          "save_changes": "Save Changes",
+          "english": "English (UK)",
+          "arabic": "العربية",
+          "info": "Info",
+          "heading_text": "Heading Text",
+          "blog_items": "Blog Items",
+          "category_title": "Category Title",
+          "category_items": "Category Items",
+          "latitude": "Latitude",
+          "longitude": "Longitude"
+        }
+      },
+      "coming_soon": "Coming Soon"
     }
   }
 }

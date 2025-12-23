@@ -1,0 +1,11 @@
+export { LanguageTabs } from "./LanguageTabs";
+export { RawHtmlConfig } from "./RawHtmlConfig";
+export { TextEditorConfig } from "./TextEditorConfig";
+export { AboutUsConfig } from "./AboutUsConfig";
+export { CustomPageLinkConfig } from "./CustomPageLinkConfig";
+export { ContactInfoConfig } from "./ContactInfoConfig";
+export { PopularBlogsConfig } from "./PopularBlogsConfig";
+export { BlogCategorySearchConfig } from "./BlogCategorySearchConfig";
+export { PopularSubAppointmentsConfig } from "./PopularSubAppointmentsConfig";
+export { GoogleMapConfig } from "./GoogleMapConfig";
+export * from "./types";

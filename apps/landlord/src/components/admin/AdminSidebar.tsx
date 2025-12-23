@@ -65,6 +65,7 @@ export function SidebarContent({
     const tBrands = useTranslations("Admin.Brands.menu");
     const tCustomDomain = useTranslations("Admin.CustomDomain.menu");
     const tFormBuilder = useTranslations("Admin.FormBuilder.menu");
+    const tAppearance = useTranslations("Admin.AppearanceSettings.menu");
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
@@ -212,6 +213,20 @@ export function SidebarContent({
             icon: FileText,
             subItems: [
                 { title: tFormBuilder("custom_form"), href: "/admin/form-builder" },
+            ],
+        },
+        {
+            title: tAppearance("title"),
+            icon: Palette,
+            subItems: [
+                { title: tAppearance("widget_builder"), href: "/admin/appearance/widget-builder" },
+                { title: tAppearance("menu_manage"), href: "/admin/appearance/menu-manage" },
+                { title: tAppearance("country_manage"), href: "/admin/appearance/country-manage" },
+                { title: tAppearance("404_settings"), href: "/admin/appearance/404-settings" },
+                { title: tAppearance("topbar_settings"), href: "/admin/appearance/topbar-settings" },
+                { title: tAppearance("email_template"), href: "/admin/appearance/email-template" },
+                { title: tAppearance("login_register"), href: "/admin/appearance/login-register" },
+                { title: tAppearance("maintenance"), href: "/admin/appearance/maintenance" },
             ],
         },
 
