@@ -1,5 +1,3 @@
-"use client";
-
 import { AdminPageWrapper } from "@/components/admin/shared/AdminPageWrapper";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,8 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { getTranslations } from "next-intl/server";
 
 const features = [
     "Dashboard", "Admin", "User", "Brand", "Newsletter", "Custom Domain",
@@ -20,21 +17,9 @@ const features = [
     "General Settings", "Language", "Payment Gateways", "Themes", "Hotel Booking"
 ];
 
-export default function NewPricePlanPage() {
-    const t = useTranslations("Admin.PricePlanManage.NewPlan");
-    const tMenu = useTranslations("Admin.PricePlanManage.menu");
-
-    const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
-    const [hasTrial, setHasTrial] = useState(false);
-    const [hasPrice, setHasPrice] = useState(false);
-
-    const toggleFeature = (feature: string) => {
-        setSelectedFeatures(prev =>
-            prev.includes(feature)
-                ? prev.filter(f => f !== feature)
-                : [...prev, feature]
-        );
-    };
+export default async function NewPricePlanPage() {
+    const t = await getTranslations("Admin.PricePlanManage.NewPlan");
+    const tMenu = await getTranslations("Admin.PricePlanManage.menu");
 
     return (
         <AdminPageWrapper
@@ -83,8 +68,6 @@ export default function NewPricePlanPage() {
                                 <div key={feature} className="flex items-center gap-2">
                                     <Checkbox
                                         id={feature}
-                                        checked={selectedFeatures.includes(feature)}
-                                        onCheckedChange={() => toggleFeature(feature)}
                                     />
                                     <Label htmlFor={feature} className="text-sm cursor-pointer">
                                         {feature}
@@ -117,9 +100,9 @@ export default function NewPricePlanPage() {
                             {t("form.has_trial")}
                         </Label>
                         <div className="flex items-center gap-3">
-                            <Switch checked={hasTrial} onCheckedChange={setHasTrial} />
+                            <Switch />
                             <span className="text-sm text-muted-foreground">
-                                {hasTrial ? t("form.yes") : t("form.no")}
+                                {t("form.no")}
                             </span>
                         </div>
                     </div>
@@ -130,19 +113,11 @@ export default function NewPricePlanPage() {
                             {t("form.has_price")}
                         </Label>
                         <div className="flex items-center gap-3">
-                            <Switch checked={hasPrice} onCheckedChange={setHasPrice} />
+                            <Switch />
                             <span className="text-sm text-muted-foreground">
-                                {hasPrice ? t("form.yes") : t("form.no")}
+                                {t("form.no")}
                             </span>
                         </div>
-                        {hasPrice && (
-                            <div className="flex flex-col gap-2 mt-2">
-                                <Label htmlFor="price" className="text-sm font-medium text-foreground">
-                                    {t("form.price")}
-                                </Label>
-                                <Input id="price" type="number" placeholder="0" className="max-w-xs" />
-                            </div>
-                        )}
                     </div>
 
                     {/* Limit */}

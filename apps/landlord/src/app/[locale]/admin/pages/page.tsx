@@ -8,9 +8,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useTranslations } from "next-intl";
-export default function pages() {
-  const t = useTranslations("Admin.Pages");
+import { getTranslations } from "next-intl/server";
+
+export default async function pages() {
+  const t = await getTranslations("Admin.Pages");
   const pages = [
     {
       id: "1",
