@@ -1801,6 +1801,118 @@
           "blogs": "المدونات"
         }
       },
+      "CountryManage": {
+        "title": "الدول",
+        "all_countries": "جميع الدول",
+        "add_country": "إضافة دولة",
+        "add_new_country": "إضافة دولة جديدة",
+        "insert_all": "إدراج جميع الدول",
+        "add_new": "إضافة جديد",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "showing": "عرض",
+        "to": "إلى",
+        "of": "من",
+        "previous": "السابق",
+        "next": "التالي",
+        "table": {
+          "id": "المعرف",
+          "name": "الاسم",
+          "code": "الرمز",
+          "status": "الحالة",
+          "action": "الإجراء"
+        },
+        "status": {
+          "publish": "منشور",
+          "draft": "مسودة"
+        },
+        "form": {
+          "name": "الاسم",
+          "name_placeholder": "الاسم",
+          "code": "رمز الدولة",
+          "code_placeholder": "الرمز",
+          "status": "الحالة"
+        }
+      },
+      "NotFoundSettings": {
+        "title": "إعدادات صفحة الخطأ 404",
+        "page_title": "العنوان",
+        "button_text": "نص الزر",
+        "site_logo": "شعار الموقع",
+        "update_settings": "تحديث الإعدادات",
+        "change": "تغيير",
+        "image_alt": "صورة 404"
+      },
+      "MaintenanceSettings": {
+        "title": "إعدادات صفحة الصيانة",
+        "page_title": "العنوان",
+        "description": "الوصف",
+        "coming_back_date": "تاريخ العودة",
+        "maintenance_logo": "شعار الصيانة",
+        "maintenance_bg_image": "صورة خلفية الصيانة",
+        "update_settings": "تحديث الإعدادات",
+        "change": "تغيير",
+        "remove": "إزالة"
+      },
+      "TopbarSettings": {
+        "title": "إعدادات الشريط العلوي",
+        "phone": "الهاتف",
+        "email": "البريد الإلكتروني",
+        "facebook_url": "رابط فيسبوك",
+        "instagram_url": "رابط انستغرام",
+        "linkedin_url": "رابط لينكد إن",
+        "twitter_url": "رابط تويتر",
+        "enable_contact_info": "تفعيل/تعطيل معلومات الاتصال",
+        "enable_language": "تفعيل/تعطيل اللغة",
+        "enable_social_info": "تفعيل/تعطيل التواصل الاجتماعي",
+        "enable_full_topbar": "تفعيل/تعطيل الشريط العلوي بالكامل",
+        "update_settings": "حفظ التغييرات"
+      },
+      "LoginRegisterSettings": {
+        "title": "إعدادات تسجيل الدخول والتسجيل",
+        "login_title": "عنوان تسجيل الدخول",
+        "register_title": "عنوان التسجيل",
+        "feature_title_one": "عنوان الميزة الأولى",
+        "feature_desc_one": "وصف الميزة الأولى",
+        "feature_title_two": "عنوان الميزة الثانية",
+        "feature_desc_two": "وصف الميزة الثانية",
+        "feature_title_three": "عنوان الميزة الثالثة",
+        "feature_desc_three": "وصف الميزة الثالثة",
+        "feature_image_one": "صورة ميزة التسجيل الأولى",
+        "feature_image_two": "صورة ميزة التسجيل الثانية",
+        "feature_image_three": "صورة ميزة التسجيل الثالثة",
+        "enable_facebook_login": "تفعيل/تعطيل تسجيل الدخول بفيسبوك",
+        "enable_google_login": "تفعيل/تعطيل تسجيل الدخول بجوجل",
+        "enable_recaptcha": "تفعيل/تعطيل Recaptcha",
+        "update_settings": "حفظ التغييرات",
+        "change": "تغيير",
+        "remove": "إزالة"
+      },
+      "EmailTemplate": {
+        "title": "جميع قوالب البريد الإلكتروني",
+        "subtitle": "(إذا لم تستخدم أو تبقي قوالب البريد الإلكتروني الديناميكية هذه فارغة، فإن البريد سيذهب كما هو في النظام الافتراضي...!)",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "search_placeholder": "بحث...",
+        "showing": "عرض",
+        "to": "إلى",
+        "of": "من",
+        "previous": "السابق",
+        "next": "التالي",
+        "table": {
+          "sl": "#",
+          "title": "العنوان",
+          "action": "الإجراء"
+        },
+        "edit_title": "تعديل قالب البريد الإلكتروني",
+        "subject": "الموضوع",
+        "message": "الرسالة",
+        "update_changes": "تحديث التغييرات"
+      },
       "coming_soon": "قريباً"
     }
   }
