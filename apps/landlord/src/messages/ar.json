@@ -1677,6 +1677,547 @@
         "from_name": "اسم المرسل",
         "save_changes": "حفظ التغييرات"
       }
+    },
+    "PackageOrderManage": {
+      "menu": {
+        "title": "إدارة طلبات الباقات",
+        "all_order": "جميع الطلبات",
+        "success_order": "صفحة نجاح الطلب",
+        "cancel_order": "صفحة إلغاء الطلب",
+        "order_report": "تقرير الطلبات",
+        "payment_logs": "جميع سجلات الدفع",
+        "payment_report": "تقرير المدفوعات"
+      },
+      "OrderReport": {
+        "title": "تقرير الطلبات",
+        "start_date": "تاريخ البدء",
+        "end_date": "تاريخ الانتهاء",
+        "status": "الحالة",
+        "payment_status": "حالة الدفع",
+        "items": "العناصر",
+        "submit": "إرسال"
+      },
+      "PaymentLogs": {
+        "title": "جميع سجلات الدفع",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "table": {
+          "id": "المعرف",
+          "payer_name": "اسم الدافع",
+          "payer_email": "البريد الإلكتروني للدافع",
+          "package_name": "اسم الباقة",
+          "amount": "المبلغ",
+          "package_gateway": "بوابة الباقة",
+          "payment_status": "حالة الدفع",
+          "date": "التاريخ",
+          "action": "إجراء"
+        }
+      },
+      "PaymentReport": {
+        "title": "تقرير المدفوعات",
+        "start_date": "تاريخ البدء",
+        "end_date": "تاريخ الانتهاء",
+        "payment_status": "حالة الدفع",
+        "items": "العناصر",
+        "submit": "إرسال"
+      },
+      "SuccessSettings": {
+        "title": "إعدادات صفحة نجاح الطلب",
+        "subtitle": "إعدادات صفحة نجاح الطلب",
+        "main_title": "العنوان الرئيسي",
+        "description": "الوصف",
+        "update": "تحديث التغييرات"
+      },
+      "CancelSettings": {
+        "title": "إعدادات صفحة إلغاء الطلب",
+        "subtitle_page": "إعدادات صفحة إلغاء الطلب",
+        "main_title": "العنوان الرئيسي",
+        "subtitle": "العنوان الفرعي",
+        "subtitle_hint": "{pname} سيتم استبداله باسم الباقة",
+        "description": "الوصف",
+        "update": "تحديث التغييرات"
+      },
+      "AllOrders": {
+        "title": "جميع الطلبات",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "filter": "تصفية",
+        "all_order_filter": "جميع الطلبات",
+        "search": "بحث",
+        "table": {
+          "id": "المعرف",
+          "package_name": "اسم الباقة",
+          "paid_amount": "المبلغ المدفوع",
+          "subdomain": "النطاق الفرعي",
+          "payment_status": "حالة الدفع",
+          "order_status": "حالة الطلب",
+          "renew_taken": "تم التجديد",
+          "start_date": "تاريخ البدء",
+          "expire_date": "تاريخ الانتهاء",
+          "action": "إجراء"
+        }
+      }
+    },
+    "SupportTicketManage": {
+      "menu": {
+        "title": "تذاكر الدعم",
+        "all_tickets": "جميع التذاكر",
+        "add_ticket": "إضافة تذكرة جديدة",
+        "departments": "الأقسام",
+        "page_settings": "إعدادات الصفحة"
+      },
+      "AllTickets": {
+        "title": "جميع تذاكر الدعم",
+        "subtitle": "تذاكر الدعم",
+        "new_ticket": "تذكرة جديدة",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "search": "بحث",
+        "filterByPriority": "تصفية حسب الأولوية",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "department": "القسم",
+          "user": "المستخدم",
+          "priority": "الأولوية",
+          "status": "الحالة",
+          "action": "إجراء"
+        }
+      },
+      "CreateTicket": {
+        "title": "تذكرة جديدة",
+        "all_tickets": "جميع تذاكر الدعم",
+        "form": {
+          "title": "العنوان",
+          "subject": "الموضوع",
+          "priority": "الأولوية",
+          "departments": "الأقسام",
+          "user": "المستخدم",
+          "description": "الوصف",
+          "submit": "إرسال التذكرة"
+        }
+      },
+      "Departments": {
+        "title": "جميع فئات تذاكر الدعم",
+        "subtitle": "جميع فئات تذاكر الدعم",
+        "add_new": "إضافة قسم جديد",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "search": "بحث",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "status": "الحالة",
+          "action": "إجراء"
+        }
+      },
+      "PageSettings": {
+        "title": "إعدادات صفحة التذاكر",
+        "subtitle": "إعدادات صفحة التذاكر",
+        "login_notice": "ملاحظة تسجيل الدخول",
+        "form_title": "عنوان النموذج",
+        "button_text": "نص الزر",
+        "success_message": "رسالة النجاح",
+        "update": "تحديث التغييرات"
+      }
+    },
+    "Testimonials": {
+      "menu": {
+        "title": "الشهادات"
+      },
+      "title": "جميع الشهادات",
+      "add_new": "إضافة شهادة جديدة",
+      "bulk_action": "إجراء جماعي",
+      "apply": "تطبيق",
+      "search": "بحث:",
+      "table": {
+        "id": "المعرف",
+        "image": "صورة",
+        "name": "الاسم",
+        "designation": "المنصب",
+        "company": "الشركة",
+        "status": "الحالة",
+        "action": "إجراء"
+      }
+    },
+    "Brands": {
+      "menu": {
+        "title": "العلامات التجارية"
+      },
+      "title": "جميع العلامات التجارية",
+      "add_new": "إضافة علامة تجارية جديدة",
+      "bulk_action": "إجراء جماعي",
+      "apply": "تطبيق",
+      "search": "بحث:",
+      "table": {
+        "id": "المعرف",
+        "image": "صورة",
+        "url": "رابط",
+        "status": "الحالة",
+        "action": "إجراء"
+      }
+    },
+    "CustomDomain": {
+      "menu": {
+        "title": "النطاق المخصص",
+        "pending_requests": "جميع الطلبات المعلقة",
+        "all_requests": "جميع الطلبات",
+        "settings": "الإعدادات"
+      },
+      "PendingRequests": {
+        "title": "جميع طلبات النطاق المخصص المعلقة",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "table": {
+          "id": "المعرف",
+          "username": "اسم المستخدم",
+          "current_domain": "النطاق الحالي",
+          "requested_domain": "النطاق المطلوب",
+          "status": "حالة النطاق المخصص",
+          "date": "التاريخ",
+          "action": "إجراء"
+        },
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "AllRequests": {
+        "title": "جميع طلبات النطاق المخصص",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "table": {
+          "id": "المعرف",
+          "username": "اسم المستخدم",
+          "old_domain": "النطاق القديم",
+          "new_domain": "النطاق الجديد",
+          "status": "حالة النطاق المخصص",
+          "date": "التاريخ"
+        },
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "Settings": {
+        "title": "إعدادات النطاق المخصص",
+        "field_title": "العنوان",
+        "description": "الوصف",
+        "table_info_title": "عنوان بيانات الجدول",
+        "type_one": "النوع الأول",
+        "host_one": "المضيف الأول",
+        "value_one": "القيمة الأولى",
+        "ttl_one": "TTL الأول",
+        "type_two": "النوع الثاني",
+        "host_two": "المضيف الثاني",
+        "value_two": "القيمة الثانية",
+        "ttl_two": "TTL الثاني",
+        "ip_address": "عنوان IP",
+        "screenshot": "مثال لقطة الشاشة",
+        "screenshot_hint": "حجم الصورة الموصى به هو 100*100",
+        "upload": "رفع",
+        "update": "تحديث التغييرات"
+      }
+    },
+    "FormBuilder": {
+      "menu": {
+        "title": "منشئ النماذج",
+        "custom_form": "منشئ النماذج المخصصة"
+      },
+      "AllForms": {
+        "title": "جميع النماذج المخصصة",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "new_form": "نموذج جديد",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "button_text": "نص الزر",
+          "action": "إجراء"
+        },
+        "no_data": "لا توجد بيانات متاحة في الجدول"
+      },
+      "Editor": {
+        "title": "تعديل النموذج",
+        "all_form": "جميع النماذج",
+        "new_form": "نموذج جديد",
+        "language": "اللغة",
+        "form_title": "العنوان",
+        "receiving_email": "البريد الإلكتروني المستلم",
+        "email_hint": "ستتلقى بريدًا إلكترونيًا بجميع المعلومات على هذا البريد",
+        "button_title": "عنوان الزر",
+        "success_message": "رسالة النجاح",
+        "save_changes": "حفظ التغييرات",
+        "available_fields": "حقول النموذج المتاحة",
+        "fields": {
+          "text": "نص",
+          "email": "بريد إلكتروني",
+          "tel": "هاتف",
+          "url": "رابط",
+          "select": "قائمة منسدلة",
+          "checkbox": "مربع اختيار",
+          "file": "ملف",
+          "textarea": "منطقة نص"
+        }
+      }
+    },
+    "AppearanceSettings": {
+      "menu": {
+        "title": "إعدادات المظهر",
+        "widget_builder": "منشئ الودجات",
+        "menu_manage": "إدارة القوائم",
+        "country_manage": "إدارة الدول",
+        "404_settings": "إعدادات 404",
+        "topbar_settings": "إعدادات الشريط العلوي",
+        "email_template": "إعدادات قوالب البريد",
+        "login_register": "إعدادات تسجيل الدخول",
+        "maintenance": "إعدادات الصيانة"
+      },
+      "WidgetBuilder": {
+        "title": "جميع الودجات",
+        "all_widgets": "جميع الودجات",
+        "footer_area": "منطقة ودجات التذييل",
+        "sidebar_area": "منطقة الشريط الجانبي للمدونة",
+        "save_changes": "حفظ التغييرات",
+        "widgets": {
+          "raw_html": "HTML خام",
+          "text_editor": "محرر النصوص",
+          "about_us": "من نحن",
+          "custom_page_link": "رابط صفحة مخصص",
+          "contact_info": "معلومات الاتصال",
+          "popular_blogs": "المدونات الشائعة",
+          "blog_category_search": "بحث فئات المدونة",
+          "popular_appointments": "المواعيد الشائعة",
+          "popular_sub_appointments": "المواعيد الفرعية الشائعة",
+          "google_map": "خريطة جوجل"
+        },
+        "widget_config": {
+          "description": "الوصف",
+          "logo": "الشعار",
+          "upload_image": "رفع الصورة",
+          "icon": "الأيقونة",
+          "icon_url": "رابط الأيقونة",
+          "title": "العنوان",
+          "title_url": "رابط العنوان",
+          "add": "إضافة",
+          "remove": "حذف",
+          "save_changes": "حفظ التغييرات",
+          "english": "English (UK)",
+          "arabic": "العربية",
+          "info": "المعلومات",
+          "heading_text": "نص العنوان",
+          "blog_items": "عناصر المدونة",
+          "category_title": "عنوان التصنيف",
+          "category_items": "عناصر التصنيف",
+          "latitude": "خط العرض",
+          "longitude": "خط الطول"
+        }
+      },
+      "MenuManage": {
+        "title": "جميع القوائم",
+        "all_menus": "جميع القوائم",
+        "add_new_menu": "إضافة قائمة جديدة",
+        "create_menu": "إنشاء قائمة",
+        "table": {
+          "id": "المعرف",
+          "title": "العنوان",
+          "status": "الحالة",
+          "created_at": "تاريخ الإنشاء",
+          "action": "الإجراء"
+        },
+        "status": {
+          "default": "القائمة الافتراضية",
+          "active": "نشط",
+          "inactive": "غير نشط"
+        },
+        "edit": {
+          "title": "تعديل القائمة",
+          "all_menus": "جميع القوائم",
+          "add_menu_items": "إضافة عناصر القائمة",
+          "pages": "الصفحات",
+          "add_to_menu": "إضافة إلى القائمة",
+          "custom_links": "روابط مخصصة",
+          "url": "الرابط",
+          "link_text": "نص الرابط",
+          "mega_menus": "القوائم الكبيرة",
+          "menu_structure": "هيكل القائمة",
+          "update_changes": "تحديث التغييرات"
+        },
+        "pages_list": {
+          "home": "الرئيسية",
+          "about_us": "من نحن",
+          "pricing_plan": "خطط الأسعار",
+          "contact": "اتصل بنا",
+          "terms_condition": "الشروط والأحكام",
+          "privacy_policy": "سياسة الخصوصية",
+          "all_templates": "جميع القوالب",
+          "blogs": "المدونات"
+        }
+      },
+      "CountryManage": {
+        "title": "الدول",
+        "all_countries": "جميع الدول",
+        "add_country": "إضافة دولة",
+        "add_new_country": "إضافة دولة جديدة",
+        "insert_all": "إدراج جميع الدول",
+        "add_new": "إضافة جديد",
+        "bulk_action": "إجراء جماعي",
+        "apply": "تطبيق",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "showing": "عرض",
+        "to": "إلى",
+        "of": "من",
+        "previous": "السابق",
+        "next": "التالي",
+        "table": {
+          "id": "المعرف",
+          "name": "الاسم",
+          "code": "الرمز",
+          "status": "الحالة",
+          "action": "الإجراء"
+        },
+        "status": {
+          "publish": "منشور",
+          "draft": "مسودة"
+        },
+        "form": {
+          "name": "الاسم",
+          "name_placeholder": "الاسم",
+          "code": "رمز الدولة",
+          "code_placeholder": "الرمز",
+          "status": "الحالة"
+        }
+      },
+      "NotFoundSettings": {
+        "title": "إعدادات صفحة الخطأ 404",
+        "page_title": "العنوان",
+        "button_text": "نص الزر",
+        "site_logo": "شعار الموقع",
+        "update_settings": "تحديث الإعدادات",
+        "change": "تغيير",
+        "image_alt": "صورة 404"
+      },
+      "MaintenanceSettings": {
+        "title": "إعدادات صفحة الصيانة",
+        "page_title": "العنوان",
+        "description": "الوصف",
+        "coming_back_date": "تاريخ العودة",
+        "maintenance_logo": "شعار الصيانة",
+        "maintenance_bg_image": "صورة خلفية الصيانة",
+        "update_settings": "تحديث الإعدادات",
+        "change": "تغيير",
+        "remove": "إزالة"
+      },
+      "TopbarSettings": {
+        "title": "إعدادات الشريط العلوي",
+        "phone": "الهاتف",
+        "email": "البريد الإلكتروني",
+        "facebook_url": "رابط فيسبوك",
+        "instagram_url": "رابط انستغرام",
+        "linkedin_url": "رابط لينكد إن",
+        "twitter_url": "رابط تويتر",
+        "enable_contact_info": "تفعيل/تعطيل معلومات الاتصال",
+        "enable_language": "تفعيل/تعطيل اللغة",
+        "enable_social_info": "تفعيل/تعطيل التواصل الاجتماعي",
+        "enable_full_topbar": "تفعيل/تعطيل الشريط العلوي بالكامل",
+        "update_settings": "حفظ التغييرات"
+      },
+      "LoginRegisterSettings": {
+        "title": "إعدادات تسجيل الدخول والتسجيل",
+        "login_title": "عنوان تسجيل الدخول",
+        "register_title": "عنوان التسجيل",
+        "feature_title_one": "عنوان الميزة الأولى",
+        "feature_desc_one": "وصف الميزة الأولى",
+        "feature_title_two": "عنوان الميزة الثانية",
+        "feature_desc_two": "وصف الميزة الثانية",
+        "feature_title_three": "عنوان الميزة الثالثة",
+        "feature_desc_three": "وصف الميزة الثالثة",
+        "feature_image_one": "صورة ميزة التسجيل الأولى",
+        "feature_image_two": "صورة ميزة التسجيل الثانية",
+        "feature_image_three": "صورة ميزة التسجيل الثالثة",
+        "enable_facebook_login": "تفعيل/تعطيل تسجيل الدخول بفيسبوك",
+        "enable_google_login": "تفعيل/تعطيل تسجيل الدخول بجوجل",
+        "enable_recaptcha": "تفعيل/تعطيل Recaptcha",
+        "update_settings": "حفظ التغييرات",
+        "change": "تغيير",
+        "remove": "إزالة"
+      },
+      "EmailTemplate": {
+        "title": "جميع قوالب البريد الإلكتروني",
+        "subtitle": "(إذا لم تستخدم أو تبقي قوالب البريد الإلكتروني الديناميكية هذه فارغة، فإن البريد سيذهب كما هو في النظام الافتراضي...!)",
+        "show": "عرض",
+        "entries": "إدخالات",
+        "search": "بحث:",
+        "search_placeholder": "بحث...",
+        "showing": "عرض",
+        "to": "إلى",
+        "of": "من",
+        "previous": "السابق",
+        "next": "التالي",
+        "table": {
+          "sl": "#",
+          "title": "العنوان",
+          "action": "الإجراء"
+        },
+        "edit_title": "تعديل قالب البريد الإلكتروني",
+        "subject": "الموضوع",
+        "message": "الرسالة",
+        "update_changes": "تحديث التغييرات"
+      },
+      "coming_soon": "قريباً"
+    },
+    "LanguageManage": {
+      "menu": {
+        "title": "اللغات",
+        "all_languages": "جميع اللغات"
+      },
+      "title": "جميع اللغات",
+      "info_message": "أضف لغة الإنجليزية (أمريكا)، لترجمة جميع لغات المستأجر، لأن اللغة الافتراضية للمستأجر هي الإنجليزية (أمريكا). إذا كنت لا ترغب في عرض الإنجليزية (أمريكا) في الواجهة الأمامية، يمكنك تعيينها كمسودة.",
+      "add_language": "إضافة لغة جديدة",
+      "add_new": "إضافة جديد",
+      "show": "عرض",
+      "entries": "إدخالات",
+      "search": "بحث:",
+      "showing": "عرض",
+      "to": "إلى",
+      "of": "من",
+      "previous": "السابق",
+      "next": "التالي",
+      "table": {
+        "id": "المعرف",
+        "name": "الاسم",
+        "direction": "الاتجاه",
+        "slug": "الرمز",
+        "status": "الحالة",
+        "default": "افتراضي",
+        "action": "الإجراء"
+      },
+      "status": {
+        "publish": "منشور",
+        "draft": "مسودة"
+      },
+      "direction": {
+        "ltr": "من اليسار إلى اليمين",
+        "rtl": "من اليمين إلى اليسار"
+      },
+      "actions": {
+        "edit_all_words": "تعديل جميع الكلمات",
+        "edit": "تعديل",
+        "clone": "نسخ",
+        "delete": "حذف",
+        "make_default": "جعل افتراضي"
+      },
+      "form": {
+        "language": "اللغة",
+        "language_placeholder": "اختر اللغة",
+        "direction": "الاتجاه",
+        "status": "الحالة",
+        "slug": "الرمز",
+        "slug_placeholder": "en_US"
+      }
     }
   }
 }

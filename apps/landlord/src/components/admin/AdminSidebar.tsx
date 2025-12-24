@@ -10,13 +10,10 @@ import {
     CreditCard,
     Settings,
     Globe,
-    Shield,
-    FileText,
     LogOut,
     UserCog,
     ChevronDown,
     ChevronRight,
-    Circle,
     ArrowRight,
     NotepadText,
     StickyNote,
@@ -25,6 +22,12 @@ import {
     Palette,
     Mail,
     Puzzle as Plugin,
+    ShoppingBag,
+    LifeBuoy,
+    Quote,
+    Slack,
+    FileText,
+    Languages
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -48,7 +51,6 @@ export function SidebarContent({
     collapsed?: boolean;
 }) {
     const pathname = usePathname();
-
     const t = useTranslations("Admin.RoleManage.menu");
     const tUser = useTranslations("Admin.UserManage.menu");
     const tWebsite = useTranslations("Admin.WebsiteManage.menu");
@@ -56,20 +58,29 @@ export function SidebarContent({
     const tBlogs = useTranslations("Admin.Blogs.menu");
     const tCoupons = useTranslations("Admin.Coupons.menu");
     const tNotifications = useTranslations("Admin.Notifications.menu");
+
     const tWallet = useTranslations("Admin.WalletManage.menu");
     const tTheme = useTranslations("Admin.ThemeManage.menu");
     const tPricePlan = useTranslations("Admin.PricePlanManage.menu");
     const tNewsletter = useTranslations("Admin.NewsletterManage.menu");
+
     const tPlugins = useTranslations("Admin");
     const tGeneralSettings = useTranslations("Admin.GeneralSettings");
 
+    const tPackageOrder = useTranslations("Admin.PackageOrderManage.menu");
+    const tSupportTicket = useTranslations('Admin.SupportTicketManage.menu');
+    const tTestimonials = useTranslations("Admin.Testimonials.menu");
+    const tBrands = useTranslations("Admin.Brands.menu");
+    const tCustomDomain = useTranslations("Admin.CustomDomain.menu");
+    const tFormBuilder = useTranslations("Admin.FormBuilder.menu");
+    const tAppearance = useTranslations("Admin.AppearanceSettings.menu");
+    const tLanguage = useTranslations("Admin.LanguageManage.menu");
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
             href: "/admin",
             icon: LayoutDashboard,
         },
-
         {
             title: t("title"),
             icon: UserCog,
@@ -79,7 +90,6 @@ export function SidebarContent({
                 { title: t("all_roles"), href: "/admin/admins/roles" },
             ],
         },
-
         {
             title: tUser("title"),
             icon: Users,
@@ -89,7 +99,6 @@ export function SidebarContent({
                 { title: tUser("settings"), href: "/admin/users/settings" },
             ],
         },
-
         {
             title: tWebsite("title"),
             icon: Globe,
@@ -99,7 +108,6 @@ export function SidebarContent({
                 { title: tWebsite("instructions"), href: "/admin/websites/instructions" },
             ],
         },
-
         {
             title: tPages("title"),
             icon: NotepadText,
@@ -108,7 +116,6 @@ export function SidebarContent({
                 { title: tPages("new_pages"), href: "/admin/pages/new-pages" },
             ],
         },
-
         {
             title: tBlogs("title"),
             icon: StickyNote,
@@ -119,13 +126,11 @@ export function SidebarContent({
                 { title: tBlogs("settings"), href: "/admin/blogs/settings" },
             ],
         },
-
         {
             title: tCoupons("title"),
             icon: CreditCard,
             href: "/admin/coupons",
         },
-
         {
             title: tNotifications("title"),
             icon: Bell,
@@ -136,7 +141,6 @@ export function SidebarContent({
                 { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
             ],
         },
-
         {
             title: tWallet("title"),
             icon: Wallet,
@@ -146,7 +150,6 @@ export function SidebarContent({
                 { title: tWallet("settings"), href: "/admin/wallet/settings" },
             ],
         },
-
         {
             title: tTheme("title"),
             icon: Palette,
@@ -156,7 +159,6 @@ export function SidebarContent({
                 { title: tTheme("add_theme"), href: "/admin/themes/new" },
             ],
         },
-
         {
             title: tPricePlan("title"),
             icon: CreditCard,
@@ -166,7 +168,6 @@ export function SidebarContent({
                 { title: tPricePlan("settings"), href: "/admin/price-plans/settings" },
             ],
         },
-
         {
             title: tNewsletter("title"),
             icon: Mail,
@@ -174,6 +175,73 @@ export function SidebarContent({
                 { title: tNewsletter("all_subscribers"), href: "/admin/newsletter" },
                 { title: tNewsletter("send_mail"), href: "/admin/newsletter/send" },
             ],
+        },
+        {
+            title: tPackageOrder("title"),
+            icon: ShoppingBag,
+            subItems: [
+                { title: tPackageOrder("all_order"), href: "/admin/package-orders" },
+                { title: tPackageOrder("success_order"), href: "/admin/package-orders/success-settings" },
+                { title: tPackageOrder("cancel_order"), href: "/admin/package-orders/cancel-settings" },
+                { title: tPackageOrder("order_report"), href: "/admin/package-orders/order-report" },
+                { title: tPackageOrder("payment_logs"), href: "/admin/package-orders/payment-logs" },
+                { title: tPackageOrder("payment_report"), href: "/admin/package-orders/payment-report" },
+            ],
+        },
+        {
+            title: tSupportTicket("title"),
+            icon: LifeBuoy,
+            subItems: [
+                { title: tSupportTicket("all_tickets"), href: "/admin/support-tickets" },
+                { title: tSupportTicket("add_ticket"), href: "/admin/support-tickets/create" },
+                { title: tSupportTicket("departments"), href: "/admin/support-tickets/departments" },
+                { title: tSupportTicket("page_settings"), href: "/admin/support-tickets/settings" },
+            ],
+        },
+        {
+            title: tTestimonials("title"),
+            icon: Quote,
+            href: "/admin/testimonials",
+        },
+        {
+            title: tBrands("title"),
+            icon: Slack,
+            href: "/admin/brands",
+        },
+        {
+            title: tCustomDomain("title"),
+            icon: Globe,
+            subItems: [
+                { title: tCustomDomain("pending_requests"), href: "/admin/custom-domain" },
+                { title: tCustomDomain("all_requests"), href: "/admin/custom-domain/all-requests" },
+                { title: tCustomDomain("settings"), href: "/admin/custom-domain/settings" },
+            ],
+        },
+        {
+            title: tFormBuilder("title"),
+            icon: FileText,
+            subItems: [
+                { title: tFormBuilder("custom_form"), href: "/admin/form-builder" },
+            ],
+        },
+        {
+            title: tAppearance("title"),
+            icon: Palette,
+            subItems: [
+                { title: tAppearance("widget_builder"), href: "/admin/appearance/widget-builder" },
+                { title: tAppearance("menu_manage"), href: "/admin/appearance/menu-manage" },
+                { title: tAppearance("country_manage"), href: "/admin/appearance/country-manage" },
+                { title: tAppearance("404_settings"), href: "/admin/appearance/404-settings" },
+                { title: tAppearance("topbar_settings"), href: "/admin/appearance/topbar-settings" },
+                { title: tAppearance("email_template"), href: "/admin/appearance/email-template" },
+                { title: tAppearance("login_register"), href: "/admin/appearance/login-register" },
+                { title: tAppearance("maintenance"), href: "/admin/appearance/maintenance" },
+            ],
+        },
+        {
+            title: tLanguage("title"),
+            href: "/admin/languages",
+            icon: Languages,
         },
         {
             title: tPlugins("Plugins.menu.title"),
@@ -204,8 +272,6 @@ export function SidebarContent({
             .filter((item) => item.subItems?.some((sub) => sub.href === pathname))
             .map((item) => item.title)
     );
-
-
     const toggleExpand = (title: string) => {
         setExpandedItems((prev) =>
             prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
