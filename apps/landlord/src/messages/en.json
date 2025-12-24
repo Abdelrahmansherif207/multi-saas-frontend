@@ -2385,6 +2385,118 @@
           "blogs": "Blogs"
         }
       },
+      "CountryManage": {
+        "title": "Country",
+        "all_countries": "All Countries",
+        "add_country": "Add Country",
+        "add_new_country": "Add new country",
+        "insert_all": "Insert all countries",
+        "add_new": "Add New",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "previous": "Previous",
+        "next": "Next",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "code": "Code",
+          "status": "Status",
+          "action": "Action"
+        },
+        "status": {
+          "publish": "Publish",
+          "draft": "Draft"
+        },
+        "form": {
+          "name": "Name",
+          "name_placeholder": "Name",
+          "code": "Country Code",
+          "code_placeholder": "Code",
+          "status": "Status"
+        }
+      },
+      "NotFoundSettings": {
+        "title": "404 Error Page Settings",
+        "page_title": "Title",
+        "button_text": "Button Text",
+        "site_logo": "Site Logo",
+        "update_settings": "Update Settings",
+        "change": "Change",
+        "image_alt": "404 Image"
+      },
+      "MaintenanceSettings": {
+        "title": "Maintain Page Settings",
+        "page_title": "Title",
+        "description": "Description",
+        "coming_back_date": "Coming Back Date",
+        "maintenance_logo": "Maintenance Logo",
+        "maintenance_bg_image": "Maintenance Background Image",
+        "update_settings": "Update Settings",
+        "change": "Change",
+        "remove": "Remove"
+      },
+      "TopbarSettings": {
+        "title": "Topbar Settings",
+        "phone": "Phone",
+        "email": "Email",
+        "facebook_url": "Facebook URL",
+        "instagram_url": "Instagram URL",
+        "linkedin_url": "Linkedin URL",
+        "twitter_url": "Twitter URL",
+        "enable_contact_info": "Enable/Disable Contact Info",
+        "enable_language": "Enable/Disable Language",
+        "enable_social_info": "Enable/Disable Social Info",
+        "enable_full_topbar": "Enable/Disable Full Topbar",
+        "update_settings": "Save Changes"
+      },
+      "LoginRegisterSettings": {
+        "title": "Login Register Settings",
+        "login_title": "Login Title",
+        "register_title": "Register Title",
+        "feature_title_one": "Feature Title One",
+        "feature_desc_one": "Feature Description One",
+        "feature_title_two": "Feature Title Two",
+        "feature_desc_two": "Feature Description Two",
+        "feature_title_three": "Feature Title Three",
+        "feature_desc_three": "Feature Description Three",
+        "feature_image_one": "Register Feature Image One",
+        "feature_image_two": "Register Feature Image Two",
+        "feature_image_three": "Register Feature Image Three",
+        "enable_facebook_login": "Enable/Disable Facebook Login",
+        "enable_google_login": "Enable/Disable Google Login",
+        "enable_recaptcha": "Enable/Disable Recaptcha",
+        "update_settings": "Save Changes",
+        "change": "Change",
+        "remove": "Remove"
+      },
+      "EmailTemplate": {
+        "title": "All Email Templates",
+        "subtitle": "(If you dont use or keep these dynamic email templates empty, then the mail will go as default template system...!)",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "search_placeholder": "Search...",
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "previous": "Previous",
+        "next": "Next",
+        "table": {
+          "sl": "SL#",
+          "title": "Title",
+          "action": "Action"
+        },
+        "edit_title": "Edit Email Template",
+        "subject": "Subject",
+        "message": "Message",
+        "update_changes": "Update Changes"
+      },
       "coming_soon": "Coming Soon"
     }
   }

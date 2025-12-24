@@ -1,21 +1,39 @@
 import { AdminPageWrapper } from "@/components/admin/shared/AdminPageWrapper";
 import { getTranslations } from "next-intl/server";
+import { EmailTemplateList } from "./EmailTemplateList";
 
-export default async function EmailTemplatePage() {
-    const t = await getTranslations("Admin.AppearanceSettings");
+export default async function EmailTemplatesPage() {
+    const t = await getTranslations("Admin.AppearanceSettings.EmailTemplate");
     const tMenu = await getTranslations("Admin.AppearanceSettings.menu");
 
     return (
         <AdminPageWrapper
-            title={tMenu("email_template")}
+            title={t("title")}
             breadcrumbs={[
                 { label: tMenu("title"), href: "#" },
                 { label: tMenu("email_template"), href: "/admin/appearance/email-template" }
             ]}
         >
-            <div className="flex items-center justify-center h-64 bg-card/60 backdrop-blur-xl border border-border/40 rounded-2xl">
-                <p className="text-muted-foreground text-lg">{t("coming_soon")}</p>
-            </div>
+            <EmailTemplateList
+                translations={{
+                    title: t("title"),
+                    subtitle: t("subtitle"),
+                    show: t("show"),
+                    entries: t("entries"),
+                    search: t("search"),
+                    search_placeholder: t("search_placeholder"),
+                    showing: t("showing"),
+                    to: t("to"),
+                    of: t("of"),
+                    previous: t("previous"),
+                    next: t("next"),
+                    table: {
+                        sl: t("table.sl"),
+                        title: t("table.title"),
+                        action: t("table.action"),
+                    },
+                }}
+            />
         </AdminPageWrapper>
     );
 }
