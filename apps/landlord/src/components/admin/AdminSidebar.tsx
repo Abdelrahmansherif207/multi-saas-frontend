@@ -5,25 +5,26 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import {
-  LayoutDashboard,
-  Users,
-  CreditCard,
-  Settings,
-  Globe,
-  Shield,
-  FileText,
-  LogOut,
-  UserCog,
-  ChevronDown,
-  ChevronRight,
-  Circle,
-  ArrowRight,
-  NotepadText,
-  StickyNote,
-  Bell,
+    LayoutDashboard,
+    Users,
+    CreditCard,
+    Settings,
+    Globe,
+    Shield,
+    FileText,
+    LogOut,
+    UserCog,
+    ChevronDown,
+    ChevronRight,
+    Circle,
+    ArrowRight,
+    NotepadText,
+    StickyNote,
+    Bell,
     Wallet,
     Palette,
     Mail,
+    Puzzle as Plugin,
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -46,139 +47,163 @@ export function SidebarContent({
     onClose?: () => void;
     collapsed?: boolean;
 }) {
-const pathname = usePathname();
+    const pathname = usePathname();
 
-const t = useTranslations("Admin.RoleManage.menu");
-const tUser = useTranslations("Admin.UserManage.menu");
-const tWebsite = useTranslations("Admin.WebsiteManage.menu");
-const tPages = useTranslations("Admin.Pages.menu");
-const tBlogs = useTranslations("Admin.Blogs.menu");
-const tCoupons = useTranslations("Admin.Coupons.menu");
-const tNotifications = useTranslations("Admin.Notifications.menu");
-const tWallet = useTranslations("Admin.WalletManage.menu");
-const tTheme = useTranslations("Admin.ThemeManage.menu");
-const tPricePlan = useTranslations("Admin.PricePlanManage.menu");
-const tNewsletter = useTranslations("Admin.NewsletterManage.menu");
+    const t = useTranslations("Admin.RoleManage.menu");
+    const tUser = useTranslations("Admin.UserManage.menu");
+    const tWebsite = useTranslations("Admin.WebsiteManage.menu");
+    const tPages = useTranslations("Admin.Pages.menu");
+    const tBlogs = useTranslations("Admin.Blogs.menu");
+    const tCoupons = useTranslations("Admin.Coupons.menu");
+    const tNotifications = useTranslations("Admin.Notifications.menu");
+    const tWallet = useTranslations("Admin.WalletManage.menu");
+    const tTheme = useTranslations("Admin.ThemeManage.menu");
+    const tPricePlan = useTranslations("Admin.PricePlanManage.menu");
+    const tNewsletter = useTranslations("Admin.NewsletterManage.menu");
+    const tPlugins = useTranslations("Admin");
+    const tGeneralSettings = useTranslations("Admin.GeneralSettings");
 
-const sidebarItems: SidebarItem[] = [
-  {
-    title: t("dashboard"),
-    href: "/admin",
-    icon: LayoutDashboard,
-  },
+    const sidebarItems: SidebarItem[] = [
+        {
+            title: t("dashboard"),
+            href: "/admin",
+            icon: LayoutDashboard,
+        },
 
-  {
-    title: t("title"),
-    icon: UserCog,
-    subItems: [
-      { title: t("all_admins"), href: "/admin/admins" },
-      { title: t("add_admin"), href: "/admin/admins/create" },
-      { title: t("all_roles"), href: "/admin/admins/roles" },
-    ],
-  },
+        {
+            title: t("title"),
+            icon: UserCog,
+            subItems: [
+                { title: t("all_admins"), href: "/admin/admins" },
+                { title: t("add_admin"), href: "/admin/admins/create" },
+                { title: t("all_roles"), href: "/admin/admins/roles" },
+            ],
+        },
 
-  {
-    title: tUser("title"),
-    icon: Users,
-    subItems: [
-      { title: tUser("all_users"), href: "/admin/users" },
-      { title: tUser("add_user"), href: "/admin/users/new" },
-      { title: tUser("settings"), href: "/admin/users/settings" },
-    ],
-  },
+        {
+            title: tUser("title"),
+            icon: Users,
+            subItems: [
+                { title: tUser("all_users"), href: "/admin/users" },
+                { title: tUser("add_user"), href: "/admin/users/new" },
+                { title: tUser("settings"), href: "/admin/users/settings" },
+            ],
+        },
 
-  {
-    title: tWebsite("title"),
-    icon: Globe,
-    subItems: [
-      { title: tWebsite("issues"), href: "/admin/websites/issues" },
-      { title: tWebsite("all_websites"), href: "/admin/websites" },
-      { title: tWebsite("instructions"), href: "/admin/websites/instructions" },
-    ],
-  },
+        {
+            title: tWebsite("title"),
+            icon: Globe,
+            subItems: [
+                { title: tWebsite("issues"), href: "/admin/websites/issues" },
+                { title: tWebsite("all_websites"), href: "/admin/websites" },
+                { title: tWebsite("instructions"), href: "/admin/websites/instructions" },
+            ],
+        },
 
-  {
-    title: tPages("title"),
-    icon: NotepadText,
-    subItems: [
-      { title: tPages("all_pages"), href: "/admin/pages" },
-      { title: tPages("new_pages"), href: "/admin/pages/new-pages" },
-    ],
-  },
+        {
+            title: tPages("title"),
+            icon: NotepadText,
+            subItems: [
+                { title: tPages("all_pages"), href: "/admin/pages" },
+                { title: tPages("new_pages"), href: "/admin/pages/new-pages" },
+            ],
+        },
 
-  {
-    title: tBlogs("title"),
-    icon: StickyNote,
-    subItems: [
-      { title: tBlogs("all_blogs"), href: "/admin/blogs" },
-      { title: tBlogs("add_blog"), href: "/admin/blogs/new-blog" },
-      { title: tBlogs("category"), href: "/admin/blogs/blog-category" },
-      { title: tBlogs("settings"), href: "/admin/blogs/settings" },
-    ],
-  },
+        {
+            title: tBlogs("title"),
+            icon: StickyNote,
+            subItems: [
+                { title: tBlogs("all_blogs"), href: "/admin/blogs" },
+                { title: tBlogs("add_blog"), href: "/admin/blogs/new-blog" },
+                { title: tBlogs("category"), href: "/admin/blogs/blog-category" },
+                { title: tBlogs("settings"), href: "/admin/blogs/settings" },
+            ],
+        },
 
-  {
-    title: tCoupons("title"),
-    icon: CreditCard,
-    href: "/admin/coupons",
-  },
+        {
+            title: tCoupons("title"),
+            icon: CreditCard,
+            href: "/admin/coupons",
+        },
 
-  {
-    title: tNotifications("title"),
-    icon: Bell,
-    subItems: [
-      { title: tNotifications("all_notifications"), href: "/admin/notifications" },
-      { title: tNotifications("user_activity"), href: "/admin/notifications/user-activity-log" },
-      { title: tNotifications("cron_jobs"), href: "/admin/notifications/cron-jobs" },
-      { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
-    ],
-  },
+        {
+            title: tNotifications("title"),
+            icon: Bell,
+            subItems: [
+                { title: tNotifications("all_notifications"), href: "/admin/notifications" },
+                { title: tNotifications("user_activity"), href: "/admin/notifications/user-activity-log" },
+                { title: tNotifications("cron_jobs"), href: "/admin/notifications/cron-jobs" },
+                { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
+            ],
+        },
 
-  {
-    title: tWallet("title"),
-    icon: Wallet,
-    subItems: [
-      { title: tWallet("all_wallet"), href: "/admin/wallet" },
-      { title: tWallet("history"), href: "/admin/wallet/history" },
-      { title: tWallet("settings"), href: "/admin/wallet/settings" },
-    ],
-  },
+        {
+            title: tWallet("title"),
+            icon: Wallet,
+            subItems: [
+                { title: tWallet("all_wallet"), href: "/admin/wallet" },
+                { title: tWallet("history"), href: "/admin/wallet/history" },
+                { title: tWallet("settings"), href: "/admin/wallet/settings" },
+            ],
+        },
 
-  {
-    title: tTheme("title"),
-    icon: Palette,
-    subItems: [
-      { title: tTheme("all_themes"), href: "/admin/themes" },
-      { title: tTheme("settings"), href: "/admin/themes/settings" },
-      { title: tTheme("add_theme"), href: "/admin/themes/new" },
-    ],
-  },
+        {
+            title: tTheme("title"),
+            icon: Palette,
+            subItems: [
+                { title: tTheme("all_themes"), href: "/admin/themes" },
+                { title: tTheme("settings"), href: "/admin/themes/settings" },
+                { title: tTheme("add_theme"), href: "/admin/themes/new" },
+            ],
+        },
 
-  {
-    title: tPricePlan("title"),
-    icon: CreditCard,
-    subItems: [
-      { title: tPricePlan("all_plans"), href: "/admin/price-plans" },
-      { title: tPricePlan("new_plan"), href: "/admin/price-plans/new" },
-      { title: tPricePlan("settings"), href: "/admin/price-plans/settings" },
-    ],
-  },
+        {
+            title: tPricePlan("title"),
+            icon: CreditCard,
+            subItems: [
+                { title: tPricePlan("all_plans"), href: "/admin/price-plans" },
+                { title: tPricePlan("new_plan"), href: "/admin/price-plans/new" },
+                { title: tPricePlan("settings"), href: "/admin/price-plans/settings" },
+            ],
+        },
 
-  {
-    title: tNewsletter("title"),
-    icon: Mail,
-    subItems: [
-      { title: tNewsletter("all_subscribers"), href: "/admin/newsletter" },
-      { title: tNewsletter("send_mail"), href: "/admin/newsletter/send" },
-    ],
-  },
-];
+        {
+            title: tNewsletter("title"),
+            icon: Mail,
+            subItems: [
+                { title: tNewsletter("all_subscribers"), href: "/admin/newsletter" },
+                { title: tNewsletter("send_mail"), href: "/admin/newsletter/send" },
+            ],
+        },
+        {
+            title: tPlugins("Plugins.menu.title"),
+            icon: Plugin,
+            subItems: [
+                { title: tPlugins("Plugins.menu.all_plugins"), href: "/admin/plugins" },
+                { title: tPlugins("Plugins.menu.new_plugin"), href: "/admin/plugins/new-plugins" },
+            ],
+        },
+        {
+            title: tGeneralSettings("menu_title"),
+            icon: Settings,
+            subItems: [
+                { title: tGeneralSettings("menu_title"), href: "/admin/general-settings" },
+                { title: tGeneralSettings("page_settings.title"), href: "/admin/general-settings/page-settings" },
+                { title: tGeneralSettings("application_settings.title"), href: "/admin/general-settings/application-settings" },
+                { title: tGeneralSettings("site_identity.title"), href: "/admin/general-settings/site-identity" },
+                { title: tGeneralSettings("basic_settings.title"), href: "/admin/general-settings/basic-settings" },
+                { title: tGeneralSettings("colors_settings.title"), href: "/admin/general-settings/colors-settings" },
+                { title: tGeneralSettings("seo_settings.title"), href: "/admin/general-settings/seo-settings" },
+                { title: tGeneralSettings("third_party_script_settings.title"), href: "/admin/general-settings/third-party-script-settings" },
+            ],
+        }
+    ];
 
-const [expandedItems, setExpandedItems] = useState<string[]>(() =>
-  sidebarItems
-    .filter((item) => item.subItems?.some((sub) => sub.href === pathname))
-    .map((item) => item.title)
-);
+    const [expandedItems, setExpandedItems] = useState<string[]>(() =>
+        sidebarItems
+            .filter((item) => item.subItems?.some((sub) => sub.href === pathname))
+            .map((item) => item.title)
+    );
 
 
     const toggleExpand = (title: string) => {

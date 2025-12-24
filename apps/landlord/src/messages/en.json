@@ -1239,6 +1239,74 @@
         "showing": "Showing {from} to {to} of {total} entries",
         "previous": "Previous",
         "next": "Next"
+      },
+      "NewPage": {
+        "title": "Create New Page",
+        "breadcrumbs": {
+          "admin": "Admin",
+          "pages": "Pages",
+          "new_page": "New Page"
+        },
+        "form": {
+          "visibility": "Visibility",
+          "select_visibility": "Select visibility",
+          "visibilities": {
+            "public": "Public",
+            "private": "Private",
+            "hidden": "Hidden"
+          },
+          "status": "Status",
+          "select_status": "Select status",
+          "statuses": {
+            "draft": "Draft",
+            "published": "Published"
+          },
+          "featured_image": "Featured Image",
+          "recommended_size": "Recommended: 1920 x 1280 px",
+          "upload_image": "Upload Image",
+          "submit": "Create Page",
+          "page_title": "Page Title",
+          "page_title_placeholder": "Enter page title",
+          "content": "Page Content",
+          "content_placeholder": "Write your page content here...",
+          "excerpt": "Excerpt",
+          "excerpt_placeholder": "Brief summary of the page"
+        },
+        "seo": {
+          "title": "SEO Information",
+          "tabs": {
+            "general": "General",
+            "facebook": "Facebook",
+            "twitter": "Twitter"
+          },
+          "general": {
+            "title": "SEO Title",
+            "title_placeholder": "Enter SEO title",
+            "description": "SEO Description",
+            "description_placeholder": "Enter SEO description"
+          },
+          "facebook": {
+            "header": "Facebook Meta Information",
+            "title": "Facebook Title",
+            "title_placeholder": "Enter Facebook title",
+            "description": "Facebook Description",
+            "description_placeholder": "Enter Facebook description"
+          },
+          "twitter": {
+            "header": "Twitter Meta Information",
+            "title": "Twitter Title",
+            "title_placeholder": "Enter Twitter title",
+            "description": "Twitter Description",
+            "description_placeholder": "Enter Twitter description"
+          }
+        },
+        "validation": {
+          "title_min": "Title must be at least 2 characters",
+          "content_min": "Content must be at least 10 characters",
+          "excerpt_max": "Excerpt must be at most 191 characters",
+          "visibility_required": "Please select visibility",
+          "status_required": "Please select status"
+        }
       }
     },
     "Blogs": {
@@ -2006,6 +2074,192 @@
         "subject_placeholder": "Subject",
         "message": "Message",
         "send_mail": "Send Mail"
+      }
+    },
+    "Plugins": {
+      "menu": {
+        "title": "Plugins",
+        "all_plugins": "All Plugins",
+        "new_plugin": "New Plugin"
+      },
+      "NewPlugin": {
+        "title": "Add New Plugin",
+        "description": "upload new plugin from here. if you have a plugin already but you have uploaded that plugin file again, it will override existing plugins files",
+        "file_label": "Upload Plugin File",
+        "file_help": "only zip file accepted",
+        "submit": "Submit"
+      },
+      "title": "Plugins Manage",
+      "breadcrumbs": {
+        "admin": "Admin",
+        "plugins": "Plugins Manage"
+      },
+      "manage_info": "manage all plugins from here, you can active/deactivate plugin or can delete any plugin from here",
+      "core_plugin": "Core Plugin",
+      "activate": "Active",
+      "deactivate": "Deactivate",
+      "delete": "Delete",
+      "dialog": {
+        "deactivate": {
+          "title": "Are you sure to deactivate ? {plugin} plugin",
+          "description": "{plugin} is a core plugin, after deactivate it you might face issues or error in the website",
+          "confirm": "Yes, deactivate it",
+          "cancel": "Cancel"
+        },
+        "delete": {
+          "title": "Are you sure you want to delete {plugin}?",
+          "description": "This action cannot be undone. This will permanently delete the plugin.",
+          "confirm": "Delete",
+          "cancel": "Cancel"
+        },
+        "error": {
+          "title": "...Oops",
+          "ok": "OK"
+        }
+      },
+      "error": {
+        "cannot_delete_core": "you can not delete any core plugin"
+      }
+    },
+    "GeneralSettings": {
+      "title": "Page Settings",
+      "home_page_label": "Home Page Display",
+      "home_page_placeholder": "Home Page",
+      "home_page_help": "You can set any page as home page from this section",
+      "price_plan_label": "Price Plan Page Display",
+      "price_plan_placeholder": "Price Plan",
+      "price_plan_help": "You can set any page as price plan page from this section",
+      "submit": "Update Changes",
+      "breadcrumbs": {
+        "admin": "Admin",
+        "settings": "Page Settings"
+      },
+      "menu_title": "General Settings",
+      "page_settings": {
+        "title": "Page Settings",
+        "home_page_display": "Home Page Display",
+        "price_plan_page_display": "Price Plan Page Display",
+        "update_changes": "Update Changes",
+        "home_page_help": "You can set any page as home page from this section",
+        "price_plan_help": "You can set any page as price plan page from this section"
+      },
+      "application_settings": {
+        "title": "Application Settings",
+        "timezone_label": "Select Timezone",
+        "timezone_placeholder": "Africa/Abidjan",
+        "app_name_label": "App Name",
+        "app_name_placeholder": "Wajha",
+        "live_server_label": "Enable/Disable Live Server or Localhost",
+        "live_server_help": "Yes means site is in live server and no means localhost",
+        "app_debug_label": "True/False App Debug",
+        "app_debug_help": "True means App Debug True and False means App Debug false",
+        "save_changes": "Save Changes",
+        "yes": "YES",
+        "no": "NO"
+      },
+      "site_identity": {
+        "title": "Site Identity",
+        "site_logo": "Site Logo",
+        "white_site_logo": "White Site Logo",
+        "favicon": "Favicon",
+        "breadcrumb_left_image": "Breadcrumb Left Image",
+        "breadcrumb_right_image": "Breadcrumb Right Image",
+        "change_image": "Change",
+        "image_format": "Recommended size is {size}",
+        "save_changes": "Save Changes"
+      },
+      "basic_settings": {
+        "title": "Basic Settings",
+        "site_title": "Site Title",
+        "site_tagline": "Site Tagline",
+        "footer_text": "Footer Text / Copyright Text",
+        "database_engine": "Mysql Database Engine",
+        "database_engine_help": "By default it is null, if you have mysql database engine you can set here, unless leave this as [Null]",
+        "date_display_style": "Date Display Style",
+        "dark_mode_switcher": "Enable/Disable Dark Mode Switcher",
+        "section_title_extra_design": "Enable/Disable section title extra design",
+        "rtl_support": "Enable/Disable RTL Support",
+        "lazy_load": "Enable/Disable Lazy Load For Image",
+        "lazy_load_help": "This means, you want your website will be lazy load for image",
+        "email_verification": "Enable/Disable Email Verification For User",
+        "sorting_table": "Enable/Disable of Sorting Table List Data",
+        "sorting_table_help": "Enable means you can sort table data by clicking on the table header",
+        "save_changes": "Save Changes"
+      },
+      "colors_settings": {
+        "title": "Colors Settings",
+        "site_main_color_one": "Site Main Color One",
+        "site_main_color_two": "Site Main Color Two",
+        "site_main_color_three": "Site Main Color Three",
+        "site_secondary_color": "Site Secondary Color",
+        "site_secondary_color_two": "Site Secondary Color Two",
+        "site_secondary_color_three": "Site Secondary Color Three",
+        "site_background_color": "Site Background Color",
+        "site_background_color_two": "Site Background Color Two",
+        "site_background_color_three": "Site Background Color Three",
+        "site_text_color": "Site Text Color",
+        "site_text_color_two": "Site Text Color Two",
+        "site_text_color_three": "Site Text Color Three",
+        "site_border_color": "Site Border Color",
+        "site_border_color_two": "Site Border Color Two",
+        "site_border_color_three": "Site Border Color Three",
+        "site_hover_color": "Site Hover Color",
+        "site_hover_color_two": "Site Hover Color Two",
+        "site_hover_color_three": "Site Hover Color Three",
+        "save_changes": "Save Changes"
+      },
+      "seo_settings": {
+        "title": "SEO Settings",
+        "site_meta_title": "Site Meta Title",
+        "site_meta_keywords": "Site Meta Keywords",
+        "site_meta_keywords_help": "Separate by comma (,)",
+        "site_meta_description": "Site Meta Description",
+        "og_meta_title": "OG Meta Title",
+        "og_meta_description": "OG Meta Description",
+        "site_logo": "Site Logo",
+        "canonical_url_type": "Set Canonical URL Type",
+        "save_changes": "Save Changes"
+      },
+      "third_party_script_settings": {
+        "title": "Third Party Script Settings",
+        "header_tracking_code": "Header Tracking Code",
+        "header_tracking_code_help": "This code will be loaded immediately after the &lt;head&gt; tag",
+        "footer_tracking_code": "Footer Tracking Code",
+        "footer_tracking_code_help": "This code will be loaded immediately before the &lt;/body&gt; tag",
+        "google_analytics_title": "Google Analytics Tracking Code",
+        "google_analytics_id": "Google Analytics Tracking ID",
+        "google_maps_key": "Google Maps Key",
+        "google_maps_key_js": "Google Maps Key (JS API)",
+        "facebook_pixel_title": "Facebook Pixel",
+        "facebook_pixel_enabled": "Enable Facebook Pixel",
+        "facebook_pixel_id": "Facebook Pixel ID",
+        "google_recaptcha_title": "Google reCAPTCHA",
+        "google_recaptcha_enabled": "Enable Google reCAPTCHA",
+        "google_recaptcha_site_key": "Site Key",
+        "google_recaptcha_secret_key": "Secret Key",
+        "live_chat_title": "Live Chat",
+        "live_chat_enabled": "Enable Live Chat",
+        "live_chat_code": "Live Chat Code",
+        "save_changes": "Save Changes"
+      },
+      "smtp_settings": {
+        "title": "SMTP Settings",
+        "test_email_title": "Send Test Email",
+        "test_email_help": "If you are facing issues sending email, test your SMTP configuration by sending a test email.",
+        "test_email_placeholder": "recipient@example.com",
+        "send_test_email": "Send Test Email",
+        "mailer": "Mailer",
+        "host": "SMTP Host",
+        "username": "SMTP Username",
+        "password": "SMTP Password",
+        "port": "SMTP Port",
+        "encryption": "SMTP Encryption",
+        "encryption_none": "None",
+        "encryption_ssl": "SSL",
+        "encryption_tls": "TLS",
+        "from_email": "From Email",
+        "from_name": "From Name",
+        "save_changes": "Save Changes"
       }
     }
   }
