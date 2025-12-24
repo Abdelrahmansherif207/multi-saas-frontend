@@ -2218,6 +2218,89 @@
         "slug": "الرمز",
         "slug_placeholder": "en_US"
       }
+    },
+    "PaymentManage": {
+      "menu": {
+        "title": "الدفع",
+        "currencies": "العملات",
+        "paypal": "بايبال",
+        "stripe": "سترايب",
+        "manual": "الدفع اليدوي",
+        "paytm": "بي تي إم"
+      },
+      "form": {
+        "update_changes": "تحديث التغييرات",
+        "status": "الحالة",
+        "publish": "نشر",
+        "draft": "مسودة",
+        "change_image": "تغيير الصورة",
+        "allowed_image_format": "صيغة الصورة المسموح بها: jpg,jpeg,png",
+        "allowed_image_size": "حجم الصورة المسموح به: 100*100",
+        "no_image": "لا توجد صورة",
+        "currencies": {
+          "site_global_currency": "عملة الموقع العالمية",
+          "select_currency": "اختر العملة",
+          "currency_symbol_position": "موقع رمز العملة",
+          "select_position": "اختر الموقع",
+          "left": "يسار",
+          "right": "يمين",
+          "custom_currency_symbol": "رمز عملة مخصص",
+          "custom_currency_symbol_help": "إذا لم يكن لديك أي رمز مخصص ، فاترك هذا الحقل فارغًا كافتراضي",
+          "amount_decimal_mode": "نعم/لا وضع الكسور العشرية للمبلغ",
+          "coupon_apply": "تفعيل/تعطيل تطبيق الكوبون",
+          "default_payment_gateway": "بوابة الدفع الافتراضية",
+          "select_gateway": "اختر البوابة",
+          "exchange_rate_help": "أدخل سعر صرف USD إلى {currency}. مثال: 1 USD = ? {currency}"
+        },
+        "paypal": {
+          "info_banner": "إذا كانت عملتك غير متوفرة في PayPal ، فسيقوم بتحويل قيمة عملتك إلى قيمة USD بناءً على سعر صرف عملتك.",
+          "enable_paypal": "تفعيل/تعطيل PayPal",
+          "enable_test_mode": "تفعيل وضع الاختبار PayPal",
+          "logo_paypal": "شعار PayPal",
+          "sandbox_client_id": "معرف العميل Sandbox",
+          "sandbox_client_secret": "سر العميل Sandbox",
+          "sandbox_app_id": "معرف التطبيق Sandbox",
+          "live_client_id": "معرف العميل المباشر",
+          "live_client_secret": "سر العميل المباشر",
+          "live_app_id": "معرف التطبيق المباشر"
+        },
+        "stripe": {
+          "gateway_settings": "إعدادات بوابة الدفع",
+          "info_banner": "يتيح لك Stripe قبول بطاقات الائتمان وطرق الدفع الأخرى عالميًا. تأكد من تهيئة webhooks في لوحة تحكم Stripe.",
+          "enable_stripe": "تفعيل/تعطيل Stripe",
+          "enable_test_mode": "تفعيل وضع الاختبار Stripe",
+          "logo_stripe": "شعار Stripe",
+          "public_key": "المفتاح العام",
+          "secret_key": "المفتاح السري"
+        },
+        "paytm": {
+          "info_banner": "إذا كانت عملتك غير متوفرة في Paytm ، فسيقوم بتحويل قيمة عملتك إلى قيمة INR بناءً على سعر صرف عملتك.",
+          "enable_paytm": "تفعيل/تعطيل Paytm",
+          "enable_test_mode": "تفعيل وضع الاختبار Paytm",
+          "logo_paytm": "شعار Paytm",
+          "merchant_key": "مفتاح التاجر",
+          "merchant_mid": "معرف التاجر mid",
+          "merchant_website": "موقع التاجر",
+          "channel": "القناة",
+          "industry_type": "نوع الصناعة"
+        },
+        "manual": {
+          "info_banner": "تسمح طرق الدفع اليدوية للمستخدمين بالدفع دون اتصال بالإنترنت. يمكنك تقديم إرشادات مثل تفاصيل البنك أو الدفع عند الاستلام.",
+          "methods_title": "طرق الدفع اليدوية",
+          "add_new_method": "إضافة طريقة جديدة",
+          "table_id": "المعرف",
+          "table_name": "الاسم",
+          "table_status": "الحالة",
+          "table_action": "الإجراء",
+          "no_methods": "لم يتم العثور على طرق دفع يدوية.",
+          "modal_title": "إضافة طريقة جديدة",
+          "field_name": "اسم الطريقة",
+          "field_instructions": "التعليمات",
+          "field_instructions_placeholder": "أدخل تعليمات الدفع...",
+          "field_status": "الحالة",
+          "button_add": "إضافة الطريقة"
+        }
+      }
     }
   }
 }

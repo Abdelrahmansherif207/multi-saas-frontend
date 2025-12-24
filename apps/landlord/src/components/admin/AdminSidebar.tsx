@@ -75,6 +75,8 @@ export function SidebarContent({
     const tFormBuilder = useTranslations("Admin.FormBuilder.menu");
     const tAppearance = useTranslations("Admin.AppearanceSettings.menu");
     const tLanguage = useTranslations("Admin.LanguageManage.menu");
+    const tPayment = useTranslations("Admin.PaymentManage.menu");
+
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
@@ -236,6 +238,17 @@ export function SidebarContent({
                 { title: tAppearance("email_template"), href: "/admin/appearance/email-template" },
                 { title: tAppearance("login_register"), href: "/admin/appearance/login-register" },
                 { title: tAppearance("maintenance"), href: "/admin/appearance/maintenance" },
+            ],
+        },
+        {
+            title: tPayment("title"),
+            icon: CreditCard,
+            subItems: [
+                { title: tPayment("currencies"), href: "/admin/payments/currencies" },
+                { title: tPayment("paypal"), href: "/admin/payments/paypal" },
+                { title: tPayment("stripe"), href: "/admin/payments/stripe" },
+                { title: tPayment("manual"), href: "/admin/payments/manual" },
+                { title: tPayment("paytm"), href: "/admin/payments/paytm" },
             ],
         },
         {

@@ -2262,546 +2262,630 @@
         "save_changes": "Save Changes"
       }
     },
-        "PackageOrderManage": {
-          "menu": {
-            "title": "Package Order Manage",
-            "all_order": "All Order",
-            "success_order": "Success Order Page",
-            "cancel_order": "Cancel Order Page",
-            "order_report": "Order Report",
-            "payment_logs": "All Payment Logs",
-            "payment_report": "Payment Report"
-          },
-          "OrderReport": {
-            "title": "Order Report",
-            "start_date": "Start Date",
-            "end_date": "End Date",
-            "status": "Status",
-            "payment_status": "Payment Status",
-            "items": "Items",
-            "submit": "Submit"
-          },
-          "PaymentLogs": {
-            "title": "All Payment Logs",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "table": {
-              "id": "ID",
-              "payer_name": "Payer Name",
-              "payer_email": "Payer Email",
-              "package_name": "Package Name",
-              "amount": "Amount",
-              "package_gateway": "Package Gateway",
-              "payment_status": "Payment Status",
-              "date": "Date",
-              "action": "Action"
-            }
-          },
-          "PaymentReport": {
-            "title": "Payment Report",
-            "start_date": "Start Date",
-            "end_date": "End Date",
-            "payment_status": "Payment Status",
-            "items": "Items",
-            "submit": "Submit"
-          },
-          "SuccessSettings": {
-            "title": "Order Success Page Settings",
-            "subtitle": "Order Success Page Settings",
-            "main_title": "Main Title",
-            "description": "Description",
-            "update": "Update Changes"
-          },
-          "CancelSettings": {
-            "title": "Order Cancel Page Settings",
-            "subtitle_page": "Order Cancel Page Settings",
-            "main_title": "Main Title",
-            "subtitle": "Subtitle",
-            "subtitle_hint": "{pname} will be replaced by package name",
-            "description": "Description",
-            "update": "Update Changes"
-          },
-          "AllOrders": {
-            "title": "All Orders",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "filter": "Filter",
-            "all_order_filter": "All Order",
-            "search": "Search",
-            "table": {
-              "id": "ID",
-              "package_name": "Package Name",
-              "paid_amount": "Paid Amount",
-              "subdomain": "Subdomain",
-              "payment_status": "Payment Status",
-              "order_status": "Order Status",
-              "renew_taken": "Renew Taken",
-              "start_date": "Start Date",
-              "expire_date": "Expire Date",
-              "action": "Action"
-            }
-          }
+    "PackageOrderManage": {
+      "menu": {
+        "title": "Package Order Manage",
+        "all_order": "All Order",
+        "success_order": "Success Order Page",
+        "cancel_order": "Cancel Order Page",
+        "order_report": "Order Report",
+        "payment_logs": "All Payment Logs",
+        "payment_report": "Payment Report"
+      },
+      "OrderReport": {
+        "title": "Order Report",
+        "start_date": "Start Date",
+        "end_date": "End Date",
+        "status": "Status",
+        "payment_status": "Payment Status",
+        "items": "Items",
+        "submit": "Submit"
+      },
+      "PaymentLogs": {
+        "title": "All Payment Logs",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "table": {
+          "id": "ID",
+          "payer_name": "Payer Name",
+          "payer_email": "Payer Email",
+          "package_name": "Package Name",
+          "amount": "Amount",
+          "package_gateway": "Package Gateway",
+          "payment_status": "Payment Status",
+          "date": "Date",
+          "action": "Action"
+        }
+      },
+      "PaymentReport": {
+        "title": "Payment Report",
+        "start_date": "Start Date",
+        "end_date": "End Date",
+        "payment_status": "Payment Status",
+        "items": "Items",
+        "submit": "Submit"
+      },
+      "SuccessSettings": {
+        "title": "Order Success Page Settings",
+        "subtitle": "Order Success Page Settings",
+        "main_title": "Main Title",
+        "description": "Description",
+        "update": "Update Changes"
+      },
+      "CancelSettings": {
+        "title": "Order Cancel Page Settings",
+        "subtitle_page": "Order Cancel Page Settings",
+        "main_title": "Main Title",
+        "subtitle": "Subtitle",
+        "subtitle_hint": "{pname} will be replaced by package name",
+        "description": "Description",
+        "update": "Update Changes"
+      },
+      "AllOrders": {
+        "title": "All Orders",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "filter": "Filter",
+        "all_order_filter": "All Order",
+        "search": "Search",
+        "table": {
+          "id": "ID",
+          "package_name": "Package Name",
+          "paid_amount": "Paid Amount",
+          "subdomain": "Subdomain",
+          "payment_status": "Payment Status",
+          "order_status": "Order Status",
+          "renew_taken": "Renew Taken",
+          "start_date": "Start Date",
+          "expire_date": "Expire Date",
+          "action": "Action"
+        }
+      }
+    },
+    "SupportTicketManage": {
+      "menu": {
+        "title": "Support Tickets",
+        "all_tickets": "All Tickets",
+        "add_ticket": "Add New Ticket",
+        "departments": "Departments",
+        "page_settings": "Page Settings"
+      },
+      "AllTickets": {
+        "title": "All Support Tickets",
+        "subtitle": "All Tickets",
+        "new_ticket": "New Ticket",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "search": "Search",
+        "filterByPriority": "Filter By Priority",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "department": "Department",
+          "user": "User",
+          "priority": "Priority",
+          "status": "Status",
+          "action": "Action"
+        }
+      },
+      "CreateTicket": {
+        "title": "New Ticket",
+        "all_tickets": "All Support Tickets",
+        "form": {
+          "title": "Title",
+          "subject": "Subject",
+          "priority": "Priority",
+          "departments": "Departments",
+          "user": "User",
+          "description": "Description",
+          "submit": "Submit Ticket"
+        }
+      },
+      "Departments": {
+        "title": "All Support Ticket Category",
+        "subtitle": "All Support Ticket Category",
+        "add_new": "Add New Department",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "search": "Search",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "status": "Status",
+          "action": "Action"
+        }
+      },
+      "PageSettings": {
+        "title": "Ticket Page Settings",
+        "subtitle": "Ticket Page Settings",
+        "login_notice": "Login Notice",
+        "form_title": "Form Title",
+        "button_text": "Button Text",
+        "success_message": "Success Message",
+        "update": "Update Changes"
+      }
+    },
+    "Testimonials": {
+      "menu": {
+        "title": "Testimonials"
+      },
+      "title": "All Testimonial",
+      "add_new": "Add New Testimonial",
+      "bulk_action": "Bulk Action",
+      "apply": "Apply",
+      "search": "Search:",
+      "table": {
+        "id": "ID",
+        "image": "Image",
+        "name": "Name",
+        "designation": "Designation",
+        "company": "Company",
+        "status": "Status",
+        "action": "Action"
+      }
+    },
+    "Brands": {
+      "menu": {
+        "title": "Brands"
+      },
+      "title": "All Brands",
+      "add_new": "Add New Brand",
+      "bulk_action": "Bulk Action",
+      "apply": "Apply",
+      "search": "Search:",
+      "table": {
+        "id": "ID",
+        "image": "Image",
+        "url": "URL",
+        "status": "Status",
+        "action": "Action"
+      }
+    },
+    "CustomDomain": {
+      "menu": {
+        "title": "Custom Domain",
+        "pending_requests": "All Pending Request",
+        "all_requests": "All Requests",
+        "settings": "Settings"
+      },
+      "PendingRequests": {
+        "title": "All Pending Custom Domain Requests",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "table": {
+          "id": "ID",
+          "username": "Username",
+          "current_domain": "Current Domain",
+          "requested_domain": "Requested New Domain",
+          "status": "Custom Domain Status",
+          "date": "Date",
+          "action": "Action"
         },
-        "SupportTicketManage": {
-          "menu": {
-            "title": "Support Tickets",
-            "all_tickets": "All Tickets",
-            "add_ticket": "Add New Ticket",
-            "departments": "Departments",
-            "page_settings": "Page Settings"
-          },
-          "AllTickets": {
-            "title": "All Support Tickets",
-            "subtitle": "All Tickets",
-            "new_ticket": "New Ticket",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "search": "Search",
-            "filterByPriority": "Filter By Priority",
-            "table": {
-              "id": "ID",
-              "title": "Title",
-              "department": "Department",
-              "user": "User",
-              "priority": "Priority",
-              "status": "Status",
-              "action": "Action"
-            }
-          },
-          "CreateTicket": {
-            "title": "New Ticket",
-            "all_tickets": "All Support Tickets",
-            "form": {
-              "title": "Title",
-              "subject": "Subject",
-              "priority": "Priority",
-              "departments": "Departments",
-              "user": "User",
-              "description": "Description",
-              "submit": "Submit Ticket"
-            }
-          },
-          "Departments": {
-            "title": "All Support Ticket Category",
-            "subtitle": "All Support Ticket Category",
-            "add_new": "Add New Department",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "search": "Search",
-            "table": {
-              "id": "ID",
-              "title": "Title",
-              "status": "Status",
-              "action": "Action"
-            }
-          },
-          "PageSettings": {
-            "title": "Ticket Page Settings",
-            "subtitle": "Ticket Page Settings",
-            "login_notice": "Login Notice",
-            "form_title": "Form Title",
-            "button_text": "Button Text",
-            "success_message": "Success Message",
-            "update": "Update Changes"
-          }
+        "no_data": "No data available in table"
+      },
+      "AllRequests": {
+        "title": "All Custom Domain Requests",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "table": {
+          "id": "ID",
+          "username": "Username",
+          "old_domain": "Old Domain",
+          "new_domain": "New Domain",
+          "status": "Custom Domain Status",
+          "date": "Date"
         },
-        "Testimonials": {
-          "menu": {
-            "title": "Testimonials"
-          },
-          "title": "All Testimonial",
-          "add_new": "Add New Testimonial",
-          "bulk_action": "Bulk Action",
-          "apply": "Apply",
-          "search": "Search:",
-          "table": {
-            "id": "ID",
-            "image": "Image",
-            "name": "Name",
-            "designation": "Designation",
-            "company": "Company",
-            "status": "Status",
-            "action": "Action"
-          }
+        "no_data": "No data available in table"
+      },
+      "Settings": {
+        "title": "Custom Domain Settings",
+        "field_title": "Title",
+        "description": "Description",
+        "table_info_title": "Table Info Data Title",
+        "type_one": "Type One",
+        "host_one": "Host One",
+        "value_one": "Value One",
+        "ttl_one": "TTL One",
+        "type_two": "Type Two",
+        "host_two": "Host Two",
+        "value_two": "Value Two",
+        "ttl_two": "TTL Two",
+        "ip_address": "IP Address",
+        "screenshot": "Screen Shot Example",
+        "screenshot_hint": "recommended image size is 100*100",
+        "upload": "Upload",
+        "update": "Update Changes"
+      }
+    },
+    "FormBuilder": {
+      "menu": {
+        "title": "Form Builder",
+        "custom_form": "Custom Form Builder"
+      },
+      "AllForms": {
+        "title": "All Custom Form",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "new_form": "New Form",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "button_text": "Button Text",
+          "action": "Action"
         },
-        "Brands": {
-          "menu": {
-            "title": "Brands"
-          },
-          "title": "All Brands",
-          "add_new": "Add New Brand",
-          "bulk_action": "Bulk Action",
-          "apply": "Apply",
-          "search": "Search:",
-          "table": {
-            "id": "ID",
-            "image": "Image",
-            "url": "URL",
-            "status": "Status",
-            "action": "Action"
-          }
+        "no_data": "No data available in table"
+      },
+      "Editor": {
+        "title": "Edit Form",
+        "all_form": "All Form",
+        "new_form": "New Form",
+        "language": "Language",
+        "form_title": "Title",
+        "receiving_email": "Receiving Email",
+        "email_hint": "you will get mail with all info of from to this email",
+        "button_title": "Button Title",
+        "success_message": "Success Message",
+        "save_changes": "Save Change",
+        "available_fields": "Available Form Fields",
+        "fields": {
+          "text": "Text",
+          "email": "Email",
+          "tel": "Tel",
+          "url": "URL",
+          "select": "Select",
+          "checkbox": "Check Box",
+          "file": "File",
+          "textarea": "Textarea"
+        }
+      }
+    },
+    "AppearanceSettings": {
+      "menu": {
+        "title": "Appearance Settings",
+        "widget_builder": "Widget Builder",
+        "menu_manage": "Menu Manage",
+        "country_manage": "Country Manage",
+        "404_settings": "404 Settings",
+        "topbar_settings": "Topbar Settings",
+        "email_template": "Email Template Settings",
+        "login_register": "Login/Register Settings",
+        "maintenance": "Maintenance Settings"
+      },
+      "WidgetBuilder": {
+        "title": "All Widgets",
+        "all_widgets": "All Widgets",
+        "footer_area": "Footer Widgets Area",
+        "sidebar_area": "Blog sidebar Widgets Area",
+        "save_changes": "Save Changes",
+        "widgets": {
+          "raw_html": "Raw HTML",
+          "text_editor": "Text Editor",
+          "about_us": "About Us",
+          "custom_page_link": "Custom Page Link",
+          "contact_info": "Contact Info",
+          "popular_blogs": "Popular Blogs",
+          "blog_category_search": "Blog Category & Search",
+          "popular_appointments": "Popular Appointments",
+          "popular_sub_appointments": "Popular Sub Appointments",
+          "google_map": "Google Map"
         },
-        "CustomDomain": {
-          "menu": {
-            "title": "Custom Domain",
-            "pending_requests": "All Pending Request",
-            "all_requests": "All Requests",
-            "settings": "Settings"
-          },
-          "PendingRequests": {
-            "title": "All Pending Custom Domain Requests",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "show": "Show",
-            "entries": "entries",
-            "search": "Search:",
-            "table": {
-              "id": "ID",
-              "username": "Username",
-              "current_domain": "Current Domain",
-              "requested_domain": "Requested New Domain",
-              "status": "Custom Domain Status",
-              "date": "Date",
-              "action": "Action"
-            },
-            "no_data": "No data available in table"
-          },
-          "AllRequests": {
-            "title": "All Custom Domain Requests",
-            "show": "Show",
-            "entries": "entries",
-            "search": "Search:",
-            "table": {
-              "id": "ID",
-              "username": "Username",
-              "old_domain": "Old Domain",
-              "new_domain": "New Domain",
-              "status": "Custom Domain Status",
-              "date": "Date"
-            },
-            "no_data": "No data available in table"
-          },
-          "Settings": {
-            "title": "Custom Domain Settings",
-            "field_title": "Title",
-            "description": "Description",
-            "table_info_title": "Table Info Data Title",
-            "type_one": "Type One",
-            "host_one": "Host One",
-            "value_one": "Value One",
-            "ttl_one": "TTL One",
-            "type_two": "Type Two",
-            "host_two": "Host Two",
-            "value_two": "Value Two",
-            "ttl_two": "TTL Two",
-            "ip_address": "IP Address",
-            "screenshot": "Screen Shot Example",
-            "screenshot_hint": "recommended image size is 100*100",
-            "upload": "Upload",
-            "update": "Update Changes"
-          }
+        "widget_config": {
+          "description": "Description",
+          "logo": "Logo",
+          "upload_image": "Upload Image",
+          "icon": "Icon",
+          "icon_url": "Icon URL",
+          "title": "Title",
+          "title_url": "Title URL",
+          "add": "Add",
+          "remove": "Remove",
+          "save_changes": "Save Changes",
+          "english": "English (UK)",
+          "arabic": "العربية",
+          "info": "Info",
+          "heading_text": "Heading Text",
+          "blog_items": "Blog Items",
+          "category_title": "Category Title",
+          "category_items": "Category Items",
+          "latitude": "Latitude",
+          "longitude": "Longitude"
+        }
+      },
+      "MenuManage": {
+        "title": "All Menu",
+        "all_menus": "All Menus",
+        "add_new_menu": "Add New Menu",
+        "create_menu": "Create Menu",
+        "table": {
+          "id": "ID",
+          "title": "Title",
+          "status": "Status",
+          "created_at": "Created At",
+          "action": "Action"
         },
-        "FormBuilder": {
-          "menu": {
-            "title": "Form Builder",
-            "custom_form": "Custom Form Builder"
-          },
-          "AllForms": {
-            "title": "All Custom Form",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "show": "Show",
-            "entries": "entries",
-            "search": "Search:",
-            "new_form": "New Form",
-            "table": {
-              "id": "ID",
-              "title": "Title",
-              "button_text": "Button Text",
-              "action": "Action"
-            },
-            "no_data": "No data available in table"
-          },
-          "Editor": {
-            "title": "Edit Form",
-            "all_form": "All Form",
-            "new_form": "New Form",
-            "language": "Language",
-            "form_title": "Title",
-            "receiving_email": "Receiving Email",
-            "email_hint": "you will get mail with all info of from to this email",
-            "button_title": "Button Title",
-            "success_message": "Success Message",
-            "save_changes": "Save Change",
-            "available_fields": "Available Form Fields",
-            "fields": {
-              "text": "Text",
-              "email": "Email",
-              "tel": "Tel",
-              "url": "URL",
-              "select": "Select",
-              "checkbox": "Check Box",
-              "file": "File",
-              "textarea": "Textarea"
-            }
-          }
+        "status": {
+          "default": "Default Menu",
+          "active": "Active",
+          "inactive": "Inactive"
         },
-        "AppearanceSettings": {
-          "menu": {
-            "title": "Appearance Settings",
-            "widget_builder": "Widget Builder",
-            "menu_manage": "Menu Manage",
-            "country_manage": "Country Manage",
-            "404_settings": "404 Settings",
-            "topbar_settings": "Topbar Settings",
-            "email_template": "Email Template Settings",
-            "login_register": "Login/Register Settings",
-            "maintenance": "Maintenance Settings"
-          },
-          "WidgetBuilder": {
-            "title": "All Widgets",
-            "all_widgets": "All Widgets",
-            "footer_area": "Footer Widgets Area",
-            "sidebar_area": "Blog sidebar Widgets Area",
-            "save_changes": "Save Changes",
-            "widgets": {
-              "raw_html": "Raw HTML",
-              "text_editor": "Text Editor",
-              "about_us": "About Us",
-              "custom_page_link": "Custom Page Link",
-              "contact_info": "Contact Info",
-              "popular_blogs": "Popular Blogs",
-              "blog_category_search": "Blog Category & Search",
-              "popular_appointments": "Popular Appointments",
-              "popular_sub_appointments": "Popular Sub Appointments",
-              "google_map": "Google Map"
-            },
-            "widget_config": {
-              "description": "Description",
-              "logo": "Logo",
-              "upload_image": "Upload Image",
-              "icon": "Icon",
-              "icon_url": "Icon URL",
-              "title": "Title",
-              "title_url": "Title URL",
-              "add": "Add",
-              "remove": "Remove",
-              "save_changes": "Save Changes",
-              "english": "English (UK)",
-              "arabic": "العربية",
-              "info": "Info",
-              "heading_text": "Heading Text",
-              "blog_items": "Blog Items",
-              "category_title": "Category Title",
-              "category_items": "Category Items",
-              "latitude": "Latitude",
-              "longitude": "Longitude"
-            }
-          },
-          "MenuManage": {
-            "title": "All Menu",
-            "all_menus": "All Menus",
-            "add_new_menu": "Add New Menu",
-            "create_menu": "Create Menu",
-            "table": {
-              "id": "ID",
-              "title": "Title",
-              "status": "Status",
-              "created_at": "Created At",
-              "action": "Action"
-            },
-            "status": {
-              "default": "Default Menu",
-              "active": "Active",
-              "inactive": "Inactive"
-            },
-            "edit": {
-              "title": "Edit Menu",
-              "all_menus": "All Menus",
-              "add_menu_items": "Add menu items",
-              "pages": "Pages",
-              "add_to_menu": "Add To Menu",
-              "custom_links": "Custom Links",
-              "url": "URL",
-              "link_text": "Link Text",
-              "mega_menus": "Mega Menus",
-              "menu_structure": "Menu Structure",
-              "update_changes": "Update Changes"
-            },
-            "pages_list": {
-              "home": "Home",
-              "about_us": "About Us",
-              "pricing_plan": "Pricing Plan",
-              "contact": "Contact",
-              "terms_condition": "Terms & Condition",
-              "privacy_policy": "Privacy Policy",
-              "all_templates": "All Templates",
-              "blogs": "Blogs"
-            }
-          },
-          "CountryManage": {
-            "title": "Country",
-            "all_countries": "All Countries",
-            "add_country": "Add Country",
-            "add_new_country": "Add new country",
-            "insert_all": "Insert all countries",
-            "add_new": "Add New",
-            "bulk_action": "Bulk Action",
-            "apply": "Apply",
-            "show": "Show",
-            "entries": "entries",
-            "search": "Search:",
-            "showing": "Showing",
-            "to": "to",
-            "of": "of",
-            "previous": "Previous",
-            "next": "Next",
-            "table": {
-              "id": "ID",
-              "name": "Name",
-              "code": "Code",
-              "status": "Status",
-              "action": "Action"
-            },
-            "status": {
-              "publish": "Publish",
-              "draft": "Draft"
-            },
-            "form": {
-              "name": "Name",
-              "name_placeholder": "Name",
-              "code": "Country Code",
-              "code_placeholder": "Code",
-              "status": "Status"
-            }
-          },
-          "NotFoundSettings": {
-            "title": "404 Error Page Settings",
-            "page_title": "Title",
-            "button_text": "Button Text",
-            "site_logo": "Site Logo",
-            "update_settings": "Update Settings",
-            "change": "Change",
-            "image_alt": "404 Image"
-          },
-          "MaintenanceSettings": {
-            "title": "Maintain Page Settings",
-            "page_title": "Title",
-            "description": "Description",
-            "coming_back_date": "Coming Back Date",
-            "maintenance_logo": "Maintenance Logo",
-            "maintenance_bg_image": "Maintenance Background Image",
-            "update_settings": "Update Settings",
-            "change": "Change",
-            "remove": "Remove"
-          },
-          "TopbarSettings": {
-            "title": "Topbar Settings",
-            "phone": "Phone",
-            "email": "Email",
-            "facebook_url": "Facebook URL",
-            "instagram_url": "Instagram URL",
-            "linkedin_url": "Linkedin URL",
-            "twitter_url": "Twitter URL",
-            "enable_contact_info": "Enable/Disable Contact Info",
-            "enable_language": "Enable/Disable Language",
-            "enable_social_info": "Enable/Disable Social Info",
-            "enable_full_topbar": "Enable/Disable Full Topbar",
-            "update_settings": "Save Changes"
-          },
-          "LoginRegisterSettings": {
-            "title": "Login Register Settings",
-            "login_title": "Login Title",
-            "register_title": "Register Title",
-            "feature_title_one": "Feature Title One",
-            "feature_desc_one": "Feature Description One",
-            "feature_title_two": "Feature Title Two",
-            "feature_desc_two": "Feature Description Two",
-            "feature_title_three": "Feature Title Three",
-            "feature_desc_three": "Feature Description Three",
-            "feature_image_one": "Register Feature Image One",
-            "feature_image_two": "Register Feature Image Two",
-            "feature_image_three": "Register Feature Image Three",
-            "enable_facebook_login": "Enable/Disable Facebook Login",
-            "enable_google_login": "Enable/Disable Google Login",
-            "enable_recaptcha": "Enable/Disable Recaptcha",
-            "update_settings": "Save Changes",
-            "change": "Change",
-            "remove": "Remove"
-          },
-          "EmailTemplate": {
-            "title": "All Email Templates",
-            "subtitle": "(If you dont use or keep these dynamic email templates empty, then the mail will go as default template system...!)",
-            "show": "Show",
-            "entries": "entries",
-            "search": "Search:",
-            "search_placeholder": "Search...",
-            "showing": "Showing",
-            "to": "to",
-            "of": "of",
-            "previous": "Previous",
-            "next": "Next",
-            "table": {
-              "sl": "SL#",
-              "title": "Title",
-              "action": "Action"
-            },
-            "edit_title": "Edit Email Template",
-            "subject": "Subject",
-            "message": "Message",
-            "update_changes": "Update Changes"
-          },
-          "coming_soon": "Coming Soon"
+        "edit": {
+          "title": "Edit Menu",
+          "all_menus": "All Menus",
+          "add_menu_items": "Add menu items",
+          "pages": "Pages",
+          "add_to_menu": "Add To Menu",
+          "custom_links": "Custom Links",
+          "url": "URL",
+          "link_text": "Link Text",
+          "mega_menus": "Mega Menus",
+          "menu_structure": "Menu Structure",
+          "update_changes": "Update Changes"
         },
-        "LanguageManage": {
-          "menu": {
-            "title": "Languages",
-            "all_languages": "All Languages"
-          },
-          "title": "All Languages",
-          "info_message": "Add English (USA) language, to translate all tenant language, becuase by default tenant default language is English(USA). If you dont want to show English (USA) in your frontend, then you can set this as draft.",
-          "add_language": "Add New Language",
-          "add_new": "Add New",
-          "show": "Show",
-          "entries": "entries",
-          "search": "Search:",
-          "showing": "Showing",
-          "to": "to",
-          "of": "of",
-          "previous": "Previous",
-          "next": "Next",
-          "table": {
-            "id": "ID",
-            "name": "Name",
-            "direction": "Direction",
-            "slug": "Slug",
-            "status": "Status",
-            "default": "Default",
-            "action": "Action"
-          },
-          "status": {
-            "publish": "Publish",
-            "draft": "Draft"
-          },
-          "direction": {
-            "ltr": "LTR",
-            "rtl": "RTL"
-          },
-          "actions": {
-            "edit_all_words": "Edit All Words",
-            "edit": "Edit",
-            "clone": "Clone",
-            "delete": "Delete",
-            "make_default": "Make Default"
-          },
-          "form": {
-            "language": "Language",
-            "language_placeholder": "Select Language",
-            "direction": "Direction",
-            "status": "Status",
-            "slug": "Slug",
-            "slug_placeholder": "en_US"
-          }
+        "pages_list": {
+          "home": "Home",
+          "about_us": "About Us",
+          "pricing_plan": "Pricing Plan",
+          "contact": "Contact",
+          "terms_condition": "Terms & Condition",
+          "privacy_policy": "Privacy Policy",
+          "all_templates": "All Templates",
+          "blogs": "Blogs"
+        }
+      },
+      "CountryManage": {
+        "title": "Country",
+        "all_countries": "All Countries",
+        "add_country": "Add Country",
+        "add_new_country": "Add new country",
+        "insert_all": "Insert all countries",
+        "add_new": "Add New",
+        "bulk_action": "Bulk Action",
+        "apply": "Apply",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "previous": "Previous",
+        "next": "Next",
+        "table": {
+          "id": "ID",
+          "name": "Name",
+          "code": "Code",
+          "status": "Status",
+          "action": "Action"
+        },
+        "status": {
+          "publish": "Publish",
+          "draft": "Draft"
+        },
+        "form": {
+          "name": "Name",
+          "name_placeholder": "Name",
+          "code": "Country Code",
+          "code_placeholder": "Code",
+          "status": "Status"
+        }
+      },
+      "NotFoundSettings": {
+        "title": "404 Error Page Settings",
+        "page_title": "Title",
+        "button_text": "Button Text",
+        "site_logo": "Site Logo",
+        "update_settings": "Update Settings",
+        "change": "Change",
+        "image_alt": "404 Image"
+      },
+      "MaintenanceSettings": {
+        "title": "Maintain Page Settings",
+        "page_title": "Title",
+        "description": "Description",
+        "coming_back_date": "Coming Back Date",
+        "maintenance_logo": "Maintenance Logo",
+        "maintenance_bg_image": "Maintenance Background Image",
+        "update_settings": "Update Settings",
+        "change": "Change",
+        "remove": "Remove"
+      },
+      "TopbarSettings": {
+        "title": "Topbar Settings",
+        "phone": "Phone",
+        "email": "Email",
+        "facebook_url": "Facebook URL",
+        "instagram_url": "Instagram URL",
+        "linkedin_url": "Linkedin URL",
+        "twitter_url": "Twitter URL",
+        "enable_contact_info": "Enable/Disable Contact Info",
+        "enable_language": "Enable/Disable Language",
+        "enable_social_info": "Enable/Disable Social Info",
+        "enable_full_topbar": "Enable/Disable Full Topbar",
+        "update_settings": "Save Changes"
+      },
+      "LoginRegisterSettings": {
+        "title": "Login Register Settings",
+        "login_title": "Login Title",
+        "register_title": "Register Title",
+        "feature_title_one": "Feature Title One",
+        "feature_desc_one": "Feature Description One",
+        "feature_title_two": "Feature Title Two",
+        "feature_desc_two": "Feature Description Two",
+        "feature_title_three": "Feature Title Three",
+        "feature_desc_three": "Feature Description Three",
+        "feature_image_one": "Register Feature Image One",
+        "feature_image_two": "Register Feature Image Two",
+        "feature_image_three": "Register Feature Image Three",
+        "enable_facebook_login": "Enable/Disable Facebook Login",
+        "enable_google_login": "Enable/Disable Google Login",
+        "enable_recaptcha": "Enable/Disable Recaptcha",
+        "update_settings": "Save Changes",
+        "change": "Change",
+        "remove": "Remove"
+      },
+      "EmailTemplate": {
+        "title": "All Email Templates",
+        "subtitle": "(If you dont use or keep these dynamic email templates empty, then the mail will go as default template system...!)",
+        "show": "Show",
+        "entries": "entries",
+        "search": "Search:",
+        "search_placeholder": "Search...",
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "previous": "Previous",
+        "next": "Next",
+        "table": {
+          "sl": "SL#",
+          "title": "Title",
+          "action": "Action"
+        },
+        "edit_title": "Edit Email Template",
+        "subject": "Subject",
+        "message": "Message",
+        "update_changes": "Update Changes"
+      },
+      "coming_soon": "Coming Soon"
+    },
+    "LanguageManage": {
+      "menu": {
+        "title": "Languages",
+        "all_languages": "All Languages"
+      },
+      "title": "All Languages",
+      "info_message": "Add English (USA) language, to translate all tenant language, becuase by default tenant default language is English(USA). If you dont want to show English (USA) in your frontend, then you can set this as draft.",
+      "add_language": "Add New Language",
+      "add_new": "Add New",
+      "show": "Show",
+      "entries": "entries",
+      "search": "Search:",
+      "showing": "Showing",
+      "to": "to",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next",
+      "table": {
+        "id": "ID",
+        "name": "Name",
+        "direction": "Direction",
+        "slug": "Slug",
+        "status": "Status",
+        "default": "Default",
+        "action": "Action"
+      },
+      "status": {
+        "publish": "Publish",
+        "draft": "Draft"
+      },
+      "direction": {
+        "ltr": "LTR",
+        "rtl": "RTL"
+      },
+      "actions": {
+        "edit_all_words": "Edit All Words",
+        "edit": "Edit",
+        "clone": "Clone",
+        "delete": "Delete",
+        "make_default": "Make Default"
+      },
+      "form": {
+        "language": "Language",
+        "language_placeholder": "Select Language",
+        "direction": "Direction",
+        "status": "Status",
+        "slug": "Slug",
+        "slug_placeholder": "en_US"
+      }
+    },
+    "PaymentManage": {
+      "menu": {
+        "title": "Payments",
+        "all_payments": "All Payments",
+        "currencies": "Currencies",
+        "paypal": "PayPal",
+        "stripe": "Stripe",
+        "manual": "Manual Payment",
+        "paytm": "Paytm"
+      },
+      "form": {
+        "update_changes": "Update Changes",
+        "status": "Status",
+        "publish": "Publish",
+        "draft": "Draft",
+        "change_image": "Change Image",
+        "allowed_image_format": "allowed image format: jpg,jpeg,png",
+        "allowed_image_size": "allowed image size: 100*100",
+        "no_image": "No Image",
+        "currencies": {
+          "site_global_currency": "Site Global Currency",
+          "select_currency": "Select a currency",
+          "currency_symbol_position": "Currency Symbol Position",
+          "select_position": "Select a position",
+          "left": "Left",
+          "right": "Right",
+          "custom_currency_symbol": "Custom Currency Symbol",
+          "custom_currency_symbol_help": "If you don't have any custom symbol than leave this field empty as default",
+          "amount_decimal_mode": "Yes/No Amount Decimal Mode",
+          "coupon_apply": "Enable/Disable Coupon Apply",
+          "default_payment_gateway": "Default Payment Gateway",
+          "select_gateway": "Select a gateway",
+          "exchange_rate_help": "enter USD to {currency} exchange rate. eg: 1 USD = ? {currency}"
+        },
+        "paypal": {
+          "info_banner": "If your currency is not available in PayPal, it will convert your currency value to USD value based on your currency exchange rate.",
+          "enable_paypal": "Enable/Disable PayPal",
+          "enable_test_mode": "Enable Test Mode PayPal",
+          "logo_paypal": "Logo PayPal",
+          "sandbox_client_id": "Sandbox client id",
+          "sandbox_client_secret": "Sandbox client secret",
+          "sandbox_app_id": "Sandbox app id",
+          "live_client_id": "Live client id",
+          "live_client_secret": "Live client secret",
+          "live_app_id": "Live app id"
+        },
+        "stripe": {
+          "gateway_settings": "Payment Gateway Settings",
+          "info_banner": "Stripe allows you to accept credit cards and other payment methods globally. Make sure to configure your webhooks in the Stripe dashboard.",
+          "enable_stripe": "Enable/Disable Stripe",
+          "enable_test_mode": "Enable Test Mode Stripe",
+          "logo_stripe": "Logo Stripe",
+          "public_key": "Public key",
+          "secret_key": "Secret key"
+        },
+        "paytm": {
+          "info_banner": "If your currency is not available in Paytm, it will convert your currency value to INR value based on your currency exchange rate.",
+          "enable_paytm": "Enable/Disable Paytm",
+          "enable_test_mode": "Enable Test Mode Paytm",
+          "logo_paytm": "Logo Paytm",
+          "merchant_key": "Merchant key",
+          "merchant_mid": "Merchant mid",
+          "merchant_website": "Merchant website",
+          "channel": "Channel",
+          "industry_type": "Industry type"
+        },
+        "manual": {
+          "info_banner": "Manual payment methods allow users to pay offline. You can provide instructions like bank details or cash on delivery.",
+          "methods_title": "Manual Payment Methods",
+          "add_new_method": "Add New Method",
+          "table_id": "ID",
+          "table_name": "Name",
+          "table_status": "Status",
+          "table_action": "Action",
+          "no_methods": "No manual payment methods found.",
+          "modal_title": "Add New Method",
+          "field_name": "Method Name",
+          "field_instructions": "Instructions",
+          "field_instructions_placeholder": "Enter payment instructions...",
+          "field_status": "Status",
+          "button_add": "Add Method"
         }
       }
     }
+  }
+}
