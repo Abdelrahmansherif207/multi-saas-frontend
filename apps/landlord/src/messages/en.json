@@ -2498,6 +2498,56 @@
         "update_changes": "Update Changes"
       },
       "coming_soon": "Coming Soon"
+    },
+    "LanguageManage": {
+      "menu": {
+        "title": "Languages",
+        "all_languages": "All Languages"
+      },
+      "title": "All Languages",
+      "info_message": "Add English (USA) language, to translate all tenant language, becuase by default tenant default language is English(USA). If you dont want to show English (USA) in your frontend, then you can set this as draft.",
+      "add_language": "Add New Language",
+      "add_new": "Add New",
+      "show": "Show",
+      "entries": "entries",
+      "search": "Search:",
+      "showing": "Showing",
+      "to": "to",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next",
+      "table": {
+        "id": "ID",
+        "name": "Name",
+        "direction": "Direction",
+        "slug": "Slug",
+        "status": "Status",
+        "default": "Default",
+        "action": "Action"
+      },
+      "status": {
+        "publish": "Publish",
+        "draft": "Draft"
+      },
+      "direction": {
+        "ltr": "LTR",
+        "rtl": "RTL"
+      },
+      "actions": {
+        "edit_all_words": "Edit All Words",
+        "edit": "Edit",
+        "clone": "Clone",
+        "delete": "Delete",
+        "make_default": "Make Default"
+      },
+      "form": {
+        "language": "Language",
+        "language_placeholder": "Select Language",
+        "direction": "Direction",
+        "status": "Status",
+        "slug": "Slug",
+        "slug_placeholder": "en_US"
+      }
     }
   }
 }

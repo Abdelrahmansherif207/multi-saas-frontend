@@ -24,7 +24,8 @@ import {
     LifeBuoy,
     Quote,
     Slack,
-    FileText
+    FileText,
+    Languages
 } from "lucide-react";
 import { useSidebar } from "./sidebar-context";
 
@@ -66,6 +67,7 @@ export function SidebarContent({
     const tCustomDomain = useTranslations("Admin.CustomDomain.menu");
     const tFormBuilder = useTranslations("Admin.FormBuilder.menu");
     const tAppearance = useTranslations("Admin.AppearanceSettings.menu");
+    const tLanguage = useTranslations("Admin.LanguageManage.menu");
     const sidebarItems: SidebarItem[] = [
         {
             title: t("dashboard"),
@@ -228,6 +230,11 @@ export function SidebarContent({
                 { title: tAppearance("login_register"), href: "/admin/appearance/login-register" },
                 { title: tAppearance("maintenance"), href: "/admin/appearance/maintenance" },
             ],
+        },
+        {
+            title: tLanguage("title"),
+            href: "/admin/languages",
+            icon: Languages,
         },
 
     ];
