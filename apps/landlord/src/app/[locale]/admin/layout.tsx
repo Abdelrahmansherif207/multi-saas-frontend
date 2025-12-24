@@ -1,6 +1,7 @@
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { SidebarProvider } from "@/components/admin/sidebar-context";
+import { CustomCursor } from "@/components/admin/CustomCursor";
 
 export default function AdminLayout({
     children,
@@ -9,6 +10,7 @@ export default function AdminLayout({
 }) {
     return (
         <SidebarProvider>
+            <CustomCursor />
             <div className="flex h-screen w-full overflow-hidden bg-[#fafafa] dark:bg-background">
                 <AdminSidebar />
                 <div className="flex flex-1 flex-col overflow-hidden relative">
