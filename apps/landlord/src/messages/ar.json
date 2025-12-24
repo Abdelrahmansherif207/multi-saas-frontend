@@ -655,6 +655,74 @@
         "showing": "عرض {from} إلى {to} من {total} مدخلات",
         "previous": "السابق",
         "next": "التالي"
+      },
+      "NewPage": {
+        "title": "إنشاء صفحة جديدة",
+        "breadcrumbs": {
+          "admin": "الإدارة",
+          "pages": "الصفحات",
+          "new_page": "صفحة جديدة"
+        },
+        "form": {
+          "visibility": "الظهور",
+          "select_visibility": "اختر الظهور",
+          "visibilities": {
+            "public": "عام",
+            "private": "خاص",
+            "hidden": "مخفي"
+          },
+          "status": "الحالة",
+          "select_status": "اختر الحالة",
+          "statuses": {
+            "draft": "مسودة",
+            "published": "منشور"
+          },
+          "featured_image": "الصورة البارزة",
+          "recommended_size": "الحجم الموصى به: 1920 × 1280 بكسل",
+          "upload_image": "رفع صورة",
+          "submit": "إنشاء الصفحة",
+          "page_title": "عنوان الصفحة",
+          "page_title_placeholder": "أدخل عنوان الصفحة",
+          "content": "محتوى الصفحة",
+          "content_placeholder": "اكتب محتوى صفحتك هنا...",
+          "excerpt": "مقتطف",
+          "excerpt_placeholder": "ملخص قصير للصفحة"
+        },
+        "seo": {
+          "title": "معلومات تحسين محركات البحث (SEO)",
+          "tabs": {
+            "general": "عام",
+            "facebook": "فيسبوك",
+            "twitter": "تويتر"
+          },
+          "general": {
+            "title": "عنوان SEO",
+            "title_placeholder": "أدخل عنوان SEO",
+            "description": "وصف SEO",
+            "description_placeholder": "أدخل وصف SEO"
+          },
+          "facebook": {
+            "header": "معلومات فيسبوك",
+            "title": "عنوان فيسبوك",
+            "title_placeholder": "أدخل عنوان فيسبوك",
+            "description": "وصف فيسبوك",
+            "description_placeholder": "أدخل وصف فيسبوك"
+          },
+          "twitter": {
+            "header": "معلومات تويتر",
+            "title": "عنوان تويتر",
+            "title_placeholder": "أدخل عنوان تويتر",
+            "description": "وصف تويتر",
+            "description_placeholder": "أدخل وصف تويتر"
+          }
+        },
+        "validation": {
+          "title_min": "يجب أن يتكون العنوان من حرفين على الأقل",
+          "content_min": "يجب أن يتكون المحتوى من 10 أحرف على الأقل",
+          "excerpt_max": "يجب ألا يتجاوز المقتطف 191 حرفاً",
+          "visibility_required": "يرجى اختيار الظهور",
+          "status_required": "يرجى اختيار الحالة"
+        }
       }
     },
     "Blogs": {
@@ -1422,6 +1490,192 @@
         "subject_placeholder": "الموضوع",
         "message": "الرسالة",
         "send_mail": "إرسال البريد"
+      }
+    },
+    "Plugins": {
+      "menu": {
+        "title": "الإضافات",
+        "all_plugins": "جميع الإضافات",
+        "new_plugin": "إضافة جديدة"
+      },
+      "NewPlugin": {
+        "title": "إضافة برنامج مساعد جديد",
+        "description": "قم برفع البرنامج المساعد الجديد من هنا. إذا كان لديك برنامج مساعد بالفعل وقمت برفع ملف البرنامج المساعد مرة أخرى، فسيتم استبدال ملفات البرنامج المساعد الموجودة",
+        "file_label": "رفع ملف البرنامج المساعد",
+        "file_help": "يقبل ملفات zip فقط",
+        "submit": "تـقـدم"
+      },
+      "title": "إدارة الإضافات",
+      "breadcrumbs": {
+        "admin": "الإدارة",
+        "plugins": "إدارة الإضافات"
+      },
+      "manage_info": "إدارة جميع الإضافات من هنا، يمكنك تفعيل/تعطيل الإضافة أو حذف أي إضافة من هنا",
+      "core_plugin": "إضافة أساسية",
+      "activate": "تفعيل",
+      "deactivate": "تعطيل",
+      "delete": "حذف",
+      "dialog": {
+        "deactivate": {
+          "title": "هل أنت متأكد من تعطيل إضافة {plugin}؟",
+          "description": "{plugin} هي إضافة أساسية، بعد تعطيلها قد تواجه مشاكل أو أخطاء في الموقع",
+          "confirm": "نعم، قم بتعطيلها",
+          "cancel": "إلغاء"
+        },
+        "delete": {
+          "title": "هل أنت متأكد أنك تريد حذف {plugin}؟",
+          "description": "لا يمكن التراجع عن هذا الإجراء. سيتم حذف الإضافة بشكل دائم.",
+          "confirm": "حذف",
+          "cancel": "إلغاء"
+        },
+        "error": {
+          "title": "...عذراً",
+          "ok": "حسناً"
+        }
+      },
+      "error": {
+        "cannot_delete_core": "لا يمكنك حذف أي إضافة أساسية"
+      }
+    },
+    "GeneralSettings": {
+      "title": "إعدادات الصفحة",
+      "home_page_label": "عرض الصفحة الرئيسية",
+      "home_page_placeholder": "الصفحة الرئيسية",
+      "home_page_help": "يمكنك تعيين أي صفحة كصفحة رئيسية من هذا القسم",
+      "price_plan_label": "عرض صفحة خطة الأسعار",
+      "price_plan_placeholder": "خطة الأسعار",
+      "price_plan_help": "يمكنك تعيين أي صفحة كصفحة خطة أسعار من هذا القسم",
+      "submit": "تحديث التغييرات",
+      "breadcrumbs": {
+        "admin": "الإدارة",
+        "settings": "إعدادات الصفحة"
+      },
+      "menu_title": "الإعدادات العامة",
+      "page_settings": {
+        "title": "إعدادات الصفحة",
+        "home_page_display": "عرض الصفحة الرئيسية",
+        "price_plan_page_display": "عرض صفحة خطة الأسعار",
+        "update_changes": "تحديث التغييرات",
+        "home_page_help": "يمكنك تعيين أي صفحة كصفحة رئيسية من هذا القسم",
+        "price_plan_help": "يمكنك تعيين أي صفحة كصفحة خطة أسعار من هذا القسم"
+      },
+      "application_settings": {
+        "title": "إعدادات التطبيق",
+        "timezone_label": "اختر المجال الزمني",
+        "timezone_placeholder": "Africa/Abidjan",
+        "app_name_label": "اسم التطبيق",
+        "app_name_placeholder": "واجهة",
+        "live_server_label": "تفعيل/تعطيل الخادم المباشر أو المضيف المحلي",
+        "live_server_help": "نعم تعني أن الموقع في خادم مباشر ولا تعني المضيف المحلي",
+        "app_debug_label": "صواب/خطأ تصحيح التطبيق",
+        "app_debug_help": "صواب تعني تصحيح التطبيق صواب وخطأ تعني تصحيح التطبيق خطأ",
+        "save_changes": "حفظ التغييرات",
+        "yes": "نعم",
+        "no": "لا"
+      },
+      "site_identity": {
+        "title": "هوية الموقع",
+        "site_logo": "شعار الموقع",
+        "white_site_logo": "شعار الموقع الأبيض",
+        "favicon": "أيقونة الموقع (Favicon)",
+        "breadcrumb_left_image": "صورة فتات الخبز اليسرى",
+        "breadcrumb_right_image": "صورة فتات الخبز اليمنى",
+        "change_image": "تغيير",
+        "image_format": "حجم الصورة الموصى به هو {size}",
+        "save_changes": "حفظ التغييرات"
+      },
+      "basic_settings": {
+        "title": "الإعدادات الأساسية",
+        "site_title": "عنوان الموقع",
+        "site_tagline": "شعار الموقع",
+        "footer_text": "نص التذييل / حقوق النشر",
+        "database_engine": "محرك قاعدة بيانات Mysql",
+        "database_engine_help": "افتراضياً هو null، إذا كان لديك محرك قاعدة بيانات mysql يمكنك تعيينه هنا، وإلا اتركه [Null]",
+        "date_display_style": "نمط عرض التاريخ",
+        "dark_mode_switcher": "تفعيل/تعطيل مبدل الوضع الداكن",
+        "section_title_extra_design": "تفعيل/تعطيل تصميم إضافي لعنوان القسم",
+        "rtl_support": "تفعيل/تعطيل دعم RTL (من اليمين لليسار)",
+        "lazy_load": "تفعيل/تعطيل التحميل الكسول للصور",
+        "lazy_load_help": "هذا يعني أنك تريد أن يتم تحميل الصور في موقعك بشكل كسول",
+        "email_verification": "تفعيل/تعطيل التحقق من البريد الإلكتروني للمستخدم",
+        "sorting_table": "تفعيل/تعطيل فرز بيانات الجدول",
+        "sorting_table_help": "التفعيل يعني أنه يمكنك فرز بيانات الجدول بالنقر على رأس الجدول",
+        "save_changes": "حفظ التغييرات"
+      },
+      "colors_settings": {
+        "title": "إعدادات الألوان",
+        "site_main_color_one": "لون الموقع الرئيسي الأول",
+        "site_main_color_two": "لون الموقع الرئيسي الثاني",
+        "site_main_color_three": "لون الموقع الرئيسي الثالث",
+        "site_secondary_color": "لون الموقع الثانوي",
+        "site_secondary_color_two": "لون الموقع الثانوي الثاني",
+        "site_secondary_color_three": "لون الموقع الثانوي الثالث",
+        "site_background_color": "لون خلفية الموقع",
+        "site_background_color_two": "لون خلفية الموقع الثاني",
+        "site_background_color_three": "لون خلفية الموقع الثالث",
+        "site_text_color": "لون نص الموقع",
+        "site_text_color_two": "لون نص الموقع الثاني",
+        "site_text_color_three": "لون نص الموقع الثالث",
+        "site_border_color": "لون حدود الموقع",
+        "site_border_color_two": "لون حدود الموقع الثاني",
+        "site_border_color_three": "لون حدود الموقع الثالث",
+        "site_hover_color": "لون تحويم الموقع",
+        "site_hover_color_two": "لون تحويم الموقع الثاني",
+        "site_hover_color_three": "لون تحويم الموقع الثالث",
+        "save_changes": "حفظ التغييرات"
+      },
+      "seo_settings": {
+        "title": "إعدادات SEO",
+        "site_meta_title": "عنوان ميتا للموقع",
+        "site_meta_keywords": "الكلمات المفتاحية للموقع",
+        "site_meta_keywords_help": "افصل بين الكلمات بفاصلة (,)",
+        "site_meta_description": "وصف ميتا للموقع",
+        "og_meta_title": "عنوان ميتا OG",
+        "og_meta_description": "وصف ميتا OG",
+        "site_logo": "شعار الموقع",
+        "canonical_url_type": "تعيين نوع رابط Canonical",
+        "save_changes": "حفظ التغييرات"
+      },
+      "third_party_script_settings": {
+        "title": "إعدادات البرامج النصية للطرف الثالث",
+        "header_tracking_code": "كود التتبع في الهيدر",
+        "header_tracking_code_help": "سيتم تحميل هذا الكود بعد علامة &lt;head&gt; مباشرة",
+        "footer_tracking_code": "كود التتبع في الفوتر",
+        "footer_tracking_code_help": "سيتم تحميل هذا الكود قبل علامة &lt;/body&gt; مباشرة",
+        "google_analytics_title": "كود تتبع جوجل أناليتكس",
+        "google_analytics_id": "معرف تتبع جوجل أناليتكس",
+        "google_maps_key": "مفتاح خرائط جوجل",
+        "google_maps_key_js": "مفتاح خرائط جوجل (JS API)",
+        "facebook_pixel_title": "فيسبوك بيكسل",
+        "facebook_pixel_enabled": "تفعيل فيسبوك بيكسل",
+        "facebook_pixel_id": "معرف فيسبوك بيكسل",
+        "google_recaptcha_title": "جوجل ريكابتشا",
+        "google_recaptcha_enabled": "تفعيل جوجل ريكابتشا",
+        "google_recaptcha_site_key": "مفتاح الموقع (Site Key)",
+        "google_recaptcha_secret_key": "المفتاح السري (Secret Key)",
+        "live_chat_title": "الدردشة الحية",
+        "live_chat_enabled": "تفعيل الدردشة الحية",
+        "live_chat_code": "كود الدردشة الحية",
+        "save_changes": "حفظ التغييرات"
+      },
+      "smtp_settings": {
+        "title": "إعدادات SMTP",
+        "test_email_title": "إرسال بريد اختبار",
+        "test_email_help": "إذا واجهت مشكلة في إرسال البريد، اختبر إعدادات SMTP بإرسال بريد تجريبي.",
+        "test_email_placeholder": "example@example.com",
+        "send_test_email": "إرسال بريد اختبار",
+        "mailer": "المُرسِل (Mailer)",
+        "host": "مضيف SMTP",
+        "username": "اسم مستخدم SMTP",
+        "password": "كلمة مرور SMTP",
+        "port": "منفذ SMTP",
+        "encryption": "تشفير SMTP",
+        "encryption_none": "بدون",
+        "encryption_ssl": "SSL",
+        "encryption_tls": "TLS",
+        "from_email": "البريد المرسل منه",
+        "from_name": "اسم المرسل",
+        "save_changes": "حفظ التغييرات"
       }
     },
     "PackageOrderManage": {

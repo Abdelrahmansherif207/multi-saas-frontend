@@ -8,6 +8,7 @@ import {
     LayoutDashboard,
     Users,
     CreditCard,
+    Settings,
     Globe,
     LogOut,
     UserCog,
@@ -20,6 +21,7 @@ import {
     Wallet,
     Palette,
     Mail,
+    Puzzle as Plugin,
     ShoppingBag,
     LifeBuoy,
     Quote,
@@ -52,16 +54,21 @@ export function SidebarContent({
     const t = useTranslations("Admin.RoleManage.menu");
     const tUser = useTranslations("Admin.UserManage.menu");
     const tWebsite = useTranslations("Admin.WebsiteManage.menu");
-    const tWallet = useTranslations("Admin.WalletManage.menu");
-    const tTheme = useTranslations("Admin.ThemeManage.menu");
-    const tPricePlan = useTranslations("Admin.PricePlanManage.menu");
-    const tNewsletter = useTranslations("Admin.NewsletterManage.menu");
-    const tPackageOrder = useTranslations("Admin.PackageOrderManage.menu");
-    const tSupportTicket = useTranslations('Admin.SupportTicketManage.menu');
     const tPages = useTranslations("Admin.Pages.menu");
     const tBlogs = useTranslations("Admin.Blogs.menu");
     const tCoupons = useTranslations("Admin.Coupons.menu");
     const tNotifications = useTranslations("Admin.Notifications.menu");
+
+    const tWallet = useTranslations("Admin.WalletManage.menu");
+    const tTheme = useTranslations("Admin.ThemeManage.menu");
+    const tPricePlan = useTranslations("Admin.PricePlanManage.menu");
+    const tNewsletter = useTranslations("Admin.NewsletterManage.menu");
+
+    const tPlugins = useTranslations("Admin");
+    const tGeneralSettings = useTranslations("Admin.GeneralSettings");
+
+    const tPackageOrder = useTranslations("Admin.PackageOrderManage.menu");
+    const tSupportTicket = useTranslations('Admin.SupportTicketManage.menu');
     const tTestimonials = useTranslations("Admin.Testimonials.menu");
     const tBrands = useTranslations("Admin.Brands.menu");
     const tCustomDomain = useTranslations("Admin.CustomDomain.menu");
@@ -125,61 +132,71 @@ export function SidebarContent({
             href: "/admin/coupons",
         },
         {
-            title: tWallet('title'),
+            title: tNotifications("title"),
+            icon: Bell,
+            subItems: [
+                { title: tNotifications("all_notifications"), href: "/admin/notifications" },
+                { title: tNotifications("user_activity"), href: "/admin/notifications/user-activity-log" },
+                { title: tNotifications("cron_jobs"), href: "/admin/notifications/cron-jobs" },
+                { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
+            ],
+        },
+        {
+            title: tWallet("title"),
             icon: Wallet,
             subItems: [
-                { title: tWallet('all_wallet'), href: '/admin/wallet' },
-                { title: tWallet('history'), href: '/admin/wallet/history' },
-                { title: tWallet('settings'), href: '/admin/wallet/settings' },
-            ]
+                { title: tWallet("all_wallet"), href: "/admin/wallet" },
+                { title: tWallet("history"), href: "/admin/wallet/history" },
+                { title: tWallet("settings"), href: "/admin/wallet/settings" },
+            ],
         },
         {
-            title: tTheme('title'),
+            title: tTheme("title"),
             icon: Palette,
             subItems: [
-                { title: tTheme('all_themes'), href: '/admin/themes' },
-                { title: tTheme('settings'), href: '/admin/themes/settings' },
-                { title: tTheme('add_theme'), href: '/admin/themes/new' },
-            ]
+                { title: tTheme("all_themes"), href: "/admin/themes" },
+                { title: tTheme("settings"), href: "/admin/themes/settings" },
+                { title: tTheme("add_theme"), href: "/admin/themes/new" },
+            ],
         },
         {
-            title: tPricePlan('title'),
+            title: tPricePlan("title"),
             icon: CreditCard,
             subItems: [
-                { title: tPricePlan('all_plans'), href: '/admin/price-plans' },
-                { title: tPricePlan('new_plan'), href: '/admin/price-plans/new' },
-                { title: tPricePlan('settings'), href: '/admin/price-plans/settings' },
-            ]
+                { title: tPricePlan("all_plans"), href: "/admin/price-plans" },
+                { title: tPricePlan("new_plan"), href: "/admin/price-plans/new" },
+                { title: tPricePlan("settings"), href: "/admin/price-plans/settings" },
+            ],
         },
         {
-            title: tNewsletter('title'),
+            title: tNewsletter("title"),
             icon: Mail,
             subItems: [
-                { title: tNewsletter('all_subscribers'), href: '/admin/newsletter' },
-                { title: tNewsletter('send_mail'), href: '/admin/newsletter/send' },
-            ]
+                { title: tNewsletter("all_subscribers"), href: "/admin/newsletter" },
+                { title: tNewsletter("send_mail"), href: "/admin/newsletter/send" },
+            ],
         },
         {
-            title: tPackageOrder('title'),
+            title: tPackageOrder("title"),
             icon: ShoppingBag,
             subItems: [
-                { title: tPackageOrder('all_order'), href: '/admin/package-orders' },
-                { title: tPackageOrder('success_order'), href: '/admin/package-orders/success-settings' },
-                { title: tPackageOrder('cancel_order'), href: '/admin/package-orders/cancel-settings' },
-                { title: tPackageOrder('order_report'), href: '/admin/package-orders/order-report' },
-                { title: tPackageOrder('payment_logs'), href: '/admin/package-orders/payment-logs' },
-                { title: tPackageOrder('payment_report'), href: '/admin/package-orders/payment-report' },
-            ]
+                { title: tPackageOrder("all_order"), href: "/admin/package-orders" },
+                { title: tPackageOrder("success_order"), href: "/admin/package-orders/success-settings" },
+                { title: tPackageOrder("cancel_order"), href: "/admin/package-orders/cancel-settings" },
+                { title: tPackageOrder("order_report"), href: "/admin/package-orders/order-report" },
+                { title: tPackageOrder("payment_logs"), href: "/admin/package-orders/payment-logs" },
+                { title: tPackageOrder("payment_report"), href: "/admin/package-orders/payment-report" },
+            ],
         },
         {
-            title: tSupportTicket('title'),
+            title: tSupportTicket("title"),
             icon: LifeBuoy,
             subItems: [
-                { title: tSupportTicket('all_tickets'), href: '/admin/support-tickets' },
-                { title: tSupportTicket('add_ticket'), href: '/admin/support-tickets/create' },
-                { title: tSupportTicket('departments'), href: '/admin/support-tickets/departments' },
-                { title: tSupportTicket('page_settings'), href: '/admin/support-tickets/settings' },
-            ]
+                { title: tSupportTicket("all_tickets"), href: "/admin/support-tickets" },
+                { title: tSupportTicket("add_ticket"), href: "/admin/support-tickets/create" },
+                { title: tSupportTicket("departments"), href: "/admin/support-tickets/departments" },
+                { title: tSupportTicket("page_settings"), href: "/admin/support-tickets/settings" },
+            ],
         },
         {
             title: tTestimonials("title"),
@@ -198,16 +215,6 @@ export function SidebarContent({
                 { title: tCustomDomain("pending_requests"), href: "/admin/custom-domain" },
                 { title: tCustomDomain("all_requests"), href: "/admin/custom-domain/all-requests" },
                 { title: tCustomDomain("settings"), href: "/admin/custom-domain/settings" },
-            ],
-        },
-        {
-            title: tNotifications("title"),
-            icon: Bell,
-            subItems: [
-                { title: tNotifications("all_notifications"), href: "/admin/notifications" },
-                { title: tNotifications("user_activity"), href: "/admin/notifications/user-activity-log" },
-                { title: tNotifications("cron_jobs"), href: "/admin/notifications/cron-jobs" },
-                { title: tNotifications("contact_messages"), href: "/admin/notifications/contact-message" },
             ],
         },
         {
@@ -236,7 +243,28 @@ export function SidebarContent({
             href: "/admin/languages",
             icon: Languages,
         },
-
+        {
+            title: tPlugins("Plugins.menu.title"),
+            icon: Plugin,
+            subItems: [
+                { title: tPlugins("Plugins.menu.all_plugins"), href: "/admin/plugins" },
+                { title: tPlugins("Plugins.menu.new_plugin"), href: "/admin/plugins/new-plugins" },
+            ],
+        },
+        {
+            title: tGeneralSettings("menu_title"),
+            icon: Settings,
+            subItems: [
+                { title: tGeneralSettings("menu_title"), href: "/admin/general-settings" },
+                { title: tGeneralSettings("page_settings.title"), href: "/admin/general-settings/page-settings" },
+                { title: tGeneralSettings("application_settings.title"), href: "/admin/general-settings/application-settings" },
+                { title: tGeneralSettings("site_identity.title"), href: "/admin/general-settings/site-identity" },
+                { title: tGeneralSettings("basic_settings.title"), href: "/admin/general-settings/basic-settings" },
+                { title: tGeneralSettings("colors_settings.title"), href: "/admin/general-settings/colors-settings" },
+                { title: tGeneralSettings("seo_settings.title"), href: "/admin/general-settings/seo-settings" },
+                { title: tGeneralSettings("third_party_script_settings.title"), href: "/admin/general-settings/third-party-script-settings" },
+            ],
+        }
     ];
 
     const [expandedItems, setExpandedItems] = useState<string[]>(() =>
