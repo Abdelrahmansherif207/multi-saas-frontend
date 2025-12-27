@@ -1676,6 +1676,187 @@
         "from_email": "البريد المرسل منه",
         "from_name": "اسم المرسل",
         "save_changes": "حفظ التغييرات"
+      },
+      "custom_css_settings": {
+        "title": "إعدادات CSS المخصصة",
+        "css_label": "كود CSS المخصص",
+        "css_placeholder": "/* اكتب كود CSS المخصص هنا */",
+        "save_changes": "حفظ التغييرات"
+      },
+      "custom_js_settings": {
+        "title": "إعدادات JS المخصصة",
+        "js_label": "كود JS المخصص",
+        "js_placeholder": "/* اكتب كود JS المخصص هنا */",
+        "save_changes": "حفظ التغييرات"
+      },
+      "database_upgrade_settings": {
+        "title": "ترقية قاعدة البيانات",
+        "upgrade_button": "ترقية قاعدة البيانات",
+        "description": "انقر فوق الزر أدناه لترقية قاعدة البيانات."
+      },
+      "cache_settings": {
+        "title": "إعدادات ذاكرة التخزين المؤقت",
+        "subtitle": "هوية ذاكرة التخزين المؤقت",
+        "clear_view_cache": "مسح ذاكرة التخزين المؤقت للعرض",
+        "clear_route_cache": "مسح ذاكرة التخزين المؤقت للمسار",
+        "clear_config_cache": "مسح ذاكرة التخزين المؤقت للتكوين",
+        "clear_event_cache": "مسح ذاكرة التخزين المؤقت للحدث",
+        "clear_all_cache": "مسح كل أنواع ذاكرة التخزين المؤقت"
+      },
+      "gdpr_settings": {
+        "title": "إعدادات GDPR",
+        "gdpr_title": "عنوان GDPR",
+        "gdpr_message": "رسالة GDPR",
+        "more_info_link_label": "تسمية رابط المزيد من المعلومات",
+        "more_info_link": "رابط المزيد من المعلومات",
+        "cookie_accept_button_label": "تسمية زر قبول ملفات تعريف الارتباط",
+        "cookie_decline_button_label": "تسمية زر رفض ملفات تعريف الارتباط",
+        "cookie_manage_button_label": "تسمية زر إدارة ملفات تعريف الارتباط",
+        "cookie_manage_title": "عنوان إدارة ملفات تعريف الارتباط",
+        "cookie_enable_disable": "تفعيل/تعطيل ملفات تعريف الارتباط",
+        "cookie_expire": "انتهاء صلاحية ملفات تعريف الارتباط",
+        "show_delay": "تأخير العرض",
+        "questions_title": "الأسئلة",
+        "question_label": "السؤال",
+        "description_label": "الوصف",
+        "add_question": "إضافة سؤال",
+        "remove_question": "إزالة السؤال",
+        "save_changes": "حفظ التغييرات"
+      },
+      "sitemap_settings": {
+        "title": "إعدادات خريطة الموقع",
+        "generate_now": "توليد الآن",
+        "warning_message": "قد يستغرق إنشاء خريطة الموقع بعض الوقت، يرجى عدم إغلاق الصفحة حتى الانتهاء.",
+        "table_action": "فعل",
+        "table_size": "مقاس",
+        "table_date": "تاريخ",
+        "table_name": "الاسم"
+      },
+      "license_settings": {
+        "title": "إعدادات الترخيص",
+        "license_key": "مفتاح الترخيص",
+        "envato_username": "اسم مستخدم Envato",
+        "submit": "يُقدِّم"
+      },
+      "software_update_settings": {
+        "title": "إعدادات تحديث البرنامج",
+        "check_update": "تحقق من التحديث",
+        "check_button": "انقر للتحقق من التحديث"
+      }
+    },
+    "DemoData": {
+      "title": "بيانات تجريبية",
+      "pages_settings": {
+        "title": "بيانات الصفحات التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "widget_settings": {
+        "title": "قائمة الأدوات التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "product_settings": {
+        "title": "بيانات المنتج التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "appointment_settings": {
+        "title": "بيانات الموعد التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "event_settings": {
+        "title": "بيانات الحدث التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "job_settings": {
+        "title": "بيانات الوظيفة التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "portfolio_settings": {
+        "title": "بيانات المحفظة التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "blog_settings": {
+        "title": "بيانات المدونة التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "service_settings": {
+        "title": "بيانات الخدمة التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "article_settings": {
+        "title": "بيانات المقالة / قاعدة المعرفة التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "testimonial_settings": {
+        "title": "بيانات الشهادات التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "faq_settings": {
+        "title": "بيانات الأسئلة الشائعة التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "price_plan_settings": {
+        "title": "بيانات خطط الأسعار التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "gallery_settings": {
+        "title": "بيانات معرض الصور التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "language_data_settings": {
+        "title": "بيانات اللغة",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
+      },
+      "tenant_demo_data_settings": {
+        "title": "بيانات المستأجر التجريبية",
+        "table_id": "المعرف",
+        "table_title": "العنوان",
+        "table_action": "فعل",
+        "search_placeholder": "بحث"
       }
     },
     "PackageOrderManage": {
