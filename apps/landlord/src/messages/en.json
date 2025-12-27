@@ -2260,6 +2260,187 @@
         "from_email": "From Email",
         "from_name": "From Name",
         "save_changes": "Save Changes"
+      },
+      "custom_css_settings": {
+        "title": "Custom CSS Settings",
+        "css_label": "Custom CSS Code",
+        "css_placeholder": "/* Write your custom CSS here */",
+        "save_changes": "Save Changes"
+      },
+      "custom_js_settings": {
+        "title": "Custom JS Settings",
+        "js_label": "Custom JS Code",
+        "js_placeholder": "/* Write your custom JS here */",
+        "save_changes": "Save Changes"
+      },
+      "database_upgrade_settings": {
+        "title": "Database Upgrade",
+        "upgrade_button": "Upgrade Database",
+        "description": "Click the button below to upgrade the database."
+      },
+      "cache_settings": {
+        "title": "Cache Settings",
+        "subtitle": "Cache Identity",
+        "clear_view_cache": "Clear View Cache",
+        "clear_route_cache": "Clear Route Cache",
+        "clear_config_cache": "Clear Config Cache",
+        "clear_event_cache": "Clear Event Cache",
+        "clear_all_cache": "Clear All Cache"
+      },
+      "gdpr_settings": {
+        "title": "GDPR Settings",
+        "gdpr_title": "GDPR Title",
+        "gdpr_message": "GDPR Message",
+        "more_info_link_label": "GDPR More Info Link Label",
+        "more_info_link": "GDPR More Info Link",
+        "cookie_accept_button_label": "GDPR Cookie Accept Button Label",
+        "cookie_decline_button_label": "GDPR Cookie Decline Button Label",
+        "cookie_manage_button_label": "GDPR Cookie Manage Button Label",
+        "cookie_manage_title": "GDPR Cookie Manage Title",
+        "cookie_enable_disable": "GDPR Cookie Enable/Disable",
+        "cookie_expire": "Cookie Expire",
+        "show_delay": "Show Delay",
+        "questions_title": "Questions",
+        "question_label": "Question",
+        "description_label": "Description",
+        "add_question": "Add Question",
+        "remove_question": "Remove Question",
+        "save_changes": "Save Changes"
+      },
+      "sitemap_settings": {
+        "title": "Sitemap Settings",
+        "generate_now": "Generate Now",
+        "warning_message": "Generating the sitemap might take some time, please do not close the page until it is done.",
+        "table_action": "Action",
+        "table_size": "Size",
+        "table_date": "Date",
+        "table_name": "Name"
+      },
+      "license_settings": {
+        "title": "License Settings",
+        "license_key": "License Key",
+        "envato_username": "Envato Username",
+        "submit": "Submit"
+      },
+      "software_update_settings": {
+        "title": "Software Update Settings",
+        "check_update": "Check Update",
+        "check_button": "Click to check For Update"
+      }
+    },
+    "DemoData": {
+      "title": "Demo Data",
+      "pages_settings": {
+        "title": "Pages Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "widget_settings": {
+        "title": "Widget Demo List",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "product_settings": {
+        "title": "Product Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "appointment_settings": {
+        "title": "Appointment Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "event_settings": {
+        "title": "Event Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "job_settings": {
+        "title": "Job Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "portfolio_settings": {
+        "title": "Portfolio Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "blog_settings": {
+        "title": "Blog Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "service_settings": {
+        "title": "Service Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "article_settings": {
+        "title": "Knowledgebase / Article Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "testimonial_settings": {
+        "title": "Testimonial Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "faq_settings": {
+        "title": "FAQ Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "price_plan_settings": {
+        "title": "Price Plan Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "gallery_settings": {
+        "title": "Image Gallery Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "language_data_settings": {
+        "title": "Language Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
+      },
+      "tenant_demo_data_settings": {
+        "title": "Tenant Demo Data",
+        "table_id": "ID",
+        "table_title": "Title",
+        "table_action": "Action",
+        "search_placeholder": "Search"
       }
     },
     "PackageOrderManage": {

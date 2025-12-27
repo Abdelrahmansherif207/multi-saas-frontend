@@ -66,6 +66,7 @@ export function SidebarContent({
 
     const tPlugins = useTranslations("Admin");
     const tGeneralSettings = useTranslations("Admin.GeneralSettings");
+    const tDemoData = useTranslations("Admin.DemoData");
 
     const tPackageOrder = useTranslations("Admin.PackageOrderManage.menu");
     const tSupportTicket = useTranslations('Admin.SupportTicketManage.menu');
@@ -276,6 +277,37 @@ export function SidebarContent({
                 { title: tGeneralSettings("colors_settings.title"), href: "/admin/general-settings/colors-settings" },
                 { title: tGeneralSettings("seo_settings.title"), href: "/admin/general-settings/seo-settings" },
                 { title: tGeneralSettings("third_party_script_settings.title"), href: "/admin/general-settings/third-party-script-settings" },
+                { title: tGeneralSettings("smtp_settings.title"), href: "/admin/general-settings/smtp-settings" },
+                { title: tGeneralSettings("custom_css_settings.title"), href: "/admin/general-settings/custom-css-settings" },
+                { title: tGeneralSettings("custom_js_settings.title"), href: "/admin/general-settings/custom-js-settings" },
+                { title: tGeneralSettings("database_upgrade_settings.title"), href: "/admin/general-settings/database-upgrade-settings" },
+                { title: tGeneralSettings("cache_settings.title"), href: "/admin/general-settings/cache-settings" },
+                { title: tGeneralSettings("gdpr_settings.title"), href: "/admin/general-settings/gdpr-settings" },
+                { title: tGeneralSettings("sitemap_settings.title"), href: "/admin/general-settings/sitemap-settings" },
+                { title: tGeneralSettings("license_settings.title"), href: "/admin/general-settings/license-settings" },
+                { title: tGeneralSettings("software_update_settings.title"), href: "/admin/general-settings/software-update-settings" },
+            ],
+        },
+        {
+            title: tDemoData("title"),
+            icon: Settings, // Using Settings icon as placeholder, maybe Database icon would be better if available but sticking to safe choice
+            subItems: [
+                { title: tDemoData("pages_settings.title"), href: "/admin/demo-data/pages-settings" },
+                { title: tDemoData("widget_settings.title"), href: "/admin/demo-data/widget-settings" },
+                { title: tDemoData("product_settings.title"), href: "/admin/demo-data/product-settings" },
+                { title: tDemoData("appointment_settings.title"), href: "/admin/demo-data/appointment-settings" },
+                { title: tDemoData("event_settings.title"), href: "/admin/demo-data/event-settings" },
+                { title: tDemoData("job_settings.title"), href: "/admin/demo-data/job-settings" },
+                { title: tDemoData("portfolio_settings.title"), href: "/admin/demo-data/portfolio-settings" },
+                { title: tDemoData("blog_settings.title"), href: "/admin/demo-data/blog-settings" },
+                { title: tDemoData("service_settings.title"), href: "/admin/demo-data/service-settings" },
+                { title: tDemoData("article_settings.title"), href: "/admin/demo-data/article-settings" },
+                { title: tDemoData("testimonial_settings.title"), href: "/admin/demo-data/testimonial-settings" },
+                { title: tDemoData("faq_settings.title"), href: "/admin/demo-data/faq-settings" },
+                { title: tDemoData("price_plan_settings.title"), href: "/admin/demo-data/price-plan-settings" },
+                { title: tDemoData("gallery_settings.title"), href: "/admin/demo-data/gallery-settings" },
+                { title: tDemoData("language_data_settings.title"), href: "/admin/demo-data/language-data-settings" },
+                { title: tDemoData("tenant_demo_data_settings.title"), href: "/admin/demo-data/tenant-demo-data-settings" },
             ],
         },
 
