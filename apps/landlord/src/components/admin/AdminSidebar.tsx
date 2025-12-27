@@ -277,6 +277,17 @@ export function SidebarContent({
                 { title: tGeneralSettings("seo_settings.title"), href: "/admin/general-settings/seo-settings" },
                 { title: tGeneralSettings("third_party_script_settings.title"), href: "/admin/general-settings/third-party-script-settings" },
             ],
+        },
+
+        {
+            title: "Page Builder Demo Data List",
+            icon: Plugin,
+            subItems: [
+                {
+                    title: "Donation(Home Page)",
+                    href: "/admin/page-builder-demo-data-list/"
+                }
+            ]
         }
     ];
 
