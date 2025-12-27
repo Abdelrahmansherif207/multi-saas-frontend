@@ -36,18 +36,18 @@ export default function EventSettingsPage() {
 
                 <div className="rounded-md border">
                     <Table>
-                        <TableHeader className="bg-[#2B6CB0]">
+                        <TableHeader>
                             <TableRow>
-                                <TableHead className="text-white text-right">{t("table_action")}</TableHead>
-                                <TableHead className="text-white text-right w-full">{t("table_title")}</TableHead>
-                                <TableHead className="text-white text-right">{t("table_id")}</TableHead>
+                                <TableHead className="text-right">{t("table_action")}</TableHead>
+                                <TableHead className="text-right w-full">{t("table_title")}</TableHead>
+                                <TableHead className="text-right">{t("table_id")}</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             {events.map((event) => (
                                 <TableRow key={event.id}>
                                     <TableCell className="text-right">
-                                        <Button size="icon" variant="secondary" className="h-8 w-8 bg-[#2B6CB0] hover:bg-[#2B6CB0]/90 text-white">
+                                        <Button size="icon" variant="secondary" className="h-8 w-8">
                                             <Edit className="h-4 w-4" />
                                         </Button>
                                     </TableCell>
@@ -65,7 +65,7 @@ export default function EventSettingsPage() {
                     </div>
                     <div className="flex gap-1">
                         <Button variant="outline" size="sm" disabled>Previous</Button>
-                        <Button variant="default" size="sm" className="bg-[#2B6CB0]">1</Button>
+                        <Button variant="default" size="sm">1</Button>
                         <Button variant="outline" size="sm" disabled>Next</Button>
                     </div>
                 </div>
