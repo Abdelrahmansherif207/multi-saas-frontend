@@ -1,4 +1,4 @@
-import { TenantConfig, Property, MenuItem } from '@repo/themes/real-estate';
+import { TenantConfig, Property, MenuItem, Compound } from '@repo/themes/real-estate';
 
 // Mock tenant configurations for different "tenants"
 export const mockTenants: Record<string, TenantConfig> = {
@@ -7,7 +7,7 @@ export const mockTenants: Record<string, TenantConfig> = {
         theme: 'real-estate',
         name: 'Real Estate',
         logo: undefined,
-        primaryColor: '#f97316',
+        primaryColor: '#94a4cfff',
         contactEmail: 'info@realestate.com',
         contactPhone: '+1 (555) 123-4567',
         address: '123 Demo Street, New York, NY 10001',
@@ -227,6 +227,52 @@ export const mockProperties: Record<string, Property[]> = {
     ],
 };
 
+// Mock compounds for main tenant
+export const mockCompounds: Compound[] = [
+    {
+        id: '1',
+        slug: 'jirian-nations-of-sky',
+        title: 'Jirian - Nations of Sky',
+        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600',
+        propertyCount: 9
+    },
+    {
+        id: '2',
+        slug: 'tierra',
+        title: 'Tierra',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600',
+        propertyCount: 8
+    },
+    {
+        id: '3',
+        slug: 'solana-east-strip',
+        title: 'Solana East Strip',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600',
+        propertyCount: 1
+    },
+    {
+        id: '4',
+        slug: 'east-vale',
+        title: 'East Vale',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600',
+        propertyCount: 15
+    },
+    {
+        id: '5',
+        slug: 'hyde-park-signature',
+        title: 'Hyde Park Signature',
+        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600',
+        propertyCount: 5
+    },
+    {
+        id: '6',
+        slug: 'crescent-walk',
+        title: 'Crescent Walk',
+        image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600',
+        propertyCount: 25
+    }
+];
+
 // Hero section data per tenant
 export const mockHeroData: Record<string, { title: string; subtitle: string; backgroundImage: string; images?: string[] }> = {
     'real-estate': {
@@ -256,6 +302,7 @@ export function getTenantData(domain: string) {
     const tenant = mockTenants[domain];
     const properties = mockProperties[domain] || [];
     const hero = mockHeroData[domain];
+    const compounds = domain === 'real-estate' ? mockCompounds : [];
 
-    return { tenant, properties, hero, menu: mockMenu };
+    return { tenant, properties, hero, menu: mockMenu, compounds };
 }

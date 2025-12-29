@@ -8,7 +8,7 @@ export default async function TenantHomePage({
     params: Promise<{ domain: string; locale: string }>;
 }) {
     const { domain, locale } = await params;
-    const { tenant, hero, properties } = getTenantData(domain);
+    const { tenant, hero, properties, compounds } = getTenantData(domain);
     const messages = await getMessages({ locale });
 
     // Resolve the theme from registry
@@ -25,7 +25,12 @@ export default async function TenantHomePage({
                 {...hero}
                 translations={(messages as any).Hero}
             />
+            {compounds && compounds.length > 0 && Theme.TopCompounds && (
+                <Theme.TopCompounds compounds={compounds} />
+            )}
             <Theme.PropertyGrid properties={properties} columns={3} />
+            {Theme.SellPropertyBanner && <Theme.SellPropertyBanner />}
+            {Theme.ExpertAdviceForm && <Theme.ExpertAdviceForm />}
         </>
     );
 }

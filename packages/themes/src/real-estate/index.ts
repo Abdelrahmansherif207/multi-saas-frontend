@@ -7,6 +7,10 @@ export { Header } from './layouts/Header';
 export { Footer } from './layouts/Footer';
 
 // Widgets
-export { HeroSection } from './widgets/HeroSection';
-export { PropertyCard } from './widgets/PropertyCard';
+export * from './widgets/HeroSection';
+export * from './widgets/PropertyGrid';
+export * from './widgets/PropertyCard';
+export * from './widgets/TopCompounds';
+export * from './widgets/SellPropertyBanner';
+export * from './widgets/ExpertAdviceForm';
 export { PropertyGrid } from './widgets/PropertyGrid';
