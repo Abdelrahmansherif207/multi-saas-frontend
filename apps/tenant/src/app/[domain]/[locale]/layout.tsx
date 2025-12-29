@@ -1,5 +1,8 @@
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import { getTenantData } from '../../../mocks/real-estate';
 import { ThemeRegistry, ThemeType } from '../../../lib/theme-registry';
+// ... imports
 
 export default async function DomainLayout({
     params,
@@ -10,6 +13,12 @@ export default async function DomainLayout({
 }) {
     const { domain, locale } = await params;
     const { tenant, menu } = getTenantData(domain);
+
+    if (!tenant) {
+        notFound();
+    }
+
+    const messages = await getMessages({ locale });
 
     // Resolve the theme from registry
     const themeName = (tenant.theme || 'real-estate') as ThemeType;
@@ -29,7 +38,7 @@ export default async function DomainLayout({
     };
 
     return (
-        <Theme.Layout config={tenant} menu={menu} localization={localization}>
+        <Theme.Layout config={tenant} menu={menu} localization={localization} translations={messages as any}>
             {children}
         </Theme.Layout>
     );

@@ -1,9 +1,16 @@
 import "./globals.css";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, Tajawal } from "next/font/google";
 
 const jakarta = Plus_Jakarta_Sans({
     subsets: ["latin"],
     variable: "--font-real-estate",
+    display: "swap",
+});
+
+const tajawal = Tajawal({
+    subsets: ["arabic"],
+    weight: ["400", "500", "700"],
+    variable: "--font-tajawal",
     display: "swap",
 });
 
@@ -20,7 +27,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${jakarta.variable} ${spaceGrotesk.variable} antialiased`}>
+            <body className={`${jakarta.variable} ${spaceGrotesk.variable} ${tajawal.variable} antialiased`}>
                 {children}
             </body>
         </html>

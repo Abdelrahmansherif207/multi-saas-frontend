@@ -59,9 +59,11 @@ export interface MenuItem {
 export interface HeroSectionProps {
     title: string;
     subtitle: string;
-    backgroundImage: string;
+    backgroundImage?: string;
+    images?: string[];
     ctaText?: string;
     ctaLink?: string;
+    translations?: ThemeTranslations['Hero'];
 }
 
 export interface PropertyCardProps {
@@ -84,9 +86,35 @@ export interface LocalizationProps {
     }[];
 }
 
+// Translation Types
+export interface ThemeTranslations {
+    Header: {
+        contact: string;
+        phone: string;
+        email: string;
+        language: string;
+    };
+    Hero: {
+        title: string;
+        subtitle: string;
+        tabs: {
+            compounds: string;
+            properties: string;
+        };
+        searchPlaceholder: string;
+        filters: {
+            propertyType: string;
+            bedsBaths: string;
+            priceRange: string;
+        };
+        searchButton: string;
+    };
+}
+
 export interface TenantLayoutProps {
     children: React.ReactNode;
     config: TenantConfig;
     menu?: MenuItem[];
     localization?: LocalizationProps;
+    translations?: ThemeTranslations;
 }

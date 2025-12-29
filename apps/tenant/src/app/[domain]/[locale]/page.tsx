@@ -1,3 +1,4 @@
+import { getMessages } from 'next-intl/server';
 import { getTenantData } from '../../../mocks/real-estate';
 import { ThemeRegistry, ThemeType } from '../../../lib/theme-registry';
 
@@ -8,6 +9,7 @@ export default async function TenantHomePage({
 }) {
     const { domain, locale } = await params;
     const { tenant, hero, properties } = getTenantData(domain);
+    const messages = await getMessages({ locale });
 
     // Resolve the theme from registry
     const themeName = (tenant.theme || 'real-estate') as ThemeType;
@@ -20,9 +22,8 @@ export default async function TenantHomePage({
     return (
         <>
             <Theme.HeroSection
-                title={hero.title}
-                subtitle={hero.subtitle}
-                backgroundImage={hero.backgroundImage}
+                {...hero}
+                translations={(messages as any).Hero}
             />
             <Theme.PropertyGrid properties={properties} columns={3} />
         </>

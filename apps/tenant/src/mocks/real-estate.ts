@@ -2,13 +2,13 @@ import { TenantConfig, Property, MenuItem } from '@repo/themes/real-estate';
 
 // Mock tenant configurations for different "tenants"
 export const mockTenants: Record<string, TenantConfig> = {
-    demo: {
-        id: 'demo',
+    'real-estate': {
+        id: 'real-estate',
         theme: 'real-estate',
-        name: 'Demo Real Estate',
+        name: 'Real Estate',
         logo: undefined,
         primaryColor: '#f97316',
-        contactEmail: 'info@demo-realestate.com',
+        contactEmail: 'info@realestate.com',
         contactPhone: '+1 (555) 123-4567',
         address: '123 Demo Street, New York, NY 10001',
         socialLinks: {
@@ -59,7 +59,7 @@ export const mockMenu: MenuItem[] = [
 
 // Mock properties for each tenant
 export const mockProperties: Record<string, Property[]> = {
-    demo: [
+    'real-estate': [
         {
             id: '1',
             slug: 'modern-downtown-apartment',
@@ -228,11 +228,16 @@ export const mockProperties: Record<string, Property[]> = {
 };
 
 // Hero section data per tenant
-export const mockHeroData: Record<string, { title: string; subtitle: string; backgroundImage: string }> = {
-    demo: {
+export const mockHeroData: Record<string, { title: string; subtitle: string; backgroundImage: string; images?: string[] }> = {
+    'real-estate': {
         title: 'Find Your Dream Home',
         subtitle: 'Discover the perfect property from our extensive collection of homes, apartments, and commercial spaces.',
         backgroundImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920',
+        images: [
+            'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920',
+            'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920',
+            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920'
+        ]
     },
     luxuryrealty: {
         title: 'Luxury Living Redefined',
@@ -248,9 +253,9 @@ export const mockHeroData: Record<string, { title: string; subtitle: string; bac
 
 // Helper function to get tenant data
 export function getTenantData(domain: string) {
-    const tenant = mockTenants[domain] || mockTenants.demo;
-    const properties = mockProperties[domain] || mockProperties.demo;
-    const hero = mockHeroData[domain] || mockHeroData.demo;
+    const tenant = mockTenants[domain];
+    const properties = mockProperties[domain] || [];
+    const hero = mockHeroData[domain];
 
     return { tenant, properties, hero, menu: mockMenu };
 }

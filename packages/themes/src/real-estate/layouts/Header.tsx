@@ -1,15 +1,28 @@
+"use client";
+
 import Link from 'next/link';
-import { TenantConfig, MenuItem, LocalizationProps } from '../types';
+import { TenantConfig, MenuItem, LocalizationProps, ThemeTranslations } from '../types';
 
 interface HeaderProps {
     config: TenantConfig;
     menu?: MenuItem[];
     localization?: LocalizationProps;
+    translations?: ThemeTranslations['Header'];
 }
 
-export function Header({ config, menu = [], localization }: HeaderProps) {
+import { motion } from 'framer-motion';
+
+// ... imports
+
+export function Header({ config, menu = [], localization, translations }: HeaderProps) {
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <motion.header
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        >
+            {/* ... content ... */}
             {/* Top Bar */}
             <div className="hidden md:block bg-primary text-primary-foreground">
                 <div className="container mx-auto px-4 py-2">
@@ -88,8 +101,8 @@ export function Header({ config, menu = [], localization }: HeaderProps) {
                                         key={locale.code}
                                         href={locale.href}
                                         className={`transition-colors hover:text-primary ${localization.currentLocale === locale.code
-                                                ? 'text-primary font-bold'
-                                                : 'text-muted-foreground'
+                                            ? 'text-primary font-bold'
+                                            : 'text-muted-foreground'
                                             }`}
                                     >
                                         {locale.label}
@@ -102,7 +115,7 @@ export function Header({ config, menu = [], localization }: HeaderProps) {
                             href="/contact"
                             className="hidden sm:inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
                         >
-                            Contact Us
+                            {translations?.contact || 'Contact Us'}
                         </Link>
 
                         {/* Mobile Menu Button */}
@@ -114,6 +127,6 @@ export function Header({ config, menu = [], localization }: HeaderProps) {
                     </div>
                 </div>
             </div>
-        </header>
+        </motion.header>
     );
 }
