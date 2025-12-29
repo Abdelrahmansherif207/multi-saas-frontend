@@ -73,8 +73,20 @@ export interface PropertyGridProps {
     columns?: 2 | 3 | 4;
 }
 
+// Localization Types
+export interface LocalizationProps {
+    currentLocale: string;
+    availableLocales: {
+        code: string;
+        label: string;
+        flag?: string;
+        href: string;
+    }[];
+}
+
 export interface TenantLayoutProps {
     children: React.ReactNode;
     config: TenantConfig;
     menu?: MenuItem[];
+    localization?: LocalizationProps;
 }

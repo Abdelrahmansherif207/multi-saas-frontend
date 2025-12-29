@@ -8,7 +8,12 @@ const config: Config = {
         "../../packages/themes/src/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'real-estate': ['var(--font-real-estate)', 'sans-serif'],
+                'minimal': ['var(--font-minimal)', 'monospace'],
+            },
+        },
     },
     plugins: [],
 };
