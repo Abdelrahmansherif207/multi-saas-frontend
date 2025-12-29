@@ -1,5 +1,23 @@
 {
-    "HomePage": {
-        "title": "Welcome"
+    "Header": {
+        "contact": "Contact Us",
+        "phone": "Call Us",
+        "email": "Email Us",
+        "language": "Language"
+    },
+    "Hero": {
+        "title": "DISCOVER YOUR NEXT HOME",
+        "subtitle": "Search And Compare Among 15000+ Properties And 800+ Prime Compounds",
+        "tabs": {
+            "compounds": "Compounds",
+            "properties": "Properties"
+        },
+        "searchPlaceholder": "Area, Compound, Real Estate Developer",
+        "filters": {
+            "propertyType": "Property Types",
+            "bedsBaths": "Beds and Baths",
+            "priceRange": "Price Range"
+        },
+        "searchButton": "Search"
     }
 }

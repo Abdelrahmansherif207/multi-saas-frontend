@@ -1,5 +1,23 @@
 {
-    "HomePage": {
-        "title": "Welcome AR"
+    "Header": {
+        "contact": "اتصل بنا",
+        "phone": "اتصل بنا",
+        "email": "راسلنا",
+        "language": "اللغة"
+    },
+    "Hero": {
+        "title": "اكتشف منزلك التالي",
+        "subtitle": "ابحث وقارن بين أكثر من 15000 عقار و 800 مجمع سكني مميز",
+        "tabs": {
+            "compounds": "مجمعات سكنية",
+            "properties": "وحدات عقارية"
+        },
+        "searchPlaceholder": "المنطقة، المجمع، أو المطور العقاري",
+        "filters": {
+            "propertyType": "نوع العقار",
+            "bedsBaths": "الغرف والحمامات",
+            "priceRange": "نطاق السعر"
+        },
+        "searchButton": "بحث"
     }
 }
