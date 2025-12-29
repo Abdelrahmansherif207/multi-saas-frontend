@@ -9,6 +9,9 @@ export const ThemeRegistry = {
         HeroSection: RealEstateTheme.HeroSection,
         PropertyCard: RealEstateTheme.PropertyCard,
         PropertyGrid: RealEstateTheme.PropertyGrid,
+        TopCompounds: RealEstateTheme.TopCompounds,
+        SellPropertyBanner: RealEstateTheme.SellPropertyBanner,
+        ExpertAdviceForm: RealEstateTheme.ExpertAdviceForm,
     },
     'minimal': {
         Layout: MinimalTheme.TenantLayout,
@@ -17,6 +20,9 @@ export const ThemeRegistry = {
         HeroSection: MinimalTheme.HeroSection,
         PropertyCard: MinimalTheme.PropertyCard,
         PropertyGrid: MinimalTheme.PropertyGrid,
+        TopCompounds: undefined,
+        SellPropertyBanner: undefined,
+        ExpertAdviceForm: undefined,
     }
 };
 

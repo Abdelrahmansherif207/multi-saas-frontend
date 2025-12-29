@@ -79,8 +79,8 @@ export function HeroSearchFilters({ translations: t }: HeroSearchFiltersProps) {
                                         key={num}
                                         onClick={() => setBeds(num === '5+' ? 5 : Number(num))}
                                         className={`w-10 h-10 rounded-full flex items-center justify-center text-sm border transition-colors ${(num === '5+' ? 5 : Number(num)) === beds
-                                                ? 'bg-primary text-primary-foreground border-primary'
-                                                : 'border-gray-200 hover:border-primary text-gray-600'
+                                            ? 'bg-primary text-primary-foreground border-primary'
+                                            : 'border-gray-200 hover:border-primary text-gray-600'
                                             }`}
                                     >
                                         {num}
@@ -96,8 +96,8 @@ export function HeroSearchFilters({ translations: t }: HeroSearchFiltersProps) {
                                         key={num}
                                         onClick={() => setBaths(num === '5+' ? 5 : Number(num))}
                                         className={`w-10 h-10 rounded-full flex items-center justify-center text-sm border transition-colors ${(num === '5+' ? 5 : Number(num)) === baths
-                                                ? 'bg-primary text-primary-foreground border-primary'
-                                                : 'border-gray-200 hover:border-primary text-gray-600'
+                                            ? 'bg-primary text-primary-foreground border-primary'
+                                            : 'border-gray-200 hover:border-primary text-gray-600'
                                             }`}
                                     >
                                         {num}

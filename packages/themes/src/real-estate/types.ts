@@ -19,6 +19,15 @@ export interface Property {
     agentId?: string;
 }
 
+// Compound Types
+export interface Compound {
+    id: string;
+    slug: string;
+    title: string;
+    image: string;
+    propertyCount: number;
+}
+
 // Agent Types
 export interface Agent {
     id: string;
@@ -75,6 +84,24 @@ export interface PropertyGridProps {
     columns?: 2 | 3 | 4;
 }
 
+export interface TopCompoundsProps {
+    compounds: Compound[];
+    title?: string;
+    subtitle?: string;
+}
+
+export interface SellPropertyBannerProps {
+    title?: string;
+    subtitle?: string;
+    ctaText?: string;
+    ctaLink?: string;
+}
+
+export interface ExpertAdviceFormProps {
+    title?: string;
+    subtitle?: string;
+}
+
 // Localization Types
 export interface LocalizationProps {
     currentLocale: string;
@@ -106,6 +133,7 @@ export interface ThemeTranslations {
             propertyType: string;
             bedsBaths: string;
             priceRange: string;
+            searchButton: string;
         };
         searchButton: string;
     };
