@@ -10,7 +10,7 @@ interface TenantLayoutProps {
 
 export function TenantLayout({ children, config, menu }: TenantLayoutProps) {
     return (
-        <div className="min-h-screen bg-white text-black font-mono">
+        <div className="min-h-screen bg-white text-black font-minimal">
             <Header config={config} menu={menu} />
             <main>
                 {children}

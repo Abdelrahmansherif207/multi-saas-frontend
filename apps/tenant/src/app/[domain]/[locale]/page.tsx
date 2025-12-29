@@ -1,12 +1,12 @@
-import { getTenantData } from '../../mocks/real-estate';
-import { ThemeRegistry, ThemeType } from '../../lib/theme-registry';
+import { getTenantData } from '../../../mocks/real-estate';
+import { ThemeRegistry, ThemeType } from '../../../lib/theme-registry';
 
 export default async function TenantHomePage({
     params,
 }: {
-    params: Promise<{ domain: string }>;
+    params: Promise<{ domain: string; locale: string }>;
 }) {
-    const { domain } = await params;
+    const { domain, locale } = await params;
     const { tenant, hero, properties } = getTenantData(domain);
 
     // Resolve the theme from registry
