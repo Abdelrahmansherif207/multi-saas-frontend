@@ -1,0 +1,35 @@
+{
+    "name": "@repo/themes",
+    "version": "0.0.1",
+    "private": true,
+    "main": "./src/real-estate/index.ts",
+    "types": "./src/real-estate/index.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "lint": "eslint src/",
+        "type-check": "tsc --noEmit"
+    },
+    "exports": {
+        "./real-estate": "./src/real-estate/index.ts",
+        "./minimal": "./src/minimal/index.ts"
+    },
+    "dependencies": {
+        "@repo/ui": "workspace:*"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@types/node": "^20.11.24",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "next": "15.2.0-canary.19",
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1",
+        "typescript": "^5.9.3"
+    },
+    "peerDependencies": {
+        "next": "^15.0.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    }
+}
