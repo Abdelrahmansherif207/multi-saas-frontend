@@ -6,6 +6,10 @@ export { TenantLayout } from './layouts/TenantLayout';
 export { Header } from './layouts/Header';
 export { Footer } from './layouts/Footer';
 
+// Pages
+export { PropertiesListPage } from './pages/PropertiesListPage';
+export { PropertyDetailPage } from './pages/PropertyDetailPage';
+
 // Widgets
 export * from './widgets/HeroSection';
 export * from './widgets/PropertyGrid';

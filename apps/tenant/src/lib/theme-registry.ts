@@ -12,6 +12,10 @@ export const ThemeRegistry = {
         TopCompounds: RealEstateTheme.TopCompounds,
         SellPropertyBanner: RealEstateTheme.SellPropertyBanner,
         ExpertAdviceForm: RealEstateTheme.ExpertAdviceForm,
+        Pages: {
+            PropertiesListPage: RealEstateTheme.PropertiesListPage,
+            PropertyDetailPage: RealEstateTheme.PropertyDetailPage,
+        }
     },
     'minimal': {
         Layout: MinimalTheme.TenantLayout,
@@ -23,6 +27,10 @@ export const ThemeRegistry = {
         TopCompounds: undefined,
         SellPropertyBanner: undefined,
         ExpertAdviceForm: undefined,
+        Pages: {
+            PropertiesListPage: undefined,
+            PropertyDetailPage: undefined,
+        }
     }
 };
 
