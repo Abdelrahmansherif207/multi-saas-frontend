@@ -167,6 +167,19 @@ export interface ThemeTranslations {
         };
         searchButton: string;
     };
+    BlogPage: {
+        title: string;
+        subtitle: string;
+        readArticle: string;
+        readMore: string;
+        newsletter: {
+            title: string;
+            description: string;
+            placeholder: string;
+            button: string;
+            disclaimer: string;
+        };
+    };
 }
 
 export interface TenantLayoutProps {

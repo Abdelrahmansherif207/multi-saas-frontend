@@ -8,7 +8,7 @@
     "Menu": {
         "home": "Home",
         "properties": "Properties",
-        "agents": "Agents",
+        "blog": "Blog",
         "about": "About",
         "contact": "Contact"
     },
@@ -118,6 +118,19 @@
         "reset": "Reset",
         "seeMore": "See More",
         "resetAll": "Reset All Filters"
+    },
+    "BlogPage": {
+        "title": "Our Latest Insights",
+        "subtitle": "Expert analysis, market trends, and lifestyle guides to help you make informed real estate decisions.",
+        "readArticle": "Read Article",
+        "readMore": "Read More",
+        "newsletter": {
+            "title": "Stay Ahead of the Market",
+            "description": "Subscribe to our weekly newsletter for the latest real estate trends, exclusive investment opportunities, and expert advice delivered straight to your inbox.",
+            "placeholder": "Your email address",
+            "button": "Subscribe Now",
+            "disclaimer": "We respect your privacy. Unsubscribe at any time."
+        }
     },
     "PropertyCard": {
         "compare": "Compare",
