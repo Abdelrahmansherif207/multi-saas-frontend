@@ -102,6 +102,36 @@ export interface ExpertAdviceFormProps {
     subtitle?: string;
 }
 
+// Area Types
+export interface Area {
+    id: string;
+    name: string;
+    image: string;
+    count?: number;
+}
+
+export interface TopAreasProps {
+    title?: string;
+    subtitle?: string;
+    areas: Area[];
+    layout?: 'grid' | 'slider' | 'carousel';
+}
+
+// Launch Types
+export interface Launch {
+    id: string;
+    title: string;
+    image: string;
+    developer?: string;
+    link?: string;
+}
+
+export interface NewLaunchesProps {
+    title?: string;
+    launches: Launch[];
+    showAllLink?: string;
+}
+
 // Localization Types
 export interface LocalizationProps {
     currentLocale: string;

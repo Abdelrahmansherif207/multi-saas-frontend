@@ -70,7 +70,7 @@ export function Header({ config, menu = [], localization, translations }: Header
             <div className="container mx-auto px-4">
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href={`/${localization?.availableLocales[0].href.split('/')[1]}/${localization?.currentLocale}`} className="flex items-center gap-2">
                         {config.logo ? (
                             <img src={config.logo} alt={config.name} className="h-10 w-auto" />
                         ) : (
@@ -112,7 +112,7 @@ export function Header({ config, menu = [], localization, translations }: Header
                         )}
 
                         <Link
-                            href="/contact"
+                            href={`/${localization?.availableLocales[0].href.split('/')[1]}/${localization?.currentLocale}/contact`}
                             className="hidden sm:inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
                         >
                             {translations?.contact || 'Contact Us'}
