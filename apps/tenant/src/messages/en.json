@@ -77,5 +77,41 @@
         "noUnits": "No Units",
         "forSale": "For Sale",
         "forRent": "For Rent"
+    },
+    "Contact": {
+        "title": "Contact Us",
+        "subtitle": "We're here to help you find your dream home.",
+        "address": "Address",
+        "contacts": "Contacts",
+        "workingHours": "Working Hours",
+        "addressDetail": "ABC Bank, South 90th, New Cairo 1, Egypt\nAvenue 22, Second Al Sheikh Zayed, Egypt",
+        "phone": "+201065888849",
+        "hotline": "15211",
+        "email": "info@nawy.com",
+        "workingHoursDetail": "Sunday-Thursday\n10:00 AM - 5:00 PM",
+        "form": {
+            "title": "Need Expert Advice?",
+            "subtitle": "Fill out the form and one of our property consultants will contact you.",
+            "name": "Your Name",
+            "location": "Preferred Location",
+            "phone": "Phone Number",
+            "message": "Your message",
+            "submit": "Submit",
+            "downloadApp": "Download Application"
+        }
+    },
+    "About": {
+        "title": "About Us",
+        "heroTitle": "Get To Know Us",
+        "mainTitle": "WE ARE A BIG REAL ESTATE COMPANY",
+        "description": "We help families find the best homes easily. Since 2016, we have helped many people find a place they love. We make sure everything is clear and easy for you.",
+        "mission": "Our goal is to change how people buy homes. We promise to help you make a good choice and get your dream house fast.",
+        "vision": {
+            "title": "Our Vision",
+            "description": "To be the best company and make buying homes easy and digital for everyone."
+        },
+        "stats": {
+            "properties": "Properties"
+        }
     }
 }
