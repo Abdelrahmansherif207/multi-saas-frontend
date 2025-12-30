@@ -19,5 +19,54 @@
             "priceRange": "Price Range"
         },
         "searchButton": "Search"
+    },
+    "PropertyDetail": {
+        "breadcrumb": {
+            "home": "Home"
+        },
+        "infoBar": {
+            "developerPrice": "Developer Start Price",
+            "resalePrice": "Resale Start Price",
+            "callUs": "Call Us",
+            "whatsapp": "WhatsApp"
+        },
+        "actions": {
+            "title": "Details",
+            "gallery": "Gallery",
+            "map": "View on Map",
+            "masterPlan": "Master Plan"
+        },
+        "relatedProperties": {
+            "title": "More Properties in {area}",
+            "filterButton": "Filter",
+            "sortButton": "Sort By",
+            "sortOptions": {
+                "newest": "Newest",
+                "priceHighToLow": "Price: High to Low",
+                "priceLowToHigh": "Price: Low to High",
+                "mostPopular": "Most Popular"
+            },
+            "filterSidebar": {
+                "title": "Filter Properties",
+                "propertyTypes": "Property Types",
+                "propertyFeatures": "Property Features",
+                "bedrooms": "Bedrooms",
+                "bathrooms": "Bathrooms",
+                "payments": "Payments",
+                "downPayment": "Down Payment",
+                "monthlyInstallments": "Monthly Installments",
+                "yearsOfInstallments": "Years Of Installments",
+                "priceRange": "Price Range",
+                "deliveryDate": "Delivery Date",
+                "showResults": "Show All {count} Results",
+                "resetAll": "Reset All",
+                "maxAmount": "Max Amount",
+                "min": "Min",
+                "max": "Max",
+                "delivered": "Delivered",
+                "garden": "Garden",
+                "roof": "Roof"
+            }
+        }
     }
 }
