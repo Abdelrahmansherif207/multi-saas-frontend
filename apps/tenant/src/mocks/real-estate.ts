@@ -1,4 +1,4 @@
-import { TenantConfig, Property, MenuItem, Compound } from '@repo/themes/real-estate';
+import { TenantConfig, Property, MenuItem, Compound, Area, Launch } from '@repo/themes/real-estate';
 
 // Mock tenant configurations for different "tenants"
 export const mockTenants: Record<string, TenantConfig> = {
@@ -6,6 +6,21 @@ export const mockTenants: Record<string, TenantConfig> = {
         id: 'real-estate',
         theme: 'real-estate',
         name: 'Real Estate',
+        logo: undefined,
+        primaryColor: '#94a4cfff',
+        contactEmail: 'info@realestate.com',
+        contactPhone: '+1 (555) 123-4567',
+        address: '123 Demo Street, New York, NY 10001',
+        socialLinks: {
+            facebook: 'https://facebook.com',
+            twitter: 'https://twitter.com',
+            instagram: 'https://instagram.com',
+        },
+    },
+    demo: {
+        id: 'demo',
+        theme: 'real-estate',
+        name: 'Demo Real Estate',
         logo: undefined,
         primaryColor: '#94a4cfff',
         contactEmail: 'info@realestate.com',
@@ -188,7 +203,7 @@ export const mockProperties: Record<string, Property[]> = {
             areaSqft: 8000,
             address: '800 5th Avenue',
             city: 'New York',
-            image: 'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800',
+            image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800',
         },
     ],
     oceanview: [
@@ -297,12 +312,52 @@ export const mockHeroData: Record<string, { title: string; subtitle: string; bac
     },
 };
 
+// Mock areas for each tenant
+export const mockAreas: Record<string, Area[]> = {
+    demo: [
+        { id: '1', name: 'New Cairo', image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400', count: 12 },
+        { id: '2', name: '6th of October City', image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400', count: 8 },
+        { id: '3', name: 'New Capital City', image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=400', count: 15 },
+        { id: '4', name: 'Mostakbal City', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400', count: 5 },
+        { id: '5', name: 'Ain Sokhna', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400', count: 7 },
+        { id: '6', name: 'North Coast-Sahel', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400', count: 10 },
+        { id: '7', name: 'El Gouna', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400', count: 4 },
+        { id: '8', name: 'New Heliopolis', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400', count: 6 },
+    ],
+    luxuryrealty: [
+        { id: '1', name: 'Beverly Hills', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400', count: 20 },
+        { id: '2', name: 'Manhattan', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400', count: 15 },
+    ],
+    oceanview: [
+        { id: '1', name: 'Miami Beach', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400', count: 12 },
+        { id: '2', name: 'Key West', image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400', count: 8 },
+    ],
+};
+
+// Mock launches for each tenant
+export const mockLaunches: Record<string, Launch[]> = {
+    demo: [
+        { id: '1', title: 'The Waterway North', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', developer: 'The Waterway' },
+        { id: '2', title: 'Mountain View iCity', image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800', developer: 'Mountain View' },
+        { id: '3', title: 'Palm Hills New Cairo', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800', developer: 'Palm Hills' },
+        { id: '4', title: 'Sodic East', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', developer: 'SODIC' },
+    ],
+    luxuryrealty: [
+        { id: '1', title: 'Beverly Hills Residences', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800', developer: 'Luxury Dev' },
+    ],
+    oceanview: [
+        { id: '1', title: 'Oceanfront Towers', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', developer: 'Coastal Group' },
+    ],
+};
+
 // Helper function to get tenant data
 export function getTenantData(domain: string) {
-    const tenant = mockTenants[domain];
-    const properties = mockProperties[domain] || [];
-    const hero = mockHeroData[domain];
+    const tenant = mockTenants[domain] || mockTenants['real-estate'];
+    const properties = mockProperties[domain] || mockProperties['real-estate'];
+    const hero = mockHeroData[domain] || mockHeroData['real-estate'];
+    const areas = mockAreas[domain] || mockAreas.demo;
+    const launches = mockLaunches[domain] || mockLaunches.demo;
     const compounds = domain === 'real-estate' ? mockCompounds : [];
 
-    return { tenant, properties, hero, menu: mockMenu, compounds };
+    return { tenant, properties, hero, areas, launches, menu: mockMenu, compounds };
 }

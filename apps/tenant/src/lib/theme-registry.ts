@@ -1,3 +1,4 @@
+import React from 'react';
 import * as RealEstateTheme from '@repo/themes/real-estate';
 import * as MinimalTheme from '@repo/themes/minimal';
 
@@ -12,6 +13,8 @@ export const ThemeRegistry = {
         TopCompounds: RealEstateTheme.TopCompounds,
         SellPropertyBanner: RealEstateTheme.SellPropertyBanner,
         ExpertAdviceForm: RealEstateTheme.ExpertAdviceForm,
+        TopAreas: RealEstateTheme.TopAreas,
+        NewLaunches: RealEstateTheme.NewLaunches as React.FC<any> | undefined,
         Pages: {
             PropertiesListPage: RealEstateTheme.PropertiesListPage,
             PropertyDetailPage: RealEstateTheme.PropertyDetailPage,
@@ -27,6 +30,8 @@ export const ThemeRegistry = {
         TopCompounds: undefined,
         SellPropertyBanner: undefined,
         ExpertAdviceForm: undefined,
+        TopAreas: MinimalTheme.TopAreas,
+        NewLaunches: MinimalTheme.NewLaunches as React.FC<any> | undefined,
         Pages: {
             PropertiesListPage: undefined,
             PropertyDetailPage: undefined,
