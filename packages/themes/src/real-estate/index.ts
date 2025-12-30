@@ -18,3 +18,5 @@ export * from './widgets/TopCompounds';
 export * from './widgets/SellPropertyBanner';
 export * from './widgets/ExpertAdviceForm';
 export { PropertyGrid } from './widgets/PropertyGrid';
+export { TopAreas } from './widgets/TopAreas';
+export { NewLaunches } from './widgets/NewLaunches';

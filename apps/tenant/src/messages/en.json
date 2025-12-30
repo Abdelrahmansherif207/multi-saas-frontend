@@ -5,6 +5,13 @@
         "email": "Email Us",
         "language": "Language"
     },
+    "Menu": {
+        "home": "Home",
+        "properties": "Properties",
+        "agents": "Agents",
+        "about": "About",
+        "contact": "Contact"
+    },
     "Hero": {
         "title": "DISCOVER YOUR NEXT HOME",
         "subtitle": "Search And Compare Among 15000+ Properties And 800+ Prime Compounds",
@@ -68,5 +75,56 @@
                 "roof": "Roof"
             }
         }
+    },
+    "HomePage": {
+        "title": "Welcome"
+    },
+    "TopAreas": {
+        "title": "Top Areas",
+        "resultsAvailable": "{count} Results Available",
+        "listings": "{count} Listings"
+    },
+    "NewLaunches": {
+        "title": "New Launches",
+        "showAll": "Show All"
+    },
+    "PropertiesList": {
+        "title": "Compounds In Egypt",
+        "count": "{count} Compounds",
+        "searchPlaceholder": "Area, Compound, Real Estate Developer",
+        "sortBy": "Sort By",
+        "sortOptions": {
+            "minDeveloperPrice": "Minimum Developer Price",
+            "maxDeveloperPrice": "Maximum Developer Price",
+            "minResalePrice": "Minimum Resale Price",
+            "maxResalePrice": "Maximum Resale Price",
+            "minInstallment": "Minimum Installment",
+            "maxInstallment": "Maximum Installment",
+            "newest": "Newest",
+            "readyBy": "Ready By"
+        },
+        "mapView": "Map View",
+        "switchToProperties": "Switch to Properties",
+        "new": "New",
+        "noResults": "No properties found matching your criteria.",
+        "clearFilters": "Clear all filters"
+    },
+    "Filters": {
+        "areas": "Areas",
+        "developers": "Developers",
+        "bedrooms": "Bedrooms",
+        "bathrooms": "Bathrooms",
+        "propertyTypes": "Property Types",
+        "reset": "Reset",
+        "seeMore": "See More",
+        "resetAll": "Reset All Filters"
+    },
+    "PropertyCard": {
+        "compare": "Compare",
+        "developerPrice": "Developer Start Price",
+        "resalePrice": "Resale Start Price",
+        "noUnits": "No Units",
+        "forSale": "For Sale",
+        "forRent": "For Rent"
     }
 }
