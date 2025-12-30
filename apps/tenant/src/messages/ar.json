@@ -5,6 +5,13 @@
         "email": "راسلنا",
         "language": "اللغة"
     },
+    "Menu": {
+        "home": "الرئيسية",
+        "properties": "العقارات",
+        "agents": "الوكلاء",
+        "about": "من نحن",
+        "contact": "اتصل بنا"
+    },
     "Hero": {
         "title": "اكتشف منزلك التالي",
         "subtitle": "ابحث وقارن بين أكثر من 15000 عقار و 800 مجمع سكني مميز",
@@ -19,5 +26,56 @@
             "priceRange": "نطاق السعر"
         },
         "searchButton": "بحث"
+    },
+    "HomePage": {
+        "title": "مرحباً"
+    },
+    "TopAreas": {
+        "title": "أهم المناطق",
+        "resultsAvailable": "{count} نتيجة متاحة",
+        "listings": "{count} عقار"
+    },
+    "NewLaunches": {
+        "title": "أحدث المشاريع",
+        "showAll": "عرض الكل"
+    },
+    "PropertiesList": {
+        "title": "كمبوندات في مصر",
+        "count": "{count} كمبوند",
+        "searchPlaceholder": "المنطقة، المجمع، أو المطور العقاري",
+        "sortBy": "ترتيب حسب",
+        "sortOptions": {
+            "minDeveloperPrice": "أقل سعر للمطور",
+            "maxDeveloperPrice": "أعلى سعر للمطور",
+            "minResalePrice": "أقل سعر إعادة بيع",
+            "maxResalePrice": "أعلى سعر إعادة بيع",
+            "minInstallment": "أقل قسط",
+            "maxInstallment": "أعلى قسط",
+            "newest": "الأحدث",
+            "readyBy": "تاريخ الاستلام"
+        },
+        "mapView": "عرض الخريطة",
+        "switchToProperties": "التبديل إلى العقارات",
+        "new": "جديد",
+        "noResults": "لم يتم العثور على عقارات تطابق معاييرك.",
+        "clearFilters": "مسح جميع الفلاتر"
+    },
+    "Filters": {
+        "areas": "المناطق",
+        "developers": "المطورين",
+        "bedrooms": "غرف النوم",
+        "bathrooms": "الحمامات",
+        "propertyTypes": "أنواع العقارات",
+        "reset": "إعادة ضبط",
+        "seeMore": "عرض المزيد",
+        "resetAll": "إعادة ضبط جميع الفلاتر"
+    },
+    "PropertyCard": {
+        "compare": "مقارنة",
+        "developerPrice": "سعر المطور يبدأ من",
+        "resalePrice": "سعر إعادة البيع يبدأ من",
+        "noUnits": "لا توجد وحدات",
+        "forSale": "للبيع",
+        "forRent": "للإيجار"
     }
 }

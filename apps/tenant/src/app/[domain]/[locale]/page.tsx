@@ -8,7 +8,7 @@ export default async function TenantHomePage({
     params: Promise<{ domain: string; locale: string }>;
 }) {
     const { domain, locale } = await params;
-    const { tenant, hero, properties, compounds } = getTenantData(domain);
+    const { tenant, hero, properties, compounds, areas, launches } = getTenantData(domain);
     const messages = await getMessages({ locale });
 
     // Resolve the theme from registry
@@ -16,8 +16,13 @@ export default async function TenantHomePage({
     const Theme = ThemeRegistry[themeName];
 
     if (!Theme) {
-        return <div>Theme not found: {themeName}</div>;
+        return <div className="p-10 text-center">Theme not found: {themeName}</div>;
     }
+    const TopAreas = Theme.TopAreas;
+    const NewLaunches = Theme.NewLaunches;
+    const TopCompounds = Theme.TopCompounds;
+    const SellPropertyBanner = Theme.SellPropertyBanner;
+    const ExpertAdviceForm = Theme.ExpertAdviceForm;
 
     return (
         <>
@@ -25,12 +30,18 @@ export default async function TenantHomePage({
                 {...hero}
                 translations={(messages as any).Hero}
             />
-            {compounds && compounds.length > 0 && Theme.TopCompounds && (
-                <Theme.TopCompounds compounds={compounds} />
+            {areas && areas.length > 0 && TopAreas && (
+                <TopAreas areas={areas} />
+            )}
+            {launches && launches.length > 0 && NewLaunches && (
+                <NewLaunches launches={launches} />
+            )}
+            {compounds && compounds.length > 0 && TopCompounds && (
+                <TopCompounds compounds={compounds} />
             )}
             <Theme.PropertyGrid properties={properties} columns={3} />
-            {Theme.SellPropertyBanner && <Theme.SellPropertyBanner />}
-            {Theme.ExpertAdviceForm && <Theme.ExpertAdviceForm />}
+            {SellPropertyBanner && <SellPropertyBanner />}
+            {ExpertAdviceForm && <ExpertAdviceForm />}
         </>
     );
 }

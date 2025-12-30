@@ -7,8 +7,8 @@ export default async function PropertiesRoute({
 }: {
     params: Promise<{ domain: string; locale: string }>;
 }) {
-    const { domain } = await params;
-    const { tenant } = getTenantData(domain);
+    const { domain, locale } = await params;
+    const { tenant, properties } = getTenantData(domain);
 
     // Resolve Theme
     const themeName = (tenant.theme || 'real-estate') as ThemeType;
@@ -23,5 +23,5 @@ export default async function PropertiesRoute({
     }
 
     // Delegate Rendering
-    return <PageComponent tenant={tenant} />;
+    return <PageComponent tenant={tenant} properties={properties} />;
 }
