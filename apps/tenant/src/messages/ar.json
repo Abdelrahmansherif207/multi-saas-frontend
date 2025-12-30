@@ -27,6 +27,55 @@
         },
         "searchButton": "بحث"
     },
+    "PropertyDetail": {
+        "breadcrumb": {
+            "home": "الرئيسية"
+        },
+        "infoBar": {
+            "developerPrice": "سعر المطور يبدأ من",
+            "resalePrice": "سعر إعادة البيع يبدأ من",
+            "callUs": "اتصل بنا",
+            "whatsapp": "واتساب"
+        },
+        "actions": {
+            "title": "التفاصيل",
+            "gallery": "المعرض",
+            "map": "عرض على الخريطة",
+            "masterPlan": "المخطط الرئيسي"
+        },
+        "relatedProperties": {
+            "title": "المزيد من العقارات في {area}",
+            "filterButton": "تصفية",
+            "sortButton": "ترتيب حسب",
+            "sortOptions": {
+                "newest": "الأحدث",
+                "priceHighToLow": "السعر: من الأعلى للأقل",
+                "priceLowToHigh": "السعر: من الأقل للأعلى",
+                "mostPopular": "الأكثر شعبية"
+            },
+            "filterSidebar": {
+                "title": "تصفية العقارات",
+                "propertyTypes": "أنواع العقارات",
+                "propertyFeatures": "مميزات العقار",
+                "bedrooms": "غرف النوم",
+                "bathrooms": "الحمامات",
+                "payments": "الدفع",
+                "downPayment": "المقدم",
+                "monthlyInstallments": "الأقساط الشهرية",
+                "yearsOfInstallments": "سنوات التقسيط",
+                "priceRange": "نطاق السعر",
+                "deliveryDate": "تاريخ التسليم",
+                "showResults": "عرض كل {count} النتائج",
+                "resetAll": "إعادة تعيين الكل",
+                "maxAmount": "الحد الأقصى",
+                "min": "الحد الأدنى",
+                "max": "الحد الأقصى",
+                "delivered": "تم التسليم",
+                "garden": "حديقة",
+                "roof": "روف"
+            }
+        }
+    },
     "HomePage": {
         "title": "مرحباً"
     },
