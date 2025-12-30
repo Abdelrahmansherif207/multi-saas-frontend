@@ -146,3 +146,61 @@ export interface TenantLayoutProps {
     localization?: LocalizationProps;
     translations?: ThemeTranslations;
 }
+
+// Property Detail Page Types
+export interface PropertyDetailTranslations {
+    breadcrumb: {
+        home: string;
+    };
+    infoBar: {
+        developerPrice: string;
+        resalePrice: string;
+        callUs: string;
+        whatsapp: string;
+    };
+    actions: {
+        title: string;
+        gallery: string;
+        map: string;
+        masterPlan: string;
+    };
+    relatedProperties: {
+        title: string;
+        filterButton: string;
+        sortButton: string;
+        sortOptions: {
+            newest: string;
+            priceHighToLow: string;
+            priceLowToHigh: string;
+            mostPopular: string;
+        };
+        filterSidebar: {
+            title: string;
+            propertyTypes: string;
+            propertyFeatures: string;
+            bedrooms: string;
+            bathrooms: string;
+            payments: string;
+            downPayment: string;
+            monthlyInstallments: string;
+            yearsOfInstallments: string;
+            priceRange: string;
+            deliveryDate: string;
+            showResults: string;
+            resetAll: string;
+            maxAmount: string;
+            min: string;
+            max: string;
+            delivered: string;
+            garden: string;
+            roof: string;
+        };
+    };
+}
+
+export interface PropertyDetailPageProps {
+    tenant: TenantConfig;
+    slug: string;
+    property?: Property;
+    translations?: PropertyDetailTranslations;
+}
