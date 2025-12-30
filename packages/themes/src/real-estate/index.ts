@@ -11,6 +11,7 @@ export { PropertiesListPage } from './pages/PropertiesListPage';
 export { PropertyDetailPage } from './pages/PropertyDetailPage';
 export { ContactPage } from './pages/ContactPage';
 export { AboutPage } from './pages/AboutPage';
+export { BlogPage } from './pages/BlogPage';
 
 // Widgets
 export * from './widgets/HeroSection';

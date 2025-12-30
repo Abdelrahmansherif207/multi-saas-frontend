@@ -67,7 +67,7 @@ export const mockTenants: Record<string, TenantConfig> = {
 export const mockMenu: MenuItem[] = [
     { label: 'Home', href: '/' },
     { label: 'Properties', href: '/properties' },
-    { label: 'Agents', href: '/agents' },
+    { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
 ];
