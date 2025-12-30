@@ -9,6 +9,8 @@ export { Footer } from './layouts/Footer';
 // Pages
 export { PropertiesListPage } from './pages/PropertiesListPage';
 export { PropertyDetailPage } from './pages/PropertyDetailPage';
+export { ContactPage } from './pages/ContactPage';
+export { AboutPage } from './pages/AboutPage';
 
 // Widgets
 export * from './widgets/HeroSection';

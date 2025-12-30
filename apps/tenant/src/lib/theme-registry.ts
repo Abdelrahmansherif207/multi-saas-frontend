@@ -18,6 +18,8 @@ export const ThemeRegistry = {
         Pages: {
             PropertiesListPage: RealEstateTheme.PropertiesListPage,
             PropertyDetailPage: RealEstateTheme.PropertyDetailPage,
+            ContactPage: RealEstateTheme.ContactPage,
+            AboutPage: RealEstateTheme.AboutPage,
         }
     },
     'minimal': {
@@ -35,6 +37,8 @@ export const ThemeRegistry = {
         Pages: {
             PropertiesListPage: undefined,
             PropertyDetailPage: undefined,
+            ContactPage: undefined,
+            AboutPage: undefined,
         }
     }
 };
