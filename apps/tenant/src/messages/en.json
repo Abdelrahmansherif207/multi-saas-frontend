@@ -175,5 +175,21 @@
         "stats": {
             "properties": "Properties"
         }
+    },
+    "Comparison": {
+        "compounds": "Compounds",
+        "units": "Units",
+        "startComparison": "Start Comparison",
+        "stopComparison": "Stop Comparison",
+        "cancel": "Cancel",
+        "comparePlans": "Compare Plans",
+        "addMore": "Add More Compounds",
+        "goToCompound": "Go to Compound",
+        "remove": "Remove",
+        "startingPrice": "Starting Price",
+        "downPayment": "Down Payment",
+        "yearsInstallment": "Years of Installments",
+        "paymentPlan": "Payment Plan",
+        "amenities": "Amenities"
     }
 }

@@ -15,12 +15,14 @@ export const ThemeRegistry = {
         ExpertAdviceForm: RealEstateTheme.ExpertAdviceForm,
         TopAreas: RealEstateTheme.TopAreas,
         NewLaunches: RealEstateTheme.NewLaunches as React.FC<any> | undefined,
+        ComparisonBanner: RealEstateTheme.ComparisonBanner,
         Pages: {
             PropertiesListPage: RealEstateTheme.PropertiesListPage,
             PropertyDetailPage: RealEstateTheme.PropertyDetailPage,
             ContactPage: RealEstateTheme.ContactPage,
             AboutPage: RealEstateTheme.AboutPage,
             BlogPage: RealEstateTheme.BlogPage,
+            ComparePage: RealEstateTheme.ComparePage,
         }
     },
     'minimal': {
@@ -35,12 +37,14 @@ export const ThemeRegistry = {
         ExpertAdviceForm: undefined,
         TopAreas: MinimalTheme.TopAreas,
         NewLaunches: MinimalTheme.NewLaunches as React.FC<any> | undefined,
+        ComparisonBanner: undefined,
         Pages: {
             PropertiesListPage: undefined,
             PropertyDetailPage: undefined,
             ContactPage: undefined,
             AboutPage: undefined,
             BlogPage: undefined,
+            ComparePage: undefined,
         }
     }
 };
