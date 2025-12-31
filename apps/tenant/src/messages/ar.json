@@ -175,5 +175,21 @@
         "stats": {
             "properties": "عقار"
         }
+    },
+    "Comparison": {
+        "compounds": "كمبوندات",
+        "units": "وحدات",
+        "startComparison": "ابدأ المقارنة",
+        "stopComparison": "وقف المقارنة",
+        "cancel": "إلغاء",
+        "comparePlans": "مقارنة خطط المشاريع",
+        "addMore": "المزيد من الكمبوندات",
+        "goToCompound": "الذهاب إلى الكمبوند",
+        "remove": "إزالة",
+        "startingPrice": "تبدأ من",
+        "downPayment": "المقدم",
+        "yearsInstallment": "سنوات",
+        "paymentPlan": "جنيه مصري",
+        "amenities": "المرافق"
     }
 }

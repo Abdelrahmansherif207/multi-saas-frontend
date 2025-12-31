@@ -12,6 +12,7 @@ export { PropertyDetailPage } from './pages/PropertyDetailPage';
 export { ContactPage } from './pages/ContactPage';
 export { AboutPage } from './pages/AboutPage';
 export { BlogPage } from './pages/BlogPage';
+export { ComparePage } from './pages/ComparePage';
 
 // Widgets
 export * from './widgets/HeroSection';
@@ -23,3 +24,10 @@ export * from './widgets/ExpertAdviceForm';
 export { PropertyGrid } from './widgets/PropertyGrid';
 export { TopAreas } from './widgets/TopAreas';
 export { NewLaunches } from './widgets/NewLaunches';
+
+// Components
+export { ComparisonBanner } from './components/ComparisonBanner';
+
+// Stores
+export { useComparisonStore } from './stores/useComparisonStore';
+

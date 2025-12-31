@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { TenantConfig, Property } from '../types';
 import { PropertyListCard } from '../widgets/PropertyListCard';
 import { FilterSidebar } from '../widgets/FilterSidebar';
+import { ComparisonBanner } from '../components/ComparisonBanner';
 import { Search, ListFilter, Map as MapIcon, ArrowLeftRight, ChevronRight, Home, Circle } from 'lucide-react';
 import Link from 'next/link';
 import { Popover, PopoverTrigger, PopoverContent } from '../components/ui/popover';
@@ -124,6 +125,9 @@ export function PropertiesListPage({ tenant, properties }: PropertiesListPagePro
                     </div>
                 </div>
             </div>
+
+            {/* Comparison Banner */}
+            <ComparisonBanner />
         </div>
     );
 }
