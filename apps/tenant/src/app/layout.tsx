@@ -1,22 +1,23 @@
 import "./globals.css";
-import { Plus_Jakarta_Sans, Space_Grotesk, Tajawal } from "next/font/google";
+import { Inter, Readex_Pro, Roboto } from "next/font/google";
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
     subsets: ["latin"],
-    variable: "--font-real-estate",
+    variable: "--font-inter",
     display: "swap",
 });
 
-const tajawal = Tajawal({
+const roboto = Roboto({
+    subsets: ["latin"],
+    weight: ["400", "500", "700"],
+    variable: "--font-roboto",
+    display: "swap",
+});
+
+const readexPro = Readex_Pro({
     subsets: ["arabic"],
     weight: ["400", "500", "700"],
-    variable: "--font-tajawal",
-    display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-    subsets: ["latin"],
-    variable: "--font-minimal",
+    variable: "--font-readex-pro",
     display: "swap",
 });
 
@@ -27,7 +28,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${jakarta.variable} ${spaceGrotesk.variable} ${tajawal.variable} antialiased`}>
+            <body className={`${inter.variable} ${roboto.variable} ${readexPro.variable} antialiased`}>
                 {children}
             </body>
         </html>
