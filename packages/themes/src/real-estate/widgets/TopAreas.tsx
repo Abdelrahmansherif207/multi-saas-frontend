@@ -81,57 +81,59 @@ export const TopAreas: React.FC<TopAreasProps> = ({
     );
 
     return (
-        <section className="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="mb-10"
-            >
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">{title || t('title')}</h2>
-                {subtitle && (
-                    <p className="text-muted-foreground mt-3 text-lg">{subtitle}</p>
-                )}
-            </motion.div>
-
-            {layout === 'grid' ? (
+        <section className="py-16 bg-white relative group/section">
+            <div className="container mx-auto px-4 relative">
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-                >
-                    {areas.map((area: any, index: number) => renderAreaCard(area, index))}
-                </motion.div>
-            ) : (
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="relative"
+                    className="mb-8"
                 >
-                    <Swiper
-                        modules={[Navigation, Pagination, Autoplay]}
-                        spaceBetween={24}
-                        slidesPerView={1}
-                        navigation
-                        pagination={{ clickable: true }}
-                        autoplay={{ delay: 3000, disableOnInteraction: false }}
-                        breakpoints={{
-                            640: { slidesPerView: 2 },
-                            1024: { slidesPerView: 4 },
-                        }}
-                        className="pb-12 !overflow-visible"
-                    >
-                        {areas.map((area: any, index: number) => (
-                            <SwiperSlide key={area.id}>
-                                {renderAreaCard(area, index)}
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">{title || t('title')}</h2>
+                    {subtitle && (
+                        <p className="text-muted-foreground mt-2 text-lg">{subtitle}</p>
+                    )}
                 </motion.div>
-            )}
+
+                {layout === 'grid' ? (
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    >
+                        {areas.map((area: any, index: number) => renderAreaCard(area, index))}
+                    </motion.div>
+                ) : (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="relative"
+                    >
+                        <Swiper
+                            modules={[Navigation, Pagination, Autoplay]}
+                            spaceBetween={24}
+                            slidesPerView={1}
+                            navigation
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            breakpoints={{
+                                640: { slidesPerView: 2 },
+                                1024: { slidesPerView: 4 },
+                            }}
+                            className="pb-12 !overflow-visible"
+                        >
+                            {areas.map((area: any, index: number) => (
+                                <SwiperSlide key={area.id}>
+                                    {renderAreaCard(area, index)}
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </motion.div>
+                )}
+            </div>
         </section>
     );
 };

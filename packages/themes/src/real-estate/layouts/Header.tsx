@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { TenantConfig, MenuItem, LocalizationProps, ThemeTranslations } from '../types';
 
 interface HeaderProps {
@@ -15,6 +16,8 @@ import { motion } from 'framer-motion';
 // ... imports
 
 export function Header({ config, menu = [], localization, translations }: HeaderProps) {
+    const pathname = usePathname();
+
     return (
         <motion.header
             initial={{ y: -100 }}
@@ -96,18 +99,28 @@ export function Header({ config, menu = [], localization, translations }: Header
                         {/* Language Switcher */}
                         {localization && (
                             <div className="flex items-center gap-2 text-sm font-medium border-r pr-4 mr-2 border-border/50">
-                                {localization.availableLocales.map((locale) => (
-                                    <Link
-                                        key={locale.code}
-                                        href={locale.href}
-                                        className={`transition-colors hover:text-primary ${localization.currentLocale === locale.code
-                                            ? 'text-primary font-bold'
-                                            : 'text-muted-foreground'
-                                            }`}
-                                    >
-                                        {locale.label}
-                                    </Link>
-                                ))}
+                                {localization.availableLocales.map((locale) => {
+                                    let href = locale.href;
+                                    if (pathname) {
+                                        const currentBase = localization.availableLocales.find(l => l.code === localization.currentLocale)?.href;
+                                        if (currentBase && pathname.startsWith(currentBase)) {
+                                            href = pathname.replace(currentBase, locale.href);
+                                        }
+                                    }
+
+                                    return (
+                                        <Link
+                                            key={locale.code}
+                                            href={href}
+                                            className={`transition-colors hover:text-primary ${localization.currentLocale === locale.code
+                                                ? 'text-primary font-bold'
+                                                : 'text-muted-foreground'
+                                                }`}
+                                        >
+                                            {locale.label}
+                                        </Link>
+                                    );
+                                })}
                             </div>
                         )}
 

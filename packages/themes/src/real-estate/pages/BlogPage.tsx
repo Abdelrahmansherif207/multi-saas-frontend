@@ -4,6 +4,7 @@ import { TenantConfig, MenuItem, ThemeTranslations } from '../types';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { ArrowRight, Calendar, User, Clock, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Header } from '../layouts/Header';
 import { Footer } from '../layouts/Footer';
 
@@ -97,18 +98,40 @@ export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
         // <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-foreground">
 
 
-        <main className="flex-grow pt-24 pb-16">
-            <div className="container mx-auto px-4">
 
-                {/* Page Header */}
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-                        {translations?.BlogPage?.title || 'Our Latest Insights'}
-                    </h1>
-                    <p className="text-slate-600 text-lg">
-                        {translations?.BlogPage?.subtitle || 'Expert analysis, market trends, and lifestyle guides to help you make informed real estate decisions.'}
-                    </p>
+        <main className="flex-grow pb-16">
+            {/* Hero Section */}
+            <section className="relative h-[300px] flex items-center justify-center overflow-hidden mb-16">
+                <div
+                    className="absolute inset-0 z-0"
+                    style={{
+                        backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                >
+                    <div className="absolute inset-0 bg-slate-900/60" />
                 </div>
+                <div className="relative z-10 text-center px-4">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wider mb-4"
+                    >
+                        {translations?.BlogPage?.title || 'Our Latest Insights'}
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-white/90 text-lg max-w-2xl mx-auto"
+                    >
+                        {translations?.BlogPage?.subtitle || 'Expert analysis, market trends, and lifestyle guides to help you make informed real estate decisions.'}
+                    </motion.p>
+                </div>
+            </section>
+
+            <div className="container mx-auto px-4">
 
                 {/* Featured Post */}
                 <div className="mb-16">

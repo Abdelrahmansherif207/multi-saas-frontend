@@ -30,16 +30,16 @@ export default async function TenantHomePage({
                 {...hero}
                 translations={(messages as any).Hero}
             />
-            {areas && areas.length > 0 && TopAreas && (
-                <TopAreas areas={areas} />
-            )}
             {launches && launches.length > 0 && NewLaunches && (
                 <NewLaunches launches={launches} />
+            )}
+            <Theme.PropertyGrid properties={properties} columns={3} />
+            {areas && areas.length > 0 && TopAreas && (
+                <TopAreas areas={areas} />
             )}
             {compounds && compounds.length > 0 && TopCompounds && (
                 <TopCompounds compounds={compounds} />
             )}
-            <Theme.PropertyGrid properties={properties} columns={3} />
             {SellPropertyBanner && <SellPropertyBanner />}
             {ExpertAdviceForm && <ExpertAdviceForm />}
         </>

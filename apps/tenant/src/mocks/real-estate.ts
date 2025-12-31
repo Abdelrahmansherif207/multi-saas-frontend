@@ -357,7 +357,7 @@ export function getTenantData(domain: string) {
     const hero = mockHeroData[domain] || mockHeroData['real-estate'];
     const areas = mockAreas[domain] || mockAreas.demo;
     const launches = mockLaunches[domain] || mockLaunches.demo;
-    const compounds = domain === 'real-estate' ? mockCompounds : [];
+    const compounds = mockCompounds;
 
     return { tenant, properties, hero, areas, launches, menu: mockMenu, compounds };
 }
