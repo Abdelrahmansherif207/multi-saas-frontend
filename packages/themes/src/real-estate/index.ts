@@ -13,6 +13,7 @@ export { ContactPage } from './pages/ContactPage';
 export { AboutPage } from './pages/AboutPage';
 export { BlogPage } from './pages/BlogPage';
 export { ComparePage } from './pages/ComparePage';
+export { AreaPage } from './pages/AreaPage';
 
 // Widgets
 export * from './widgets/HeroSection';

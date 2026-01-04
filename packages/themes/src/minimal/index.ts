@@ -9,3 +9,6 @@ export { PropertyCard } from './widgets/PropertyCard';
 export { PropertyGrid } from './widgets/PropertyGrid';
 export { TopAreas } from './widgets/TopAreas';
 export { NewLaunches } from './widgets/NewLaunches';
+
+// Re-export specific pages for this theme
+export { AreaPage } from './pages/AreaPage';

@@ -23,6 +23,7 @@ export const ThemeRegistry = {
             AboutPage: RealEstateTheme.AboutPage,
             BlogPage: RealEstateTheme.BlogPage,
             ComparePage: RealEstateTheme.ComparePage,
+            AreaPage: RealEstateTheme.AreaPage,
         }
     },
     'minimal': {
@@ -45,6 +46,7 @@ export const ThemeRegistry = {
             AboutPage: undefined,
             BlogPage: undefined,
             ComparePage: undefined,
+            AreaPage: MinimalTheme.AreaPage,
         }
     }
 };

@@ -10,42 +10,54 @@ import 'swiper/css/navigation';
 
 import { useState, useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 
 function CompoundCard({ compound }: { compound: Compound }) {
+    const locale = useLocale();
+    const getDomain = () => {
+        if (typeof window === 'undefined') return '';
+        const parts = window.location.pathname.split('/');
+        return parts[1] || '';
+    };
+    const domain = getDomain();
+
     return (
-        <motion.div
-            whileHover={{ y: -5 }}
-            className="group/card relative h-[350px] w-full overflow-hidden rounded-xl bg-gray-100 cursor-pointer"
-        >
-            {/* Image */}
-            <div
-                className="h-full w-full bg-cover bg-center transition-transform duration-500"
-                style={{ backgroundImage: `url(${compound.image})` }}
-            />
+        <Link href={`/${domain}/${locale}/properties/${compound.slug}`}>
+            <motion.div
+                whileHover={{ y: -5 }}
+                className="group/card relative h-[350px] w-full overflow-hidden rounded-xl bg-gray-100 cursor-pointer"
+            >
+                {/* Image */}
+                <div
+                    className="h-full w-full bg-cover bg-center transition-transform duration-500"
+                    style={{ backgroundImage: `url(${compound.image})` }}
+                />
 
-            {/* Shutter Overlay */}
-            {/* Top Half */}
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-black/40 -translate-y-full transition-transform duration-500 group-hover/card:translate-y-0 z-10" />
+                {/* Shutter Overlay */}
+                {/* Top Half */}
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/40 -translate-y-full transition-transform duration-500 group-hover/card:translate-y-0 z-10" />
 
-            {/* Bottom Half */}
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black/40 translate-y-full transition-transform duration-500 group-hover/card:translate-y-0 z-10" />
+                {/* Bottom Half */}
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-black/40 translate-y-full transition-transform duration-500 group-hover/card:translate-y-0 z-10" />
 
-            {/* Permanent Gradient (for readability when not hovered) */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-0" />
+                {/* Permanent Gradient (for readability when not hovered) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-0" />
 
-            {/* Explore Badge - Centered */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 z-20">
-                <span className="bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg transform scale-90 transition-transform duration-300 group-hover/card:scale-100">
-                    Explore
-                </span>
-            </div>
+                {/* Explore Badge - Centered */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 z-20">
+                    <span className="bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg transform scale-90 transition-transform duration-300 group-hover/card:scale-100">
+                        Explore
+                    </span>
+                </div>
 
-            {/* Content */}
-            <div className="absolute bottom-0 left-0 w-full p-6 text-white z-20 transition-transform duration-300 group-hover/card:-translate-y-2">
-                <h3 className="text-xl font-bold mb-1 drop-shadow-md">{compound.title}</h3>
-                <p className="text-sm opacity-90 font-medium drop-shadow-sm">{compound.propertyCount} Properties</p>
-            </div>
-        </motion.div>
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 w-full p-6 text-white z-20 transition-transform duration-300 group-hover/card:-translate-y-2">
+                    <h3 className="text-xl font-bold mb-1 drop-shadow-md">{compound.title}</h3>
+                    <p className="text-sm opacity-90 font-medium drop-shadow-sm">{compound.propertyCount} Properties</p>
+                </div>
+            </motion.div>
+        </Link>
     );
 }
 
