@@ -132,6 +132,22 @@
             "disclaimer": "نحن نحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت."
         }
     },
+    "BlogDetail": {
+        "backToBlog": "العودة إلى المدونة",
+        "author": "الكاتب",
+        "date": "التاريخ",
+        "readTime": "وقت القراءة",
+        "mostPopular": "الأكثر شعبية",
+        "contactTitle": "نحن دائماً حريصون على سماع رأيك",
+        "contactSubtitle": "فقط اكتب لنا رسالة",
+        "form": {
+            "name": "الاسم",
+            "phone": "رقم الهاتف",
+            "location": "أدخل الموقع",
+            "message": "الرسالة",
+            "send": "إرسال"
+        }
+    },
     "PropertyCard": {
         "compare": "مقارنة",
         "developerPrice": "سعر المطور يبدأ من",

@@ -29,5 +29,5 @@ export default async function BlogRoute({
     }
 
     // Delegate Rendering
-    return <PageComponent tenant={tenant} menu={mockMenu} translations={translations} />;
+    return <PageComponent tenant={tenant} domain={domain} menu={mockMenu} translations={translations} />;
 }

@@ -14,6 +14,7 @@ export { AboutPage } from './pages/AboutPage';
 export { BlogPage } from './pages/BlogPage';
 export { ComparePage } from './pages/ComparePage';
 export { AreaPage } from './pages/AreaPage';
+export { BlogDetailPage } from './pages/BlogDetailPage';
 
 // Widgets
 export * from './widgets/HeroSection';

@@ -180,6 +180,37 @@ export interface ThemeTranslations {
             disclaimer: string;
         };
     };
+    BlogDetail: {
+        backToBlog: string;
+        author: string;
+        date: string;
+        readTime: string;
+        mostPopular: string;
+        contactTitle: string;
+        contactSubtitle: string;
+        form: {
+            name: string;
+            phone: string;
+            location: string;
+            message: string;
+            send: string;
+        };
+    };
+}
+
+export interface BlogPageProps {
+    tenant: TenantConfig;
+    domain: string;
+    menu?: MenuItem[];
+    translations?: ThemeTranslations;
+}
+
+export interface BlogDetailPageProps {
+    tenant: TenantConfig;
+    domain: string;
+    slug: string;
+    menu?: MenuItem[];
+    translations?: ThemeTranslations;
 }
 
 export interface TenantLayoutProps {

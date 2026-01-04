@@ -1,21 +1,16 @@
 'use client';
 
-import { TenantConfig, MenuItem, ThemeTranslations } from '../types';
+import { TenantConfig, MenuItem, ThemeTranslations, BlogPageProps } from '../types';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { ArrowRight, Calendar, User, Clock, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Header } from '../layouts/Header';
-import { Footer } from '../layouts/Footer';
-
-interface BlogPageProps {
-    tenant: TenantConfig;
-    menu?: MenuItem[];
-    translations?: ThemeTranslations;
-}
+import { useLocale } from 'next-intl';
+import Link from 'next/link';
 
 interface BlogPost {
     id: string;
+    slug: string;
     title: string;
     excerpt: string;
     category: string;
@@ -29,6 +24,7 @@ interface BlogPost {
 const mockPosts: BlogPost[] = [
     {
         id: '1',
+        slug: 'future-of-luxury-real-estate-egypt',
         title: 'The Future of Luxury Real Estate in Egypt',
         excerpt: 'Discover the emerging trends shaping the luxury property market in Cairo and the North Coast, from sustainable architecture to smart home integration.',
         category: 'Market Trends',
@@ -40,6 +36,7 @@ const mockPosts: BlogPost[] = [
     },
     {
         id: '2',
+        slug: 'top-5-compounds-new-zayed-families',
         title: 'Top 5 Compounds in New Zayed for Families',
         excerpt: 'A comprehensive guide to the best family-friendly compounds in New Zayed, featuring top-tier schools, parks, and community centers.',
         category: 'Neighborhood Guides',
@@ -50,6 +47,7 @@ const mockPosts: BlogPost[] = [
     },
     {
         id: '3',
+        slug: 'investing-commercial-property-guide',
         title: 'Investing in Commercial Property: A Beginner’s Guide',
         excerpt: 'Everything you need to know before making your first commercial real estate investment in the booming administrative capital.',
         category: 'Investment',
@@ -60,6 +58,7 @@ const mockPosts: BlogPost[] = [
     },
     {
         id: '4',
+        slug: 'interior-design-trends-2025',
         title: 'Interior Design Trends for 2025',
         excerpt: 'Get inspired by the latest interior design trends that are taking over modern Egyptian homes this season.',
         category: 'Lifestyle',
@@ -70,6 +69,7 @@ const mockPosts: BlogPost[] = [
     },
     {
         id: '5',
+        slug: 'understanding-mortgage-options-egypt',
         title: 'Understanding Mortgage Options in Egypt',
         excerpt: 'Navigate the complex world of property financing with our easy-to-understand breakdown of mortgage plans available today.',
         category: 'Finance',
@@ -80,6 +80,7 @@ const mockPosts: BlogPost[] = [
     },
     {
         id: '6',
+        slug: 'rise-of-smart-cities-location-matters',
         title: 'The Rise of Smart Cities: Why Location Matters',
         excerpt: 'Why buying property in a smart city is the smartest investment you can make for your future and lifestyle.',
         category: 'Market Trends',
@@ -90,7 +91,8 @@ const mockPosts: BlogPost[] = [
     },
 ];
 
-export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
+export function BlogPage({ tenant, domain, menu, translations }: BlogPageProps) {
+    const locale = useLocale();
     const featuredPost = mockPosts.find(p => p.featured) || mockPosts[0];
     const gridPosts = mockPosts.filter(p => !p.featured);
 
@@ -139,12 +141,14 @@ export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
                         <div className="grid md:grid-cols-2 lg:grid-cols-12 min-h-[500px]">
                             {/* Image Side */}
                             <div className="lg:col-span-7 relative overflow-hidden h-96 md:h-auto">
-                                <img
-                                    src={featuredPost.image}
-                                    alt={featuredPost.title}
-                                    className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-none"></div>
+                                <Link href={`/${domain}/${locale}/blog/${featuredPost.slug}`}>
+                                    <img
+                                        src={featuredPost.image}
+                                        alt={featuredPost.title}
+                                        className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 cursor-pointer"
+                                    />
+                                </Link>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-none pointer-events-none"></div>
                             </div>
 
                             {/* Content Side */}
@@ -158,9 +162,11 @@ export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
                                     </span>
                                 </div>
 
-                                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight group-hover:text-primary transition-colors">
-                                    {featuredPost.title}
-                                </h2>
+                                <Link href={`/${domain}/${locale}/blog/${featuredPost.slug}`}>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight group-hover:text-primary transition-colors cursor-pointer">
+                                        {featuredPost.title}
+                                    </h2>
+                                </Link>
 
                                 <p className="text-slate-600 mb-8 text-lg leading-relaxed">
                                     {featuredPost.excerpt}
@@ -177,9 +183,11 @@ export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
                                         </div>
                                     </div>
 
-                                    <Button className="rounded-full bg-primary hover:bg-primary/90 text-white px-6">
-                                        {translations?.BlogPage?.readArticle || 'Read Article'} <ArrowRight className="w-4 h-4 ml-2" />
-                                    </Button>
+                                    <Link href={`/${domain}/${locale}/blog/${featuredPost.slug}`}>
+                                        <Button className="rounded-full bg-primary hover:bg-primary/90 text-white px-6">
+                                            {translations?.BlogPage?.readArticle || 'Read Article'} <ArrowRight className="w-4 h-4 ml-2" />
+                                        </Button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -191,12 +199,14 @@ export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
                     {gridPosts.map((post) => (
                         <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group flex flex-col h-full border border-slate-100">
                             <div className="relative h-64 overflow-hidden">
-                                <img
-                                    src={post.image}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                />
-                                <div className="absolute top-4 left-4">
+                                <Link href={`/${domain}/${locale}/blog/${post.slug}`}>
+                                    <img
+                                        src={post.image}
+                                        alt={post.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
+                                    />
+                                </Link>
+                                <div className="absolute top-4 left-4 pointer-events-none">
                                     <span className="bg-white/90 backdrop-blur-sm text-slate-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
                                         {post.category}
                                     </span>
@@ -213,17 +223,19 @@ export function BlogPage({ tenant, menu, translations }: BlogPageProps) {
                                     </span>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                                    {post.title}
-                                </h3>
+                                <Link href={`/${domain}/${locale}/blog/${post.slug}`}>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-primary transition-colors line-clamp-2 cursor-pointer">
+                                        {post.title}
+                                    </h3>
+                                </Link>
 
                                 <p className="text-slate-600 mb-6 text-sm leading-relaxed line-clamp-3 flex-grow">
                                     {post.excerpt}
                                 </p>
 
-                                <a href="#" className="inline-flex items-center text-primary font-bold text-sm tracking-wide hover:underline mt-auto group/link">
+                                <Link href={`/${domain}/${locale}/blog/${post.slug}`} className="inline-flex items-center text-primary font-bold text-sm tracking-wide hover:underline mt-auto group/link">
                                     {translations?.BlogPage?.readMore || 'Read More'} <ChevronRight className="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" />
-                                </a>
+                                </Link>
                             </div>
                         </article>
                     ))}
