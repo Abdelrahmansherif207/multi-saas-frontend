@@ -3,16 +3,25 @@
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { NewLaunchesProps } from '../types';
 import type { Swiper as SwiperType } from 'swiper';
+import Link from 'next/link';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesProps) {
     const t = useTranslations('NewLaunches');
+    const locale = useLocale();
     const swiperRef = useRef<SwiperType | undefined>(undefined);
+
+    const getDomain = () => {
+        if (typeof window === 'undefined') return '';
+        const parts = window.location.pathname.split('/');
+        return parts[1] || '';
+    };
+    const domain = getDomain();
 
     if (!launches || launches.length === 0) return null;
 
@@ -21,15 +30,15 @@ export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesP
             <div className="container mx-auto px-4 relative">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-bold text-gray-900">{title || t('title')}</h2>
-                    <a
-                        href={showAllLink}
+                    <Link
+                        href={showAllLink === '#' ? '#' : `/${domain}/${locale}${showAllLink}`}
                         className="text-primary font-semibold hover:underline flex items-center gap-1"
                     >
                         {t('showAll')}
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="relative">
@@ -50,8 +59,8 @@ export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesP
                     >
                         {launches.map((launch: any) => (
                             <SwiperSlide key={launch.id}>
-                                <a
-                                    href={launch.link || '#'}
+                                <Link
+                                    href={launch.link ? `/${domain}/${locale}/properties/${launch.link.split('/').pop()}` : '#'}
                                     className="group/card relative block h-[280px] w-full overflow-hidden rounded-xl cursor-pointer"
                                 >
                                     <img
@@ -70,7 +79,7 @@ export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesP
                                             {launch.title}
                                         </h3>
                                     </div>
-                                </a>
+                                </Link>
                             </SwiperSlide>
                         ))}
                     </Swiper>

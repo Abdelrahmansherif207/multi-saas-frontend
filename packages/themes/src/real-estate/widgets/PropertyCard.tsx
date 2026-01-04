@@ -1,8 +1,17 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { PropertyCardProps } from '../types';
+import { useLocale } from 'next-intl';
 
 export function PropertyCard({ property }: PropertyCardProps) {
+    const locale = useLocale();
+    const getDomain = () => {
+        if (typeof window === 'undefined') return '';
+        const parts = window.location.pathname.split('/');
+        return parts[1] || '';
+    };
+    const domain = getDomain();
+
     const formatPrice = (price: number, type: 'sale' | 'rent') => {
         const formatted = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -14,7 +23,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
 
     return (
         <motion.div whileHover={{ y: -10 }} className="h-full">
-            <Link href={`/properties/${property.slug}`} className="group/card block h-full">
+            <Link href={`/${domain}/${locale}/properties/${property.slug}`} className="group/card block h-full">
                 <div className="bg-card rounded-xl overflow-hidden border shadow-sm hover:shadow-lg transition-shadow h-full flex flex-col">
                     {/* Image */}
                     <div className="relative aspect-[4/3] overflow-hidden">
