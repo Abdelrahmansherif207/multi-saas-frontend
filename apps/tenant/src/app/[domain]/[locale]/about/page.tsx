@@ -1,6 +1,7 @@
 import React from 'react';
 import { getTenantData } from '../../../../mocks/real-estate';
 import { ThemeRegistry, ThemeType } from '../../../../lib/theme-registry';
+import { notFound } from 'next/navigation';
 
 export default async function AboutRoute({
     params,
@@ -15,11 +16,7 @@ export default async function AboutRoute({
     const Theme = ThemeRegistry[themeName];
 
     if (!Theme || !Theme.Pages.AboutPage) {
-        return (
-            <div className="p-10 text-center">
-                About page not implemented for theme: {themeName}
-            </div>
-        );
+        return notFound();
     }
 
     const AboutPage = Theme.Pages.AboutPage;
