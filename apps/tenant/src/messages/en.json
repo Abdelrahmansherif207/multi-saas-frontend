@@ -132,6 +132,22 @@
             "disclaimer": "We respect your privacy. Unsubscribe at any time."
         }
     },
+    "BlogDetail": {
+        "backToBlog": "Back to Blog",
+        "author": "Author",
+        "date": "Date",
+        "readTime": "Read Time",
+        "mostPopular": "Most Popular",
+        "contactTitle": "We are always eager to hear from you",
+        "contactSubtitle": "Just write us a message",
+        "form": {
+            "name": "Name",
+            "phone": "Mobile Number",
+            "location": "Enter Location",
+            "message": "Message",
+            "send": "Send"
+        }
+    },
     "PropertyCard": {
         "compare": "Compare",
         "developerPrice": "Developer Start Price",

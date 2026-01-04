@@ -2,6 +2,17 @@ import React from 'react';
 import * as RealEstateTheme from '@repo/themes/real-estate';
 import * as MinimalTheme from '@repo/themes/minimal';
 
+export interface ThemePages {
+    PropertiesListPage?: React.ComponentType<any>;
+    PropertyDetailPage?: React.ComponentType<any>;
+    ContactPage?: React.ComponentType<any>;
+    AboutPage?: React.ComponentType<any>;
+    BlogPage?: React.ComponentType<any>;
+    BlogDetailPage?: React.ComponentType<any>;
+    ComparePage?: React.ComponentType<any>;
+    AreaPage?: React.ComponentType<any>;
+}
+
 export const ThemeRegistry = {
     'real-estate': {
         Layout: RealEstateTheme.TenantLayout,
@@ -22,9 +33,10 @@ export const ThemeRegistry = {
             ContactPage: RealEstateTheme.ContactPage,
             AboutPage: RealEstateTheme.AboutPage,
             BlogPage: RealEstateTheme.BlogPage,
+            BlogDetailPage: RealEstateTheme.BlogDetailPage,
             ComparePage: RealEstateTheme.ComparePage,
             AreaPage: RealEstateTheme.AreaPage,
-        }
+        } as ThemePages
     },
     'minimal': {
         Layout: MinimalTheme.TenantLayout,
@@ -45,9 +57,10 @@ export const ThemeRegistry = {
             ContactPage: undefined,
             AboutPage: undefined,
             BlogPage: undefined,
+            BlogDetailPage: undefined,
             ComparePage: undefined,
             AreaPage: MinimalTheme.AreaPage,
-        }
+        } as ThemePages
     }
 };
 
