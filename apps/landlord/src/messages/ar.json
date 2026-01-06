@@ -559,7 +559,11 @@
       "placeholder_password": "••••••••",
       "submit": "تسجيل الدخول",
       "no_account": "ليس لديك حساب؟",
-      "register_link": "إنشاء حساب"
+      "register_link": "إنشاء حساب",
+      "loading": "جاري التحميل...",
+      "error_password_required": "كلمة المرور مطلوبة",
+      "error_email_required": "البريد الإلكتروني مطلوب",
+      "error_generic": "حدث خطأ. يرجى المحاولة مرة أخرى."
     },
     "Register": {
       "title": "إنشاء حساب جديد",
@@ -581,7 +585,14 @@
       "placeholder_password": "••••••••",
       "submit": "إنشاء الحساب",
       "has_account": "لديك حساب بالفعل؟",
-      "login_link": "تسجيل الدخول"
+      "login_link": "تسجيل الدخول",
+      "loading": "جاري التحميل...",
+      "error_name_required": "الاسم مطلوب",
+      "error_username_required": "اسم المستخدم مطلوب",
+      "error_email_required": "البريد الإلكتروني مطلوب",
+      "error_password_required": "كلمة المرور مطلوبة",
+      "error_password_mismatch": "كلمات المرور غير متطابقة",
+      "error_generic": "حدث خطأ. يرجى المحاولة مرة أخرى."
     },
     "Metadata": {
       "Login": {

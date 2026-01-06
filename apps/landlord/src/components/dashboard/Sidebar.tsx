@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Link, usePathname } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import axios from "axios";
 import {
     LayoutDashboard,
     CreditCard,
@@ -33,8 +34,21 @@ type NavigationItem = {
 
 export function Sidebar() {
     const pathname = usePathname();
+    const router = useRouter();
     const [openDropdowns, setOpenDropdowns] = useState<string[]>([""]);
     const t = useTranslations('Sidebar');
+
+    const handleLogout = async () => {
+        try {
+            await axios.post('/api/auth/logout');
+            router.push('/login');
+            router.refresh();
+        } catch (error) {
+            console.error('Logout failed:', error);
+            // Force redirect even if API fails
+            router.push('/login');
+        }
+    };
 
     const navigation: NavigationItem[] = [
         { name: "dashboard", translationKey: "nav.dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -157,6 +171,7 @@ export function Sidebar() {
                 <Button
                     variant="ghost"
                     className="w-full justify-start text-primary-foreground/70 hover:bg-primary-foreground/5 hover:text-primary-foreground pl-4"
+                    onClick={handleLogout}
                 >
                     <LogOut className="mr-3 h-5 w-5" />
                     {t('logout')}
