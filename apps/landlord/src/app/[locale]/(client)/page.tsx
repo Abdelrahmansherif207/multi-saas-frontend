@@ -1,7 +1,6 @@
 import { Hero } from "@/components/client/Hero";
 import { CompanyLogos } from "@/components/client/CompanyLogos";
 import { Features } from "@/components/client/Features";
-import { Templates } from "@/components/client/Templates";
 import { Pricing } from "@/components/client/Pricing";
 import { DemoVideo } from "@/components/client/DemoVideo";
 import { ClientReviews } from "@/components/client/ClientReviews";
@@ -10,6 +9,7 @@ import { Newsletter } from "@/components/client/Newsletter";
 import type { Metadata } from "next";
 
 import { getTranslations } from 'next-intl/server';
+import Templates from "@/components/client/Templates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;

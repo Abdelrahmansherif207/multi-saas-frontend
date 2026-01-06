@@ -6,7 +6,7 @@ import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboar
 import LanguageSwitcher from "./LanguageSwitcher";
 
 // Mock Auth State (Temporary)
-const isAuthenticated = true;
+const isAuthenticated = false;
 const user = {
     name: "John Doe",
     email: "john@example.com",

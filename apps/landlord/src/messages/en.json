@@ -261,6 +261,16 @@
         "portfolio": "Portfolio"
       }
     },
+    "PlanDetails": {
+      "title": "Plan Details",
+      "select_theme": "Select Theme",
+      "breadcrumbs": {
+        "home": "Home",
+        "pricing": "Pricing Plans",
+        "details": "Plan Details"
+      },
+      "get_now": "Get Now"
+    },
     "DemoVideo": {
       "header": {
         "prefix": "How to",
