@@ -2,12 +2,29 @@ import { AdminHeader } from "@/components/admin/AdminHeader";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { SidebarProvider } from "@/components/admin/sidebar-context";
 import { CustomCursor } from "@/components/admin/CustomCursor";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function AdminLayout({
+const ADMIN_AUTH_COOKIE = 'admin_auth_token';
+
+export default async function AdminLayout({
     children,
+    params,
 }: {
     children: React.ReactNode;
+    params: Promise<{ locale: string }>;
 }) {
+    const { locale } = await params;
+
+    // Check for admin auth token
+    const cookieStore = await cookies();
+    const token = cookieStore.get(ADMIN_AUTH_COOKIE)?.value;
+
+    // If no token, redirect to login (with locale)
+    if (!token) {
+        redirect(`/${locale}/admin/login`);
+    }
+
     return (
         <SidebarProvider>
             <CustomCursor />
