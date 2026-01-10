@@ -1,6 +1,7 @@
 "use client";
 
 import { Link, usePathname } from "@/i18n/routing";
+import { usePathname as useNativePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
@@ -51,6 +52,7 @@ export function SidebarContent({
     collapsed?: boolean;
 }) {
     const pathname = usePathname();
+    const nativePathname = useNativePathname();
     const t = useTranslations("Admin.RoleManage.menu");
     const tUser = useTranslations("Admin.UserManage.menu");
     const tWebsite = useTranslations("Admin.WebsiteManage.menu");
@@ -511,6 +513,17 @@ export function SidebarContent({
 
             <div className={cn("p-6", collapsed && "p-4 flex justify-center")}>
                 <button
+                    onClick={async () => {
+                        // Extract locale from current full pathname (e.g., /en/admin -> en)
+                        const locale = nativePathname.split('/')[1] || 'en';
+                        try {
+                            await fetch('/api/admin/auth/logout', { method: 'POST' });
+                            window.location.href = `/${locale}/admin/login`;
+                        } catch (error) {
+                            console.error('Logout failed:', error);
+                            window.location.href = `/${locale}/admin/login`;
+                        }
+                    }}
                     className={cn(
                         "flex items-center gap-3 px-4 py-3 w-full rounded-2xl text-sm font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/5 transition-all duration-300",
                         collapsed && "justify-center px-0 w-10 h-10 p-0"

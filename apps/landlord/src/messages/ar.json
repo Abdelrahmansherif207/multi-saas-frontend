@@ -558,6 +558,10 @@
       "forgot_password": "نسيت كلمة المرور؟",
       "placeholder_password": "••••••••",
       "submit": "تسجيل الدخول",
+      "admin_title": "تسجيل دخول المشرف",
+      "admin_description": "أدخل بيانات اعتمادك للوصول إلى لوحة التحكم",
+      "placeholder_email_username": "أدخل البريد الإلكتروني أو اسم المستخدم",
+      "error_credential_required": "البريد الإلكتروني أو اسم المستخدم مطلوب",
       "no_account": "ليس لديك حساب؟",
       "register_link": "إنشاء حساب",
       "loading": "جاري التحميل...",
@@ -606,6 +610,24 @@
     }
   },
   "Admin": {
+    "Profile": {
+      "title": "ملفي الشخصي",
+      "description": "عرض وإدارة معلومات ملفك الشخصي كمسؤول.",
+      "personal_info": "المعلومات الشخصية",
+      "personal_info_desc": "التفاصيل الأساسية لحساب المسؤول الخاص بك.",
+      "label_username": "اسم المستخدم",
+      "label_email": "البريد الإلكتروني",
+      "security_roles": "الأدوار والصلاحيات",
+      "security_roles_desc": "مستويات الوصول وإعدادات الأمان.",
+      "assigned_roles": "الأدوار المخصصة",
+      "permissions": "الصلاحيات",
+      "show_more": "عرض المزيد",
+      "show_less": "عرض أقل",
+      "error_loading": "فشل تحميل الملف الشخصي",
+      "menu": {
+        "title": "الملف الشخصي"
+      }
+    },
     "Dashboard": {
       "title": "لوحة التحكم",
       "overview": "نظرة عامة",
