@@ -1,17 +1,11 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { useState } from "react";
 import { Phone, Mail, Facebook, Twitter, Linkedin, Youtube, User, LayoutDashboard, CreditCard, Settings, LogOut, Menu, X, Layers } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import axios from "axios";
 
-// Mock Auth State (Temporary)
-const isAuthenticated = true;
-const user = {
-    name: "John Doe",
-    email: "john@example.com",
-    image: null // or string URL
-};
 import { Button } from "@/components/ui/button";
 import {
     NavigationMenu,
@@ -34,11 +28,28 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
+import type { User as AuthUser } from "@/types/auth";
 
-export function Header() {
+interface HeaderProps {
+    user?: AuthUser | null;
+}
+
+export function Header({ user }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const locale = useLocale();
     const t = useTranslations('Header');
+    const router = useRouter();
+    const isAuthenticated = !!user;
+
+    const handleLogout = async () => {
+        try {
+            await axios.post('/api/auth/logout');
+            router.push('/login');
+            router.refresh();
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
+    };
 
     return (
         <header className="w-full sticky top-0 z-50">
@@ -149,19 +160,14 @@ export function Header() {
                     {/* Right Side - Desktop */}
                     <div className="hidden md:flex items-center gap-2">
                         <ModeToggle />
-                        {isAuthenticated ? (
+                        {isAuthenticated && user ? (
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                                        {user.image ? (
-                                            <img
-                                                src={user.image}
-                                                alt={user.name}
-                                                className="h-full w-full rounded-full object-cover"
-                                            />
-                                        ) : (
+                                        {/* Placeholder for user image since it's not in the User type yet */}
+                                        <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
                                             <User className="h-5 w-5" />
-                                        )}
+                                        </div>
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end" className="w-56">
@@ -185,9 +191,9 @@ export function Header() {
                                         <Link href="/settings">{t('user.settings')}</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem className="cursor-pointer text-red-600 focus:text-red-600">
+                                    <DropdownMenuItem className="cursor-pointer text-red-600 focus:text-red-600" onClick={handleLogout}>
                                         <LogOut className="mr-2 h-4 w-4" />
-                                        <Link href="/logout">{t('user.logout')}</Link>
+                                        <span>{t('user.logout')}</span>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
@@ -235,20 +241,12 @@ export function Header() {
 
                             <div className="my-2 border-t border-border" />
 
-                            {isAuthenticated ? (
+                            {isAuthenticated && user ? (
                                 <div className="flex flex-col gap-3">
                                     <div className="flex items-center gap-3">
-                                        {user.image ? (
-                                            <img
-                                                src={user.image}
-                                                alt={user.name}
-                                                className="h-10 w-10 rounded-full object-cover"
-                                            />
-                                        ) : (
-                                            <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                                                <User className="h-6 w-6" />
-                                            </div>
-                                        )}
+                                        <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
+                                            <User className="h-6 w-6" />
+                                        </div>
                                         <div className="flex flex-col">
                                             <span className="text-sm font-medium">{user.name}</span>
                                             <span className="text-xs text-muted-foreground">{user.email}</span>
@@ -263,9 +261,9 @@ export function Header() {
                                     <Link href="/settings" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                                         <Settings className="h-4 w-4" /> {t('user.settings')}
                                     </Link>
-                                    <Link href="/logout" className="flex items-center gap-2 text-sm text-red-600 hover:text-red-700 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                    <button onClick={() => { handleLogout(); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-sm text-red-600 hover:text-red-700 transition-colors w-full text-left">
                                         <LogOut className="h-4 w-4" /> {t('user.logout')}
-                                    </Link>
+                                    </button>
                                 </div>
                             ) : (
                                 <div className="flex flex-col gap-2">

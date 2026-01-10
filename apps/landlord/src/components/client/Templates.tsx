@@ -1,14 +1,12 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkle } from "lucide-react";
 import { templates } from "@/lib/templates";
 import { TemplateCard } from "@/components/client/TemplateCard";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export function Templates() {
-    const t = useTranslations('Templates');
+export default async function Templates() {
+    const t = await getTranslations('Templates');
 
     // Show only the first 3 templates on the home page as a preview, or all if preferred.
     const displayedTemplates = templates;

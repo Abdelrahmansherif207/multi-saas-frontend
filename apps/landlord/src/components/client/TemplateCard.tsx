@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Template } from "@/lib/templates";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 interface TemplateCardProps {
     template: Template;
 }
 
-export function TemplateCard({ template }: TemplateCardProps) {
-    const t = useTranslations('TemplateCard');
+export async function TemplateCard({ template }: TemplateCardProps) {
+    const t = await getTranslations('TemplateCard');
 
     return (
         <div className="group flex flex-col p-4 rounded-3xl bg-card border border-border/40 shadow-sm hover:shadow-lg transition-all duration-300">
