@@ -87,10 +87,10 @@ export function ContactPage({ tenant }: ContactPageProps) {
                             className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 shadow-xl border border-white"
                         >
                             <div className="text-center mb-8">
-                                <h2 className="text-2xl font-black text-sky-900 mb-3">
+                                <h2 className="text-2xl font-black text-primary mb-3">
                                     {t('form.title')}
                                 </h2>
-                                <p className="text-sm text-sky-800 leading-relaxed">
+                                <p className="text-sm text-primary leading-relaxed">
                                     {t('form.subtitle')}
                                 </p>
                             </div>
@@ -135,13 +135,13 @@ export function ContactPage({ tenant }: ContactPageProps) {
                                     rows={3}
                                     className="w-full px-6 py-4 bg-white border border-transparent rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all shadow-sm resize-none"
                                 />
-                                <button className="w-full py-4 bg-[#1e3a5a] text-white font-bold rounded-xl shadow-lg hover:bg-[#162a41] transition-all mt-2">
+                                <button className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-[#162a41] transition-all mt-2">
                                     {t('form.submit')}
                                 </button>
                             </form>
 
                             <div className="mt-10 text-center">
-                                <p className="text-sm font-bold text-sky-900 mb-4">{t('form.downloadApp')}</p>
+                                <p className="text-sm font-bold text-primary mb-4">{t('form.downloadApp')}</p>
                                 <div className="flex justify-center gap-3">
                                     <button className="bg-white border border-gray-100 rounded-lg px-3 py-2 flex items-center gap-2 shadow-sm hover:bg-gray-50 transition-colors">
                                         <Smartphone size={16} className="text-slate-700" />

@@ -5,9 +5,11 @@ import { getAuthCookie } from './cookies';
  * Create Axios instance for backend API calls
  * This instance automatically attaches auth tokens from HttpOnly cookies
  */
+const base = process.env.NEXT_PUBLIC_API_URL;
+console.log(base);
 export function createAuthAxios(): AxiosInstance {
     const instance = axios.create({
-        baseURL: process.env.NEXT_PUBLIC_API_URL,
+        baseURL: base,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -40,7 +42,7 @@ export function createAuthAxios(): AxiosInstance {
             if (error.response?.status === 401) {
                 // Token is invalid or expired
                 // In API routes, this will trigger logout
-                console.error('Unauthorized request - token may be invalid');
+                console.log('Unauthorized request - token may be invalid');
             }
 
             return Promise.reject(error);
