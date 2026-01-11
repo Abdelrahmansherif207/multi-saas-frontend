@@ -2,6 +2,9 @@ import { Header } from "@/components/client/Header";
 import { Footer } from "@/components/client/Footer";
 import { getCurrentUser } from "@/lib/auth/server";
 
+// Force dynamic rendering because this layout uses cookies() via getCurrentUser
+export const dynamic = 'force-dynamic';
+
 export default async function ClientLayout({
     children,
 }: {
