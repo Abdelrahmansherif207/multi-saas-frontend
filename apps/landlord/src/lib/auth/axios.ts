@@ -5,11 +5,16 @@ import { getAuthCookie } from './cookies';
  * Create Axios instance for backend API calls
  * This instance automatically attaches auth tokens from HttpOnly cookies
  */
-const base = process.env.NEXT_PUBLIC_API_URL;
-console.log(base);
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+// Warn in development if API URL is not configured
+if (!API_URL && process.env.NODE_ENV === 'development') {
+    console.warn('[auth/axios] NEXT_PUBLIC_API_URL is not set. API calls will fail.');
+}
+
 export function createAuthAxios(): AxiosInstance {
     const instance = axios.create({
-        baseURL: base,
+        baseURL: API_URL || 'http://localhost:8000/api', // Fallback for safety
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
