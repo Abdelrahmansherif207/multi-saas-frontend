@@ -39,7 +39,7 @@ export async function getCurrentUser(): Promise<User | null> {
         const response = await authAxios.get<{ data: User }>('/auth/me');
         return response.data.data;
     } catch (error: any) {
-        console.error('getCurrentUser error:', error.response?.data || error.message);
+        console.log('getCurrentUser error:', error.response?.data || error.message);
 
         // Return null on 401 (not authenticated)
         if (error.response?.status === 401) {

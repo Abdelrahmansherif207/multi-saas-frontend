@@ -50,7 +50,7 @@ export const AboutPage: React.FC<{ tenant: TenantConfig }> = ({ tenant }) => {
                         viewport={{ once: true }}
                         className="space-y-6"
                     >
-                        <span className="text-blue-600 font-semibold uppercase tracking-wide text-sm">
+                        <span className="text-sky-500 font-semibold uppercase tracking-wide text-sm">
                             {t('heroTitle')}
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
@@ -63,7 +63,7 @@ export const AboutPage: React.FC<{ tenant: TenantConfig }> = ({ tenant }) => {
 
                         <div className="pt-8 border-t border-slate-100">
                             <div className="flex items-start gap-4">
-                                <div className="p-3 bg-blue-50 rounded-full text-blue-600">
+                                <div className="p-3 bg-sky-50 rounded-full text-sky-500">
                                     <Target className="w-6 h-6" />
                                 </div>
                                 <div>

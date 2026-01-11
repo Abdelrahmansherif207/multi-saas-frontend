@@ -106,7 +106,7 @@ export function FilterSidebar({ }: FilterSidebarProps) {
                 </div>
             </div>
 
-            <button className="w-full bg-[#004261] text-white py-3 rounded-lg font-bold text-sm shadow-lg hover:bg-[#00354d] transition-colors">
+            <button className="w-full bg-primary text-white py-3 rounded-lg font-bold text-sm shadow-lg hover:bg-[#00354d] transition-colors">
                 {t('resetAll')}
             </button>
         </div>
