@@ -97,10 +97,17 @@
       "your_website": "موقعك الإلكتروني",
       "recent_orders": "الطلبات الأخيرة"
     },
+    "no_websites": "لم يتم العثور على مواقع",
+    "loading": "جاري التحميل...",
+    "retry": "إعادة المحاولة",
     "table": {
       "id": "المعرف",
       "site": "الموقع",
+      "status": "الحالة",
+      "database": "قاعدة البيانات",
       "browse": "تصفح",
+      "visit": "زيارة الموقع",
+      "login_admin": "تسجيل الدخول كمشرف عام",
       "package_name": "اسم الباقة",
       "amount": "المبلغ",
       "domain": "النطاق",
@@ -108,7 +115,6 @@
       "expire_date": "تاريخ الانتهاء",
       "order_status": "حالة الطلب",
       "payment_history": "سجل الدفع",
-      "no_websites": "لم يتم العثور على مواقع",
       "no_payment_history": "لا يوجد سجل دفع",
       "pending": "قيد الانتظار",
       "status_placeholder": "الموقع لم يتم إنشاؤه بعد"
@@ -477,17 +483,8 @@
     },
     "CreateWebsite": {
       "title": "إنشاء موقع سريع",
-      "labels": {
-        "package": "اختر الباقة",
-        "domain": "أدخل النطاق الخاص بك",
-        "theme": "اختر القالب",
-        "payment_gateway": "اختر بوابة الدفع"
-      },
-      "placeholders": {
-        "package": "اختر الباقة",
-        "domain": "النطاق الخاص بك",
-        "theme": "اختر القالب",
-        "payment_gateway": "اختر بوابة الدفع"
+      "hints": {
+        "subdomain": "أحرف صغيرة وأرقام وشرطات فقط"
       },
       "options": {
         "packages": {
@@ -503,12 +500,39 @@
         "gateways": {
           "stripe": "سترايب",
           "paypal": "باي بال",
-          "cod": "الدفع عند الاستلام"
+          "cod": "الدفع عند الاستلام",
+          "manual": "دفع يدوي"
         }
       },
       "buttons": {
         "create": "إنشاء",
-        "cancel": "إغلاق"
+        "cancel": "إلغاء",
+        "close": "إغلاق",
+        "visit": "زيارة الموقع",
+        "retry": "إعادة المحاولة"
+      },
+      "labels": {
+        "plan_id": "الخطة",
+        "subdomain": "النطاق الفرعي",
+        "theme": "القالب",
+        "theme_code": "رمز القالب"
+      },
+      "placeholders": {
+        "plan_id": "اختر الخطة",
+        "subdomain": "النطاق الفرعي",
+        "theme": "اختر القالب",
+        "theme_code": "مثال: #FF5733"
+      },
+      "success_title": "تم إنشاء الموقع!",
+      "success": {
+        "message": "تم إنشاء موقعك بنجاح!"
+      },
+      "processing": {
+        "title": "جاري إنشاء موقعك...",
+        "description": "قد يستغرق هذا بضع لحظات. يرجى الانتظار."
+      },
+      "error": {
+        "title": "حدث خطأ ما"
       }
     }
   },

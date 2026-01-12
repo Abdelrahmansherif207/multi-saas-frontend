@@ -97,10 +97,17 @@
       "your_website": "Your Website",
       "recent_orders": "Recent Orders"
     },
+    "loading": "Loading...",
+    "retry": "Retry",
+    "no_websites": "No websites found",
     "table": {
       "id": "ID",
       "site": "Site",
+      "status": "Status",
+      "database": "Database",
       "browse": "Browse",
+      "visit": "Visit Website",
+      "login_admin": "Login as super admin",
       "package_name": "Package Name",
       "amount": "Amount",
       "domain": "Domain",
@@ -108,7 +115,6 @@
       "expire_date": "Expire Date",
       "order_status": "Order Status",
       "payment_history": "Payment History",
-      "no_websites": "No websites found",
       "no_payment_history": "No Payment History Found",
       "pending": "pending",
       "status_placeholder": "website not yet created"
@@ -480,17 +486,8 @@
     },
     "CreateWebsite": {
       "title": "Create Quick Website",
-      "labels": {
-        "package": "Select Package",
-        "domain": "Enter your Domain",
-        "theme": "Select Theme",
-        "payment_gateway": "Select Payment Gateway"
-      },
-      "placeholders": {
-        "package": "Select Package",
-        "domain": "Your domain",
-        "theme": "Select Theme",
-        "payment_gateway": "Select Payment Gateway"
+      "hints": {
+        "subdomain": "Lowercase letters, numbers, and hyphens only"
       },
       "options": {
         "packages": {
@@ -506,12 +503,39 @@
         "gateways": {
           "stripe": "Stripe",
           "paypal": "PayPal",
-          "cod": "Cash on Delivery"
+          "cod": "Cash on Delivery",
+          "manual": "Manual Payment"
         }
       },
       "buttons": {
         "create": "Create",
-        "cancel": "Close"
+        "cancel": "Cancel",
+        "close": "Close",
+        "visit": "Visit Website",
+        "retry": "Try Again"
+      },
+      "labels": {
+        "plan_id": "Plan",
+        "subdomain": "Subdomain",
+        "theme": "Theme",
+        "theme_code": "Theme Code"
+      },
+      "placeholders": {
+        "plan_id": "Select Plan",
+        "subdomain": "subdomain",
+        "theme": "Select Theme",
+        "theme_code": "Example: #FF5733"
+      },
+      "success_title": "Website Created!",
+      "success": {
+        "message": "Your website has been created successfully!"
+      },
+      "processing": {
+        "title": "Creating your website...",
+        "description": "This may take a few moments. Please wait."
+      },
+      "error": {
+        "title": "Something went wrong"
       }
     }
   },
