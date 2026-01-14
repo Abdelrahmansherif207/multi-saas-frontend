@@ -18,7 +18,7 @@ export function ExpertAdviceForm({
                 >
                     {/* Header Icon */}
                     <div className="flex justify-center mb-6">
-                        <div className="text-sky-900">
+                        <div className="text-primary">
                             <svg className="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                 {/* <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25" /> */}
@@ -27,10 +27,10 @@ export function ExpertAdviceForm({
                     </div>
 
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl font-black text-sky-900 mb-4 tracking-tight">
+                        <h2 className="text-3xl font-black text-primary mb-4 tracking-tight">
                             {title}
                         </h2>
-                        <p className="text-sky-800 max-w-md mx-auto leading-relaxed">
+                        <p className="text-primary max-w-md mx-auto leading-relaxed">
                             {subtitle}
                         </p>
                     </div>

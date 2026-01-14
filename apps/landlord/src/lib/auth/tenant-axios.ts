@@ -1,15 +1,13 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
-import { getAuthCookie } from './cookies';
+import { getTenantAuthCookie, getActiveTenantSubdomain } from './tenant-cookies';
 
 /**
- * Create Axios instance for backend API calls
- * This instance automatically attaches auth tokens from HttpOnly cookies
+ * Create Axios instance for tenant-scoped backend API calls
+ * This instance automatically attaches tenant auth tokens and subdomain context
  */
-const base = process.env.NEXT_PUBLIC_API_URL;
-console.log(base);
-export function createAuthAxios(): AxiosInstance {
+export function createTenantAuthAxios(): AxiosInstance {
     const instance = axios.create({
-        baseURL: base,
+        baseURL: process.env.NEXT_PUBLIC_API_URL,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -17,14 +15,20 @@ export function createAuthAxios(): AxiosInstance {
         timeout: 30000,
     });
 
-    // Request interceptor: attach token from HttpOnly cookie
+    // Request interceptor: attach token and tenant context
     instance.interceptors.request.use(
         async (config: InternalAxiosRequestConfig) => {
-            // Get token from server-side cookie
-            const token = await getAuthCookie();
+            // Get tenant token from server-side cookie
+            const token = await getTenantAuthCookie();
+            const subdomain = await getActiveTenantSubdomain();
 
             if (token && config.headers) {
                 config.headers.Authorization = `Bearer ${token}`;
+            }
+
+            // Add tenant context header
+            if (subdomain && config.headers) {
+                config.headers['X-Tenant-ID'] = subdomain;
             }
 
             return config;
@@ -40,9 +44,7 @@ export function createAuthAxios(): AxiosInstance {
         async (error: AxiosError) => {
             // Handle 401 Unauthorized
             if (error.response?.status === 401) {
-                // Token is invalid or expired
-                // In API routes, this will trigger logout
-                console.log('Unauthorized request - token may be invalid');
+                console.error('Tenant unauthorized request - token may be invalid');
             }
 
             return Promise.reject(error);
@@ -53,6 +55,6 @@ export function createAuthAxios(): AxiosInstance {
 }
 
 /**
- * Singleton instance for server-side use
+ * Singleton instance for server-side tenant-scoped API calls
  */
-export const authAxios = createAuthAxios();
+export const tenantAuthAxios = createTenantAuthAxios();

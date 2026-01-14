@@ -1,6 +1,7 @@
 import { getMessages } from 'next-intl/server';
 import { getTenantData } from '../../../mocks/real-estate';
 import { ThemeRegistry, ThemeType } from '../../../lib/theme-registry';
+import { tenantService } from '../../../lib/services/tenant';
 
 export default async function TenantHomePage({
     params,
@@ -8,12 +9,24 @@ export default async function TenantHomePage({
     params: Promise<{ domain: string; locale: string }>;
 }) {
     const { domain, locale } = await params;
-    const { tenant, hero, properties, compounds, areas, launches } = getTenantData(domain);
+
+    // Fetch real tenant info from API
+    const tenantInfo = await tenantService.getInfo(domain);
+
+    const { tenant: mockTenant, hero, properties, compounds, areas, launches } = getTenantData(domain);
     const messages = await getMessages({ locale });
 
-    // Resolve the theme from registry
-    const themeName = (tenant.theme || 'real-estate') as ThemeType;
+    // Use theme from API with fallback to mock or 'real-estate'
+    const themeName = (tenantInfo?.data?.settings?.theme || 'real-estate') as ThemeType;
     const Theme = ThemeRegistry[themeName];
+
+    // Construct final tenant config
+    const tenantConfig = {
+        ...mockTenant,
+        id: tenantInfo?.data?.tenant_id || mockTenant.id,
+        theme: themeName,
+        primaryColor: tenantInfo?.data?.settings?.theme_code || mockTenant.primaryColor,
+    };
 
     if (!Theme) {
         return <div className="p-10 text-center">Theme not found: {themeName}</div>;

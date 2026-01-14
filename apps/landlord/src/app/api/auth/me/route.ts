@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         }
 
         // Fetch user from Laravel backend
-        const response = await authAxios.get<{ data: User }>('/v1/auth/me');
+        const response = await authAxios.get<{ data: User }>('/auth/me');
 
         return NextResponse.json({
             user: response.data.data,
