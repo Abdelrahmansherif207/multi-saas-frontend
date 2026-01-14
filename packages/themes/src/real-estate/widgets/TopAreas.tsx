@@ -55,12 +55,6 @@ export const TopAreas: React.FC<TopAreasProps> = ({
         setIsMounted(true);
     }, []);
 
-    const getDomain = () => {
-        if (typeof window === 'undefined') return '';
-        const parts = window.location.pathname.split('/');
-        return parts[1] || '';
-    };
-
     const slugify = (text: string) => {
         return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
     };
@@ -68,11 +62,11 @@ export const TopAreas: React.FC<TopAreasProps> = ({
     if (!isMounted) {
         return <div className="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto h-[400px]" />;
     }
-    const domain = getDomain();
+
     const renderAreaCard = (area: any, index: number) => (
         <Link
             key={area.id}
-            href={`/${domain}/${locale}/area/${slugify(area.name)}`}
+            href={`/${locale}/area/${slugify(area.name)}`}
             className="block h-full"
         >
             <motion.div

@@ -15,15 +15,9 @@ import { useLocale } from 'next-intl';
 
 function CompoundCard({ compound }: { compound: Compound }) {
     const locale = useLocale();
-    const getDomain = () => {
-        if (typeof window === 'undefined') return '';
-        const parts = window.location.pathname.split('/');
-        return parts[1] || '';
-    };
-    const domain = getDomain();
 
     return (
-        <Link href={`/${domain}/${locale}/properties/${compound.slug}`}>
+        <Link href={`/${locale}/properties/${compound.slug}`}>
             <motion.div
                 whileHover={{ y: -5 }}
                 className="group/card relative h-[350px] w-full overflow-hidden rounded-xl bg-gray-100 cursor-pointer"

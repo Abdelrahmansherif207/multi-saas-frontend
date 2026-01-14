@@ -16,13 +16,6 @@ export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesP
     const locale = useLocale();
     const swiperRef = useRef<SwiperType | undefined>(undefined);
 
-    const getDomain = () => {
-        if (typeof window === 'undefined') return '';
-        const parts = window.location.pathname.split('/');
-        return parts[1] || '';
-    };
-    const domain = getDomain();
-
     if (!launches || launches.length === 0) return null;
 
     return (
@@ -31,7 +24,7 @@ export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesP
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-bold text-gray-900">{title || t('title')}</h2>
                     <Link
-                        href={showAllLink === '#' ? '#' : `/${domain}/${locale}${showAllLink}`}
+                        href={showAllLink === '#' ? '#' : `/${locale}${showAllLink}`}
                         className="text-primary font-semibold hover:underline flex items-center gap-1"
                     >
                         {t('showAll')}
@@ -60,7 +53,7 @@ export function NewLaunches({ launches, title, showAllLink = "#" }: NewLaunchesP
                         {launches.map((launch: any) => (
                             <SwiperSlide key={launch.id}>
                                 <Link
-                                    href={launch.link ? `/${domain}/${locale}/properties/${launch.link.split('/').pop()}` : '#'}
+                                    href={launch.link ? `/${locale}/properties/${launch.link.split('/').pop()}` : '#'}
                                     className="group/card relative block h-[280px] w-full overflow-hidden rounded-xl cursor-pointer"
                                 >
                                     <img
