@@ -46,13 +46,18 @@ export function createCustomerAuthAxios(): AxiosInstance {
         timeout: 30000,
     });
 
-    // Request interceptor: attach token
+    // Request interceptor: attach token and tenant context
     instance.interceptors.request.use(
         async (config: InternalAxiosRequestConfig) => {
             const token = await getCustomerAuthCookie();
+            const subdomain = await getSubdomainFromRequest();
 
             if (token && config.headers) {
                 config.headers.Authorization = `Bearer ${token}`;
+            }
+
+            if (subdomain && config.headers && !config.headers['X-Tenant-ID']) {
+                config.headers['X-Tenant-ID'] = subdomain;
             }
 
             return config;
@@ -66,10 +71,6 @@ export function createCustomerAuthAxios(): AxiosInstance {
     instance.interceptors.response.use(
         (response: AxiosResponse) => response,
         async (error: AxiosError) => {
-            if (error.response?.status === 401) {
-                console.error('Customer unauthorized request - token may be invalid');
-            }
-
             return Promise.reject(error);
         }
     );
@@ -87,7 +88,7 @@ export function createPublicAxios(): AxiosInstance {
         console.warn('PUBLIC_API_URL is not defined. Falling back to default for publicAxios.');
     }
 
-    return axios.create({
+    const instance = axios.create({
         baseURL: baseURL || 'http://127.0.0.1:8000/api/v1',
         headers: {
             'Content-Type': 'application/json',
@@ -95,6 +96,24 @@ export function createPublicAxios(): AxiosInstance {
         },
         timeout: 30000,
     });
+
+    // Request interceptor: attach tenant context
+    instance.interceptors.request.use(
+        async (config: InternalAxiosRequestConfig) => {
+            const subdomain = await getSubdomainFromRequest();
+
+            if (subdomain && config.headers && !config.headers['X-Tenant-ID']) {
+                config.headers['X-Tenant-ID'] = subdomain;
+            }
+
+            return config;
+        },
+        (error: any) => {
+            return Promise.reject(error);
+        }
+    );
+
+    return instance;
 }
 
 /**

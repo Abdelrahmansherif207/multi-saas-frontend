@@ -36,5 +36,14 @@ export const tenantService = {
     getDatabaseStatus: async (subdomain: string) => {
         const response = await axios.get(`/api/tenants/${subdomain}/database-status`);
         return response.data;
+    },
+
+    /**
+     * Switch to a tenant context (as landlord/admin).
+     * @param subdomain Tenant subdomain
+     */
+    switch: async (subdomain: string) => {
+        const response = await axios.post(`/api/tenants/${subdomain}/switch`);
+        return response.data;
     }
 };

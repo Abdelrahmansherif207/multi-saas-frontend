@@ -22,15 +22,15 @@ export default async function DomainLayout({
     const messages = await getMessages({ locale });
 
     // Use theme from API with fallback to mock or 'real-estate'
-    const themeName = (tenantInfo?.data.settings.theme || 'real-estate') as ThemeType;
+    const themeName = (tenantInfo?.data?.settings?.theme || 'real-estate') as ThemeType;
     const Theme = ThemeRegistry[themeName];
 
     // Construct final tenant config using API data + mock fallbacks
     const tenantConfig = {
         ...mockTenant,
-        id: tenantInfo?.data.tenant_id || mockTenant.id,
+        id: tenantInfo?.data?.tenant_id || mockTenant.id,
         theme: themeName,
-        primaryColor: tenantInfo?.data.settings.theme_code || mockTenant.primaryColor,
+        primaryColor: tenantInfo?.data?.settings?.theme_code || mockTenant.primaryColor,
     };
 
     if (!Theme) {
@@ -41,8 +41,8 @@ export default async function DomainLayout({
     const localization = {
         currentLocale: locale,
         availableLocales: [
-            { code: 'en', label: 'English', href: `/${domain}/en` },
-            { code: 'ar', label: 'العربية', href: `/${domain}/ar` }
+            { code: 'en', label: 'English', href: `/en` },
+            { code: 'ar', label: 'العربية', href: `/ar` }
         ]
     };
 
@@ -52,7 +52,7 @@ export default async function DomainLayout({
         return {
             ...item,
             label: (messages as any).Menu?.[key] || item.label,
-            href: `/${domain}/${locale}${item.href === '/' ? '' : item.href}`
+            href: `/${locale}${item.href === '/' ? '' : item.href}`
         };
     });
 

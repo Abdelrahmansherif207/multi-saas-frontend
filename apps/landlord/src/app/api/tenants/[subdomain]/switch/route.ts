@@ -27,11 +27,12 @@ export async function POST(
         // Store tenant-scoped token in separate cookie
         await setTenantAuthCookie(token, subdomain);
 
-        // Return tenant data (without token - it's stored in HttpOnly cookie)
+        // Return tenant data and token for the frontend to handle redirection
         return NextResponse.json({
             success: true,
             data: {
                 tenant,
+                token
             },
             message: `Switched to tenant: ${tenant.name || subdomain}`,
         });

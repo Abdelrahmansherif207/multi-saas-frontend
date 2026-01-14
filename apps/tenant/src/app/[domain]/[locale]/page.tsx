@@ -17,15 +17,15 @@ export default async function TenantHomePage({
     const messages = await getMessages({ locale });
 
     // Use theme from API with fallback to mock or 'real-estate'
-    const themeName = (tenantInfo?.data.settings.theme || 'real-estate') as ThemeType;
+    const themeName = (tenantInfo?.data?.settings?.theme || 'real-estate') as ThemeType;
     const Theme = ThemeRegistry[themeName];
 
     // Construct final tenant config
     const tenantConfig = {
         ...mockTenant,
-        id: tenantInfo?.data.tenant_id || mockTenant.id,
+        id: tenantInfo?.data?.tenant_id || mockTenant.id,
         theme: themeName,
-        primaryColor: tenantInfo?.data.settings.theme_code || mockTenant.primaryColor,
+        primaryColor: tenantInfo?.data?.settings?.theme_code || mockTenant.primaryColor,
     };
 
     if (!Theme) {
