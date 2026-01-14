@@ -1,5 +1,5 @@
 import { CreateWebsiteModal } from "@/components/dashboard/CreateWebsiteModal";
-import { Button } from "@/components/ui/button";
+import { TenantList } from "@/components/dashboard/TenantList";
 import { CheckCircle2, Ticket } from "lucide-react";
 import {
     Card,
@@ -23,9 +23,8 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
     const { locale } = await params;
 
     const t = await getTranslations({ locale, namespace: 'dashboardTab' });
-    console.log("DashboardPage rendered on server");
 
-    // Mock Data (Localized)
+    // Stats data (could be fetched from API in the future)
     const stats = [
         {
             label: t('stats.total_orders'),
@@ -42,6 +41,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
         },
     ];
 
+    // Recent orders mock data (TODO: fetch from API)
     const recentOrders = [
         {
             id: "1",
@@ -52,13 +52,6 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
             expireDate: t('table.status_placeholder'),
             status: t('table.pending'),
             paymentHistory: t('table.no_payment_history'),
-        },
-    ];
-
-    const websites = [
-        {
-            id: "1",
-            url: "http://test.localhost",
         },
     ];
 
@@ -90,56 +83,12 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
                     ))}
                 </div>
 
-                {/* Your Website Section */}
+                {/* Your Website Section - Now using TenantList component */}
                 <div className="space-y-4">
                     <h3 className="text-xl font-semibold text-muted-foreground uppercase tracking-wider text-center md:text-left">
                         {t('sections.your_website')}
                     </h3>
-                    <div className="bg-card rounded-lg border shadow-sm overflow-hidden">
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-sm text-left">
-                                <thead className="bg-muted/50 text-muted-foreground uppercase text-xs">
-                                    <tr>
-                                        <th className="px-6 py-3 font-medium">{t('table.id')}</th>
-                                        <th className="px-6 py-3 font-medium">{t('table.site')}</th>
-                                        <th className="px-6 py-3 font-medium">{t('table.browse')}</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-border">
-                                    {websites.length > 0 ? (
-                                        websites.map((site) => (
-                                            <tr key={site.id}>
-                                                <td className="px-6 py-4 font-medium">{site.id}</td>
-                                                <td className="px-6 py-4">
-                                                    <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 tracking-wide">
-                                                        {site.url}
-                                                    </span>
-                                                </td>
-                                                <td className="px-6 py-4">
-                                                    <div className="flex items-center gap-3">
-                                                        <Button size="sm" className="bg-brand-orange hover:bg-brand-orange/90 text-white border-0 shadow-sm rounded-full px-6 transition-all hover:scale-105">
-                                                            Visit Website
-                                                        </Button>
-                                                        <Button size="sm" className="bg-sky-500 hover:bg-sky-600 text-white border-0 shadow-sm rounded-full px-6 transition-all hover:scale-105">
-                                                            Login as super admin
-                                                        </Button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ))
-                                    ) : (
-                                        <tr>
-                                            <td className="px-6 py-4" colSpan={3}>
-                                                <div className="text-center py-4 text-muted-foreground">
-                                                    {t('table.no_websites')}
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    )}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <TenantList />
                 </div>
 
                 {/* Recent Orders Section */}
