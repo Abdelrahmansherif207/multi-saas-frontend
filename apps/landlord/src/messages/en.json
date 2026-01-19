@@ -1179,7 +1179,68 @@
           "image": "Image",
           "role": "Role",
           "action": "Action",
-          "no_data": "No data available in table"
+          "no_data": "No data available in table",
+          "actions": {
+            "view_details": "View Details"
+          }
+        },
+        "dialog": {
+          "delete": {
+            "title": "Are you sure you want to delete {name}?",
+            "description": "This action cannot be undone. This will permanently delete the admin account.",
+            "confirm": "Yes, Delete",
+            "cancel": "Cancel"
+          }
+        }
+      },
+      "AdminDetails": {
+        "title": "Admin Details",
+        "admin_not_found": "Admin not found",
+        "back_to_admins": "Back to Admins",
+        "sections": {
+          "basic_info": "Basic Information",
+          "contact_info": "Contact Information",
+          "roles_and_permissions": "Roles & Permissions"
+        },
+        "labels": {
+          "id": "ID",
+          "name": "Name",
+          "username": "Username",
+          "email": "Email",
+          "mobile": "Mobile",
+          "email_verified": "Email Verified",
+          "yes": "Yes",
+          "no": "No",
+          "not_provided": "Not provided",
+          "created_at": "Created At",
+          "updated_at": "Updated At",
+          "roles": "Roles",
+          "permissions": "Permissions"
+        }
+      },
+      "EditAdmin": {
+        "title": "Edit Admin",
+        "admin_not_found": "Admin not found",
+        "back_to_details": "Back to Details",
+        "sections": {
+          "basic_info": "Basic Information",
+          "contact_info": "Contact Information"
+        },
+        "form": {
+          "name": "Name",
+          "name_placeholder": "Enter name",
+          "username": "Username",
+          "username_placeholder": "Enter username",
+          "email": "Email",
+          "email_placeholder": "Enter email",
+          "email_verified": "Email Verified",
+          "mobile": "Mobile",
+          "mobile_placeholder": "Enter mobile number",
+          "save": "Save Changes",
+          "saving": "Saving...",
+          "cancel": "Cancel",
+          "success": "Admin updated successfully",
+          "error": "Failed to update admin"
         }
       },
       "AddAdmin": {
@@ -1203,7 +1264,11 @@
           "image": "Image",
           "change_image": "Change Image",
           "image_format": "allowed image format: jpg,jpeg,png",
-          "submit": "Add New User"
+          "submit": "Add New User",
+          "success": "Admin created successfully",
+          "error": "Failed to create admin",
+          "saving": "Creating...",
+          "cancel": "Cancel"
         }
       },
       "AllRoles": {
@@ -1257,6 +1322,14 @@
         "title": "All Users",
         "subtitle": "Overview",
         "delete_warning": "Warning: If you delete any user and it is associated with any package, everything regarding this user will be deleted.",
+        "dialog": {
+          "delete": {
+            "title": "Are you sure you want to delete {name}?",
+            "description": "Warning: If you delete any user and it is associated with any package, everything regarding this user will be deleted. This action cannot be undone.",
+            "confirm": "Yes, Delete",
+            "cancel": "Cancel"
+          }
+        },
         "table": {
           "id": "ID",
           "name": "Name",
@@ -1271,6 +1344,84 @@
             "view_details": "View Details",
             "enable_email_verify": "Make Enable Email Verify"
           }
+        }
+      },
+      "UserDetails": {
+        "title": "User Details",
+        "back_to_users": "Back to Users",
+        "user_not_found": "User not found",
+        "sections": {
+          "basic_info": "Basic Information",
+          "contact_info": "Contact Information",
+          "tenants": "User Websites"
+        },
+        "labels": {
+          "id": "ID",
+          "name": "Name",
+          "email": "Email",
+          "username": "Username",
+          "mobile": "Mobile",
+          "company": "Company",
+          "address": "Address",
+          "city": "City",
+          "state": "State",
+          "country": "Country",
+          "has_subdomain": "Has Subdomain",
+          "email_verified": "Email Verified",
+          "created_at": "Created At",
+          "updated_at": "Updated At",
+          "yes": "Yes",
+          "no": "No",
+          "not_provided": "Not Provided"
+        },
+        "tenant": {
+          "domain": "Domain",
+          "theme": "Theme",
+          "theme_code": "Theme Color",
+          "status": "Status",
+          "package": "Package",
+          "price": "Price",
+          "start_date": "Start Date",
+          "expire_date": "Expire Date",
+          "active": "Active",
+          "expired": "Expired",
+          "pending": "Pending"
+        }
+      },
+      "EditUser": {
+        "title": "Edit User",
+        "back_to_details": "Back to Details",
+        "user_not_found": "User not found",
+        "sections": {
+          "basic_info": "Basic Information",
+          "contact_info": "Contact Information",
+          "location_info": "Location Information"
+        },
+        "form": {
+          "name": "Name",
+          "name_placeholder": "Enter name",
+          "username": "Username",
+          "username_placeholder": "Enter username",
+          "email": "Email",
+          "email_placeholder": "Enter email",
+          "email_verified": "Email Verified",
+          "mobile": "Mobile",
+          "mobile_placeholder": "Enter mobile number",
+          "company": "Company",
+          "company_placeholder": "Enter company name",
+          "address": "Address",
+          "address_placeholder": "Enter address",
+          "city": "City",
+          "city_placeholder": "Enter city",
+          "state": "State",
+          "state_placeholder": "Enter state",
+          "country": "Country",
+          "country_placeholder": "Enter country",
+          "save": "Save Changes",
+          "saving": "Saving...",
+          "cancel": "Cancel",
+          "success": "User updated successfully",
+          "error": "Failed to update user"
         }
       },
       "AddUser": {
@@ -1487,7 +1638,22 @@
           "faq_description_placeholder": "Enter FAQ description",
           "save_changes": "Save Changes",
           "yes": "YES",
-          "no": "NO"
+          "no": "NO",
+          "saving": "Saving...",
+          "submit": "Save Changes",
+          "cancel": "Cancel",
+          "error": "Something went wrong",
+          "success": "Price Plan saved successfully",
+          "delete_success": "Price Plan deleted successfully",
+          "status_success": "Status updated successfully"
+        },
+        "dialog": {
+          "delete": {
+            "title": "Delete Price Plan?",
+            "description": "Are you sure you want to delete this price plan? This action cannot be undone.",
+            "confirm": "Yes, Delete",
+            "cancel": "Cancel"
+          }
         }
       },
       "Settings": {
