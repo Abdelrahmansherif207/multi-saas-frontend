@@ -1,0 +1,132 @@
+User Management (Admin)
+Admin endpoints to manage landlord users (Guard: api_admin). Manage tenant owners and their subscriptions.
+
+
+
+GET
+/api/v1/admin/users
+List all users
+done
+
+
+
+GET
+/api/v1/admin/users/{user}
+Get user details
+done
+
+
+PUT
+/api/v1/admin/users/{user}
+Update user
+done
+
+
+DELETE
+/api/v1/admin/users/{user}
+Deactivate user
+done
+
+
+POST
+/api/v1/admin/users/{user}/impersonate
+Impersonate user
+
+
+
+GET
+/api/v1/admin/users/{user}/payments
+Get user payment history
+
+----------------------------------------------
+Admin Management
+Admin user management endpoints (Guard: api_admin). Manage platform administrators.
+
+
+
+GET
+/api/v1/admin/admins
+List all admins
+
+
+
+POST
+/api/v1/admin/admins
+Create new admin
+done
+
+
+GET
+/api/v1/admin/admins/{admin}
+Get admin details
+done
+
+
+
+PUT
+/api/v1/admin/admins/{admin}
+Update admin
+done
+
+
+DELETE
+/api/v1/admin/admins/{admin}
+Delete admin
+done
+
+PUT
+/api/v1/admin/admins/{admin}/password
+Update admin password
+
+
+
+PUT
+/api/v1/admin/profile
+Update own profile
+
+-------------------------------------------------
+Price Plan Management (Admin)
+Admin endpoints to manage price plans and features (Guard: api_admin)
+
+
+
+GET
+/api/v1/admin/price-plans
+List all price plans
+
+
+
+POST
+/api/v1/admin/price-plans
+Create price plan
+
+
+
+GET
+/api/v1/admin/price-plans/{id}
+Get price plan details
+
+
+
+PUT
+/api/v1/admin/price-plans/{id}
+Update price plan
+
+
+
+DELETE
+/api/v1/admin/price-plans/{id}
+Delete price plan
+
+
+
+PATCH
+/api/v1/admin/price-plans/{id}/toggle-status
+Toggle plan status
+
+
+
+PATCH
+/api/v1/admin/price-plans/{id}/reorder-features
+Reorder plan features
+

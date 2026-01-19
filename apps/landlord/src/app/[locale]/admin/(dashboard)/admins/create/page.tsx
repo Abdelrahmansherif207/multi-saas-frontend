@@ -1,21 +1,43 @@
-import { getTranslations } from "next-intl/server";
-import { AdminPageWrapper } from "@/components/admin/shared/AdminPageWrapper";
-import { CreateAdminForm } from "@/components/admin/admins/CreateAdminForm";
+import { getAdminAuthCookie } from "@/lib/auth/admin-cookies";
+import CreateAdminForm from "./CreateAdminForm";
+import axios from "axios";
 
-export default async function CreateAdminPage() {
-    const t = await getTranslations("Admin.RoleManage.AddAdmin");
-    const tMenu = await getTranslations("Admin.RoleManage.menu");
+export default async function CreateAdminPage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
 
-    return (
-        <AdminPageWrapper
-            title={t("title")}
-            breadcrumbs={[
-                { label: tMenu("title"), href: "#" },
-                { label: tMenu("all_admins"), href: "/admin/admins" },
-                { label: tMenu("add_admin"), href: "/admin/admins/create" }
-            ]}
-        >
-            <CreateAdminForm />
-        </AdminPageWrapper>
-    );
+    async function createAdmin(data: any): Promise<{ success: boolean; message: string }> {
+        'use server';
+
+        const token = await getAdminAuthCookie();
+
+        if (!token) {
+            return { success: false, message: 'Not authenticated' };
+        }
+
+        try {
+            const response = await axios.post(
+                `${process.env.NEXT_PUBLIC_API_URL}/admin/admins`,
+                data,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            return {
+                success: response.data.success,
+                message: response.data.message
+            };
+        } catch (error: any) {
+            console.error('Failed to create admin:', error);
+            return {
+                success: false,
+                message: error.response?.data?.message || 'Failed to create admin'
+            };
+        }
+    }
+
+    return <CreateAdminForm locale={locale} submitAction={createAdmin} />;
 }

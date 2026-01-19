@@ -18,13 +18,93 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Eye, Trash2, Plus } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import axios from "axios";
+import { getAdminAuthCookie } from "@/lib/auth/admin-cookies";
+import { revalidatePath } from "next/cache";
+
+interface SupportTicket {
+    id: number;
+    title: string;
+    department?: { id: number; name: string };
+    user?: { id: number; name: string; email: string };
+    priority: string;
+    status: string;
+    created_at: string;
+}
+
+interface TicketsResponse {
+    success: boolean;
+    message: string;
+    data: SupportTicket[];
+}
 
 export default async function AllTicketsPage() {
     const t = await getTranslations("Admin.SupportTicketManage.AllTickets");
     const tMenu = await getTranslations("Admin.SupportTicketManage.menu");
+    const locale = await getLocale();
+
+    // Inline Server Action: Update ticket status/priority
+    async function updateTicket(id: number, data: { status?: string; priority?: string }) {
+        'use server';
+        const token = await getAdminAuthCookie();
+        if (!token) return { success: false, message: 'Not authenticated' };
+
+        try {
+            const response = await axios.put(
+                `${process.env.NEXT_PUBLIC_API_URL}/admin/support-tickets/${id}`,
+                data,
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            revalidatePath('/[locale]/admin/support-tickets', 'page');
+            return { success: true, message: response.data.message };
+        } catch (error: any) {
+            return { success: false, message: error.response?.data?.message || 'Failed to update ticket' };
+        }
+    }
+
+    // Fetch tickets
+    const token = await getAdminAuthCookie();
+    let tickets: SupportTicket[] = [];
+
+    if (token) {
+        try {
+            const response = await axios.get<TicketsResponse>(
+                `${process.env.NEXT_PUBLIC_API_URL}/admin/support-tickets`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Accept-Language': locale,
+                    }
+                }
+            );
+            if (response.data.success) {
+                tickets = response.data.data;
+            }
+        } catch (error) {
+            console.error("Failed to fetch tickets", error);
+        }
+    }
+
+    const getPriorityStyle = (priority: string) => {
+        switch (priority?.toLowerCase()) {
+            case 'urgent': return 'bg-red-500/10 text-red-600 border-red-500/20';
+            case 'high': return 'bg-orange-500/10 text-orange-600 border-orange-500/20';
+            case 'medium': return 'bg-amber-500/10 text-amber-600 border-amber-500/20';
+            default: return 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20';
+        }
+    };
+
+    const getStatusStyle = (status: string) => {
+        switch (status?.toLowerCase()) {
+            case 'open': return 'bg-emerald-500/10 text-emerald-600 ring-emerald-500/20';
+            case 'pending': return 'bg-amber-500/10 text-amber-600 ring-amber-500/20';
+            case 'closed': return 'bg-red-500/10 text-red-600 ring-red-500/20';
+            default: return 'bg-muted text-muted-foreground ring-border';
+        }
+    };
 
     return (
         <AdminPageWrapper
@@ -77,7 +157,7 @@ export default async function AllTicketsPage() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
                             </div>
                         </div>
-                        <Link href="/admin/support-tickets/create">
+                        <Link href={`/${locale}/admin/support-tickets/create`}>
                             <Button className="bg-primary hover:bg-primary/90 rounded-xl h-10 font-semibold flex items-center gap-2">
                                 <Plus className="h-4 w-4" />
                                 {t("new_ticket")}
@@ -104,63 +184,51 @@ export default async function AllTicketsPage() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {/* Mock Data */}
-                            <TableRow className="hover:bg-muted/20 border-b-border/40">
-                                <TableCell>
-                                    <Checkbox className="rounded-md border-border/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary" />
-                                </TableCell>
-                                <TableCell>#1</TableCell>
-                                <TableCell className="font-medium">Login Issue</TableCell>
-                                <TableCell>Support</TableCell>
-                                <TableCell>abdelrahman</TableCell>
-                                <TableCell>
-                                    <div className="flex items-center gap-2">
-                                        <Select defaultValue="low">
-                                            <SelectTrigger className="h-8 w-[100px] rounded-lg bg-emerald-500/10 text-emerald-600 border-emerald-500/20 text-[11px] font-bold">
-                                                <SelectValue />
-                                            </SelectTrigger>
-                                            <SelectContent className="rounded-xl border-border/40">
-                                                <SelectItem value="low">Low</SelectItem>
-                                                <SelectItem value="medium">Medium</SelectItem>
-                                                <SelectItem value="high">High</SelectItem>
-                                                <SelectItem value="urgent">Urgent</SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                </TableCell>
-                                <TableCell>
-                                    <Select defaultValue="close">
-                                        <SelectTrigger className={cn(
-                                            "h-8 w-[100px] rounded-lg text-[11px] font-bold border-none ring-1 transition-all",
-                                            "bg-red-500/10 text-red-600 ring-red-500/20 hover:ring-red-500/40"
-                                        )}>
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                        <SelectContent className="rounded-xl border-border/40">
-                                            <SelectItem value="open" className="text-emerald-600 focus:text-emerald-700">Open</SelectItem>
-                                            <SelectItem value="pending" className="text-amber-600 focus:text-amber-700">Pending</SelectItem>
-                                            <SelectItem value="close" className="text-red-600 focus:text-red-700">Close</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </TableCell>
-                                <TableCell className="text-right">
-                                    <div className="flex items-center justify-end gap-2">
-                                        <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-red-500 hover:text-red-600 hover:bg-red-500/10">
-                                            <Trash2 className="h-4 w-4" />
-                                        </Button>
-                                        <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-primary hover:text-primary hover:bg-primary/10">
-                                            <Eye className="h-4 w-4" />
-                                        </Button>
-                                    </div>
-                                </TableCell>
-                            </TableRow>
+                            {tickets.length > 0 ? (
+                                tickets.map((ticket) => (
+                                    <TableRow key={ticket.id} className="hover:bg-muted/20 border-b-border/40">
+                                        <TableCell>
+                                            <Checkbox className="rounded-md border-border/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary" />
+                                        </TableCell>
+                                        <TableCell>#{ticket.id}</TableCell>
+                                        <TableCell className="font-medium">{ticket.title}</TableCell>
+                                        <TableCell>{ticket.department?.name || '-'}</TableCell>
+                                        <TableCell>{ticket.user?.name || '-'}</TableCell>
+                                        <TableCell>
+                                            <Badge className={cn("text-[11px] font-bold", getPriorityStyle(ticket.priority))}>
+                                                {ticket.priority}
+                                            </Badge>
+                                        </TableCell>
+                                        <TableCell>
+                                            <Badge className={cn("text-[11px] font-bold ring-1", getStatusStyle(ticket.status))}>
+                                                {ticket.status}
+                                            </Badge>
+                                        </TableCell>
+                                        <TableCell className="text-right">
+                                            <div className="flex items-center justify-end gap-2">
+                                                <Link href={`/${locale}/admin/support-tickets/${ticket.id}`}>
+                                                    <Button size="icon" variant="ghost" className="h-8 w-8 rounded-lg text-primary hover:text-primary hover:bg-primary/10">
+                                                        <Eye className="h-4 w-4" />
+                                                    </Button>
+                                                </Link>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))
+                            ) : (
+                                <TableRow>
+                                    <TableCell colSpan={8} className="text-center h-24 text-muted-foreground">
+                                        No tickets found
+                                    </TableCell>
+                                </TableRow>
+                            )}
                         </TableBody>
                     </Table>
                 </div>
 
                 {/* Pagination */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-2 text-sm text-muted-foreground">
-                    <p>Showing 1 to 1 of 1 entries</p>
+                    <p>Showing {tickets.length} entries</p>
                     <div className="flex items-center gap-2">
                         <Button variant="outline" size="sm" className="rounded-xl h-9 border-border/40 bg-card hover:bg-muted/50" disabled>
                             Previous
