@@ -60,6 +60,7 @@ export const mockTenants: Record<string, TenantConfig> = {
             facebook: 'https://facebook.com/oceanview',
             twitter: 'https://twitter.com/oceanview',
         },
+        
     },
 };
 
