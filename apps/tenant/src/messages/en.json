@@ -207,5 +207,89 @@
         "yearsInstallment": "Years of Installments",
         "paymentPlan": "Payment Plan",
         "amenities": "Amenities"
+    },
+    "Admin": {
+        "sidebar": {
+            "dashboard": "Dashboard",
+            "properties": "Properties",
+            "propertyTypes": "Property Types",
+            "areas": "Areas",
+            "amenities": "Amenities",
+            "compounds": "Compounds",
+            "developers": "Developers",
+            "inquiries": "Inquiries"
+        },
+        "header": {
+            "search": "Search...",
+            "notifications": "Notifications",
+            "settings": "Settings",
+            "profile": "Profile",
+            "logout": "Logout"
+        },
+        "table": {
+            "actions": "Actions",
+            "view": "View",
+            "edit": "Edit",
+            "delete": "Delete",
+            "noData": "No data available",
+            "loading": "Loading...",
+            "selected": "selected",
+            "page": "Page",
+            "of": "of",
+            "rowsPerPage": "Rows per page"
+        },
+        "properties": {
+            "title": "Properties",
+            "createProperty": "Create Property",
+            "editProperty": "Edit Property",
+            "propertyDetails": "Property Details",
+            "columns": {
+                "name": "Property Name",
+                "type": "Type",
+                "area": "Area",
+                "price": "Price",
+                "status": "Status"
+            },
+            "form": {
+                "basicInfo": "Basic Information",
+                "location": "Location",
+                "pricing": "Pricing",
+                "propertyStatus": "Status",
+                "propertyName": "Property Name",
+                "description": "Description",
+                "propertyType": "Property Type",
+                "bedrooms": "Bedrooms",
+                "bathrooms": "Bathrooms",
+                "areaSize": "Area Size (sqm)",
+                "selectArea": "Select Area",
+                "address": "Address",
+                "city": "City",
+                "compound": "Compound",
+                "developerPrice": "Developer Price",
+                "resalePrice": "Resale Price",
+                "selectStatus": "Select Status",
+                "available": "Available",
+                "sold": "Sold",
+                "pending": "Pending",
+                "save": "Save",
+                "cancel": "Cancel",
+                "submit": "Submit"
+            },
+            "filters": {
+                "search": "Search properties...",
+                "allTypes": "All Types",
+                "allAreas": "All Areas",
+                "allStatuses": "All Statuses"
+            }
+        },
+        "common": {
+            "save": "Save",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "confirm": "Confirm",
+            "back": "Back",
+            "create": "Create",
+            "update": "Update"
+        }
     }
 }

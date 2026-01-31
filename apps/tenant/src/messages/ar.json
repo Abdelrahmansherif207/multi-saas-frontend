@@ -207,5 +207,89 @@
         "yearsInstallment": "سنوات",
         "paymentPlan": "جنيه مصري",
         "amenities": "المرافق"
+    },
+    "Admin": {
+        "sidebar": {
+            "dashboard": "لوحة التحكم",
+            "properties": "العقارات",
+            "propertyTypes": "أنواع العقارات",
+            "areas": "المناطق",
+            "amenities": "المرافق",
+            "compounds": "الكمبوندات",
+            "developers": "المطورين",
+            "inquiries": "الاستفسارات"
+        },
+        "header": {
+            "search": "بحث...",
+            "notifications": "الإشعارات",
+            "settings": "الإعدادات",
+            "profile": "الملف الشخصي",
+            "logout": "تسجيل الخروج"
+        },
+        "table": {
+            "actions": "الإجراءات",
+            "view": "عرض",
+            "edit": "تعديل",
+            "delete": "حذف",
+            "noData": "لا توجد بيانات",
+            "loading": "جاري التحميل...",
+            "selected": "محدد",
+            "page": "صفحة",
+            "of": "من",
+            "rowsPerPage": "صفوف لكل صفحة"
+        },
+        "properties": {
+            "title": "العقارات",
+            "createProperty": "إضافة عقار",
+            "editProperty": "تعديل العقار",
+            "propertyDetails": "تفاصيل العقار",
+            "columns": {
+                "name": "اسم العقار",
+                "type": "النوع",
+                "area": "المنطقة",
+                "price": "السعر",
+                "status": "الحالة"
+            },
+            "form": {
+                "basicInfo": "المعلومات الأساسية",
+                "location": "الموقع",
+                "pricing": "التسعير",
+                "propertyStatus": "الحالة",
+                "propertyName": "اسم العقار",
+                "description": "الوصف",
+                "propertyType": "نوع العقار",
+                "bedrooms": "غرف النوم",
+                "bathrooms": "الحمامات",
+                "areaSize": "المساحة (متر مربع)",
+                "selectArea": "اختر المنطقة",
+                "address": "العنوان",
+                "city": "المدينة",
+                "compound": "الكمبوند",
+                "developerPrice": "سعر المطور",
+                "resalePrice": "سعر إعادة البيع",
+                "selectStatus": "اختر الحالة",
+                "available": "متاح",
+                "sold": "مباع",
+                "pending": "قيد الانتظار",
+                "save": "حفظ",
+                "cancel": "إلغاء",
+                "submit": "إرسال"
+            },
+            "filters": {
+                "search": "البحث في العقارات...",
+                "allTypes": "جميع الأنواع",
+                "allAreas": "جميع المناطق",
+                "allStatuses": "جميع الحالات"
+            }
+        },
+        "common": {
+            "save": "حفظ",
+            "cancel": "إلغاء",
+            "delete": "حذف",
+            "confirm": "تأكيد",
+            "back": "رجوع",
+            "create": "إنشاء",
+            "update": "تحديث"
+        }
     }
 }
