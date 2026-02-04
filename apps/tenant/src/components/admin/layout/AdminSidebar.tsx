@@ -25,14 +25,14 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-    { key: 'dashboard', icon: LayoutDashboard, href: '/realestate' },
-    { key: 'properties', icon: Building2, href: '/realestate/properties' },
-    { key: 'propertyTypes', icon: Layers, href: '/realestate/property-types' },
-    { key: 'areas', icon: MapPin, href: '/realestate/areas' },
-    { key: 'amenities', icon: Sparkles, href: '/realestate/amenities' },
-    { key: 'compounds', icon: Home, href: '/realestate/compounds' },
-    { key: 'developers', icon: Users, href: '/realestate/developers' },
-    { key: 'inquiries', icon: MessageSquare, href: '/realestate/inquiries' },
+    { key: 'dashboard', icon: LayoutDashboard, href: '/dashboard' },
+    { key: 'properties', icon: Building2, href: '/dashboard/properties' },
+    { key: 'propertyTypes', icon: Layers, href: '/dashboard/property-types' },
+    { key: 'areas', icon: MapPin, href: '/dashboard/areas' },
+    { key: 'amenities', icon: Sparkles, href: '/dashboard/amenities' },
+    { key: 'compounds', icon: Home, href: '/dashboard/compounds' },
+    { key: 'developers', icon: Users, href: '/dashboard/developers' },
+    { key: 'inquiries', icon: MessageSquare, href: '/dashboard/inquiries' },
 ];
 
 interface AdminSidebarProps {

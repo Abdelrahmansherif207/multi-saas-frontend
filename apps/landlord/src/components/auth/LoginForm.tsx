@@ -21,6 +21,19 @@ import { Link, useRouter } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 import axios from "axios"
 
+// Map server validation keys to user-friendly messages
+const validationMessages: Record<string, string> = {
+    'validation.password.mixed': 'Password must contain at least one uppercase letter, one lowercase letter, and one number',
+    'validation.password.letters': 'Password must contain at least one letter',
+    'validation.password.symbols': 'Password must contain at least one special character',
+    'validation.password.numbers': 'Password must contain at least one number',
+    'validation.password.uncompromised': 'This password has been compromised. Please choose a different one',
+};
+
+function translateValidationMessage(message: string): string {
+    return validationMessages[message] || message;
+}
+
 const loginSchema = z.object({
     email: z.string().email(),
     password: z.string().min(1),
@@ -33,11 +46,12 @@ export function LoginForm() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [rootError, setRootError] = useState<string | null>(null);
 
     const {
         register,
         handleSubmit,
+        setError,
         formState: { errors },
     } = useForm<LoginValues>({
         resolver: zodResolver(loginSchema),
@@ -49,7 +63,7 @@ export function LoginForm() {
 
     async function onSubmit(data: LoginValues) {
         setIsLoading(true);
-        setError(null);
+        setRootError(null);
 
         try {
             await axios.post('/api/auth/login', data);
@@ -60,7 +74,18 @@ export function LoginForm() {
             router.refresh(); // Refresh to update middleware state
         } catch (err: any) {
             console.error('Login error:', err);
-            setError(err.response?.data?.message || t('error_generic'));
+
+            if (err.response?.status === 422 && err.response?.data?.errors) {
+                const serverErrors = err.response.data.errors;
+                Object.keys(serverErrors).forEach((key) => {
+                    setError(key as keyof LoginValues, {
+                        type: "server",
+                        message: translateValidationMessage(serverErrors[key][0])
+                    });
+                });
+            } else {
+                setRootError(err.response?.data?.message || t('error_generic'));
+            }
         } finally {
             setIsLoading(false);
         }
@@ -76,9 +101,9 @@ export function LoginForm() {
             </CardHeader>
             <form onSubmit={handleSubmit(onSubmit)} method="POST">
                 <CardContent className="grid gap-4">
-                    {error && (
+                    {rootError && (
                         <div className="p-3 text-sm text-red-500 bg-red-50 dark:bg-red-950/50 rounded-md">
-                            {error}
+                            {rootError}
                         </div>
                     )}
                     <div className="grid gap-2">
@@ -91,7 +116,7 @@ export function LoginForm() {
                             {...register("email")}
                         />
                         {errors.email && (
-                            <p className="text-xs text-red-500">{t('error_email_required')}</p>
+                            <p className="text-xs text-red-500">{errors.email.message || t('error_email_required')}</p>
                         )}
                     </div>
                     <div className="grid gap-2">
@@ -103,7 +128,7 @@ export function LoginForm() {
                             {...register("password")}
                         />
                         {errors.password && (
-                            <p className="text-xs text-red-500">{t('error_password_required')}</p>
+                            <p className="text-xs text-red-500">{errors.password.message || t('error_password_required')}</p>
                         )}
                         <div className="flex justify-end">
                             <Link
