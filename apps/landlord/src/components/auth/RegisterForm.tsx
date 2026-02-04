@@ -28,6 +28,19 @@ import { Link, useRouter } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 import axios from "axios"
 
+// Map server validation keys to user-friendly messages
+const validationMessages: Record<string, string> = {
+    'validation.password.mixed': 'Password must contain at least one uppercase letter, one lowercase letter, and one number',
+    'validation.password.letters': 'Password must contain at least one letter',
+    'validation.password.symbols': 'Password must contain at least one special character',
+    'validation.password.numbers': 'Password must contain at least one number',
+    'validation.password.uncompromised': 'This password has been compromised. Please choose a different one',
+};
+
+function translateValidationMessage(message: string): string {
+    return validationMessages[message] || message;
+}
+
 const registerSchema = z.object({
     name: z.string().min(2),
     username: z.string().min(2),
@@ -88,7 +101,7 @@ export function RegisterForm() {
                 Object.keys(serverErrors).forEach((key) => {
                     setError(key as keyof RegisterValues, {
                         type: "server",
-                        message: serverErrors[key][0]
+                        message: translateValidationMessage(serverErrors[key][0])
                     });
                 });
             } else {
@@ -123,7 +136,7 @@ export function RegisterForm() {
                             {...register("name")}
                         />
                         {errors.name && (
-                            <p className="text-xs text-red-500">{t('error_name_required')}</p>
+                            <p className="text-xs text-red-500">{errors.name.message || t('error_name_required')}</p>
                         )}
                     </div>
                     <div className="grid gap-2">
@@ -135,7 +148,7 @@ export function RegisterForm() {
                             {...register("username")}
                         />
                         {errors.username && (
-                            <p className="text-xs text-red-500">{t('error_username_required')}</p>
+                            <p className="text-xs text-red-500">{errors.username.message || t('error_username_required')}</p>
                         )}
                     </div>
                     <div className="grid gap-2">
@@ -148,7 +161,7 @@ export function RegisterForm() {
                             {...register("email")}
                         />
                         {errors.email && (
-                            <p className="text-xs text-red-500">{t('error_email_required')}</p>
+                            <p className="text-xs text-red-500">{errors.email.message || t('error_email_required')}</p>
                         )}
                     </div>
                     <div className="grid gap-2">
@@ -194,7 +207,7 @@ export function RegisterForm() {
                             {...register("password")}
                         />
                         {errors.password && (
-                            <p className="text-xs text-red-500">{t('error_password_required')}</p>
+                            <p className="text-xs text-red-500">{errors.password.message || t('error_password_required')}</p>
                         )}
                     </div>
                     <div className="grid gap-2">
@@ -206,7 +219,7 @@ export function RegisterForm() {
                             {...register("password_confirmation")}
                         />
                         {errors.password_confirmation && (
-                            <p className="text-xs text-red-500">{t('error_password_mismatch')}</p>
+                            <p className="text-xs text-red-500">{errors.password_confirmation.message || t('error_password_mismatch')}</p>
                         )}
                     </div>
                 </CardContent>

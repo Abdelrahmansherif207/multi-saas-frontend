@@ -1,15 +1,14 @@
 import { getTranslations } from 'next-intl/server';
 import { AdminPageHeader } from '@/components/admin/layout';
-import { PropertyForm } from '@/components/admin/properties';
+import { PropertyTypeForm } from '@/components/admin/property-types';
 import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string }>;
 }
 
-export default async function CreatePropertyPage({ params }: PageProps) {
+export default async function CreatePropertyTypePage({ params }: PageProps) {
     const { locale, domain } = await params;
-    const t = await getTranslations('Admin.properties');
     const isRTL = locale === 'ar';
     const authToken = await getCustomerAuthCookie();
 
@@ -21,16 +20,16 @@ export default async function CreatePropertyPage({ params }: PageProps) {
     return (
         <div className="space-y-6">
             <AdminPageHeader
-                title={t('createProperty')}
+                title={isRTL ? 'إضافة نوع عقار' : 'Create Property Type'}
                 breadcrumbs={[
                     { label: isRTL ? 'لوحة التحكم' : 'Dashboard', href: `/${locale}/dashboard` },
-                    { label: t('title'), href: `/${locale}/dashboard/properties` },
-                    { label: t('createProperty') },
+                    { label: isRTL ? 'أنواع العقارات' : 'Property Types', href: `/${locale}/dashboard/property-types` },
+                    { label: isRTL ? 'إضافة نوع عقار' : 'Create Property Type' },
                 ]}
                 locale={locale}
             />
 
-            <PropertyForm locale={locale} mode="create" subdomain={subdomain} authToken={authToken} />
+            <PropertyTypeForm locale={locale} mode="create" subdomain={subdomain} authToken={authToken} />
         </div>
     );
 }

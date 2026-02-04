@@ -1,17 +1,17 @@
-import { customerAuthAxios } from '@/lib/auth/axios';
-import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { AdminPageHeader } from '@/components/admin/layout';
-import { PropertyForm } from '@/components/admin/properties';
+import { AreaForm } from '@/components/admin/areas';
 import { getCustomerAuthCookie } from '@/lib/auth/cookies';
+import { customerAuthAxios } from '@/lib/auth/axios';
+import { Area } from '../../types';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string; id: string }>;
 }
 
-export default async function EditPropertyPage({ params }: PageProps) {
+export default async function EditAreaPage({ params }: PageProps) {
     const { locale, domain, id } = await params;
-    const t = await getTranslations('Admin.properties');
     const isRTL = locale === 'ar';
     const authToken = await getCustomerAuthCookie();
 
@@ -20,36 +20,36 @@ export default async function EditPropertyPage({ params }: PageProps) {
         subdomain = domain.split('.')[0];
     }
 
-    let property = null;
+    let area: Area | null = null;
 
     try {
-        const response = await customerAuthAxios.get(`/tenant/${subdomain}/admin/realestate/properties/${id}`);
+        const response = await customerAuthAxios.get(`/tenant/${subdomain}/admin/realestate/areas/${id}`);
         if (response.data?.data) {
-            property = response.data.data;
+            area = response.data.data;
         }
     } catch (error) {
-        console.error('Error fetching property:', error);
+        console.error('Error fetching area:', error);
     }
 
-    if (!property) {
+    if (!area) {
         notFound();
     }
 
     return (
         <div className="space-y-6">
             <AdminPageHeader
-                title={t('editProperty')}
+                title={isRTL ? 'تعديل منطقة' : 'Edit Area'}
                 breadcrumbs={[
                     { label: isRTL ? 'لوحة التحكم' : 'Dashboard', href: `/${locale}/dashboard` },
-                    { label: t('title'), href: `/${locale}/dashboard/properties` },
-                    { label: property.title, href: `/${locale}/dashboard/properties/${id}` },
-                    { label: t('editProperty') },
+                    { label: isRTL ? 'المناطق' : 'Areas', href: `/${locale}/dashboard/areas` },
+                    { label: area.name, href: `/${locale}/dashboard/areas/${id}` },
+                    { label: isRTL ? 'تعديل' : 'Edit' },
                 ]}
                 locale={locale}
             />
 
-            <PropertyForm
-                property={property}
+            <AreaForm
+                area={area}
                 locale={locale}
                 mode="edit"
                 subdomain={subdomain}
