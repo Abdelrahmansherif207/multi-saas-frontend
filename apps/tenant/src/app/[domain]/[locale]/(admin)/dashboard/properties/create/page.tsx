@@ -1,22 +1,15 @@
 import { getTranslations } from 'next-intl/server';
 import { AdminPageHeader } from '@/components/admin/layout';
 import { PropertyForm } from '@/components/admin/properties';
-import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 
-interface PageProps {
+export default async function CreatePropertyPage({
+    params,
+}: {
     params: Promise<{ domain: string; locale: string }>;
-}
-
-export default async function CreatePropertyPage({ params }: PageProps) {
-    const { locale, domain } = await params;
+}) {
+    const { locale } = await params;
     const t = await getTranslations('Admin.properties');
     const isRTL = locale === 'ar';
-    const authToken = await getCustomerAuthCookie();
-
-    let subdomain = domain;
-    if (domain.includes('.')) {
-        subdomain = domain.split('.')[0];
-    }
 
     return (
         <div className="space-y-6">
@@ -30,7 +23,7 @@ export default async function CreatePropertyPage({ params }: PageProps) {
                 locale={locale}
             />
 
-            <PropertyForm locale={locale} mode="create" subdomain={subdomain} authToken={authToken} />
+            <PropertyForm locale={locale} mode="create" />
         </div>
     );
 }

@@ -56,8 +56,15 @@ export function createCustomerAuthAxios(): AxiosInstance {
                 config.headers.Authorization = `Bearer ${token}`;
             }
 
-            if (subdomain && config.headers && !config.headers['X-Tenant-ID']) {
-                config.headers['X-Tenant-ID'] = subdomain;
+            if (subdomain && config.headers) {
+                if (!config.headers['X-Tenant-ID']) {
+                    config.headers['X-Tenant-ID'] = subdomain;
+                }
+
+                // Explicitly set Host header to match tenant domain for backend tenancy resolution
+                // This fixes 401 errors where backend can't identify tenant from localhost request
+                const rootDomain = process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'localhost';
+                config.headers['Host'] = `${subdomain}.${rootDomain}`;
             }
 
             return config;
