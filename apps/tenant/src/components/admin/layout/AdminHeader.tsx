@@ -27,13 +27,13 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
     const [notificationsOpen, setNotificationsOpen] = useState(false);
     const isRTL = locale === 'ar';
 
-    const sidebarWidth = sidebarCollapsed ? 72 : 260;
+    const sidebarWidth = sidebarCollapsed ? 88 : 300;
 
     return (
         <header
             className={`
-                fixed top-0 h-16 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl
-                border-b border-slate-200 dark:border-slate-700/50
+                fixed top-0 h-16 z-50 bg-card/95 backdrop-blur-xl
+                border-b border-border
                 transition-all duration-200 ease-out
             `}
             style={{
@@ -47,20 +47,20 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={onMenuClick}
-                        className="lg:hidden p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        className="lg:hidden p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
                     >
                         <Menu className="w-5 h-5" />
                     </button>
 
                     {/* Search Bar */}
-                    <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl w-80">
-                        <Search className="w-4 h-4 text-slate-400" />
+                    <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-muted rounded-xl w-80">
+                        <Search className="w-4 h-4 text-muted-foreground" />
                         <input
                             type="text"
                             placeholder={t('search')}
-                            className="flex-1 bg-transparent text-sm text-slate-700 dark:text-slate-200 placeholder-slate-400 outline-none"
+                            className="flex-1 bg-transparent text-sm text-foreground placeholder-muted-foreground outline-none"
                         />
-                        <kbd className="hidden lg:inline-flex items-center px-2 py-0.5 text-xs text-slate-400 bg-slate-200 dark:bg-slate-700 rounded">
+                        <kbd className="hidden lg:inline-flex items-center px-2 py-0.5 text-xs text-muted-foreground bg-background rounded border border-border">
                             ⌘K
                         </kbd>
                     </div>
@@ -71,7 +71,7 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                     {/* Language Switcher */}
                     <Link
                         href={`/${locale === 'en' ? 'ar' : 'en'}/realestate`}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
                     >
                         <Globe className="w-4 h-4" />
                         <span className="text-sm font-medium">
@@ -83,10 +83,10 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                     <div className="relative">
                         <button
                             onClick={() => setNotificationsOpen(!notificationsOpen)}
-                            className="relative p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                            className="relative p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
                         >
                             <Bell className="w-5 h-5" />
-                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
+                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-destructive rounded-full" />
                         </button>
 
                         <AnimatePresence>
@@ -103,18 +103,18 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                                         transition={{ duration: 0.15 }}
                                         className={`
                                             absolute top-full mt-2 w-80 z-50
-                                            bg-white dark:bg-slate-800 rounded-xl shadow-xl
-                                            border border-slate-200 dark:border-slate-700
+                                            bg-card rounded-xl shadow-xl
+                                            border border-border
                                             overflow-hidden
                                             ${isRTL ? 'left-0' : 'right-0'}
                                         `}
                                     >
-                                        <div className="p-4 border-b border-slate-200 dark:border-slate-700">
-                                            <h3 className="font-semibold text-slate-900 dark:text-white">
+                                        <div className="p-4 border-b border-border">
+                                            <h3 className="font-semibold text-card-foreground">
                                                 {t('notifications')}
                                             </h3>
                                         </div>
-                                        <div className="p-4 text-center text-slate-500 text-sm">
+                                        <div className="p-4 text-center text-muted-foreground text-sm">
                                             {isRTL ? 'لا توجد إشعارات جديدة' : 'No new notifications'}
                                         </div>
                                     </motion.div>
@@ -124,7 +124,7 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                     </div>
 
                     {/* Settings */}
-                    <button className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <button className="p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors">
                         <Settings className="w-5 h-5" />
                     </button>
 
@@ -132,18 +132,18 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                     <div className="relative">
                         <button
                             onClick={() => setProfileOpen(!profileOpen)}
-                            className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                            className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-muted transition-colors"
                         >
-                            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-blue-500/25">
+                            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-semibold text-sm shadow-lg">
                                 JD
                             </div>
                             <div className="hidden md:block text-left">
-                                <p className="text-sm font-medium text-slate-900 dark:text-white">
+                                <p className="text-sm font-medium text-foreground">
                                     John Doe
                                 </p>
-                                <p className="text-xs text-slate-500">Admin</p>
+                                <p className="text-xs text-muted-foreground">Admin</p>
                             </div>
-                            <ChevronDown className="w-4 h-4 text-slate-400 hidden md:block" />
+                            <ChevronDown className="w-4 h-4 text-muted-foreground hidden md:block" />
                         </button>
 
                         <AnimatePresence>
@@ -160,30 +160,30 @@ export function AdminHeader({ sidebarCollapsed, onMenuClick, locale }: AdminHead
                                         transition={{ duration: 0.15 }}
                                         className={`
                                             absolute top-full mt-2 w-56 z-50
-                                            bg-white dark:bg-slate-800 rounded-xl shadow-xl
-                                            border border-slate-200 dark:border-slate-700
+                                            bg-card rounded-xl shadow-xl
+                                            border border-border
                                             overflow-hidden py-1
                                             ${isRTL ? 'left-0' : 'right-0'}
                                         `}
                                     >
-                                        <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-700">
-                                            <p className="text-sm font-medium text-slate-900 dark:text-white">
+                                        <div className="px-4 py-3 border-b border-border">
+                                            <p className="text-sm font-medium text-card-foreground">
                                                 John Doe
                                             </p>
-                                            <p className="text-xs text-slate-500">john@example.com</p>
+                                            <p className="text-xs text-muted-foreground">john@example.com</p>
                                         </div>
                                         <div className="py-1">
-                                            <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                                            <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
                                                 <User className="w-4 h-4" />
                                                 {t('profile')}
                                             </button>
-                                            <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                                            <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
                                                 <Settings className="w-4 h-4" />
                                                 {t('settings')}
                                             </button>
                                         </div>
-                                        <div className="py-1 border-t border-slate-200 dark:border-slate-700">
-                                            <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors">
+                                        <div className="py-1 border-t border-border">
+                                            <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-destructive hover:bg-destructive/10 transition-colors">
                                                 <LogOut className="w-4 h-4" />
                                                 {t('logout')}
                                             </button>

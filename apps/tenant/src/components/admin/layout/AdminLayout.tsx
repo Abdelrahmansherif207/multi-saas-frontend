@@ -13,10 +13,10 @@ export function AdminLayout({ children, locale }: AdminLayoutProps) {
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const isRTL = locale === 'ar';
 
-    const sidebarWidth = sidebarCollapsed ? 72 : 260;
+    const sidebarWidth = sidebarCollapsed ? 88 : 300;
 
     return (
-        <div className={`min-h-screen bg-slate-50 dark:bg-slate-900 ${isRTL ? 'rtl' : 'ltr'}`}>
+        <div className={`min-h-screen bg-background overflow-x-hidden ${isRTL ? 'rtl' : 'ltr'}`}>
             {/* Sidebar */}
             <AdminSidebar
                 collapsed={sidebarCollapsed}

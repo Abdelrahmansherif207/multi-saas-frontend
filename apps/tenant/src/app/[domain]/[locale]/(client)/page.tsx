@@ -1,7 +1,7 @@
 import { getMessages } from 'next-intl/server';
-import { getTenantData } from '../../../mocks/real-estate';
-import { ThemeRegistry, ThemeType } from '../../../lib/theme-registry';
-import { tenantService } from '../../../lib/services/tenant';
+import { getTenantData } from '../../../../mocks/real-estate';
+import { ThemeRegistry, ThemeType } from '../../../../lib/theme-registry';
+import { tenantService } from '../../../../lib/services/tenant';
 
 export default async function TenantHomePage({
     params,

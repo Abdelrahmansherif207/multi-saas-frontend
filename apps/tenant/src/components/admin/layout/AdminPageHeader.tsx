@@ -30,19 +30,19 @@ export function AdminPageHeader({
         <div className="mb-8">
             {/* Breadcrumbs */}
             {breadcrumbs.length > 0 && (
-                <nav className="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400 mb-3">
+                <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     {breadcrumbs.map((crumb, index) => (
-                        <div key={index} className="flex items-center gap-1">
-                            {index > 0 && <ChevronIcon className="w-4 h-4" />}
+                        <div key={index} className="flex items-center gap-2">
+                            {index > 0 && <ChevronIcon className="w-3.5 h-3.5 text-muted-foreground/60" />}
                             {crumb.href ? (
                                 <Link
                                     href={crumb.href}
-                                    className="hover:text-blue-500 transition-colors"
+                                    className="hover:text-primary transition-colors duration-200"
                                 >
                                     {crumb.label}
                                 </Link>
                             ) : (
-                                <span className="text-slate-900 dark:text-white font-medium">
+                                <span className="text-foreground font-medium">
                                     {crumb.label}
                                 </span>
                             )}
@@ -54,11 +54,11 @@ export function AdminPageHeader({
             {/* Title & Actions */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
                         {title}
                     </h1>
                     {description && (
-                        <p className="mt-1 text-slate-500 dark:text-slate-400">
+                        <p className="mt-1.5 text-muted-foreground">
                             {description}
                         </p>
                     )}
