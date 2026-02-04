@@ -278,8 +278,8 @@ export function PropertyForm({
                     { headers }
                 );
             }
-            router.push(`/${locale}/realestate/properties`);
             router.refresh();
+            router.push(`/${locale}/realestate/properties`);
         } catch (err: any) {
             console.error('Error saving property:', err);
             setError(err?.response?.data?.message || 'Failed to save property');
