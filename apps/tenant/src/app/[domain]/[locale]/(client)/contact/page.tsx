@@ -1,6 +1,6 @@
 import React from 'react';
-import { getTenantData } from '../../../../mocks/real-estate';
-import { ThemeRegistry, ThemeType } from '../../../../lib/theme-registry';
+import { getTenantData } from '../../../../../mocks/real-estate';
+import { ThemeRegistry, ThemeType } from '../../../../../lib/theme-registry';
 
 export default async function ContactRoute({
     params,

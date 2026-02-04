@@ -6,3 +6,6 @@ export { FormTextarea } from './FormTextarea';
 export { Card } from './Card';
 export { Badge } from './Badge';
 export { ActionButton } from './ActionButton';
+export { Modal } from './Modal';
+export { PropertyModal } from './PropertyModal';
+

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getTenantData, mockMenu } from '../../../../mocks/real-estate';
-import { ThemeRegistry, ThemeType } from '../../../../lib/theme-registry';
+import { getTenantData, mockMenu } from '../../../../../mocks/real-estate';
+import { ThemeRegistry, ThemeType } from '../../../../../lib/theme-registry';
 import { getMessages } from 'next-intl/server';
 import { ThemeTranslations } from '@repo/themes/real-estate';
 
