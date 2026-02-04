@@ -105,7 +105,36 @@ export function PropertyDetailView({ property, locale }: PropertyDetailViewProps
 
             {/* Header Card */}
             <Card padding="lg">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                <div className="flex flex-col lg:flex-row gap-8">
+                    {/* Image Gallery */}
+                    <div className="w-full lg:w-1/2 space-y-4">
+                        <div className="aspect-[4/3] rounded-2xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                            {property.images && property.images.length > 0 ? (
+                                <img
+                                    src={property.images.find(img => img.is_primary)?.url || property.images[0].url}
+                                    alt={property.title}
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center text-slate-400">
+                                    <Building2 className="w-16 h-16 opacity-20" />
+                                </div>
+                            )}
+                        </div>
+                        {property.images && property.images.length > 1 && (
+                            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                                {property.images.map((img) => (
+                                    <div
+                                        key={img.id}
+                                        className="w-20 h-20 flex-shrink-0 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden border-2 border-transparent hover:border-blue-500 cursor-pointer transition-all"
+                                    >
+                                        <img src={img.url} alt="" className="w-full h-full object-cover" />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-3">
                             {property.purpose && (
@@ -126,25 +155,56 @@ export function PropertyDetailView({ property, locale }: PropertyDetailViewProps
                         <h1 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-2">
                             {property.title}
                         </h1>
-                        <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                        <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-6">
                             <MapPin className="w-4 h-4" />
                             <span>
                                 {property.compound?.name || property.compound?.slug}
                                 {property.compound?.area && `, ${property.compound.area.name}`}
                             </span>
                         </div>
-                        {property.price_formatted && (
-                            <div className="mt-4 text-2xl font-bold text-blue-600 dark:text-blue-400">
-                                {property.price_formatted}
+
+                        <div className="grid grid-cols-2 gap-x-12 gap-y-4 mb-8">
+                            <div className="space-y-1">
+                                <p className="text-xs text-slate-400 uppercase tracking-wider">{isRTL ? 'السعر' : 'Price'}</p>
+                                <p className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                                    {property.price_formatted || `${property.price || 0} EGP`}
+                                </p>
                             </div>
-                        )}
-                    </div>
-                    <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                        <Link href={`/${locale}/realestate/properties/${property.id}/edit`}>
-                            <ActionButton variant="primary" icon={<Pencil className="w-4 h-4" />}>
-                                {tCommon('update')}
-                            </ActionButton>
-                        </Link>
+                            {property.area_formatted && (
+                                <div className="space-y-1">
+                                    <p className="text-xs text-slate-400 uppercase tracking-wider">{isRTL ? 'المساحة' : 'Area'}</p>
+                                    <p className="text-xl font-bold text-slate-900 dark:text-white">
+                                        {property.area_formatted}
+                                    </p>
+                                </div>
+                            )}
+                            {property.bedrooms !== undefined && (
+                                <div className="space-y-1">
+                                    <p className="text-xs text-slate-400 uppercase tracking-wider">{isRTL ? 'غرف النوم' : 'Bedrooms'}</p>
+                                    <div className="flex items-center gap-2">
+                                        <Bed className="w-4 h-4 text-slate-400" />
+                                        <p className="text-lg font-semibold text-slate-900 dark:text-white">{property.bedrooms}</p>
+                                    </div>
+                                </div>
+                            )}
+                            {property.bathrooms !== undefined && (
+                                <div className="space-y-1">
+                                    <p className="text-xs text-slate-400 uppercase tracking-wider">{isRTL ? 'الحمامات' : 'Bathrooms'}</p>
+                                    <div className="flex items-center gap-2">
+                                        <Bath className="w-4 h-4 text-slate-400" />
+                                        <p className="text-lg font-semibold text-slate-900 dark:text-white">{property.bathrooms}</p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                            <Link href={`/${locale}/realestate/properties/${property.id}/edit`} className="w-full lg:w-auto">
+                                <ActionButton variant="primary" icon={<Pencil className="w-4 h-4" />} className="w-full">
+                                    {tCommon('update')}
+                                </ActionButton>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </Card>

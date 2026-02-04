@@ -4,17 +4,56 @@ import { getTranslations } from 'next-intl/server';
 import PropertiesClient from './PropertiesClient';
 import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
     params: Promise<{
         domain: string;
         locale: string;
     }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export default async function PropertiesListPage(props: PageProps) {
     const params = await props.params;
+    const searchParams = await props.searchParams;
     const { locale, domain } = params;
+
+    console.log('[PropertiesListPage] searchParams:', searchParams);
+
     const authToken = await getCustomerAuthCookie();
+
+    let subdomain = domain;
+    if (domain.includes('.')) {
+        subdomain = domain.split('.')[0];
+    }
+
+    // Prepare filter query
+    const queryParams = new URLSearchParams();
+
+    // Helper to get param regardless of bracket format
+    const getSearchParam = (key: string) => {
+        return searchParams[key] || searchParams[`filter[${key}]`];
+    };
+
+    const purpose = getSearchParam('purpose');
+    const compound_id = getSearchParam('compound_id');
+    const property_type_id = getSearchParam('property_type_id');
+    const search = searchParams['search'];
+
+    if (purpose) queryParams.append('filter[purpose]', String(purpose));
+    if (compound_id) queryParams.append('filter[compound_id]', String(compound_id));
+    if (property_type_id) queryParams.append('filter[property_type_id]', String(property_type_id));
+    if (search) queryParams.append('search', String(search));
+
+    // Prepare filter params
+    const filterParams: any = {};
+    if (purpose) filterParams['filter[purpose]'] = purpose;
+    if (compound_id) filterParams['filter[compound_id]'] = compound_id;
+    if (property_type_id) filterParams['filter[property_type_id]'] = property_type_id;
+    if (search) filterParams['search'] = search;
+
+    console.log('[PropertiesListPage] API Params:', filterParams);
 
     // Fetch data directly from API
     let data: PropertiesResponse['data'] = [];
@@ -28,18 +67,20 @@ export default async function PropertiesListPage(props: PageProps) {
         to: 0,
         total: 0
     };
+    let propertyTypes: any[] = [];
+    let compounds: any[] = [];
 
     try {
-        let subdomain = domain;
-        if (domain.includes('.')) {
-            subdomain = domain.split('.')[0];
-        }
+        const [propRes, typesRes, compoundsRes] = await Promise.all([
+            customerAuthAxios.get<PropertiesResponse>(`/tenant/${subdomain}/admin/realestate/properties`, { params: filterParams }),
+            customerAuthAxios.get(`/tenant/${subdomain}/admin/realestate/property-types`),
+            customerAuthAxios.get(`/tenant/${subdomain}/admin/realestate/compounds`)
+        ]);
 
-        const response = await customerAuthAxios.get<PropertiesResponse>(`/tenant/${subdomain}/admin/realestate/properties`);
-
-        if (response.data && response.data.data) {
-            data = response.data.data;
-            const rawMeta = response.data.meta;
+        if (propRes.data && propRes.data.data) {
+            data = propRes.data.data;
+            console.log('[PropertiesListPage] Property IDs:', data.map(p => p.id));
+            const rawMeta = propRes.data.meta;
 
             if (rawMeta) {
                 meta = {
@@ -54,19 +95,30 @@ export default async function PropertiesListPage(props: PageProps) {
                 };
             }
         }
-    } catch (error) {
-        console.error('Error fetching properties:', error);
-    }
 
-    // const activeFiltersCount = [filterType, filterArea, filterStatus].filter(Boolean).length;
+        if (typesRes.data?.data) propertyTypes = typesRes.data.data;
+        if (compoundsRes.data?.data) compounds = compoundsRes.data.data;
+
+    } catch (error) {
+        console.error('Error fetching properties data:', error);
+    }
 
     return (
         <PropertiesClient
+            key={JSON.stringify(filterParams)}
             initialData={data}
             meta={meta}
             locale={locale}
-            subdomain={params.domain}
+            subdomain={subdomain}
             authToken={authToken}
+            propertyTypes={propertyTypes}
+            compounds={compounds}
+            initialFilters={{
+                purpose: (searchParams['filter[purpose]'] as string) || '',
+                compound_id: (searchParams['filter[compound_id]'] as string) || '',
+                property_type_id: (searchParams['filter[property_type_id]'] as string) || '',
+                search: (searchParams['search'] as string) || ''
+            }}
         />
     );
 }

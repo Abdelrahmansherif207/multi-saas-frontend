@@ -18,18 +18,26 @@ export default async function ViewPropertyPage({ params }: PageProps) {
         subdomain = domain.split('.')[0];
     }
 
+    // SERVER-SIDE LOG: Debugging the request
+    console.log(`[ViewPropertyPage] Fetching property ${id} for tenant ${subdomain}`);
+
     let property = null;
 
     try {
         const response = await customerAuthAxios.get(`/tenant/${subdomain}/admin/realestate/properties/${id}`);
-        if (response.data?.data) {
+        if (response.data && response.data.data) {
             property = response.data.data;
+            console.log(`[ViewPropertyPage] Successfully fetched: ${property.title}`);
+        } else {
+            console.warn(`[ViewPropertyPage] Property ${id} not found in response:`, response.data);
         }
-    } catch {
-        // Property fetch failed
+    } catch (error) {
+        console.error(`[ViewPropertyPage] Error fetching property ${id}:`, error);
+        // If it's a 404, we'll hit the notFound() below
     }
 
     if (!property) {
+        console.log(`[ViewPropertyPage] Property with ID ${id} not found, triggering notFound()`);
         notFound();
     }
 

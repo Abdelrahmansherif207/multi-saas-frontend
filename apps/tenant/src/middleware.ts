@@ -37,10 +37,12 @@ export default function middleware(request: NextRequest) {
             const locale = hasLocale ? pathname.split('/')[1] : 'en';
             const pathAfterLocale = hasLocale ? pathname.replace(/^\/(en|ar)/, '') : pathname;
 
-            const targetPath = `/${subdomain}/${locale}${pathAfterLocale}`;
-            console.log(`[Middleware] ✅ REWRITE: ${hostname}${pathname} -> ${targetPath}`);
+            const url = request.nextUrl.clone();
+            url.pathname = `/${subdomain}/${locale}${pathAfterLocale}`;
 
-            const response = NextResponse.rewrite(new URL(targetPath, request.url));
+            console.log(`[Middleware] ✅ REWRITE: ${hostname}${pathname} -> ${url.pathname}${url.search}`);
+
+            const response = NextResponse.rewrite(url);
             response.headers.set('X-Tenant-ID', subdomain);
             return response;
         }
