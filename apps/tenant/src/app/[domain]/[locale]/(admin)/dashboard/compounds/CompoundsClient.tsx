@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { DataTable, ColumnDef, Badge } from '@/components/admin/ui';
-import { Search, Building } from 'lucide-react';
+import axios from 'axios';
+import { DataTable, ColumnDef, Badge, ActionButton, Modal } from '@/components/admin/ui';
+import { Search, Building2, Eye, Edit, Trash2, Loader2 } from 'lucide-react';
 import { AdminPageHeader } from '@/components/admin';
+import Link from 'next/link';
 import { Compound, Meta } from './types';
 
 interface CompoundsClientProps {
@@ -13,15 +15,65 @@ interface CompoundsClientProps {
     meta: Meta;
     locale: string;
     subdomain: string;
+    authToken?: string | null;
 }
 
-export default function CompoundsClient({ initialData, meta, locale, subdomain }: CompoundsClientProps) {
+export default function CompoundsClient({ initialData, meta, locale, subdomain, authToken }: CompoundsClientProps) {
     const router = useRouter();
-    const t = useTranslations('Admin.compounds');
+    useTranslations('Admin.compounds');
     const isRTL = locale === 'ar';
 
     const [selectedIds, setSelectedIds] = useState<(string | number)[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [deleteId, setDeleteId] = useState<number | null>(null);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [deleteError, setDeleteError] = useState<string | null>(null);
+
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1';
+
+    const handleDelete = async () => {
+        if (!deleteId) return;
+        setIsDeleting(true);
+        setDeleteError(null);
+
+        // Extract subdomain from full domain if needed
+        let subdomainToUse = subdomain;
+        if (subdomainToUse.includes(':')) {
+            // Remove port: mystore.localhost:3001 -> mystore.localhost
+            subdomainToUse = subdomainToUse.split(':')[0];
+        }
+        if (subdomainToUse.includes('.')) {
+            // Remove domain extension: mystore.localhost -> mystore
+            subdomainToUse = subdomainToUse.split('.')[0];
+        }
+
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        };
+        if (authToken) {
+            headers['Authorization'] = `Bearer ${authToken}`;
+        }
+        headers['X-Tenant-ID'] = subdomainToUse;
+
+        try {
+            const url = `${apiBase}/tenant/${subdomainToUse}/admin/realestate/compounds/${deleteId}`;
+            console.log('[CompoundsClient Delete]', { url, headers: { ...headers, Authorization: headers.Authorization ? '***' : 'undefined' } });
+            
+            await axios.delete(url, { headers });
+            router.refresh();
+            setDeleteId(null);
+            setDeleteError(null);
+        } catch (error) {
+            const axiosError = error as { response?: { data?: { message?: string } } };
+            const errorMessage = axiosError.response?.data?.message || 
+                                (isRTL ? 'حدث خطأ أثناء الحذف' : 'Error deleting compound');
+            setDeleteError(errorMessage);
+            console.error('[CompoundsClient Delete Error]', { error, errorMessage });
+        } finally {
+            setIsDeleting(false);
+        }
+    };
 
     const statusVariant: Record<string, 'success' | 'warning' | 'danger'> = {
         true: 'success',
@@ -40,8 +92,8 @@ export default function CompoundsClient({ initialData, meta, locale, subdomain }
             sortable: true,
             render: (value, row) => (
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 flex items-center justify-center">
-                        <Building className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />
+                    <div className="w-10 h-10 rounded-lg bg-linear-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 flex items-center justify-center">
+                        <Building2 className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />
                     </div>
                     <div>
                         <p className="font-medium text-slate-900 dark:text-white">{value}</p>
@@ -59,12 +111,36 @@ export default function CompoundsClient({ initialData, meta, locale, subdomain }
                 </Badge>
             ),
         },
+        {
+            key: 'actions',
+            header: '',
+            render: (_, row) => (
+                <div className="flex items-center justify-end gap-2">
+                    <Link href={`/${locale}/dashboard/compounds/${row.id}`}>
+                        <ActionButton variant="ghost" size="sm" icon={<Eye className="w-4 h-4" />} />
+                    </Link>
+                    <Link href={`/${locale}/dashboard/compounds/${row.id}/edit`}>
+                        <ActionButton variant="ghost" size="sm" icon={<Edit className="w-4 h-4" />} />
+                    </Link>
+                    <ActionButton
+                        variant="ghost"
+                        size="sm"
+                        icon={<Trash2 className="w-4 h-4 text-red-500" />}
+                        onClick={() => setDeleteId(row.id)}
+                    />
+                </div>
+            ),
+        },
     ];
 
     // Client-side filtering
     const filteredData = initialData ? initialData.filter(compound => {
-        return compound.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            compound.slug.toLowerCase().includes(searchQuery.toLowerCase());
+        const name = compound.name || '';
+        const slug = compound.slug || '';
+        const search = searchQuery.toLowerCase();
+
+        return name.toLowerCase().includes(search) ||
+            slug.toLowerCase().includes(search);
     }) : [];
 
     return (
@@ -121,6 +197,39 @@ export default function CompoundsClient({ initialData, meta, locale, subdomain }
                 }}
                 locale={locale}
             />
+
+            {/* Delete Confirmation Modal */}
+            <Modal
+                isOpen={!!deleteId}
+                onClose={() => setDeleteId(null)}
+                title={isRTL ? 'تأكيد الحذف' : 'Confirm Delete'}
+            >
+                <div className="space-y-4">
+                    {deleteError && (
+                        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-600 dark:text-red-400 text-sm">
+                            {deleteError}
+                        </div>
+                    )}
+                    <p className="text-slate-600 dark:text-slate-400">
+                        {isRTL
+                            ? 'هل أنت متأكد أنك تريد حذف هذا المجمع؟ لا يمكن التراجع عن هذا الإجراء.'
+                            : 'Are you sure you want to delete this compound? This action cannot be undone.'}
+                    </p>
+                    <div className="flex justify-end gap-3">
+                        <ActionButton variant="outline" onClick={() => { setDeleteId(null); setDeleteError(null); }} disabled={isDeleting}>
+                            {isRTL ? 'إلغاء' : 'Cancel'}
+                        </ActionButton>
+                        <ActionButton 
+                            variant="danger" 
+                            onClick={handleDelete} 
+                            disabled={isDeleting}
+                            icon={isDeleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                        >
+                            {isDeleting ? (isRTL ? 'جاري الحذف...' : 'Deleting...') : (isRTL ? 'حذف' : 'Delete')}
+                        </ActionButton>
+                    </div>
+                </div>
+            </Modal>
         </div>
     );
 }

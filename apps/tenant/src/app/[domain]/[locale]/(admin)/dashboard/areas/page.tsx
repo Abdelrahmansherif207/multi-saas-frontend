@@ -1,6 +1,7 @@
 import { customerAuthAxios } from '@/lib/auth/axios';
 import { AreasResponse } from './types';
 import AreasClient from './AreasClient';
+import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 
 interface PageProps {
     params: Promise<{
@@ -12,6 +13,7 @@ interface PageProps {
 export default async function AreasPage(props: PageProps) {
     const params = await props.params;
     const { locale, domain } = params;
+    const authToken = await getCustomerAuthCookie();
 
     // Fetch data directly from API
     let data: AreasResponse['data'] = [];
@@ -57,6 +59,7 @@ export default async function AreasPage(props: PageProps) {
             stats={stats}
             locale={locale}
             subdomain={params.domain}
+            authToken={authToken}
         />
     );
 }

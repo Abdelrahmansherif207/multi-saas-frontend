@@ -23,6 +23,8 @@ interface PropertiesClientProps {
         compound_id: string;
         property_type_id: string;
         search: string;
+        page: number;
+        per_page: number;
     };
 }
 
@@ -74,6 +76,8 @@ export default function PropertiesClient({
             compound_id: filterCompound,
             property_type_id: filterType,
             search: searchQuery,
+            page: initialFilters.page,
+            per_page: initialFilters.per_page,
             ...newFilters
         };
 
@@ -82,6 +86,9 @@ export default function PropertiesClient({
         if (filters.compound_id) params.set('filter[compound_id]', filters.compound_id);
         if (filters.property_type_id) params.set('filter[property_type_id]', filters.property_type_id);
         if (filters.search) params.set('search', filters.search);
+
+        if (filters.page && filters.page > 1) params.set('page', String(filters.page));
+        if (filters.per_page) params.set('per_page', String(filters.per_page));
 
         router.push(`?${params.toString()}`);
     };
@@ -284,8 +291,10 @@ export default function PropertiesClient({
                 pagination={{
                     currentPage: meta?.current_page || 1,
                     totalPages: meta?.last_page || 1,
-                    pageSize: meta?.per_page || 10,
+                    pageSize: meta?.per_page || 15,
                     totalItems: meta?.total || 0,
+                    onPageChange: (page) => updateFilters({ page }),
+                    onPageSizeChange: (per_page) => updateFilters({ per_page, page: 1 }),
                 }}
                 emptyState={{
                     title: isRTL ? 'لا توجد عقارات' : 'No properties found',

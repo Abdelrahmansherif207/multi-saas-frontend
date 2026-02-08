@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
 import { DataTable, ColumnDef, Badge, ActionButton, Modal } from '@/components/admin/ui';
-import { Search, Layers, Plus, Eye, Edit, Trash2 } from 'lucide-react';
+import { Search, Layers, Plus, Eye, Edit, Trash2, Loader2 } from 'lucide-react';
 import { AdminPageHeader } from '@/components/admin';
 import { Amenity, Meta } from './types';
 
@@ -15,17 +15,19 @@ interface AmenitiesClientProps {
     meta: Meta;
     locale: string;
     subdomain: string;
+    authToken?: string | null;
 }
 
-export default function AmenitiesClient({ initialData, meta, locale, subdomain }: AmenitiesClientProps) {
+export default function AmenitiesClient({ initialData, meta, locale, subdomain, authToken }: AmenitiesClientProps) {
     const router = useRouter();
-    const t = useTranslations('Admin.amenities'); // Assuming translation exists or will fallback
+    useTranslations('Admin.amenities');
     const isRTL = locale === 'ar';
 
     const [selectedIds, setSelectedIds] = useState<(string | number)[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [deleteId, setDeleteId] = useState<number | null>(null);
     const [isDeleting, setIsDeleting] = useState(false);
+    const [deleteError, setDeleteError] = useState<string | null>(null);
 
     const statusVariant: Record<string, 'success' | 'warning' | 'danger'> = {
         true: 'success',
@@ -40,18 +42,43 @@ export default function AmenitiesClient({ initialData, meta, locale, subdomain }
     const handleDelete = async () => {
         if (!deleteId) return;
         setIsDeleting(true);
+        setDeleteError(null);
+
+        // Extract subdomain from full domain if needed
+        let subdomainToUse = subdomain;
+        if (subdomainToUse.includes(':')) {
+            // Remove port: mystore.localhost:3001 -> mystore.localhost
+            subdomainToUse = subdomainToUse.split(':')[0];
+        }
+        if (subdomainToUse.includes('.')) {
+            // Remove domain extension: mystore.localhost -> mystore
+            subdomainToUse = subdomainToUse.split('.')[0];
+        }
+
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        };
+        if (authToken) {
+            headers['Authorization'] = `Bearer ${authToken}`;
+        }
+        headers['X-Tenant-ID'] = subdomainToUse;
+
         try {
             const apiBase = process.env.NEXT_PUBLIC_API_URL;
-            await axios.delete(`${apiBase}/tenant/${subdomain}/admin/realestate/amenities/${deleteId}`, {
-                headers: {
-                    'X-Tenant-ID': subdomain,
-                }
-            });
+            const url = `${apiBase}/tenant/${subdomainToUse}/admin/realestate/amenities/${deleteId}`;
+            console.log('[AmenitiesClient Delete]', { url, headers: { ...headers, Authorization: headers.Authorization ? '***' : 'undefined' } });
+            
+            await axios.delete(url, { headers });
             router.refresh();
             setDeleteId(null);
+            setDeleteError(null);
         } catch (error) {
-            console.error('Error deleting amenity:', error);
-            alert(isRTL ? 'حدث خطأ أثناء الحذف' : 'Error deleting amenity');
+            const axiosError = error as { response?: { data?: { message?: string } } };
+            const errorMessage = axiosError.response?.data?.message || 
+                                (isRTL ? 'حدث خطأ أثناء الحذف' : 'Error deleting amenity');
+            setDeleteError(errorMessage);
+            console.error('[AmenitiesClient Delete Error]', { error, errorMessage });
         } finally {
             setIsDeleting(false);
         }
@@ -194,16 +221,26 @@ export default function AmenitiesClient({ initialData, meta, locale, subdomain }
                 title={isRTL ? 'تأكيد الحذف' : 'Confirm Delete'}
             >
                 <div className="space-y-4">
+                    {deleteError && (
+                        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-600 dark:text-red-400 text-sm">
+                            {deleteError}
+                        </div>
+                    )}
                     <p className="text-slate-600 dark:text-slate-400">
                         {isRTL
                             ? 'هل أنت متأكد أنك تريد حذف هذا المرفق؟ لا يمكن التراجع عن هذا الإجراء.'
                             : 'Are you sure you want to delete this amenity? This action cannot be undone.'}
                     </p>
                     <div className="flex justify-end gap-3">
-                        <ActionButton variant="outline" onClick={() => setDeleteId(null)} disabled={isDeleting}>
+                        <ActionButton variant="outline" onClick={() => { setDeleteId(null); setDeleteError(null); }} disabled={isDeleting}>
                             {isRTL ? 'إلغاء' : 'Cancel'}
                         </ActionButton>
-                        <ActionButton variant="danger" onClick={handleDelete} disabled={isDeleting}>
+                        <ActionButton 
+                            variant="danger" 
+                            onClick={handleDelete} 
+                            disabled={isDeleting}
+                            icon={isDeleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                        >
                             {isDeleting ? (isRTL ? 'جاري الحذف...' : 'Deleting...') : (isRTL ? 'حذف' : 'Delete')}
                         </ActionButton>
                     </div>

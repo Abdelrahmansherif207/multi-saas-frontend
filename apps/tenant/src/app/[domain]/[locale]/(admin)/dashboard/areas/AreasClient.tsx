@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
 import { DataTable, ColumnDef, Badge, ActionButton, Modal } from '@/components/admin/ui';
-import { Search, MapPin, Plus, Eye, Edit, Trash2 } from 'lucide-react';
+import { Search, MapPin, Plus, Eye, Edit, Trash2, Loader2 } from 'lucide-react';
 import { AdminPageHeader } from '@/components/admin';
 import { AreaStats } from '@/components/admin/areas';
 import { Area, Meta, AreaStatistics } from './types';
@@ -17,17 +17,21 @@ interface AreasClientProps {
     meta: Meta;
     locale: string;
     subdomain: string;
+    authToken?: string | null;
 }
 
-export default function AreasClient({ initialData, stats, meta, locale, subdomain }: AreasClientProps) {
+export default function AreasClient({ initialData, stats, meta, locale, subdomain, authToken }: AreasClientProps) {
     const router = useRouter();
-    const t = useTranslations('Admin.areas');
+    useTranslations('Admin.areas');
     const isRTL = locale === 'ar';
 
     const [selectedIds, setSelectedIds] = useState<(string | number)[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [deleteId, setDeleteId] = useState<number | null>(null);
     const [isDeleting, setIsDeleting] = useState(false);
+    const [deleteError, setDeleteError] = useState<string | null>(null);
+
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1';
 
     const statusVariant: Record<string, 'success' | 'warning' | 'danger'> = {
         true: 'success',
@@ -42,17 +46,40 @@ export default function AreasClient({ initialData, stats, meta, locale, subdomai
     const handleDelete = async () => {
         if (!deleteId) return;
         setIsDeleting(true);
+
+        // Extract subdomain from full domain if needed
+        let subdomainToUse = subdomain;
+        if (subdomainToUse.includes(':')) {
+            // Remove port: mystore.localhost:3001 -> mystore.localhost
+            subdomainToUse = subdomainToUse.split(':')[0];
+        }
+        if (subdomainToUse.includes('.')) {
+            // Remove domain extension: mystore.localhost -> mystore
+            subdomainToUse = subdomainToUse.split('.')[0];
+        }
+
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        };
+        if (authToken) {
+            headers['Authorization'] = `Bearer ${authToken}`;
+        }
+        headers['X-Tenant-ID'] = subdomainToUse;
+
         try {
-            await axios.delete(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1'}/tenant/${subdomain}/admin/realestate/areas/${deleteId}`, {
-                headers: {
-                    'X-Tenant-ID': subdomain,
-                }
-            });
+            const url = `${apiBase}/tenant/${subdomainToUse}/admin/realestate/areas/${deleteId}`;
+            console.log('[AreasClient Delete]', { url, headers: { ...headers, Authorization: headers.Authorization ? '***' : 'undefined' } });
+            
+            await axios.delete(url, { headers });
             router.refresh();
             setDeleteId(null);
+            setDeleteError(null);
         } catch (error) {
-            console.error('Error deleting area:', error);
-            alert(isRTL ? 'حدث خطأ أثناء الحذف' : 'Error deleting area');
+            const axiosError = error as { response?: { data?: { message?: string } } };
+            const errorMessage = axiosError.response?.data?.message || 
+                                (isRTL ? 'حدث خطأ أثناء الحذف' : 'Error deleting area');
+            setDeleteError(errorMessage);
         } finally {
             setIsDeleting(false);
         }
@@ -65,7 +92,7 @@ export default function AreasClient({ initialData, stats, meta, locale, subdomai
             sortable: true,
             render: (value, row) => (
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-linear-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 flex items-center justify-center">
                         <MapPin className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />
                     </div>
                     <div>
@@ -201,16 +228,26 @@ export default function AreasClient({ initialData, stats, meta, locale, subdomai
                 title={isRTL ? 'تأكيد الحذف' : 'Confirm Delete'}
             >
                 <div className="space-y-4">
+                    {deleteError && (
+                        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-600 dark:text-red-400 text-sm">
+                            {deleteError}
+                        </div>
+                    )}
                     <p className="text-slate-600 dark:text-slate-400">
                         {isRTL
                             ? 'هل أنت متأكد أنك تريد حذف هذه المنطقة؟ لا يمكن التراجع عن هذا الإجراء.'
                             : 'Are you sure you want to delete this area? This action cannot be undone.'}
                     </p>
                     <div className="flex justify-end gap-3">
-                        <ActionButton variant="outline" onClick={() => setDeleteId(null)} disabled={isDeleting}>
+                        <ActionButton variant="outline" onClick={() => { setDeleteId(null); setDeleteError(null); }} disabled={isDeleting}>
                             {isRTL ? 'إلغاء' : 'Cancel'}
                         </ActionButton>
-                        <ActionButton variant="danger" onClick={handleDelete} disabled={isDeleting}>
+                        <ActionButton 
+                            variant="danger" 
+                            onClick={handleDelete} 
+                            disabled={isDeleting}
+                            icon={isDeleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                        >
                             {isDeleting ? (isRTL ? 'جاري الحذف...' : 'Deleting...') : (isRTL ? 'حذف' : 'Delete')}
                         </ActionButton>
                     </div>

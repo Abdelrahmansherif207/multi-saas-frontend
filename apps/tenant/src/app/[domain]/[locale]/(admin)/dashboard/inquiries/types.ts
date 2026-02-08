@@ -6,6 +6,7 @@ export interface Inquiry {
     message: string | null;
     status: 'new' | 'contacted' | 'qualified' | 'converted';
     status_label: string;
+    admin_notes: string | null;
     property?: PropertyContext | null;
     compound?: CompoundContext | null;
     user?: UserContext | null;

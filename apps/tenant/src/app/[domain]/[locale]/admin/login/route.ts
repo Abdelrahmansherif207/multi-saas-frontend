@@ -24,11 +24,11 @@ export async function GET(
 
         // Use explicit hostname from headers to avoid internal rewrite issues
         const protocol = request.nextUrl.protocol || 'http:';
-        const finalRedirectUrl = `${protocol}//${hostname}/${locale}/`;
+        const finalRedirectUrl = `${protocol}//${hostname}/${locale}/dashboard`;
 
         return NextResponse.redirect(new URL(finalRedirectUrl));
     }
 
     const protocol = request.nextUrl.protocol || 'http:';
-    return NextResponse.redirect(new URL(`${protocol}//${hostname}/${locale}/`));
+    return NextResponse.redirect(new URL(`${protocol}//${hostname}/${locale}/dashboard`));
 }

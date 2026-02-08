@@ -3,7 +3,7 @@ import { AdminPageHeader } from '@/components/admin';
 import { ActionButton } from '@/components/admin/ui';
 import { DeveloperDetailView } from '@/components/admin/developers';
 import { customerAuthAxios } from '@/lib/auth/axios';
-import { Developer } from '../../types';
+import { Developer } from '../types';
 import { Edit } from 'lucide-react';
 
 interface PageProps {

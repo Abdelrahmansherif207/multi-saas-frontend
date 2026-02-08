@@ -6,8 +6,7 @@ import axios from 'axios';
 import { Card } from '../ui/Card';
 import { ActionButton } from '../ui/ActionButton';
 import {
-    Save, X, Type, Loader2, Tag, Layers, ToggleLeft, ToggleRight,
-    Image as ImageIcon
+    Save, X, Type, Loader2, Tag, Layers, Image as ImageIcon
 } from 'lucide-react';
 import { Amenity } from '@/app/[domain]/[locale]/(admin)/dashboard/amenities/types';
 
@@ -50,7 +49,13 @@ export function AmenityForm({
         status: true,
     });
 
-    const subdomain = propSubdomain || (params.domain as string)?.split('.')[0] || '';
+    let subdomain = propSubdomain || (params.domain as string) || '';
+    if (subdomain.includes(':')) {
+        subdomain = subdomain.split(':')[0];
+    }
+    if (subdomain.includes('.')) {
+        subdomain = subdomain.split('.')[0];
+    }
     const apiBase = process.env.NEXT_PUBLIC_API_URL;
 
     useEffect(() => {
@@ -73,7 +78,7 @@ export function AmenityForm({
             .replace(/(^-|-$)/g, '');
     };
 
-    const handleInputChange = (field: keyof AmenityFormData, value: any) => {
+    const handleInputChange = (field: keyof AmenityFormData, value: string | number | boolean) => {
         setFormData(prev => {
             const updated = { ...prev, [field]: value };
 
@@ -113,8 +118,6 @@ export function AmenityForm({
 
             const method = mode === 'edit' ? 'put' : 'post';
 
-            console.log('[AmenityForm] Sending payload:', payload);
-
             await axios({
                 method,
                 url,
@@ -124,13 +127,13 @@ export function AmenityForm({
 
             router.push(`/${locale}/dashboard/amenities`);
             router.refresh();
-        } catch (err: any) {
-            console.error('Error saving amenity:', err);
-            if (err.response?.data?.errors) {
-                const errorMessages = Object.values(err.response.data.errors).flat().join(', ');
+        } catch (err) {
+            const axiosError = err as { response?: { data?: { errors?: Record<string, string[]>; message?: string } } };
+            if (axiosError.response?.data?.errors) {
+                const errorMessages = Object.values(axiosError.response.data.errors).flat().join(', ');
                 setError(errorMessages);
             } else {
-                setError(err.response?.data?.message || (isRTL ? 'حدث خطأ أثناء الحفظ' : 'An error occurred while saving'));
+                setError(axiosError.response?.data?.message || (isRTL ? 'حدث خطأ أثناء الحفظ' : 'An error occurred while saving'));
             }
         } finally {
             setLoading(false);
@@ -231,7 +234,6 @@ export function AmenityForm({
                                 />
                                 {formData.icon && (
                                     <div className="mt-2 w-12 h-12 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img src={formData.icon} alt="Preview" className="w-8 h-8 object-contain" />
                                     </div>
                                 )}

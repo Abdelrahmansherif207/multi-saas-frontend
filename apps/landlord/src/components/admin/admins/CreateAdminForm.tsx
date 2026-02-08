@@ -46,7 +46,6 @@ export function CreateAdminForm() {
     const [previewImage, setPreviewImage] = useState<string | null>(null);
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
         // Handle submission
     }
 

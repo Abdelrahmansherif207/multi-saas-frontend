@@ -57,7 +57,7 @@ export function TenantList({ onTenantSwitch }: TenantListProps) {
             const tenantAppUrl = process.env.NEXT_PUBLIC_TENANT_APP_URL || 'http://localhost:3001';
             const rootDomain = process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'localhost:3001';
 
-            // Construct the public URL for the tenant admin login
+            // Construct the public URL for the tenant admin dashboard
             const host = `${subdomain}.${rootDomain}`;
             const targetUrl = new URL(`/en/admin/login`, `http://${host}`);
             targetUrl.searchParams.set('token', token);

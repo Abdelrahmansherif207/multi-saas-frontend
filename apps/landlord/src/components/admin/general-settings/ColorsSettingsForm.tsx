@@ -57,7 +57,7 @@ export function ColorsSettingsForm() {
     });
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
+        // Handle form submission
     }
 
     const colorFields = [

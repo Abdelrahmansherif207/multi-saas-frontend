@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getTenantData } from '../../../../../mocks/real-estate';
-import { ThemeRegistry, ThemeType } from '../../../../../lib/theme-registry';
+import { getTenantData } from '@/mocks/real-estate';
+import { ThemeRegistry, ThemeType } from '@/lib/theme-registry';
 
 export default async function AreaRoute({
     params,

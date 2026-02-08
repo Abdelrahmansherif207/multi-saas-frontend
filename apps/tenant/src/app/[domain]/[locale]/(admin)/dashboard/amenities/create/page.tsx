@@ -1,6 +1,7 @@
 import { AdminPageHeader } from '@/components/admin';
 import { AmenityForm } from '@/components/admin/amenities';
 import { getCustomerAuthCookie } from '@/lib/auth/cookies';
+import { Card } from '@/components/admin/ui/Card';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string }>;
@@ -25,11 +26,14 @@ export default async function CreateAmenityPage(props: PageProps) {
                 locale={locale}
             />
 
-            <AmenityForm
-                locale={locale}
-                mode="create"
-                authToken={authToken}
-            />
+            <Card>
+                <AmenityForm
+                    locale={locale}
+                    mode="create"
+                    subdomain={domain}
+                    authToken={authToken}
+                />
+            </Card>
         </div>
     );
 }

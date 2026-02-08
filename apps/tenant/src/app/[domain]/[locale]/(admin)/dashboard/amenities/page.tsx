@@ -1,4 +1,5 @@
 import { customerAuthAxios } from '@/lib/auth/axios';
+import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 import AmenitiesClient from './AmenitiesClient';
 import { AmenitiesResponse } from './types';
 
@@ -9,6 +10,7 @@ interface PageProps {
 export default async function AmenitiesPage(props: PageProps) {
     const params = await props.params;
     const { locale, domain } = params;
+    const authToken = await getCustomerAuthCookie();
 
     let data: AmenitiesResponse['data'] = [];
     let meta: AmenitiesResponse['meta'] = {
@@ -43,7 +45,8 @@ export default async function AmenitiesPage(props: PageProps) {
             initialData={data}
             meta={meta}
             locale={locale}
-            subdomain={params.domain}
+            subdomain={domain}
+            authToken={authToken}
         />
     );
 }

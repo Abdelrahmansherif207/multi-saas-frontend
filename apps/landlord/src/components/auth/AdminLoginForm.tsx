@@ -59,7 +59,6 @@ export function AdminLoginForm() {
             router.push(redirect);
             router.refresh(); // Refresh to update middleware state
         } catch (err: any) {
-            console.error('Admin login error:', err);
             setError(err.response?.data?.message || t('error_generic'));
         } finally {
             setIsLoading(false);

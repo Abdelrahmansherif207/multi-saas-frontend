@@ -33,10 +33,6 @@ export async function getSubdomainFromRequest(): Promise<string | null> {
 export function createCustomerAuthAxios(): AxiosInstance {
     const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
-    if (!baseURL && typeof window === 'undefined') {
-        console.warn('NEXT_PUBLIC_API_URL is not defined in environment variables');
-    }
-
     const instance = axios.create({
         baseURL: baseURL || 'http://127.0.0.1:8000/api/v1',
         headers: {
@@ -90,10 +86,6 @@ export function createCustomerAuthAxios(): AxiosInstance {
  */
 export function createPublicAxios(): AxiosInstance {
     const baseURL = process.env.NEXT_PUBLIC_API_URL;
-
-    if (!baseURL && typeof window === 'undefined') {
-        console.warn('PUBLIC_API_URL is not defined. Falling back to default for publicAxios.');
-    }
 
     const instance = axios.create({
         baseURL: baseURL || 'http://127.0.0.1:8000/api/v1',

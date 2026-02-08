@@ -20,7 +20,7 @@ export function AreaDetailView({ area, locale }: AreaDetailViewProps) {
                 <div className="lg:col-span-2 space-y-6">
                     <Card>
                         <div className="flex items-start gap-4">
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 flex items-center justify-center flex-shrink-0">
+                            <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 flex items-center justify-center shrink-0">
                                 <MapPin className="w-8 h-8 text-indigo-500 dark:text-indigo-400" />
                             </div>
                             <div className="flex-1">

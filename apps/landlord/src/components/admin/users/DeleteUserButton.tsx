@@ -31,7 +31,6 @@ export function DeleteUserButton({ userId, userName }: DeleteUserButtonProps) {
         setIsDeleting(true);
         try {
             const response = await axios.delete(`/api/admin/users/${userId}`);
-            console.log('Delete response:', response);
 
             if (response.data.success) {
                 setOpen(false);
@@ -40,7 +39,6 @@ export function DeleteUserButton({ userId, userName }: DeleteUserButtonProps) {
                 alert(response.data.message || "Failed to delete user");
             }
         } catch (error: any) {
-            console.error("Failed to delete user:", error);
             alert(error.response?.data?.message || "An error occurred while deleting the user");
         } finally {
             setIsDeleting(false);

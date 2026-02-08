@@ -11,8 +11,7 @@ export default function middleware(request: NextRequest) {
     // Define root domain from env
     const rootDomain = process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'localhost:3001';
 
-    // SERVER-SIDE LOG: This will show in the terminal where "pnpm dev" is running
-    console.log(`[Middleware] ${request.method} ${hostname}${pathname}`);
+    // Logging removed
 
     // Skip internal paths and assets
     if (
@@ -40,7 +39,6 @@ export default function middleware(request: NextRequest) {
             const url = request.nextUrl.clone();
             url.pathname = `/${subdomain}/${locale}${pathAfterLocale}`;
 
-            console.log(`[Middleware] ✅ REWRITE: ${hostname}${pathname} -> ${url.pathname}${url.search}`);
 
             const response = NextResponse.rewrite(url);
             response.headers.set('X-Tenant-ID', subdomain);
@@ -48,7 +46,6 @@ export default function middleware(request: NextRequest) {
         }
     }
 
-    console.log(`[Middleware] ℹ️ NO SUBDOMAIN: routing naturally`);
     return handleI18nRouting(request);
 }
 

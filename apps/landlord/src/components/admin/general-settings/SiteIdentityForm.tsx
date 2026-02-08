@@ -105,7 +105,7 @@ export function SiteIdentityForm() {
     });
 
     const handleUpload = (key: string) => (file: File) => {
-        console.log(`Uploading ${key}`, file);
+        // Handle file upload
     };
 
     const handleRemove = (key: string) => () => {
@@ -113,7 +113,7 @@ export function SiteIdentityForm() {
     };
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
+        // Handle form submission
     }
 
     return (

@@ -5,11 +5,12 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
 import { DataTable, ColumnDef, ActionButton, Modal } from '@/components/admin/ui';
-import { Search, Eye, Trash2, Mail, Phone, Home, Building2 } from 'lucide-react';
+import { Search, Eye, Trash2, Mail, Phone, Home, Building2, Pencil } from 'lucide-react';
 import { AdminPageHeader } from '@/components/admin';
 import { Inquiry, Meta, InquiryStatistics } from './types';
 import { InquiryStats } from '@/components/admin/inquiries/InquiryStats';
 import { InquiryStatusBadge } from '@/components/admin/inquiries/InquiryStatusBadge';
+
 
 interface InquiriesClientProps {
     initialData: Inquiry[];
@@ -17,9 +18,10 @@ interface InquiriesClientProps {
     stats: InquiryStatistics;
     locale: string;
     subdomain: string;
+    authToken?: string | null;
 }
 
-export default function InquiriesClient({ initialData, meta, stats, locale, subdomain }: InquiriesClientProps) {
+export default function InquiriesClient({ initialData, meta, stats, locale, subdomain, authToken }: InquiriesClientProps) {
     const router = useRouter();
     const isRTL = locale === 'ar';
 
@@ -28,6 +30,7 @@ export default function InquiriesClient({ initialData, meta, stats, locale, subd
     const [deleteId, setDeleteId] = useState<number | null>(null);
     const [isDeleting, setIsDeleting] = useState(false);
 
+
     const handleDelete = async () => {
         if (!deleteId) return;
         setIsDeleting(true);
@@ -35,6 +38,7 @@ export default function InquiriesClient({ initialData, meta, stats, locale, subd
             await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/tenant/${subdomain}/admin/realestate/inquiries/${deleteId}`, {
                 headers: {
                     'X-Tenant-ID': subdomain,
+                    ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
                 }
             });
             router.refresh();
@@ -113,10 +117,13 @@ export default function InquiriesClient({ initialData, meta, stats, locale, subd
         {
             key: 'actions',
             header: '',
-            render: (_, row) => (
+            render: (_, row, index) => (
                 <div className="flex items-center justify-end gap-2">
                     <Link href={`/${locale}/dashboard/inquiries/${row.id}`}>
                         <ActionButton variant="ghost" size="sm" icon={<Eye className="w-4 h-4" />} />
+                    </Link>
+                    <Link href={`/${locale}/dashboard/inquiries/${row.id}/edit`}>
+                        <ActionButton variant="ghost" size="sm" icon={<Pencil className="w-4 h-4 text-blue-500" />} />
                     </Link>
                     <ActionButton
                         variant="ghost"
@@ -210,6 +217,8 @@ export default function InquiriesClient({ initialData, meta, stats, locale, subd
                     </div>
                 </div>
             </Modal>
+
+
         </div>
     );
 }

@@ -118,8 +118,6 @@ export function PropertyTypeForm({
 
             const method = mode === 'edit' ? 'put' : 'post';
 
-            console.log('[PropertyTypeForm] Sending payload:', payload);
-
             await axios({
                 method,
                 url,
@@ -130,7 +128,6 @@ export function PropertyTypeForm({
             router.push(`/${locale}/dashboard/property-types`);
             router.refresh();
         } catch (err: any) {
-            console.error('Error saving property type:', err);
             if (err.response?.data?.errors) {
                 const errorMessages = Object.values(err.response.data.errors).flat().join(', ');
                 setError(errorMessages);

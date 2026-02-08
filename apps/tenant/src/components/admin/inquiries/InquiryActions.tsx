@@ -11,9 +11,10 @@ interface InquiryActionsProps {
     inquiry: Inquiry;
     isRTL: boolean;
     subdomain: string;
+    authToken?: string | null;
 }
 
-export function InquiryActions({ inquiry, isRTL, subdomain }: InquiryActionsProps) {
+export function InquiryActions({ inquiry, isRTL, subdomain, authToken }: InquiryActionsProps) {
     const router = useRouter();
     const [loading, setLoading] = useState<string | null>(null); // store the action name being executed
     const [assignAgentOpen, setAssignAgentOpen] = useState(false);
@@ -24,10 +25,15 @@ export function InquiryActions({ inquiry, isRTL, subdomain }: InquiryActionsProp
     const handleStatusChange = async (action: 'contacted' | 'qualified' | 'converted') => {
         setLoading(action);
         try {
-            await axios.post(
-                `${apiBase}/tenant/${subdomain}/admin/realestate/inquiries/${inquiry.id}/${action}`,
-                {},
-                { headers: { 'X-Tenant-ID': subdomain } }
+            await axios.put(
+                `${apiBase}/tenant/${subdomain}/admin/realestate/inquiries/${inquiry.id}`,
+                { status: action },
+                {
+                    headers: {
+                        'X-Tenant-ID': subdomain,
+                        ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
+                    }
+                }
             );
             router.refresh();
         } catch (error) {
@@ -42,10 +48,15 @@ export function InquiryActions({ inquiry, isRTL, subdomain }: InquiryActionsProp
         if (!agentId) return;
         setLoading('assign');
         try {
-            await axios.post(
-                `${apiBase}/tenant/${subdomain}/admin/realestate/inquiries/${inquiry.id}/assign`,
-                { agent_id: agentId },
-                { headers: { 'X-Tenant-ID': subdomain } }
+            await axios.put(
+                `${apiBase}/tenant/${subdomain}/admin/realestate/inquiries/${inquiry.id}`,
+                { agent_id: Number(agentId) },
+                {
+                    headers: {
+                        'X-Tenant-ID': subdomain,
+                        ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
+                    }
+                }
             );
             router.refresh();
             setAssignAgentOpen(false);

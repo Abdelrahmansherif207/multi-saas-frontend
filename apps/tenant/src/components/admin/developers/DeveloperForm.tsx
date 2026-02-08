@@ -133,8 +133,6 @@ export function DeveloperForm({
 
             const method = mode === 'edit' ? 'put' : 'post';
 
-            console.log('[DeveloperForm] Sending payload:', payload);
-
             await axios({
                 method,
                 url,
@@ -145,7 +143,6 @@ export function DeveloperForm({
             router.push(`/${locale}/dashboard/developers`);
             router.refresh();
         } catch (err: any) {
-            console.error('Error saving developer:', err);
             if (err.response?.data?.errors) {
                 const errorMessages = Object.values(err.response.data.errors).flat().join(', ');
                 setError(errorMessages);

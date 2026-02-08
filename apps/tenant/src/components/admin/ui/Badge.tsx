@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info' | 'secondary';
+type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info' | 'secondary' | 'primary';
 
 interface BadgeProps {
     children: React.ReactNode;
@@ -17,7 +17,8 @@ const variantClasses: Record<BadgeVariant, string> = {
     warning: 'bg-amber-500/15 text-amber-600 dark:text-amber-400 ring-1 ring-amber-500/20',
     danger: 'bg-red-500/15 text-red-600 dark:text-red-400 ring-1 ring-red-500/20',
     info: 'bg-sky-500/15 text-sky-600 dark:text-sky-400 ring-1 ring-sky-500/20',
-    secondary: 'bg-muted text-muted-foreground ring-1 ring-border',
+    secondary: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 ring-1 ring-slate-200 dark:ring-slate-700',
+    primary: 'bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-500/20',
 };
 
 export function Badge({

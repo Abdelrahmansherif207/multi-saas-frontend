@@ -2,6 +2,7 @@ import { AdminPageHeader } from '@/components/admin';
 import { InquiryDetailView } from '@/components/admin/inquiries';
 import { customerAuthAxios } from '@/lib/auth/axios';
 import { Inquiry } from '../types';
+import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string; id: string }>;
@@ -11,6 +12,7 @@ export default async function ViewInquiryPage(props: PageProps) {
     const params = await props.params;
     const { locale, domain, id } = params;
     const isRTL = locale === 'ar';
+    const authToken = await getCustomerAuthCookie();
 
     let inquiry: Inquiry | undefined;
     let subdomain = domain;
@@ -53,6 +55,7 @@ export default async function ViewInquiryPage(props: PageProps) {
                 inquiry={inquiry}
                 locale={locale}
                 subdomain={params.domain}
+                authToken={authToken}
             />
         </div>
     );
