@@ -6,10 +6,11 @@ import axios from 'axios';
 import { Card } from '../ui/Card';
 import { ActionButton } from '../ui/ActionButton';
 import {
-    Save, X, MapPin, Loader2, Tag, FileText, ToggleLeft, ToggleRight,
-    Globe, Star, Search, Image as ImageIcon
+    Save, X, MapPin, Loader2, Tag, FileText,
+    Globe, Star
 } from 'lucide-react';
 import { Area } from '@/app/[domain]/[locale]/(admin)/dashboard/areas/types';
+import { isValidAreaType, VALID_AREA_TYPES } from '@/types/area';
 
 interface AreaFormData {
     name: string;
@@ -91,7 +92,7 @@ export function AreaForm({
             .replace(/(^-|-$)/g, '');
     };
 
-    const handleInputChange = (field: keyof AreaFormData, value: any) => {
+    const handleInputChange = (field: keyof AreaFormData, value: string | number | boolean) => {
         setFormData(prev => {
             const updated = { ...prev, [field]: value };
 
@@ -107,6 +108,13 @@ export function AreaForm({
         e.preventDefault();
         setLoading(true);
         setError(null);
+
+        // Validate type field - must be one of the allowed values
+        if (!isValidAreaType(formData.type)) {
+            setError(`Invalid area type. Allowed values: ${VALID_AREA_TYPES.join(', ')}`);
+            setLoading(false);
+            return;
+        }
 
         const payload = {
             ...formData,
@@ -131,7 +139,6 @@ export function AreaForm({
 
             const method = mode === 'edit' ? 'put' : 'post';
 
-            console.log('[AreaForm] Sending payload:', payload);
 
             await axios({
                 method,
@@ -142,13 +149,13 @@ export function AreaForm({
 
             router.push(`/${locale}/dashboard/areas`);
             router.refresh();
-        } catch (err: any) {
-            console.error('Error saving area:', err);
-            if (err.response?.data?.errors) {
-                const errorMessages = Object.values(err.response.data.errors).flat().join(', ');
+        } catch (err) {
+            const axiosError = err as { response?: { data?: { errors?: Record<string, string[]>; message?: string } } };
+            if (axiosError.response?.data?.errors) {
+                const errorMessages = Object.values(axiosError.response.data.errors).flat().join(', ');
                 setError(errorMessages);
             } else {
-                setError(err.response?.data?.message || (isRTL ? 'حدث خطأ أثناء الحفظ' : 'An error occurred while saving'));
+                setError(axiosError.response?.data?.message || (isRTL ? 'حدث خطأ أثناء الحفظ' : 'An error occurred while saving'));
             }
         } finally {
             setLoading(false);
@@ -157,6 +164,8 @@ export function AreaForm({
 
     const typeOptions = [
         { value: 'area', label: isRTL ? 'منطقة' : 'Area' },
+        { value: 'sub_area', label: isRTL ? 'منطقة فرعية' : 'Sub Area' },
+        { value: 'super_area', label: isRTL ? 'منطقة رئيسية' : 'Super Area' },
     ];
 
     return (

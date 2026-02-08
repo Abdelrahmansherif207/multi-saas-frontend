@@ -8,16 +8,17 @@ import { InquiryStatusBadge } from './InquiryStatusBadge';
 import { InquiryActions } from './InquiryActions';
 import {
     User, Mail, Phone, Calendar, MessageSquare, Building2, MapPin,
-    Home, ArrowUpRight, UserCheck
+    Home, ArrowUpRight, UserCheck, FileText
 } from 'lucide-react';
 
 interface InquiryDetailViewProps {
     inquiry: Inquiry;
     locale: string;
     subdomain: string;
+    authToken?: string | null;
 }
 
-export function InquiryDetailView({ inquiry, locale, subdomain }: InquiryDetailViewProps) {
+export function InquiryDetailView({ inquiry, locale, subdomain, authToken }: InquiryDetailViewProps) {
     const isRTL = locale === 'ar';
 
     return (
@@ -40,7 +41,7 @@ export function InquiryDetailView({ inquiry, locale, subdomain }: InquiryDetailV
                         </div>
                     </div>
                 </div>
-                <InquiryActions inquiry={inquiry} isRTL={isRTL} subdomain={subdomain} />
+                <InquiryActions inquiry={inquiry} isRTL={isRTL} subdomain={subdomain} authToken={authToken} />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -135,6 +136,13 @@ export function InquiryDetailView({ inquiry, locale, subdomain }: InquiryDetailV
                                     <span>{inquiry.phone || '-'}</span>
                                 </a>
                             </div>
+                        </div>
+                    </Card>
+
+                    {/* Admin Notes */}
+                    <Card title={isRTL ? 'ملاحظات المشرف' : 'Admin Notes'} icon={<FileText className="w-4 h-4" />}>
+                        <div className="text-sm text-slate-600 dark:text-slate-400 whitespace-pre-wrap">
+                            {inquiry.admin_notes || (isRTL ? 'لا توجد ملاحظات' : 'No notes added')}
                         </div>
                     </Card>
 

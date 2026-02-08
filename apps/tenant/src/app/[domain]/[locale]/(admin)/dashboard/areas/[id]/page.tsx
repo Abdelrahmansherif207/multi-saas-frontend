@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { Edit } from 'lucide-react';
 import { AdminPageHeader } from '@/components/admin/layout';
 import { ActionButton } from '@/components/admin/ui';
-import { AreaDetailView } from '@/components/admin/areas';
+import { AreaDetailClient } from '@/components/admin/areas';
 import { customerAuthAxios } from '@/lib/auth/axios';
-import { Area } from '../../types';
+import { getCustomerAuthCookie } from '@/lib/auth/cookies';
+import { Area } from '../types';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string; id: string }>;
@@ -14,6 +15,7 @@ interface PageProps {
 export default async function ViewAreaPage({ params }: PageProps) {
     const { locale, domain, id } = await params;
     const isRTL = locale === 'ar';
+    const authToken = await getCustomerAuthCookie();
 
     let subdomain = domain;
     if (domain.includes('.')) {
@@ -54,7 +56,13 @@ export default async function ViewAreaPage({ params }: PageProps) {
                 locale={locale}
             />
 
-            <AreaDetailView area={area} locale={locale} />
+            <AreaDetailClient
+                area={area}
+                locale={locale}
+                subdomain={subdomain}
+                areaId={id}
+                authToken={authToken}
+            />
         </div>
     );
 }

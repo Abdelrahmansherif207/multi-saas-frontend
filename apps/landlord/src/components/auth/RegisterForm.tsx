@@ -94,8 +94,6 @@ export function RegisterForm() {
             router.push('/');
             router.refresh();
         } catch (err: any) {
-            console.error('Registration error:', err);
-
             if (err.response?.status === 422 && err.response?.data?.errors) {
                 const serverErrors = err.response.data.errors;
                 Object.keys(serverErrors).forEach((key) => {

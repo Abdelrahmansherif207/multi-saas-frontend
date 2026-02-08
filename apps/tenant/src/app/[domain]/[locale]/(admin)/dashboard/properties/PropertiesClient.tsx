@@ -66,7 +66,7 @@ export default function PropertiesClient({
             sortable: true,
             render: (value, row) => (
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 flex items-center justify-center overflow-hidden">
+                    <div className="w-10 h-10 rounded-lg bg-linear-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 flex items-center justify-center overflow-hidden">
                         {row.primary_image ? (
                             <img src={row.primary_image.urls.small} alt="" className="w-full h-full object-cover" />
                         ) : (

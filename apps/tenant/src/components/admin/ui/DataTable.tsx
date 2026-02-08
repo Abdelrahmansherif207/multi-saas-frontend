@@ -31,6 +31,8 @@ export interface PaginationProps {
     totalPages: number;
     pageSize: number;
     totalItems?: number;
+    onPageChange?: (page: number) => void;
+    onPageSizeChange?: (pageSize: number) => void;
 }
 
 // Empty State Props
@@ -364,27 +366,66 @@ export function DataTable<T extends { id: string | number }>({
 
             {/* Pagination */}
             {pagination && !isLoading && data.length > 0 && (
-                <div className="flex items-center justify-between px-4 py-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">
-                        {t('page')} {pagination.currentPage} {t('of')} {pagination.totalPages}
-                        {pagination.totalItems && (
-                            <span className="ml-2 text-slate-400 dark:text-slate-500">
-                                ({pagination.totalItems} {isRTL ? 'عنصر' : 'items'})
-                            </span>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <div className="text-sm text-slate-500 dark:text-slate-400">
+                            {t('page')} {pagination.currentPage} {t('of')} {pagination.totalPages}
+                            {pagination.totalItems && (
+                                <span className={`${isRTL ? 'mr-2' : 'ml-2'} text-slate-400 dark:text-slate-500`}>
+                                    ({pagination.totalItems} {isRTL ? 'عنصر' : 'items'})
+                                </span>
+                            )}
+                        </div>
+
+                        {pagination.onPageSizeChange && (
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">
+                                    {isRTL ? 'لكل صفحة:' : 'Per page:'}
+                                </span>
+                                <select
+                                    value={pagination.pageSize}
+                                    onChange={(e) => pagination.onPageSizeChange?.(Number(e.target.value))}
+                                    className="bg-transparent border-none text-sm text-slate-600 dark:text-slate-400 focus:ring-0 cursor-pointer"
+                                >
+                                    {[5, 10, 15, 20, 30, 50].map((size) => (
+                                        <option key={size} value={size}>
+                                            {size}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
                         )}
                     </div>
+
                     <div className="flex items-center gap-1">
                         <button
+                            onClick={() => pagination.onPageChange?.(pagination.currentPage - 1)}
                             disabled={pagination.currentPage <= 1}
                             className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
                             {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
                         </button>
-                        {Array.from({ length: Math.min(5, pagination.totalPages) }).map((_, i) => {
+
+                        {Array.from({ length: pagination.totalPages }).map((_, i) => {
                             const page = i + 1;
+                            // Basic pagination logic: show first, last, and pages around current
+                            const shouldShow =
+                                page === 1 ||
+                                page === pagination.totalPages ||
+                                Math.abs(page - pagination.currentPage) <= 1;
+
+                            if (!shouldShow) {
+                                // Add ellipsis logic here if needed, for now just skip
+                                if (page === 2 || page === pagination.totalPages - 1) {
+                                    return <span key={page} className="px-1 text-slate-400">...</span>;
+                                }
+                                return null;
+                            }
+
                             return (
                                 <button
                                     key={page}
+                                    onClick={() => pagination.onPageChange?.(page)}
                                     className={`
                                         w-8 h-8 rounded-lg text-sm font-medium transition-colors
                                         ${page === pagination.currentPage
@@ -397,7 +438,9 @@ export function DataTable<T extends { id: string | number }>({
                                 </button>
                             );
                         })}
+
                         <button
+                            onClick={() => pagination.onPageChange?.(pagination.currentPage + 1)}
                             disabled={pagination.currentPage >= pagination.totalPages}
                             className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >

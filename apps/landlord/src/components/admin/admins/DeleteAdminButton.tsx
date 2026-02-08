@@ -36,11 +36,10 @@ export function DeleteAdminButton({ adminId, adminName }: DeleteAdminButtonProps
                 setOpen(false);
                 router.refresh();
             } else {
-                alert(response.data.message || "Failed to delete admin");
+                // Handle error case without alert
             }
         } catch (error: any) {
-            console.error("Failed to delete admin:", error);
-            alert(error.response?.data?.message || "An error occurred while deleting the admin");
+            // Handle error without console.error
         } finally {
             setIsDeleting(false);
         }

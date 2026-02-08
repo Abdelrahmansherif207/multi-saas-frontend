@@ -3,6 +3,7 @@ import { AmenityForm } from '@/components/admin/amenities';
 import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 import { customerAuthAxios } from '@/lib/auth/axios';
 import { Amenity } from '../../types';
+import { Card } from '@/components/admin/ui/Card';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string; id: string }>;
@@ -52,12 +53,15 @@ export default async function EditAmenityPage(props: PageProps) {
                 locale={locale}
             />
 
-            <AmenityForm
-                amenity={amenity}
-                locale={locale}
-                mode="edit"
-                authToken={authToken}
-            />
+            <Card>
+                <AmenityForm
+                    amenity={amenity}
+                    locale={locale}
+                    mode="edit"
+                    subdomain={domain}
+                    authToken={authToken}
+                />
+            </Card>
         </div>
     );
 }

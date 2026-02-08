@@ -1,6 +1,7 @@
 import { customerAuthAxios } from '@/lib/auth/axios';
 import InquiriesClient from './InquiriesClient';
 import { InquiriesResponse, StatisticsResponse } from './types';
+import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 
 interface PageProps {
     params: Promise<{ domain: string; locale: string }>;
@@ -9,6 +10,7 @@ interface PageProps {
 export default async function InquiriesPage(props: PageProps) {
     const params = await props.params;
     const { locale, domain } = params;
+    const authToken = await getCustomerAuthCookie();
 
     let data: InquiriesResponse['data'] = [];
     let meta: InquiriesResponse['meta'] = {
@@ -26,7 +28,12 @@ export default async function InquiriesPage(props: PageProps) {
         new: 0,
         contacted: 0,
         qualified: 0,
-        converted: 0
+        converted: 0,
+        closed: 0,
+        conversion_rate: 0,
+        today: 0,
+        this_week: 0,
+        this_month: 0
     };
 
     try {
@@ -59,6 +66,7 @@ export default async function InquiriesPage(props: PageProps) {
             stats={stats}
             locale={locale}
             subdomain={params.domain}
+            authToken={authToken}
         />
     );
 }

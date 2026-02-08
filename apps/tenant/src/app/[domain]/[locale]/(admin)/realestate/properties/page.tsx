@@ -40,11 +40,15 @@ export default async function PropertiesListPage(props: PageProps) {
     const compound_id = getSearchParam('compound_id');
     const property_type_id = getSearchParam('property_type_id');
     const search = searchParams['search'];
+    const page = searchParams['page'] || '1';
+    const per_page = searchParams['per_page'] || '15';
 
     if (purpose) queryParams.append('filter[purpose]', String(purpose));
     if (compound_id) queryParams.append('filter[compound_id]', String(compound_id));
     if (property_type_id) queryParams.append('filter[property_type_id]', String(property_type_id));
     if (search) queryParams.append('search', String(search));
+    queryParams.append('page', String(page));
+    queryParams.append('per_page', String(per_page));
 
     // Prepare filter params
     const filterParams: any = {};
@@ -52,6 +56,8 @@ export default async function PropertiesListPage(props: PageProps) {
     if (compound_id) filterParams['filter[compound_id]'] = compound_id;
     if (property_type_id) filterParams['filter[property_type_id]'] = property_type_id;
     if (search) filterParams['search'] = search;
+    filterParams['page'] = page;
+    filterParams['per_page'] = per_page;
 
     console.log('[PropertiesListPage] API Params:', filterParams);
 
@@ -117,7 +123,9 @@ export default async function PropertiesListPage(props: PageProps) {
                 purpose: (searchParams['filter[purpose]'] as string) || '',
                 compound_id: (searchParams['filter[compound_id]'] as string) || '',
                 property_type_id: (searchParams['filter[property_type_id]'] as string) || '',
-                search: (searchParams['search'] as string) || ''
+                search: (searchParams['search'] as string) || '',
+                page: Number(page),
+                per_page: Number(per_page)
             }}
         />
     );

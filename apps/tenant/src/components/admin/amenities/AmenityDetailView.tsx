@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card } from '../ui/Card';
 import { Amenity } from '@/app/[domain]/[locale]/(admin)/dashboard/amenities/types';
-import { Tag, Layers, Calendar, CheckCircle, XCircle } from 'lucide-react';
+import { Tag, Layers, Calendar } from 'lucide-react';
 
 interface AmenityDetailViewProps {
     amenity: Amenity;
@@ -17,9 +17,8 @@ export function AmenityDetailView({ amenity, locale }: AmenityDetailViewProps) {
         <div className="space-y-6">
             <Card>
                 <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center flex-shrink-0">
+                    <div className="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0">
                         {amenity.icon ? (
-                            // eslint-disable-next-line @next/next/no-img-element
                             <img src={amenity.icon} alt={amenity.name} className="w-8 h-8 object-contain" />
                         ) : (
                             <Layers className="w-8 h-8 text-slate-400" />

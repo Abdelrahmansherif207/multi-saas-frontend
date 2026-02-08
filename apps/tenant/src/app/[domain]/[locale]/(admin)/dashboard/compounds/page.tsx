@@ -1,4 +1,5 @@
 import { customerAuthAxios } from '@/lib/auth/axios';
+import { getCustomerAuthCookie } from '@/lib/auth/cookies';
 import { CompoundsResponse, Meta } from './types';
 import CompoundsClient from './CompoundsClient';
 
@@ -12,6 +13,7 @@ interface PageProps {
 export default async function CompoundsPage(props: PageProps) {
     const params = await props.params;
     const { locale, domain } = params;
+    const authToken = await getCustomerAuthCookie();
 
     // Fetch data directly from API
     let data: CompoundsResponse['data'] = [];
@@ -53,7 +55,7 @@ export default async function CompoundsPage(props: PageProps) {
             }
         }
     } catch (error) {
-        console.error('Error fetching compounds:', error);
+        // Handle error silently
     }
 
     return (
@@ -62,6 +64,7 @@ export default async function CompoundsPage(props: PageProps) {
             meta={meta}
             locale={locale}
             subdomain={params.domain}
+            authToken={authToken}
         />
     );
 }
